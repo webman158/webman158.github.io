@@ -158,6 +158,113 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-被问到的技术问题归类"
+         class="article article-type-post  article-index" itemscope
+         itemprop="blogPost">
+  <div class="article-inner">
+    
+    <header class="article-header">
+      
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/10/08/被问到的技术问题归类/">被问到的技术问题归类</a>
+    </h1>
+  
+
+      
+      <a href="/2017/10/08/被问到的技术问题归类/" class="archive-article-date">
+  	<time datetime="2017-10-08T10:45:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-08</time>
+</a>
+      
+    </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      <h2 id="被问到的技术问题-黑马13期归类总结"><a href="#被问到的技术问题-黑马13期归类总结" class="headerlink" title="被问到的技术问题(黑马13期归类总结)"></a>被问到的技术问题(黑马13期归类总结)</h2><h3 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">## html5的表单pattern属性，使用的时候需要注意下：</div><div class="line">	MDN文档链接: https:<span class="comment">//developer.mozilla.org/zh-CN/docs/Web/HTML/Element/Input</span></div></pre></td></tr></table></figure>
+<p><img src="images/pattern.png" alt="html5的表单pattern属性，使用的时候需要注意下："></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">## HTML5 自定义属性data-*使用注意：</div><div class="line"><span class="comment">//1.HTML5的自定义属性data-xxx不能使用大写字母,不论大写位置在哪，都是不行,浏览器默认会转成小写的,在浏览器Element面板中注意节点data-*的信息,所以在JS获取的时候，注意都是小写的。</span></div><div class="line"><span class="comment">//2.当data-my-name="itcast" 这样设置格式时，则需要以驼峰格式才能正确获取,获取Node.dataset['myName']</span></div></pre></td></tr></table></figure>
+<h3 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">##	给元素添加animation.css库动画和元素本身transform样式冲突</div><div class="line">要么修改animation库动画，修改transform的取值，要么元素样式不要用transform</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">## background、background-size的设置注意细节</div><div class="line">background: url(../images/icons/jd-sprites.png) no-repeat <span class="number">0</span> <span class="number">-110</span>px;</div><div class="line">background-size: <span class="number">200</span>px;</div><div class="line"><span class="comment">//注意两者之间不能调换顺序，因为background包含着background-size属性，放在后面会把background-size覆盖掉</span></div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">## 注意在引入css文件的时候，一定要加rel="stylesheet" </div><div class="line"><span class="comment">//虽然浏览器引用文件成功,但是就是样式作用不上,亲测用http协议打开和文件协议打开都失败,所以引用CSS文件的时候尤其注意要加rel="stylesheet"</span></div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">## css里面单冒号和双冒号之间的区别是什么：</div><div class="line"><span class="comment">// :after是伪类（在pc端推荐使用单冒号，兼容IE低版本）</span></div><div class="line"><span class="comment">// ::after是伪元素（更推荐使用）</span></div><div class="line"><span class="comment">// 而且单标签(input/hr/br等)没有伪元素或者伪类</span></div></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">## fixed是相对于可视区域定位的，不是body</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">## 移动端京东轮播图切换导致下面的元素闪烁</div><div class="line"><span class="comment">//Transition动画执行时有可能会出现闪烁的bug</span></div><div class="line"><span class="comment">//解决方法：</span></div><div class="line"><span class="comment">//1、-webkit-backface-visibility: hidden;(设置进行转换的元素的背面在面对用户时是否可见：隐藏)</span></div><div class="line"><span class="comment">//2、-webkit-transform-style: preserve-3d; (设置内嵌的元素在 3D 空间如何呈现：保留 3D)</span></div><div class="line"></div><div class="line"><span class="comment">//需要应用在动画元素上(这一点需要实测印证)</span></div><div class="line"><span class="comment">//第二种方法在低端android上会出现性能问题。所以推荐第一种方法</span></div><div class="line"></div><div class="line"><span class="comment">//更详细博文：Chrome渲染Transition时页面闪动Bug(http://blog.csdn.net/ft6302244/article/details/44939783)</span></div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">## zindex在父子元素中</div><div class="line"><span class="comment">// 如果父元素设置了定位,那么父元素的zindex值越大,子元素的层级也越高,是没有办法把子元素的层级调整的比父元素还要低的</span></div></pre></td></tr></table></figure>
+<h3 id="JS"><a href="#JS" class="headerlink" title="JS"></a>JS</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">## window.onload 到底是什么时候触发执行？</div><div class="line">	在文档装载完成后会触发 load 事件。此时，在文档中的所有对象都在DOM中，所有图片，脚本，链接以及子框都完成了装载。（亲测的确是）</div><div class="line">  ● <span class="built_in">window</span>.onload 方法会将文档中所有的元素加载完毕并且所有的外部文件加载完毕后执行</div><div class="line">  ● <span class="built_in">window</span>.onload 只能有一个，如果出现多个最后一个会覆盖前面的所有函数。</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">## 函数构造法的问题</div><div class="line"><span class="comment">//函数构造法，参数必须加引号</span></div><div class="line"></div><div class="line"><span class="keyword">var</span> name=<span class="string">'haoxl'</span>;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">fun</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="keyword">var</span> name=<span class="string">'lili'</span>;</div><div class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Function</span>(<span class="string">'return name'</span>);<span class="comment">//不能获取局部变量</span></div><div class="line">&#125;</div><div class="line"><span class="built_in">console</span>.log(fun()());<span class="comment">//haoxl</span></div><div class="line"></div><div class="line"><span class="comment">//1. Function()构造函数每次执行时都会解析函数主体，并创建一个新的函数对象，所以当在一个循环或频繁执行的函数中调用Function()构造函数效率是非常低的。而函数字面量却不是每次遇到都会重新编译的，用Function()构造函数创建一个函数时并不遵循典型的作用域，它一直把它当作是顶级函数来执行。</span></div><div class="line"><span class="comment">//2. 构造函数没有参数的情况,括号可以省略</span></div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">## return false </div><div class="line"><span class="comment">//在原生js中，只能做到阻止事件的默认行为</span></div><div class="line"><span class="comment">//阻止事件冒泡和事件的默认行为是jQuery封装的，只有在jquery中才能达到效果</span></div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">## js给元素做动画</div><div class="line"><span class="comment">//触发事件写在父盒子上,动画可以作用于子元素，这样动画不会和事件牵扯在一起，不会有什么卡顿的现象</span></div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">## mouseover和mouseenter的区别</div><div class="line"><span class="comment">//mouseover：鼠标经过事件</span></div><div class="line"><span class="comment">//mouseout:鼠标离开事件</span></div><div class="line"></div><div class="line"><span class="comment">//mouseenter:鼠标进入事件</span></div><div class="line"><span class="comment">//mouseleave：鼠标离开事件</span></div><div class="line"><span class="comment">//总结：</span></div><div class="line"><span class="comment">//不论鼠标指针穿过被选元素或其子元素，都会触发 mouseover 事件。对应mouseout</span></div><div class="line"><span class="comment">//只有在鼠标指针穿过被选元素时，才会触发 mouseenter 事件。对应mouseleave</span></div><div class="line"><span class="comment">//mouseenter子元素不会反复触发事件(尤其是注意在IE上经常有闪烁情况发生,是不是注册了mouseover事件)</span></div><div class="line"></div><div class="line">原文链接：</div><div class="line">http:<span class="comment">//blog.csdn.net/ocean1010/article/details/7394599(附带demo)</span></div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">## 注册事件on、addEventListen注意点</div><div class="line"><span class="comment">//在事件中绑定事件，注意不要用addEventListen绑定，当事件多次触发的时候，会注册多次事件，不会被覆盖。</span></div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">## AJAX</div><div class="line"><span class="comment">//ajax,get时请求异步缓存</span></div><div class="line"></div><div class="line"><span class="comment">//在IE中用ajax的get方式请求同一个地址获取数据时，经常碰到回调函数成功执行，前台又有数据的情况，但是无法请求到后台获得最新的数据。</span></div><div class="line"><span class="comment">//原因是ajax存在异步缓存的问题</span></div><div class="line"></div><div class="line"><span class="comment">//因为ajax本身自带有实时异步请求的功能，而IE缓存导致请求时不会请求后台，会直接读取缓存的数据。</span></div><div class="line"></div><div class="line">解决办法：</div><div class="line"><span class="comment">//第一种：jquery get请求时比较简单 只需将cache设置为false就好</span></div><div class="line">$.ajax(&#123;  </div><div class="line">  type: <span class="string">'get'</span>,<span class="comment">//get请求时  </span></div><div class="line">  url: <span class="string">'........'</span>,  </div><div class="line">  cache: <span class="literal">false</span>,<span class="comment">//不缓存  </span></div><div class="line">  data: &#123; &#125;,  </div><div class="line">  success: <span class="function"><span class="keyword">function</span> (<span class="params">result</span>) </span>&#123;  </div><div class="line">    <span class="comment">//</span></div><div class="line">  &#125;  </div><div class="line">&#125;);  </div><div class="line"></div><div class="line"><span class="comment">//第二种：$.get();时 设置一个参数为随机数tempPara: Math.random() 或者获取当前时间new Date().getTime()</span></div><div class="line"></div><div class="line">$.get(<span class="string">'...........'</span>, &#123; <span class="attr">tempPara</span>: <span class="built_in">Math</span>.random() &#125;, <span class="function"><span class="keyword">function</span> (<span class="params">result</span>) </span>&#123;  </div><div class="line">  <span class="comment">//  </span></div><div class="line">&#125;);  </div><div class="line"></div><div class="line"><span class="comment">//总结：因为请求同一个地址会直接读取缓存，所以可以在参数中加一个随机数或者当前时间戳, 让每次参数不一样就好</span></div><div class="line">**参考链接：http:<span class="comment">//blog.csdn.net/commandbaby/article/details/51566881</span></div></pre></td></tr></table></figure>
+<h3 id="JQ"><a href="#JQ" class="headerlink" title="JQ"></a>JQ</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">## jquery的hover方法无法自动调用实现</div><div class="line"><span class="comment">// jquery的hover方法无法自动调用实现，也无法trigger到hover，但是可以将hover修改为mouseenter/mouseleave/mouseover/mouseout事件来代替实现</span></div></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">## 在多次调用jquery的animate动画时候，需要先stop清除动画队列里面的动画,防止动画累加</div></pre></td></tr></table></figure>
+<h3 id="PHP"><a href="#PHP" class="headerlink" title="PHP"></a>PHP</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="comment">## php中大括号的作用</span></div><div class="line"><span class="number">1.</span> $str&#123;<span class="number">4</span>&#125;在字符串的变量的后面跟上&#123;&#125;,大括号和中括号一样都是把某个字符串变量当成数组处理</div><div class="line"><span class="number">2.</span> &#123;$val&#125;，这时候大括号起的作用就是，告诉PHP，括起来的要当成变量处理。</div><div class="line"></div><div class="line"></div><div class="line">$arr = <span class="keyword">array</span>(</div><div class="line">  <span class="number">0</span> =&gt; <span class="number">123</span>,</div><div class="line">  <span class="string">'name'</span> =&gt; <span class="string">'小猪'</span></div><div class="line">);</div><div class="line"></div><div class="line"><span class="keyword">foreach</span> ($arr <span class="keyword">as</span> $k =&gt; $v) &#123;</div><div class="line">  <span class="keyword">echo</span> <span class="string">"&#123;$arr[$k]&#125;"</span>;</div><div class="line">  <span class="comment">//加一个大括号只是将作为变量的标志符,在双引号中可以加也可以不加</span></div><div class="line">&#125;</div><div class="line"><span class="keyword">echo</span> <span class="string">'&lt;br/ &gt;&lt;br/ &gt;'</span>;</div><div class="line"></div><div class="line"><span class="keyword">foreach</span> ($arr <span class="keyword">as</span> $k =&gt; $v) &#123;</div><div class="line">  <span class="keyword">echo</span> <span class="string">"&#123;&#123;$arr[$k]&#125;&#125;"</span>; <span class="comment">//加两个大括号，外层的将作为普通的字符</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//注意：</span></div><div class="line"><span class="keyword">echo</span> <span class="string">"$arr[name]"</span>;<span class="comment">//小猪</span></div><div class="line"><span class="keyword">echo</span> $arr[<span class="string">'name'</span>];<span class="comment">//小猪</span></div><div class="line"><span class="keyword">echo</span> <span class="string">"&#123;$arr['name']&#125;"</span>;<span class="comment">//小猪,此句正常,大括号内的字符将作为变量来处理</span></div><div class="line"><span class="keyword">echo</span> <span class="string">"$arr['name']"</span>;<span class="comment">//报错</span></div><div class="line"></div><div class="line">$str = <span class="string">'abcdefg'</span>;</div><div class="line"><span class="keyword">echo</span> $str&#123;<span class="number">4</span>&#125;;<span class="comment">//在字符串的变量的后面跟上&#123;&#125;大括号和中括号一样都是把某个字符串变量当成数组处理</span></div></pre></td></tr></table></figure>
+<h3 id="Webstrome"><a href="#Webstrome" class="headerlink" title="Webstrome"></a>Webstrome</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">## 码着代码英文字母突然华丽分家了</div><div class="line">将输入法调整到英文输入状态，然后按Shift(上档)+Space(空格)。</div></pre></td></tr></table></figure>
+<p><img src="images/webstrome_codeinput.png" alt="码着代码英文字母突然华丽分家了"></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">## WebStorm设置手机测试服务器-局域网内其他设备访问</div><div class="line">参考链接：http:<span class="comment">//blog.sina.com.cn/s/blog_6a8557730102wo0a.html</span></div><div class="line"><span class="comment">//是能设置成功,但是设置成功之后,编辑器卡的都不动了。注意需要在域名后面加上当前文件夹的名称</span></div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">## 解决webstorm本地IP访问页面出错的问题</div><div class="line">参考链接：http:<span class="comment">//blog.csdn.net/u013934914/article/details/50068229</span></div></pre></td></tr></table></figure>
+<p><img src="images/webstrome_ip.png" alt="解决webstorm本地IP访问页面出错的问题"></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">## webstorm 提示信息弹框</div><div class="line"><span class="comment">//原因：因为不支持该文件的调试，不要把它引入进来就行了。这个map是用在nodejs中编译的</span></div><div class="line"><span class="comment">//解决办法：找到min.css或者min.js里面,找到带map的链接删掉就好了</span></div></pre></td></tr></table></figure>
+<p><img src="images/model01.jpg" alt="webstorm 提示弹框"></p>
+<h3 id="Phpstrome"><a href="#Phpstrome" class="headerlink" title="Phpstrome"></a>Phpstrome</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">## 如何破解</div><div class="line"><span class="comment">// 安装和webstorm一样;</span></div><div class="line"><span class="comment">// 直接用浏览器打开 http://idea.lanyus.com/ ，点击页面中的“获得注册码”，然后在注册时切换至Activation Code选项，输入获得的注册码一长串字符串，便可以注册成功了！（推荐用这种方式）</span></div><div class="line"></div><div class="line"><span class="comment">// 特别注意：</span></div><div class="line"><span class="comment">// 1.以上方式需要做这一步：为避免phpstorm联网时注册失效，请将“0.0.0.0 account.jetbrains.com”添加到hosts文件</span></div><div class="line"><span class="comment">// 2.hosts文件目录：C:\Windows\System32\drivers\etc</span></div></pre></td></tr></table></figure>
+<h3 id="sublime"><a href="#sublime" class="headerlink" title="sublime"></a>sublime</h3><h3 id="Node-js"><a href="#Node-js" class="headerlink" title="Node.js"></a>Node.js</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">## win8 win10 安装msi 提示2502、2503的错误代码</div><div class="line"><span class="comment">// 归根到底是权限不够导致的。win7应该不会有这个问题。</span></div><div class="line"></div><div class="line"><span class="comment">//解决办法：</span></div><div class="line"><span class="comment">//1、鼠标移到window上-&gt;右键（或者直接： WIN+X键），命令提示符（管理员）注意命令行一定要以管理员身份运行！！！命令行一定要以管理员身份运行！！！管理员身份运行！！！</span></div><div class="line"><span class="comment">//2、输入：msiexec /package +‘msi文件路径’（输入的时候注意半角字符且路径不能为中文名）</span></div><div class="line"><span class="comment">//例如：C:\Windows\system32&gt;msiexec /package G:\tool\TortoiseSVN-x64-1.8.9.msi</span></div><div class="line"></div><div class="line">**参考链接：http:<span class="comment">//blog.csdn.net/shuideyidi/article/details/46891559</span></div></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">前端技术</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">黑马13期</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+      <p class="article-more-link">
+        <a class="article-more-a" href="/2017/10/08/被问到的技术问题归类/">
+          展开全文 >></a>
+      </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+  
     <article id="post-前端资源整理"
          class="article article-type-post  article-index" itemscope
          itemprop="blogPost">
@@ -406,6 +513,14 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">前端技术</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">黑马13期</a>
+              </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">资源</a>
