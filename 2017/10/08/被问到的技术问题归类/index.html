@@ -159,29 +159,27 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-被问到的技术问题归类"
-         class="article article-type-post " itemscope
-         itemprop="blogPost">
-  <div class="article-inner">
-    
-    <header class="article-header">
-      
+            <article id="post-被问到的技术问题归类" class="article article-type-post " itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
   
     <h1 class="article-title" itemprop="name">
       被问到的技术问题归类
     </h1>
   
 
-      
-      <a href="/2017/10/08/被问到的技术问题归类/" class="archive-article-date">
+                    
+                        <a href="/2017/10/08/被问到的技术问题归类/" class="archive-article-date">
   	<time datetime="2017-10-08T11:17:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-08</time>
 </a>
-      
-    </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-      <h3 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">## html5的表单pattern属性，使用的时候需要注意下：</div><div class="line">	MDN文档链接: https:<span class="comment">//developer.mozilla.org/zh-CN/docs/Web/HTML/Element/Input</span></div></pre></td></tr></table></figure>
+                            
+            </header>
+            
+                <div class="article-entry" itemprop="articleBody">
+                    
+                                        <h3 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">## html5的表单pattern属性，使用的时候需要注意下：</div><div class="line">	MDN文档链接: https:<span class="comment">//developer.mozilla.org/zh-CN/docs/Web/HTML/Element/Input</span></div></pre></td></tr></table></figure>
 <p><img src="/2017/10/08/被问到的技术问题归类/images/pattern.png" alt="html5的表单pattern属性，使用的时候需要注意下："></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">## HTML5 自定义属性data-*使用注意：</div><div class="line"><span class="comment">//1.HTML5的自定义属性data-xxx不能使用大写字母,不论大写位置在哪，都是不行,浏览器默认会转成小写的,在浏览器Element面板中注意节点data-*的信息,所以在JS获取的时候，注意都是小写的。</span></div><div class="line"><span class="comment">//2.当data-my-name="itcast" 这样设置格式时，则需要以驼峰格式才能正确获取,获取Node.dataset['myName']</span></div></pre></td></tr></table></figure>
 <a id="more"></a>
@@ -212,35 +210,35 @@
 <h3 id="Phpstrome"><a href="#Phpstrome" class="headerlink" title="Phpstrome"></a>Phpstrome</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">## 如何破解</div><div class="line"><span class="comment">// 安装和webstorm一样;</span></div><div class="line"><span class="comment">// 直接用浏览器打开 http://idea.lanyus.com/ ，点击页面中的“获得注册码”，然后在注册时切换至Activation Code选项，输入获得的注册码一长串字符串，便可以注册成功了！（推荐用这种方式）</span></div><div class="line"></div><div class="line"><span class="comment">// 特别注意：</span></div><div class="line"><span class="comment">// 1.以上方式需要做这一步：为避免phpstorm联网时注册失效，请将“0.0.0.0 account.jetbrains.com”添加到hosts文件</span></div><div class="line"><span class="comment">// 2.hosts文件目录：C:\Windows\System32\drivers\etc</span></div></pre></td></tr></table></figure>
 <h3 id="sublime"><a href="#sublime" class="headerlink" title="sublime"></a>sublime</h3><h3 id="Node-js"><a href="#Node-js" class="headerlink" title="Node.js"></a>Node.js</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">## win8 win10 安装msi 提示2502、2503的错误代码</div><div class="line"><span class="comment">// 归根到底是权限不够导致的。win7应该不会有这个问题。</span></div><div class="line"></div><div class="line"><span class="comment">//解决办法：</span></div><div class="line"><span class="comment">//1、鼠标移到window上-&gt;右键（或者直接： WIN+X键），命令提示符（管理员）注意命令行一定要以管理员身份运行！！！命令行一定要以管理员身份运行！！！管理员身份运行！！！</span></div><div class="line"><span class="comment">//2、输入：msiexec /package +‘msi文件路径’（输入的时候注意半角字符且路径不能为中文名）</span></div><div class="line"><span class="comment">//例如：C:\Windows\system32&gt;msiexec /package G:\tool\TortoiseSVN-x64-1.8.9.msi</span></div><div class="line"></div><div class="line">**参考链接：http:<span class="comment">//blog.csdn.net/shuideyidi/article/details/46891559</span></div></pre></td></tr></table></figure>
 
-      
+                                            
 
-      
-      <div class="page-reward">
-        <a href="javascript:;" class="page-reward-btn tooltip-top">
-          <div class="tooltip tooltip-east">
+                                                
+                                                    <div class="page-reward">
+                                                        <a href="javascript:;" class="page-reward-btn tooltip-top">
+                                                            <div class="tooltip tooltip-east">
                                                                 <span class="tooltip-item">
               赏
             </span>
-            <span class="tooltip-content">
+                                                                <span class="tooltip-content">
               <span class="tooltip-text">
                 <span class="tooltip-inner">
                   <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i
                       class="icon icon-quo-right"></i></p>
                   <div class="reward-box">
                     
-                    
-                  </div>
+                                                                
+                                                    </div>
                                                     </span>
                                                     </span>
                                                     </span>
-          </div>
-        </a>
-      </div>
-      
+                </div>
+                </a>
     </div>
-    <div class="article-info article-info-index">
-      
-      
+    
+        </div>
+        <div class="article-info article-info-index">
+            
+                    
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -256,12 +254,12 @@
 		</ul>
 	</div>
 
-      
+                        
 
-      
+                            
 
-      
-      
+                                    
+                                        
 <div class="share-btn share-icons tooltip-left">
   <div class="tooltip tooltip-east">
     <span class="tooltip-item">
@@ -311,13 +309,13 @@
 </div>
 
 <div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
+                                            
+                                                <div class="clearfix"></div>
+        </div>
+        </div>
 </article>
 
-
+    
 <nav id="article-nav">
   
   
@@ -328,8 +326,8 @@
   
 </nav>
 
-
-<aside class="wrap-side-operation">
+        
+            <aside class="wrap-side-operation">
     <div class="mod-side-operation">
         
         <div class="jump-container" id="js-jump-container" style="display:none;">
@@ -344,11 +342,11 @@
         
     </div>
 </aside>
-
-
-
-
-<div id="SOHUCS" sid="被问到的技术问题归类" ></div> 
+                
+                    
+                                
+                                            
+                                                <div id="SOHUCS" sid="被问到的技术问题归类" ></div> 
 <script type="text/javascript"> 
 window.YiliaChangyanWrap = function() {
     var appid = "cytfMAyDI"; 
@@ -358,11 +356,53 @@ window.YiliaChangyanWrap = function() {
     window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("//changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); }
 }
 </script>
+                                                    
 
+                                                        
+                                                            <!--畅言PC和WAP自适应版-->
+                                                            <div id="SOHUCS" sid="被问到的技术问题归类"></div>
+                                                            <script type="text/javascript">
+                                                                (function() {
+                                                                    var appid = 'cytfMAyDI';
+                                                                    var conf = 'prod_c985c594bdbecef408f0105c18383fa9';
+                                                                    var width = window.innerWidth || document.documentElement.clientWidth;
+                                                                    if (width < 960) {
+                                                                        window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>');
+                                                                    } else {
+                                                                        var loadJs = function(d, a) {
+                                                                            var c = document.getElementsByTagName("head")[0] || document.head || document.documentElement;
+                                                                            var b = document.createElement("script");
+                                                                            b.setAttribute("type", "text/javascript");
+                                                                            b.setAttribute("charset", "UTF-8");
+                                                                            b.setAttribute("src", d);
+                                                                            if (typeof a === "function") {
+                                                                                if (window.attachEvent) {
+                                                                                    b.onreadystatechange = function() {
+                                                                                        var e = b.readyState;
+                                                                                        if (e === "loaded" || e === "complete") {
+                                                                                            b.onreadystatechange = null;
+                                                                                            a()
+                                                                                        }
+                                                                                    }
+                                                                                } else {
+                                                                                    b.onload = a
+                                                                                }
+                                                                            }
+                                                                            c.appendChild(b)
+                                                                        };
+                                                                        loadJs("https://changyan.sohu.com/upload/changyan.js", function() {
+                                                                            window.changyan.api.config({
+                                                                                appid: appid,
+                                                                                conf: conf
+                                                                            })
+                                                                        });
+                                                                    }
+                                                                })();
+                                                            </script>
+                                                            
 
-
-
-
+                                                                
+                                                                            
           </div>
         </div>
       </div>
@@ -517,34 +557,6 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
 
     
     	<section class="tools-section tools-section-friends" q-show="friends">
-  		
-        <ul class="search-ul">
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接1</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接2</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接3</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接4</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接5</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接6</a>
-            </li>
-          
-        </ul>
   		
     	</section>
     
