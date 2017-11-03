@@ -174,38 +174,13 @@
             
                 <div class="article-entry" itemprop="articleBody">
                     
-                                        <h3 id="续"><a href="#续" class="headerlink" title="续"></a>续</h3><p>上次说到，websocket在用来客户端和服务端通信上面的方便之处。但是websocket作为H5的新特性，在IE低版本浏览器上是玩不转的。这次我们来说说socket.io。</p>
+                        <h3 id="续"><a href="#续" class="headerlink" title="续"></a>续</h3><p>上次说到，websocket在用来客户端和服务端通信上面的方便之处。但是websocket作为H5的新特性，在IE低版本浏览器上是玩不转的。这次我们来说说socket.io。</p>
 <h3 id="一、Socket-io的介绍："><a href="#一、Socket-io的介绍：" class="headerlink" title="一、Socket.io的介绍："></a>一、Socket.io的介绍：</h3><p>具体的介绍可以上官网，上面说的比较详细 <a href="http://javacheng.oschina.io/socket.io/" target="_blank" rel="external">1.x版本的中文网</a> <a href="https://socket.io/" target="_blank" rel="external">2.x版本的官网</a></p>
-<h3 id="二、Socket-io的具体使用："><a href="#二、Socket-io的具体使用：" class="headerlink" title="二、Socket.io的具体使用："></a>二、Socket.io的具体使用：</h3><p>我们来做一个简版的聊天室。</p>
-<ol>
-<li>首先要制作一个 HTML 页面来提供表单和消息列表。我们使用了基于 Node.JS 的 web 框架 express 。 请确保安装了 Node.JS。</li>
-</ol>
-<p>可新建文件夹chat-demo (文件夹名称随意)，在该文件内git-bash，如果没有Git，可以在此文件夹内摁住shift并且单击右键，选择‘在此处打开命令窗口’，进入到cmd窗口。</p>
-<p>接着通过npm创建一个 package.json 来描述我们的项目<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm init -y</div></pre></td></tr></table></figure></p>
-<p>接着我们来下载express<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">npm install --save express</div><div class="line">// --save ： 将该包保存到package.json文件内 dependencies 依赖列表内</div></pre></td></tr></table></figure></p>
-<p>express 已经安装好了。我们现在新建一个 index.js 文件来创建应用。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> app = <span class="built_in">require</span>(<span class="string">'express'</span>)();</div><div class="line"></div><div class="line"><span class="comment">// Express 初始化 app 作为 HTTP 服务器的回调函数</span></div><div class="line"><span class="keyword">var</span> server = <span class="built_in">require</span>(<span class="string">'http'</span>).createServer(app);</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">// 定义了一个路由 / 来处理首页访问</span></div><div class="line">app.use(<span class="string">'/'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>)</span>&#123;</div><div class="line">  res.send(<span class="string">'&lt;h1&gt;Hello world&lt;/h1&gt;'</span>);</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">// 使 http 服务器监听端口 3000</span></div><div class="line">server.listen(<span class="number">3000</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'listening on *:3000'</span>);</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
-<p>运行<code>node index.js</code>就看到如下画面</p>
-<p>在浏览器中访问 <a href="http://localhost:3000：" target="_blank" rel="external">http://localhost:3000：</a></p>
-<ol>
-<li>目前在 index.js 中我们是通过 res.send 返回一个 HTML 字符串。如果我们将整个应用的 HTML 代码都放到应用代码里，代码结构将变得很混乱。 替代的方法是新建一个 index.html 文件作为服务器响应。现在我们用 sendFile 来重构之前的回调：<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">app.use(<span class="string">'/'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>)</span>&#123;</div><div class="line">    res.sendFile(__dirname + <span class="string">'/index.html'</span>);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>index.html 内容如下：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!doctype html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Socket.IO chat<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></div><div class="line"><span class="undefined">      * &#123; margin: 0; padding: 0; box-sizing: border-box; &#125;</span></div><div class="line"><span class="undefined">      body &#123; font: 13px Helvetica, Arial; &#125;</span></div><div class="line"><span class="undefined">      form &#123; background: #000; padding: 3px; position: fixed; bottom: 0; width: 100%; &#125;</span></div><div class="line"><span class="undefined">      form input &#123; border: 0; padding: 10px; width: 90%; margin-right: .5%; &#125;</span></div><div class="line"><span class="undefined">      form button &#123; width: 9%; background: rgb(130, 224, 255); border: none; padding: 10px; &#125;</span></div><div class="line"><span class="undefined">      #messages &#123; list-style-type: none; margin: 0; padding: 0; &#125;</span></div><div class="line"><span class="undefined">      #messages li &#123; padding: 5px 10px; &#125;</span></div><div class="line"><span class="undefined">      #messages li:nth-child(odd) &#123; background: #eee; &#125;</span></div><div class="line"><span class="undefined">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">ul</span> <span class="attr">id</span>=<span class="string">"messages"</span>&gt;</span><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">""</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">"m"</span> <span class="attr">autocomplete</span>=<span class="string">"off"</span> /&gt;</span><span class="tag">&lt;<span class="name">button</span>&gt;</span>Send<span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">form</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
-<p>现在重启进程 （按 Control+C ，然后再次运行 node index, win下是ctrl+c） ，刷新页面显示如下：</p>
-<ol>
-<li>集成 Socket.IO<br>Socket.IO 由两部分组成：</li>
-</ol>
-<ul>
-<li>一个服务端用于集成 (或挂载) 到 Node.JS HTTP 服务器： socket.io</li>
-<li>一个加载到浏览器中的客户端： socket.io-client<br>Socket.io作为nodejs的一个模块，其安装方法和ws的完全一致<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install --save socket.io</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>这会安装模块并添加依赖到 package.json。在 index.js 文件中添加该模块：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> app = <span class="built_in">require</span>(<span class="string">'express'</span>)();</div><div class="line"><span class="keyword">var</span> server = <span class="built_in">require</span>(<span class="string">'http'</span>).createServer(app);</div><div class="line"></div><div class="line"><span class="comment">// 传入 http （HTTP 服务器）对象初始化了 socket.io 的一个实例</span></div><div class="line"><span class="keyword">var</span> io = <span class="built_in">require</span>(<span class="string">'socket.io'</span>)(server);</div><div class="line"></div><div class="line">app.use(<span class="string">'/'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>)</span>&#123;</div><div class="line">  res.sendFile(__dirname + <span class="string">'/index.html'</span>);</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">// 监听 connection 事件来接收 sockets， 并将连接信息打印到命令行</span></div><div class="line">io.on(<span class="string">'connection'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">socket</span>)</span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'a user connected'</span>);</div><div class="line">&#125;);</div><div class="line"></div><div class="line">server.listen(<span class="number">3000</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'listening on *:3000'</span>);</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
-<p>在 index.html 的  标签中添加如下内容：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;script src=<span class="string">"/socket.io/socket.io.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div><div class="line">&lt;script&gt;</div><div class="line">  <span class="keyword">var</span> socket = io();</div><div class="line">&lt;<span class="regexp">/script&gt;</span></div></pre></td></tr></table></figure></p>
-<p>这样就加载了 socket.io-client。 socket.io-client 暴露了一个 io 全局变量，然后连接服务器。<br>请注意我们在调用 io() 时没有指定任何 URL，因为它默认将尝试连接到提供当前页面的主机。<br>重新加载服务器和网站，你将看到控制台打印出 “a user connected”。<br>尝试打开多个标签页，可以看到多条信息：</p>
-
-                                            
+                            
+                                <a class="article-more-a" href="/2017/11/02/websocket初体验02/#more">
+                                    more >></a>
+                                
+                                    
 
                                                 
         </div>
@@ -757,10 +732,6 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">个人简历</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">websocket</a>
               </li>
              
@@ -770,6 +741,10 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">上海黑马13期</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">个人简历</a>
               </li>
              
               <li class="article-tag-list-item">
