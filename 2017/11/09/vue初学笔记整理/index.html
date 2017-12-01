@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://www.biedongda.com">
   <title>vue初学笔记整理 | 一个学徒的世界</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="前置： 再用vue-cli组件式的运用vue，在main.js里面初始化vue实例的时候，渲染被替换的#app节点只能用render函数的原因12345678910111213141516171819new Vue(&amp;#123;  el: &apos;#app&apos;,  router,  data: &amp;#123;    message: &apos;hello hui&apos;  &amp;#125;,  // template: &apos;&amp;">
+  <meta name="description" content="前置： 再用vue-cli组件式的运用vue，在main.js里面初始化vue实例的时候，渲染被替换的#app节点只能用render函数的原因  123456789101112131415161718new Vue(&amp;#123;  el: &apos;#app&apos;,  router,  data: &amp;#123;    message: &apos;hello hui&apos;  &amp;#125;,  // template: &apos;&amp;">
 <meta name="keywords" content="vue">
 <meta property="og:type" content="article">
 <meta property="og:title" content="vue初学笔记整理">
 <meta property="og:url" content="http://www.biedongda.com/2017/11/09/vue初学笔记整理/index.html">
 <meta property="og:site_name" content="一个学徒的世界">
-<meta property="og:description" content="前置： 再用vue-cli组件式的运用vue，在main.js里面初始化vue实例的时候，渲染被替换的#app节点只能用render函数的原因12345678910111213141516171819new Vue(&amp;#123;  el: &apos;#app&apos;,  router,  data: &amp;#123;    message: &apos;hello hui&apos;  &amp;#125;,  // template: &apos;&amp;">
+<meta property="og:description" content="前置： 再用vue-cli组件式的运用vue，在main.js里面初始化vue实例的时候，渲染被替换的#app节点只能用render函数的原因  123456789101112131415161718new Vue(&amp;#123;  el: &apos;#app&apos;,  router,  data: &amp;#123;    message: &apos;hello hui&apos;  &amp;#125;,  // template: &apos;&amp;">
 <meta property="og:image" content="http://www.biedongda.com/2017/11/09/vue初学笔记整理/vue01.png">
-<meta property="og:updated_time" content="2017-11-16T06:40:18.198Z">
+<meta property="og:updated_time" content="2017-11-29T05:14:09.577Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vue初学笔记整理">
-<meta name="twitter:description" content="前置： 再用vue-cli组件式的运用vue，在main.js里面初始化vue实例的时候，渲染被替换的#app节点只能用render函数的原因12345678910111213141516171819new Vue(&amp;#123;  el: &apos;#app&apos;,  router,  data: &amp;#123;    message: &apos;hello hui&apos;  &amp;#125;,  // template: &apos;&amp;">
+<meta name="twitter:description" content="前置： 再用vue-cli组件式的运用vue，在main.js里面初始化vue实例的时候，渲染被替换的#app节点只能用render函数的原因  123456789101112131415161718new Vue(&amp;#123;  el: &apos;#app&apos;,  router,  data: &amp;#123;    message: &apos;hello hui&apos;  &amp;#125;,  // template: &apos;&amp;">
 <meta name="twitter:image" content="http://www.biedongda.com/2017/11/09/vue初学笔记整理/vue01.png">
   
     <link rel="alternative" href="/atom.xml" title="一个学徒的世界" type="application/atom+xml">
@@ -177,9 +177,9 @@
                 <div class="article-entry" itemprop="articleBody">
                     
                                         <h2 id="前置："><a href="#前置：" class="headerlink" title="前置："></a>前置：</h2><ol>
-<li>再用vue-cli组件式的运用vue，在main.js里面初始化vue实例的时候，渲染被替换的#app节点只能用render函数的原因<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">new</span> Vue(&#123;</div><div class="line">  el: <span class="string">'#app'</span>,</div><div class="line">  router,</div><div class="line">  data: &#123;</div><div class="line">    message: <span class="string">'hello hui'</span></div><div class="line">  &#125;,</div><div class="line">  <span class="comment">// template: '&lt;div id="app"&gt;&lt;h1&gt;Hello&lt;/h1&gt;&lt;/div&gt;',</span></div><div class="line">  <span class="comment">//报错： You are using the runtime-only build of Vue where the template compiler is not available. Either pre-compile the templates into render functions, or use the compiler-included build.</span></div><div class="line">  <span class="comment">//因为用ES6去加载vue得到的是vue.runtime.esm.js文件(这个可以去vue/package.json文件去看不同的加载方式对应的加载到的vue版本)，这个运行时不包括编译器，所以template模板不识别，只能用render的方式来渲染替换#app节点</span></div><div class="line">  render(createElement)&#123;</div><div class="line">    <span class="comment">// 一定要通过 render 的方式，用 App.vue 替换过来才可以，否则不能用</span></div><div class="line">    <span class="comment">// createElement函数会将APP组件编译成一个节点返回</span></div><div class="line">    <span class="comment">// render函数会把当前实例的#app节点给替换掉</span></div><div class="line">    <span class="built_in">console</span>.log(createElement);</div><div class="line">    <span class="keyword">return</span> createElement(App);</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="comment">// render: h =&gt; h(App)//在以前的老版本中可能是这样写的，就是上面代码的箭头函数写法</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-</li>
+<li>再用vue-cli组件式的运用vue，在main.js里面初始化vue实例的时候，渲染被替换的#app节点只能用render函数的原因</li>
 </ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">new</span> Vue(&#123;</div><div class="line">  el: <span class="string">'#app'</span>,</div><div class="line">  router,</div><div class="line">  data: &#123;</div><div class="line">    message: <span class="string">'hello hui'</span></div><div class="line">  &#125;,</div><div class="line">  <span class="comment">// template: '&lt;div id="app"&gt;&lt;h1&gt;Hello&lt;/h1&gt;&lt;/div&gt;',</span></div><div class="line">  <span class="comment">//报错： You are using the runtime-only build of Vue where the template compiler is not available. Either pre-compile the templates into render functions, or use the compiler-included build.</span></div><div class="line">  <span class="comment">//因为用ES6去加载vue得到的是vue.runtime.esm.js文件(这个可以去vue/package.json文件去看不同的加载方式对应的加载到的vue版本)，这个运行时不包括编译器，所以template模板不识别，只能用render的方式来渲染替换#app节点</span></div><div class="line">  render(createElement)&#123;</div><div class="line">    <span class="comment">// 一定要通过 render 的方式，用 App.vue 替换过来才可以，否则不能用</span></div><div class="line">    <span class="comment">// createElement函数会将APP组件编译成一个节点返回</span></div><div class="line">    <span class="comment">// render函数会把当前实例的#app节点给替换掉</span></div><div class="line">    <span class="built_in">console</span>.log(createElement);</div><div class="line">    <span class="keyword">return</span> createElement(App);</div><div class="line">  &#125;</div><div class="line">  <span class="comment">// render: h =&gt; h(App)//在以前的老版本中可能是这样写的，就是上面代码的箭头函数写法</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
 <p>总结：</p>
 <ol>
 <li>注意查看vue不同版本的区别：[对不同构建版本的解释]<a href="https://cn.vuejs.org/v2/guide/installation.html#%E5%AF%B9%E4%B8%8D%E5%90%8C%E6%9E%84%E5%BB%BA%E7%89%88%E6%9C%AC%E7%9A%84%E8%A7%A3%E9%87%8A" target="_blank" rel="external">https://cn.vuejs.org/v2/guide/installation.html#%E5%AF%B9%E4%B8%8D%E5%90%8C%E6%9E%84%E5%BB%BA%E7%89%88%E6%9C%AC%E7%9A%84%E8%A7%A3%E9%87%8A</a> () </li>
@@ -192,9 +192,12 @@
 <ol>
 <li>Vue 选项中的 render 函数若存在，则 Vue 构造函数不会从 template 选项或通过 el 选项指定的挂载元素中提取出的 HTML 模板编译渲染函数。</li>
 </ol>
+<a id="more"></a>
 <h2 id="在Vue中关闭Eslint-的方法"><a href="#在Vue中关闭Eslint-的方法" class="headerlink" title="在Vue中关闭Eslint 的方法"></a>在Vue中关闭Eslint 的方法</h2><ol>
 <li>找到build文件夹—&gt;webpack.base.conf.js—-&gt;module<br><img src="/2017/11/09/vue初学笔记整理/vue01.png" alt="关闭Eslint 的方法"></li>
 </ol>
+<h2 id="vue-router"><a href="#vue-router" class="headerlink" title="vue-router"></a>vue-router</h2><p>$route和$router之间的区别</p>
+<h2 id="vue-preview插件使用注意"><a href="#vue-preview插件使用注意" class="headerlink" title="vue-preview插件使用注意"></a>vue-preview插件使用注意</h2><p>github上有说明</p>
 
                                             
 
@@ -492,11 +495,27 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
+                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">JavaScript基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">传智播客教育</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">vue</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -512,10 +531,6 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">前端资源</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">程序员健康生活</a>
               </li>
              
@@ -525,6 +540,18 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">时间作息表</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">前端资源</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">前端面试题</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">特别关注faces</a>
               </li>
              
               <li class="article-tag-list-item">
