@@ -154,6 +154,257 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-jQuery源码分析" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/20/jQuery源码分析/">jQuery源码分析</a>
+    </h1>
+  
+
+                    
+                        <a href="/2017/11/20/jQuery源码分析/" class="archive-article-date">
+  	<time datetime="2017-11-20T10:24:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-20</time>
+</a>
+                            
+            </header>
+            
+                <div class="article-entry" itemprop="articleBody">
+                    
+                                        <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">(<span class="function"><span class="keyword">function</span>(<span class="params">window, factory</span>) </span>&#123;</div><div class="line">    factory(<span class="built_in">window</span>)</div><div class="line">&#125;(<span class="keyword">this</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">       <span class="comment">//jQuery的调用</span></div><div class="line">    &#125;</div><div class="line">&#125;))</div></pre></td></tr></table></figure>
+<h2 id="对于匿名函数表达式的理解以及作用"><a href="#对于匿名函数表达式的理解以及作用" class="headerlink" title="对于匿名函数表达式的理解以及作用"></a>对于匿名函数表达式的理解以及作用</h2><p>js的语法分析器规则是:当“()”作为一个运算符时（权威指南里有详细的说明），里面填的都解释为表达式，既然是表达式就有结果，这个结果就是一个无名函数的指针（或者说引用），这个指针在内存的函数栈里，然后再用“()”运行这个无名函数。跟先定义一个函数，然后用（）调用它是一个道理。</p>
+
+                                            
+
+                                                
+        </div>
+        <div class="article-info article-info-index">
+            
+                    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">jQuery</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+                        
+
+                            
+                                <p class="article-more-link">
+                                    <a class="article-more-a" href="/2017/11/20/jQuery源码分析/">
+                                        展开全文 >></a>
+                                </p>
+                                
+
+                                    
+                                                <div class="clearfix"></div>
+        </div>
+        </div>
+</article>
+
+            <aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+                
+  
+    <article id="post-webpack学习笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/13/webpack学习笔记/">webpack学习笔记</a>
+    </h1>
+  
+
+                    
+                        <a href="/2017/11/13/webpack学习笔记/" class="archive-article-date">
+  	<time datetime="2017-11-13T03:15:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-13</time>
+</a>
+                            
+            </header>
+            
+                <div class="article-entry" itemprop="articleBody">
+                    
+                        <h2 id="前置："><a href="#前置：" class="headerlink" title="前置："></a>前置：</h2><ol>
+<li>报错的时候都是显示<code>bundle.js</code>文件出错，不方便调试，webpack的配置可以知道是哪个源文件出错了的配置？<ul>
+<li><code>devtool: &#39;inline-source-map&#39;</code></li>
+</ul>
+</li>
+<li>webpack 默认只打包js 文件，如果需要打包其他文件，需要加载对应的<code>loader</code></li>
+<li>进行本地安装</li>
+</ol>
+<ul>
+<li>需要将webpack的命令写入<code>package.json</code>文件来运行webpack命令</li>
+</ul>
+<ol>
+<li><code>webpack.config.js</code>里面的配置修改了都必须要重新运行才能看到修改的结果</li>
+</ol>
+                            
+                                <a class="article-more-a" href="/2017/11/13/webpack学习笔记/#more">
+                                    more >></a>
+                                
+                                    
+
+                                                
+        </div>
+        <div class="article-info article-info-index">
+            
+                    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">webpack</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+                        
+
+                            
+                                <p class="article-more-link">
+                                    <a class="article-more-a" href="/2017/11/13/webpack学习笔记/">
+                                        展开全文 >></a>
+                                </p>
+                                
+
+                                    
+                                                <div class="clearfix"></div>
+        </div>
+        </div>
+</article>
+
+            <aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+                
+  
+    <article id="post-vue初学笔记整理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/09/vue初学笔记整理/">vue初学笔记整理</a>
+    </h1>
+  
+
+                    
+                        <a href="/2017/11/09/vue初学笔记整理/" class="archive-article-date">
+  	<time datetime="2017-11-09T12:36:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-09</time>
+</a>
+                            
+            </header>
+            
+                <div class="article-entry" itemprop="articleBody">
+                    
+                        <h2 id="前置："><a href="#前置：" class="headerlink" title="前置："></a>前置：</h2><ol>
+<li>再用vue-cli组件式的运用vue，在main.js里面初始化vue实例的时候，渲染被替换的#app节点只能用render函数的原因</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">new</span> Vue(&#123;</div><div class="line">  el: <span class="string">'#app'</span>,</div><div class="line">  router,</div><div class="line">  data: &#123;</div><div class="line">    message: <span class="string">'hello hui'</span></div><div class="line">  &#125;,</div><div class="line">  <span class="comment">// template: '&lt;div id="app"&gt;&lt;h1&gt;Hello&lt;/h1&gt;&lt;/div&gt;',</span></div><div class="line">  <span class="comment">//报错： You are using the runtime-only build of Vue where the template compiler is not available. Either pre-compile the templates into render functions, or use the compiler-included build.</span></div><div class="line">  <span class="comment">//因为用ES6去加载vue得到的是vue.runtime.esm.js文件(这个可以去vue/package.json文件去看不同的加载方式对应的加载到的vue版本)，这个运行时不包括编译器，所以template模板不识别，只能用render的方式来渲染替换#app节点</span></div><div class="line">  render(createElement)&#123;</div><div class="line">    <span class="comment">// 一定要通过 render 的方式，用 App.vue 替换过来才可以，否则不能用</span></div><div class="line">    <span class="comment">// createElement函数会将APP组件编译成一个节点返回</span></div><div class="line">    <span class="comment">// render函数会把当前实例的#app节点给替换掉</span></div><div class="line">    <span class="built_in">console</span>.log(createElement);</div><div class="line">    <span class="keyword">return</span> createElement(App);</div><div class="line">  &#125;</div><div class="line">  <span class="comment">// render: h =&gt; h(App)//在以前的老版本中可能是这样写的，就是上面代码的箭头函数写法</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>总结：</p>
+<ol>
+<li>注意查看vue不同版本的区别：[对不同构建版本的解释]<a href="https://cn.vuejs.org/v2/guide/installation.html#%E5%AF%B9%E4%B8%8D%E5%90%8C%E6%9E%84%E5%BB%BA%E7%89%88%E6%9C%AC%E7%9A%84%E8%A7%A3%E9%87%8A" target="_blank" rel="external">https://cn.vuejs.org/v2/guide/installation.html#%E5%AF%B9%E4%B8%8D%E5%90%8C%E6%9E%84%E5%BB%BA%E7%89%88%E6%9C%AC%E7%9A%84%E8%A7%A3%E9%87%8A</a> () </li>
+<li>同时对应的查看node-modules/vue/package.json文件中不同加载方式对应的加载到的vue版本</li>
+<li>render 函数的作用</li>
+<li>使用ES6模块来加载vue，如果实在非要使用<code>vue.esm.js</code>版本的话，不建议更改vue目录下的<code>package.json</code>文件中的<code>module</code>属性来更改加载<code>vue.esm.js</code>版本。因为这样将项目给别人，自己的更改将不能同步，导致在别人电脑上运行时还是报错的信息。这时候可以使用webpack的<code>reslove</code>选项来配置vue的别名<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">resolve: &#123;</div><div class="line">    <span class="comment">// 处理别名</span></div><div class="line">    alias: &#123;</div><div class="line">        vue$: path.resolve(__dirname, <span class="string">'node_modules/vue/dist/vue.esm.js'</span>),</div><div class="line">    &#125;</div><div class="line">&#125;,</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>类似的，<code>vue-cli</code>脚手架做的<code>&#39;@&#39;: resolve(&#39;src&#39;)</code>事情是一样</p>
+<ol>
+<li>Vue 选项中的 render 函数若存在，则 Vue 构造函数不会从 template 选项或通过 el 选项指定的挂载元素中提取出的 HTML 模板编译渲染函数。</li>
+</ol>
+                            
+                                <a class="article-more-a" href="/2017/11/09/vue初学笔记整理/#more">
+                                    more >></a>
+                                
+                                    
+
+                                                
+        </div>
+        <div class="article-info article-info-index">
+            
+                    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+                        
+
+                            
+                                <p class="article-more-link">
+                                    <a class="article-more-a" href="/2017/11/09/vue初学笔记整理/">
+                                        展开全文 >></a>
+                                </p>
+                                
+
+                                    
+                                                <div class="clearfix"></div>
+        </div>
+        </div>
+</article>
+
+            <aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+                
+  
     <article id="post-ES6学习笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -688,9 +939,28 @@
             
                 <div class="article-entry" itemprop="articleBody">
                     
-                        <h3 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">## html5的表单pattern属性，使用的时候需要注意下：</div><div class="line">	MDN文档链接: https:<span class="comment">//developer.mozilla.org/zh-CN/docs/Web/HTML/Element/Input</span></div></pre></td></tr></table></figure>
-<p><img src="/2017/10/08/被问到的技术问题归类/images/pattern.png" alt="html5的表单pattern属性，使用的时候需要注意下："></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">## HTML5 自定义属性data-*使用注意：</div><div class="line"><span class="comment">//1.HTML5的自定义属性data-xxx不能使用大写字母,不论大写位置在哪，都是不行,浏览器默认会转成小写的,在浏览器Element面板中注意节点data-*的信息,所以在JS获取的时候，注意都是小写的。</span></div><div class="line"><span class="comment">//2.当data-my-name="itcast" 这样设置格式时，则需要以驼峰格式才能正确获取,获取Node.dataset['myName']</span></div></pre></td></tr></table></figure>
+                        <h3 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h3><ul>
+<li><p><strong>canvas获取文字大小</strong></p>
+<blockquote>
+<p>在canvas中通过<code>measureText</code>方法获取文字的大小，注意将font的设置字体大小和字体样式放在获取文字宽度之前，否则获取的宽度是按照文字的初始大小来计算的<br><img src="/2017/10/08/被问到的技术问题归类/images/canvas01.png" alt="canvas获取文字大小"></p>
+</blockquote>
+</li>
+<li><p><strong>canvas引入外部资源</strong></p>
+<blockquote>
+<p>在canvas中引入视频，用服务器协议打开页面发现在canvas的画布中没有出现引用的视频，但是用文件协议打开却可以。</p>
+</blockquote>
+</li>
+<li><p><strong>html5的表单pattern属性，使用的时候需要注意下：</strong></p>
+<blockquote>
+<p><img src="/2017/10/08/被问到的技术问题归类/images/pattern.png" alt="html5的表单pattern属性，使用的时候需要注意下："><br><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/Input" target="_blank" rel="external">MDN文档参考链接</a></p>
+</blockquote>
+</li>
+<li><p><strong>HTML5 自定义属性data-*使用注意：</strong></p>
+<blockquote>
+<p>1.HTML5的自定义属性data-xxx不能使用大写字母,不论大写位置在哪，都是不行,浏览器默认会转成小写的,在浏览器Element面板中注意节点data-*的信息,所以在JS获取的时候，注意都是小写的。<br>2.当data-my-name=”itcast” 这样设置格式时，则需要以驼峰格式才能正确获取,获取Node.dataset[‘myName’]</p>
+</blockquote>
+</li>
+</ul>
                             
                                 <a class="article-more-a" href="/2017/10/08/被问到的技术问题归类/#more">
                                     more >></a>
@@ -846,15 +1116,15 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ES6</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ES6的学习笔记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -867,6 +1137,10 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">传智播客教育</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">JavaScript高级</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -910,10 +1184,6 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">特别关注faces</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">编辑器</a>
               </li>
              
@@ -923,6 +1193,10 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">atom</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">特别关注faces</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://www.biedongda.com/2017/12/01/javaScript-基础-第四天笔记/index.html">
 <meta property="og:site_name" content="一个学徒的世界">
 <meta property="og:description" content="前置知识 对象  为什么要有对象1234567function printPerson(name, age, sex....) &amp;#123;&amp;#125;// 函数的参数如果特别多的话，可以使用对象简化function printPerson(person) &amp;#123;  console.log(person.name);  ……&amp;#125;">
-<meta property="og:updated_time" content="2017-12-01T15:14:38.658Z">
+<meta property="og:updated_time" content="2017-12-05T11:02:36.333Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="javaScript-基础-第四天笔记">
 <meta name="twitter:description" content="前置知识 对象  为什么要有对象1234567function printPerson(name, age, sex....) &amp;#123;&amp;#125;// 函数的参数如果特别多的话，可以使用对象简化function printPerson(person) &amp;#123;  console.log(person.name);  ……&amp;#125;">
@@ -180,7 +180,7 @@
 <h3 id="为什么要有对象"><a href="#为什么要有对象" class="headerlink" title="为什么要有对象"></a>为什么要有对象</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">printPerson</span>(<span class="params">name, age, sex....</span>) </span>&#123;</div><div class="line">&#125;</div><div class="line"><span class="comment">// 函数的参数如果特别多的话，可以使用对象简化</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">printPerson</span>(<span class="params">person</span>) </span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(person.name);</div><div class="line">  ……</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <a id="more"></a>
 <h3 id="什么是对象"><a href="#什么是对象" class="headerlink" title="什么是对象"></a>什么是对象</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">现实生活中：万物皆对象，对象是一个具体的事物，一个具体的事物就会有行为和特征。</div><div class="line">举例： 一部车，一个手机</div><div class="line">车是一类事物，门口停的那辆车才是对象</div><div class="line">    特征：红色、四个轮子</div><div class="line">    行为：驾驶、刹车</div></pre></td></tr></table></figure>
-<h3 id="JavaScript中的对象"><a href="#JavaScript中的对象" class="headerlink" title="JavaScript中的对象"></a>JavaScript中的对象</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">JavaScript中的对象其实就是生活中对象的一个抽象</div><div class="line">JavaScript的对象是无序属性的集合。</div><div class="line">	其属性可以包含基本值、对象或函数。对象就是一组没有顺序的值。我们可以把JavaScript中的对象想象成键值对，其中值可以是数据和函数。</div><div class="line">对象的行为和特征</div><div class="line">	特征---属性</div><div class="line">	行为---方法</div></pre></td></tr></table></figure>
+<h3 id="JavaScript中的对象"><a href="#JavaScript中的对象" class="headerlink" title="JavaScript中的对象"></a>JavaScript中的对象</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">JavaScript中的对象其实就是生活中对象的一个抽象</div><div class="line">在javascript中：对象跟数组、函数一样，都是一种复杂数据类型，是一系列相关的属性的集合，可以很方便对变量和函数进行管理。</div><div class="line">JavaScript的对象是无序属性的集合。</div><div class="line">	其属性可以包含基本值、对象或函数。对象就是一组没有顺序的值。我们可以把JavaScript中的对象想象成键值对，其中值可以是数据和函数。</div><div class="line">对象的行为和特征</div><div class="line">	特征---属性</div><div class="line">	行为---方法</div></pre></td></tr></table></figure>
 <ul>
 <li>事物的特征在对象中用属性来表示。</li>
 <li>事物的行为在对象中用方法来表示。</li>
@@ -194,7 +194,7 @@
 <li><p>对象字面量</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> o = &#123;</div><div class="line">  name: <span class="string">'zs'</span>,</div><div class="line">  age: <span class="number">18</span>,</div><div class="line">  sex: <span class="literal">true</span>,</div><div class="line">  sayHi: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name);</div><div class="line">  &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
 </li>
-<li><p>new Object()创建对象</p>
+<li><p>new Object()构造函数创建对象</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> person = <span class="keyword">new</span> <span class="built_in">Object</span>();</div><div class="line">    person.name = <span class="string">'lisi'</span>;</div><div class="line">    person.age = <span class="number">35</span>;</div><div class="line">    person.job = <span class="string">'actor'</span>;</div><div class="line">    person.sayHi = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">'Hello,everyBody'</span>);</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
 </li>
 <li><p>工厂函数创建对象</p>
@@ -207,7 +207,28 @@
 <h3 id="属性和方法"><a href="#属性和方法" class="headerlink" title="属性和方法"></a>属性和方法</h3><blockquote>
 <p>如果一个变量属于一个对象所有，那么该变量就可以称之为该对象的一个属性，属性一般是名词，用来描述事物的特征<br>如果一个函数属于一个对象所有，那么该函数就可以称之为该对象的一个方法，方法是动词，描述事物的行为和功能</p>
 </blockquote>
-<h3 id="对象的访问方式"><a href="#对象的访问方式" class="headerlink" title="对象的访问方式"></a>对象的访问方式</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">对象.属性</div><div class="line">对象[<span class="string">'属性'</span>]</div></pre></td></tr></table></figure>
+<h3 id="对象的访问方式"><a href="#对象的访问方式" class="headerlink" title="对象的访问方式"></a>对象的访问方式</h3><ul>
+<li><p><code>.</code>语法：<br><strong>获取对象属性的语法：对象.属性</strong></p>
+<ol>
+<li>如果有这个属性，直接返回属性值</li>
+<li>如果没有这个属性，返回undefined</li>
+</ol>
+<p><strong>设置对象的属性的语法：对象.属性 = 值</strong></p>
+<ol>
+<li>如果对象有这个属性，修改这个属性</li>
+<li>如果对象没有这个属性，添加这个属性</li>
+</ol>
+</li>
+<li><p>对象[‘属性’]<br><strong>也叫关联数组的方式，其实说白了就是把对象当成数组看待。</strong></p>
+<ol>
+<li>获取对象属性 ：<code>对象[&#39;下标&#39;]</code> 把对象的属性当成下标</li>
+<li>设置对象的属性 ：<code>对象[&#39;下标&#39;] = &quot;值&quot;</code></li>
+</ol>
+</li>
+</ul>
+<blockquote>
+<p>总结：二者的区别：当属性名是一个字符串存储在变量中的时候，只能使用关联数组的方式。</p>
+</blockquote>
 <h3 id="new关键字"><a href="#new关键字" class="headerlink" title="new关键字"></a>new关键字</h3><blockquote>
 <p>构造函数 ，是一种特殊的函数。主要用来在创建对象时初始化对象， 即为对象成员变量赋初始值，总与new运算符一起使用在创建对象的语句中。</p>
 </blockquote>
@@ -222,11 +243,31 @@
 <li>一般函数直接执行，内部this指向全局window</li>
 <li>函数作为一个对象的方法，被该对象所调用，那么this指向的是该对象</li>
 <li>构造函数中的this其实是一个隐式对象，类似一个初始化的模型，所有方法和属性都挂载到了这个隐式对象身上，后续通过new关键字来调用，从而实现实例化</li>
+<li>this一定要出现在方法中才有意义，不在方法中的this没有意义。</li>
 </ol>
 <h2 id="对象的使用"><a href="#对象的使用" class="headerlink" title="对象的使用"></a>对象的使用</h2><h3 id="遍历对象的属性"><a href="#遍历对象的属性" class="headerlink" title="遍历对象的属性"></a>遍历对象的属性</h3><blockquote>
 <p>通过for..in语法可以遍历一个对象<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> obj = &#123;&#125;;</div><div class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</div><div class="line">  obj[i] = i * <span class="number">2</span>;</div><div class="line">&#125;</div><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> key <span class="keyword">in</span> obj) &#123;</div><div class="line">  <span class="built_in">console</span>.log(key + <span class="string">"=="</span> + obj[key]);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 </blockquote>
 <h3 id="删除对象的属性"><a href="#删除对象的属性" class="headerlink" title="删除对象的属性"></a>删除对象的属性</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Fun</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">this</span>.name = <span class="string">'mm'</span>;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> obj = <span class="keyword">new</span> Fun();</div><div class="line"><span class="built_in">console</span>.log(obj.name); <span class="comment">// mm </span></div><div class="line"><span class="keyword">delete</span> obj.name;</div><div class="line"><span class="built_in">console</span>.log(obj.name); <span class="comment">// undefined</span></div></pre></td></tr></table></figure>
+<p><strong>delete操作符</strong></p>
+<blockquote>
+<p>delete 操作符会从某个对象上移除指定属性。成功删除的时候会返回 true，否则返回 false。但是，重要的是要考虑以下情况：</p>
+<ul>
+<li>如果你删除的属性在对象上不存在，那么delete将不会起作用，但仍会返回true</li>
+<li>如果 delete 操作符删除成功，则被删除的属性将从所属的对象上彻底消失。然后，如果该对象的原型链上有一个同名属性，则该对象会从原型链上继承该同名属性。（也就是说delete操作只会在自身的属性上起作用）</li>
+<li>任何使用 var 声明的属性不能从全局作用域或函数的作用域中删除。这样的话，delete操作不能删除任何在全局作用域中的函数（无论这个函数是来自于函数声明或函数表达式）除了在全局作用域中的函数不能被删除，在对象(object)中的函数是能够用delete操作删除的。</li>
+<li>任何用let或const声明的属性不能够从它被声明的作用域中删除。</li>
+<li>不可设置的(Non-configurable)属性不能被移除。这意味着像Math, Array, Object内置对象的属性以及使用Object.defineProperty()方法设置为不可设置的属性不能被删除。</li>
+</ul>
+</blockquote>
+<h3 id="查看一个对象的类型"><a href="#查看一个对象的类型" class="headerlink" title="查看一个对象的类型"></a>查看一个对象的类型</h3><blockquote>
+<p>typeof 只能判断基本数据类型<br>instanceof 判断对象的具体类型 (使用instanceof判断基本数据类型都是返回false，应为基本数据不是对象)<br>constructor.name也可以获取到对象的具体类型</p>
+</blockquote>
+<h3 id="JSON对象"><a href="#JSON对象" class="headerlink" title="JSON对象"></a>JSON对象</h3><blockquote>
+<p>JSON(JavaScript Object Notation) 是一种轻量级的数据交换格式，采用完全独立于语言的文本格式，是理想的数据交换格式。同时，JSON是 JavaScript 原生格式，这意味着在 JavaScript 中处理 JSON数据跟处理对象是一样的。<br>JSON对象是任何语言都能认识的<br>json在线校验网站：<a href="http://www.bejson.com/" target="_blank" rel="external">http://www.bejson.com/</a></p>
+</blockquote>
+<p><strong>JSON的属性必须用双引号引号引起来，而对象字面量是可以省略的</strong><br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//对于js对象来说，属性名的双引号是可以省略的。</span></div><div class="line"><span class="keyword">var</span> obj = &#123;</div><div class="line">  name:<span class="string">"zs"</span>,</div><div class="line">  age:<span class="number">18</span>,</div><div class="line">  sex:<span class="string">"男"</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//json对象的属性名必须使用双引号括起来才是合格的json对象</span></div><div class="line"><span class="keyword">var</span> obj = &#123;</div><div class="line">  <span class="string">"name"</span>:<span class="string">"zs"</span>,</div><div class="line">  <span class="string">"age"</span>:<span class="number">18</span>,</div><div class="line">  <span class="string">"sex"</span>:<span class="string">"男"</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//在js中，其实就可以把json当成javascript的对象，因此操作是一样。</span></div></pre></td></tr></table></figure></p>
+
                                             
 
                                                 
@@ -338,6 +379,15 @@
 
     
 <nav id="article-nav">
+  
+    <a href="/2017/12/04/javaScript-基础-第五天笔记/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          javaScript-基础-第五天笔记
+        
+      </div>
+    </a>
   
   
     <a href="/2017/11/30/javaScript-基础-第三天笔记/" id="article-nav-older" class="article-nav-link-wrap">
@@ -514,15 +564,15 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ES6</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ES6的学习笔记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -535,6 +585,10 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">传智播客教育</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">JavaScript高级</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -578,10 +632,6 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">特别关注faces</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">编辑器</a>
               </li>
              
@@ -591,6 +641,10 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">atom</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">特别关注faces</a>
               </li>
              
               <li class="article-tag-list-item">

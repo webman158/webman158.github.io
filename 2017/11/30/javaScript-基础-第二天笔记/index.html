@@ -9,12 +9,13 @@
   <title>javaScript-基础-第二天笔记 | 一个学徒的世界</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="前置知识 表达式 语句  表达式和语句表达式 一个表达式可以产生一个值，有可能是运算、函数调用、有可能是字面量。表达式可以放在任何需要值的地方。">
+<meta name="keywords" content="JavaScript,JavaScript基础,传智播客教育">
 <meta property="og:type" content="article">
 <meta property="og:title" content="javaScript-基础-第二天笔记">
 <meta property="og:url" content="http://www.biedongda.com/2017/11/30/javaScript-基础-第二天笔记/index.html">
 <meta property="og:site_name" content="一个学徒的世界">
 <meta property="og:description" content="前置知识 表达式 语句  表达式和语句表达式 一个表达式可以产生一个值，有可能是运算、函数调用、有可能是字面量。表达式可以放在任何需要值的地方。">
-<meta property="og:updated_time" content="2017-12-01T16:02:45.341Z">
+<meta property="og:updated_time" content="2017-12-07T03:04:43.063Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="javaScript-基础-第二天笔记">
 <meta name="twitter:description" content="前置知识 表达式 语句  表达式和语句表达式 一个表达式可以产生一个值，有可能是运算、函数调用、有可能是字面量。表达式可以放在任何需要值的地方。">
@@ -190,16 +191,34 @@
 </blockquote>
 <h3 id="分支结构"><a href="#分支结构" class="headerlink" title="分支结构"></a>分支结构</h3><p>根据不同的情况，执行对应代码</p>
 <h4 id="if语句"><a href="#if语句" class="headerlink" title="if语句"></a>if语句</h4><p>语法结构<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (<span class="comment">/* 条件表达式 */</span>) &#123;</div><div class="line">  <span class="comment">// 执行语句</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">if</span> (<span class="comment">/* 条件表达式 */</span>)&#123;</div><div class="line">  <span class="comment">// 成立执行语句</span></div><div class="line">&#125; <span class="keyword">else</span> &#123;</div><div class="line">  <span class="comment">// 否则执行语句</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">if</span> (<span class="comment">/* 条件1 */</span>)&#123;</div><div class="line">  <span class="comment">// 成立执行语句</span></div><div class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="comment">/* 条件2 */</span>)&#123;</div><div class="line">  <span class="comment">// 成立执行语句</span></div><div class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="comment">/* 条件3 */</span>)&#123;</div><div class="line">  <span class="comment">// 成立执行语句</span></div><div class="line">&#125; <span class="keyword">else</span> &#123;</div><div class="line">  <span class="comment">// 最后默认执行语句</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>案例练习：<br>    求两个数的最大数<br>    判断一个数是偶数还是奇数<br>    分数转换，把百分制转换成ABCDE   &lt;60  E  60-70 D  70-80 C  80-90 B  90 - 100 A</p>
+<p>案例练习：</p>
+<ol>
+<li>求两个数的最大数</li>
+<li>判断一个数是偶数还是奇数</li>
+<li>分数转换，把百分制转换成ABCDE   &lt;60  E  60-70 D  70-80 C  80-90 B  90 - 100 A</li>
+</ol>
 <h4 id="三元运算符"><a href="#三元运算符" class="headerlink" title="三元运算符"></a>三元运算符</h4><pre><code>表达式1 ? 表达式2 : 表达式3
-是对if……else语句的一种简化写法
-</code></pre><p>  案例练习：<br>    是否年满18岁<br>    从两个数中找最大值</p>
-<h4 id="switch语句"><a href="#switch语句" class="headerlink" title="switch语句"></a>switch语句</h4><p>语法格式:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">switch</span> (expression) &#123;</div><div class="line">  <span class="keyword">case</span> 常量<span class="number">1</span>:</div><div class="line">    语句;</div><div class="line">    <span class="keyword">break</span>;</div><div class="line">  <span class="keyword">case</span> 常量<span class="number">2</span>:</div><div class="line">    语句;</div><div class="line">    <span class="keyword">break</span>;</div><div class="line">  <span class="keyword">case</span> 常量<span class="number">3</span>:</div><div class="line">    语句;</div><div class="line">    <span class="keyword">break</span>;</div><div class="line">  …</div><div class="line">  <span class="keyword">case</span> 常量n:</div><div class="line">    语句;</div><div class="line">    <span class="keyword">break</span>;</div><div class="line">  <span class="keyword">default</span>:</div><div class="line">    语句;</div><div class="line">    <span class="keyword">break</span>;</div><div class="line">&#125;</div><div class="line"><span class="comment">// 注意：</span></div><div class="line"><span class="comment">// 1. break可以省略，如果省略，代码会继续执行下一个case</span></div><div class="line"><span class="comment">// 2. switch 语句在比较值时使用的是全等操作符`===`, 因此不会发生类型转换（例如，字符串'10' 不等于数值 10）</span></div></pre></td></tr></table></figure></p>
-<p>案例：<br>    显示星期几<br>    素质教育（把分数变成ABCDE）千万不要写100个case哟</p>
+</code></pre><p>  是对if……else语句的一种简化写法<br>  <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> sex = sex == <span class="number">1</span> ? <span class="string">'男'</span> : <span class="string">'女'</span>;</div></pre></td></tr></table></figure></p>
+<p>  案例练习：<br>    是否年满18岁<br>    从两个数中找最大值</p>
+<h4 id="switch语句"><a href="#switch语句" class="headerlink" title="switch语句"></a>switch语句</h4><p>语法格式:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">switch</span> (expression) &#123;</div><div class="line">  <span class="keyword">case</span> 常量<span class="number">1</span>:</div><div class="line">    语句;</div><div class="line">    <span class="keyword">break</span>;</div><div class="line">  <span class="keyword">case</span> 常量<span class="number">2</span>:</div><div class="line">    语句;</div><div class="line">    <span class="keyword">break</span>;</div><div class="line">  …</div><div class="line">  <span class="keyword">case</span> 常量n:</div><div class="line">    语句;</div><div class="line">    <span class="keyword">break</span>;</div><div class="line">  <span class="keyword">default</span>:</div><div class="line">    语句;</div><div class="line">    <span class="keyword">break</span>;</div><div class="line">&#125;</div><div class="line"><span class="comment">// 注意：</span></div><div class="line"><span class="comment">// 1. break可以省略，如果省略，代码会继续执行下一个case,则会造成case穿透</span></div><div class="line"><span class="comment">// 2. switch 语句在比较值时使用的是全等操作符`===`, 因此不会发生类型转换（例如，字符串'10' 不等于数值 10）</span></div><div class="line"><span class="comment">// 3. default中的 break写不写无所谓啊，都是最后的执行语句了</span></div></pre></td></tr></table></figure></p>
+<p>思考：结果打印什么？<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a = <span class="string">"10"</span>;</div><div class="line"><span class="keyword">switch</span> (a) &#123;</div><div class="line">  <span class="keyword">case</span> <span class="number">10</span>:</div><div class="line">  	<span class="built_in">console</span>.log(<span class="string">"10"</span>);</div><div class="line">  <span class="keyword">case</span> <span class="number">20</span>:</div><div class="line">  	<span class="built_in">console</span>.log(<span class="string">"20"</span>);</div><div class="line">  <span class="keyword">case</span> <span class="number">30</span>:</div><div class="line">  	<span class="built_in">console</span>.log(<span class="string">"30"</span>);</div><div class="line">  <span class="keyword">default</span> :</div><div class="line">  	<span class="built_in">console</span>.log(<span class="string">"haha"</span>);</div><div class="line">&#125;</div><div class="line"><span class="comment">// 结果是haha</span></div><div class="line"><span class="comment">//switch中的比较是全等比较，不仅需要值相等，也要类型相等</span></div></pre></td></tr></table></figure></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a = <span class="number">10</span>;</div><div class="line"><span class="keyword">switch</span> (a) &#123;</div><div class="line">  <span class="keyword">case</span> <span class="number">10</span>:</div><div class="line">  	<span class="built_in">console</span>.log(<span class="string">"10"</span>);</div><div class="line">  <span class="keyword">case</span> <span class="number">20</span>:</div><div class="line">  	<span class="built_in">console</span>.log(<span class="string">"20"</span>);</div><div class="line">  <span class="keyword">case</span> <span class="number">30</span>:</div><div class="line">  	<span class="built_in">console</span>.log(<span class="string">"30"</span>);</div><div class="line">  <span class="keyword">default</span> :</div><div class="line">  	<span class="built_in">console</span>.log(<span class="string">"haha"</span>);</div><div class="line">&#125;</div><div class="line"><span class="comment">// 结果所有的都打印了</span></div><div class="line"><span class="comment">//如果不加break,则会造成case穿透</span></div></pre></td></tr></table></figure>
+<p>案例练习：<br>    显示星期几<br>    素质教育（把分数变成ABCDE）千万不要写100个case哟</p>
 <blockquote>
-<p>流程控制语句会把后面的值隐式转换成布尔类型<br>    转换为true   非空字符串  非0数字  true 任何对象<br>    转换成false  空字符串  0  false  null  undefined</p>
+<p>选择语句的使用场景:</p>
+<ol>
+<li>使用三元运算符的场景，只适用于简单if..else结构,并且里面的代码也很简单</li>
+<li>什么时候用switch..case ，通常用来进行定值判断</li>
+<li>什么时候用if..else  大部分情况，都用if..else，通常用来进行区间判断</li>
+</ol>
 </blockquote>
+<ul>
+<li><strong>流程控制语句会把后面的值隐式转换成布尔类型</strong><blockquote>
+<p>转换为true   非空字符串  非0数字  true 任何对象<br>转换成false  空字符串  0  false  null  undefined</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 结果是什么？</span></div><div class="line"><span class="keyword">var</span> a = !!<span class="string">'123'</span>;</div><div class="line"></div><div class="line"><span class="keyword">var</span> message;</div><div class="line"><span class="comment">// 会自动把message转换成false</span></div><div class="line"><span class="keyword">if</span> (message) &#123;     </div><div class="line">  <span class="comment">// todo...</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</blockquote>
+</li>
+</ul>
 <h3 id="循环结构"><a href="#循环结构" class="headerlink" title="循环结构"></a>循环结构</h3><blockquote>
 <p>循环结构：重复做一件事情<br>在javascript中，循环语句有三种，while、do..while、for循环。</p>
 </blockquote>
@@ -213,7 +232,7 @@
 <p>代码示例：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 初始化变量</span></div><div class="line"><span class="keyword">var</span> i = <span class="number">1</span>;</div><div class="line"><span class="keyword">var</span> sum = <span class="number">0</span>;</div><div class="line"><span class="keyword">do</span> &#123;</div><div class="line">  sum += i;<span class="comment">//循环体</span></div><div class="line">  i++;<span class="comment">//自增</span></div><div class="line">&#125; <span class="keyword">while</span> (i &lt;= <span class="number">100</span>);<span class="comment">//循环条件</span></div></pre></td></tr></table></figure></p>
 <p>案例练习：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="number">1.</span> 求<span class="number">100</span>以内所有<span class="number">3</span>的倍数的和</div><div class="line"><span class="number">2.</span> 使用<span class="keyword">do</span>-<span class="keyword">while</span>循环：输出询问“我爱你，嫁给我吧？”，选择“你喜欢我吗？(y/n):<span class="string">"，如果输入为y则打印”我们形影不离“，若输入为n,则继续询问</span></div></pre></td></tr></table></figure></p>
 <h4 id="for语句"><a href="#for语句" class="headerlink" title="for语句"></a>for语句</h4><blockquote>
-<p>while和do…while一般用来解决无法确认次数的循环。比如上面案例练习的第二题<br>for循环一般在循环次数确定的时候比较方便</p>
+<p>写while循环的经常会忘记自增，for循环其实是while循环演化过来的，语法更加的简洁明了，使用非常的广泛。<br>while和do…while一般用来解决无法确认次数的循环。比如上面案例练习的第二题<br>for循环一般在循环次数确定的时候比较方便</p>
 </blockquote>
 <p>for循环语法：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// for循环的表达式之间用的是`;`号分隔的，千万不要写成`,`</span></div><div class="line"><span class="keyword">for</span> (初始化表达式<span class="number">1</span>; 判断表达式<span class="number">2</span>; 自增表达式<span class="number">3</span>) &#123;</div><div class="line">  <span class="comment">// 循环体4</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>执行顺序：1243  —-  243  —–243(直到循环条件变成false)</p>
@@ -227,11 +246,31 @@
 <h4 id="循环中的-continue-和-break"><a href="#循环中的-continue-和-break" class="headerlink" title="循环中的 continue 和 break"></a>循环中的 continue 和 break</h4><blockquote>
 <p>break: 立即跳出整个循环，即循环结束，开始执行循环后面的内容（直接跳到大括号）注意：break也还用在switch语句中<br>continue: 立即跳出当前循环，继续下一次循环（跳到i++的地方）<br>注意：continue和break在循环内部后面的代码不执行，直接跳出当前循环</p>
 </blockquote>
+<p>思考：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//输出结果是什么？</span></div><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">1</span>; i &lt;=<span class="number">10</span>; i++) &#123;</div><div class="line">  <span class="keyword">if</span>(i == <span class="number">5</span>)&#123;</div><div class="line">    <span class="keyword">continue</span>;</div><div class="line">  &#125;</div><div class="line">  </div><div class="line">  <span class="keyword">if</span>(i == <span class="number">7</span>)&#123;</div><div class="line">    <span class="keyword">break</span>;</div><div class="line">  &#125;</div><div class="line">  <span class="built_in">console</span>.log(i);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>案例练习：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">求整数<span class="number">1</span>～<span class="number">100</span>的累加值，但要求碰到个位为<span class="number">3</span>的数则停止累加</div><div class="line">求整数<span class="number">1</span>～<span class="number">100</span>的累加值，但要求跳过所有个位为<span class="number">3</span>的数</div></pre></td></tr></table></figure></p>
+<p>循环总结：</p>
+<ol>
+<li>循环有很多种，但是以后用得最多的是for循环</li>
+<li>当不明确循环次数的时候，可以使用while循环</li>
+<li>当无论如何都要执行一次代码的时候，可以使用do..while循环。</li>
+<li>循环可以相互替代。</li>
+</ol>
+<h3 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h3><blockquote>
+<p>不被程序执行的代码。用于程序员标记代码，在后期的修改，以及他人的学习时有所帮助，在JS中，分为单行注释和多行注释</p>
+<h3 id="单行注释"><a href="#单行注释" class="headerlink" title="单行注释"></a>单行注释</h3><p>用来描述下面一个或多行代码的作用<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 这是一个变量</span></div><div class="line"><span class="keyword">var</span> name = <span class="string">'hm'</span>;</div></pre></td></tr></table></figure></p>
+</blockquote>
+<h3 id="多行注释"><a href="#多行注释" class="headerlink" title="多行注释"></a>多行注释</h3><p>用来注释多条代码<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*</span></div><div class="line"><span class="comment">var age = 18;</span></div><div class="line"><span class="comment">var name = 'zs';</span></div><div class="line"><span class="comment">console.log(name, age);</span></div><div class="line"><span class="comment">*/</span></div></pre></td></tr></table></figure></p>
+<p>注释的作用：</p>
+<pre><code>1. 模块划分，方便代码查找和维护
+2. 用于解释复杂代码的逻辑，方便维护和后期开发。
+</code></pre><p>要求：写代码的时候必须要写注释</p>
 <h3 id="代码调试"><a href="#代码调试" class="headerlink" title="代码调试"></a>代码调试</h3><ul>
 <li>过去调试JavaScript的方式<ul>
-<li>alert()</li>
-<li>console.log()</li>
+<li>alert()   弹框警告–不常用</li>
+<li>console.log() 控制台输出日志</li>
+<li>document.write 往页面中写入内容</li>
+<li>confirm 确认框–不常用</li>
+<li>prompt 输入框–不常用</li>
 </ul>
 </li>
 <li>断点调试</li>
@@ -282,6 +321,25 @@
         <div class="article-info article-info-index">
             
                     
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">JavaScript基础</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">传智播客教育</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
                         
 
                             
@@ -530,15 +588,15 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ES6</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ES6的学习笔记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -551,6 +609,10 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">传智播客教育</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">JavaScript高级</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -594,10 +656,6 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">特别关注faces</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">编辑器</a>
               </li>
              
@@ -607,6 +665,10 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">atom</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">特别关注faces</a>
               </li>
              
               <li class="article-tag-list-item">

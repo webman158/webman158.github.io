@@ -17,7 +17,7 @@
 <meta property="og:description" content="前置知识 数组的相关知识 函数的相关知识  数组为什么要学习数组 之前学习的数据类型，只能存储一个值(比如：Number/String。我们想存储班级中所有学生的姓名，此时该如何存储？">
 <meta property="og:image" content="http://www.biedongda.com/2017/11/30/javaScript-基础-第三天笔记/media/06-1.png">
 <meta property="og:image" content="http://www.biedongda.com/2017/11/30/javaScript-基础-第三天笔记/media/06-2.png">
-<meta property="og:updated_time" content="2017-12-01T09:40:25.054Z">
+<meta property="og:updated_time" content="2017-12-07T03:50:03.538Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="javaScript-基础-第三天笔记">
 <meta name="twitter:description" content="前置知识 数组的相关知识 函数的相关知识  数组为什么要学习数组 之前学习的数据类型，只能存储一个值(比如：Number/String。我们想存储班级中所有学生的姓名，此时该如何存储？">
@@ -186,27 +186,44 @@
 </blockquote>
 <a id="more"></a>
 <h3 id="数组的概念"><a href="#数组的概念" class="headerlink" title="数组的概念"></a>数组的概念</h3><blockquote>
-<p>所谓数组，就是将多个元素（通常是同一类型）按一定顺序排列放到一个集合中，那么这个集合我们就称之为数组。</p>
+<p>所谓数组，就是将多个元素（通常是同一类型）按一定顺序排列放到一个集合中，那么这个集合我们就称之为数组。<br>使用数组可以对多个相同类型的值统一的管理，存储起来方便，操作的时候也会很方便。</p>
 </blockquote>
 <h3 id="数组的定义"><a href="#数组的定义" class="headerlink" title="数组的定义"></a>数组的定义</h3><blockquote>
 <p>数组是一个有序的列表，可以在数组中存放任意的数据，并且数组的长度可以动态的调整。</p>
 </blockquote>
 <ul>
-<li>通过数组字面量创建数组<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 创建一个空数组</span></div><div class="line"><span class="keyword">var</span> arr1 = []; </div><div class="line"><span class="comment">// 创建一个包含3个数值的数组，多个数组项以逗号隔开</span></div><div class="line"><span class="keyword">var</span> arr2 = [<span class="number">1</span>, <span class="number">3</span>, <span class="number">4</span>]; </div><div class="line"><span class="comment">// 创建一个包含2个字符串的数组</span></div><div class="line"><span class="keyword">var</span> arr3 = [<span class="string">'a'</span>, <span class="string">'c'</span>]; </div><div class="line"></div><div class="line"><span class="comment">// 可以通过数组的length属性获取数组的长度</span></div><div class="line"><span class="built_in">console</span>.log(arr3.length);</div><div class="line"><span class="comment">// 可以设置length属性改变数组中元素的个数</span></div><div class="line">arr3.length = <span class="number">0</span>;<span class="comment">//清空数组</span></div></pre></td></tr></table></figure>
+<li><p>通过数组字面量创建数组</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 创建一个空数组</span></div><div class="line"><span class="keyword">var</span> arr1 = []; </div><div class="line"><span class="comment">// 创建一个包含3个数值的数组，多个数组项以逗号隔开</span></div><div class="line"><span class="keyword">var</span> arr2 = [<span class="number">1</span>, <span class="number">3</span>, <span class="number">4</span>]; </div><div class="line"><span class="comment">// 创建一个包含2个字符串的数组</span></div><div class="line"><span class="keyword">var</span> arr3 = [<span class="string">'a'</span>, <span class="string">'c'</span>]; </div><div class="line"></div><div class="line"><span class="comment">// 可以通过数组的length属性获取数组的长度</span></div><div class="line"><span class="built_in">console</span>.log(arr3.length);</div><div class="line"><span class="comment">// 可以设置length属性改变数组中元素的个数</span></div><div class="line">arr3.length = <span class="number">0</span>;<span class="comment">//清空数组</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>通过构造函数创建数组</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr = <span class="keyword">new</span> <span class="built_in">Array</span>();<span class="comment">//创建了一个空数组</span></div><div class="line"><span class="keyword">var</span> arr = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="string">"zs"</span>,<span class="string">"ls"</span>,<span class="string">"ww"</span>);<span class="comment">//创建了一个数组，里面存放了3个字符串</span></div><div class="line"><span class="keyword">var</span> arr = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>);<span class="comment">//创建了一个数组，里面存放了4个数字</span></div><div class="line"> </div><div class="line"><span class="comment">//通过构造函数创建数组,传了一个数字的话，那么创建的是数组的长度</span></div><div class="line"><span class="keyword">var</span> arr = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">8</span>);<span class="comment">//创建了一个数组,长度为8，值都为undefined</span></div><div class="line"><span class="comment">//通过构造函数创建数组,传了一个不是数字的话，</span></div><div class="line"><span class="keyword">var</span> arr = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="string">"a"</span>);<span class="comment">//创建了一个数组,里面存放了a字符串</span></div></pre></td></tr></table></figure>
 </li>
 </ul>
+<h3 id="数组的下标与长度"><a href="#数组的下标与长度" class="headerlink" title="数组的下标与长度"></a>数组的下标与长度</h3><ul>
+<li><p>数组的下标：数组是有序的，数组中的每一个元素都对应了一个下标，下标是从0开始的</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr = [<span class="string">"zs"</span>, <span class="string">"ls"</span>, <span class="string">"ww"</span>];</div><div class="line">arr[<span class="number">0</span>];<span class="comment">//下标0对应的值是zs</span></div><div class="line">arr[<span class="number">3</span>];<span class="comment">//下标3对应的值是ww</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>数组的长度：跟字符串一样，数组有一个length属性，指数组中存放的元素的个数。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr = [<span class="string">"zs"</span>, <span class="string">"ls"</span>, <span class="string">"ww"</span>];</div><div class="line">arr.length;<span class="comment">//这个数组的长度是3</span></div><div class="line"><span class="comment">//空数组的长度是0</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>下标与长度的关系：最大的下标 = length - 1</p>
 <h3 id="获取数组元素"><a href="#获取数组元素" class="headerlink" title="获取数组元素"></a>获取数组元素</h3><p>数组的取值<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 格式：数组名[下标]	下标又称索引</span></div><div class="line"><span class="comment">// 功能：获取数组对应下标的那个值，如果下标不存在，则返回undefined。</span></div><div class="line"><span class="keyword">var</span> arr = [<span class="string">'red'</span>,, <span class="string">'green'</span>, <span class="string">'blue'</span>];</div><div class="line">arr[<span class="number">0</span>];	<span class="comment">// red</span></div><div class="line">arr[<span class="number">2</span>]; <span class="comment">// blue</span></div><div class="line">arr[<span class="number">3</span>]; <span class="comment">// 这个数组的最大下标为2,因此返回undefined</span></div></pre></td></tr></table></figure></p>
-<h3 id="遍历数组"><a href="#遍历数组" class="headerlink" title="遍历数组"></a>遍历数组</h3><blockquote>
-<p>遍历：遍及所有，对数组的每一个元素都访问一次就叫遍历。<br>数组遍历的基本语法：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 数组的正向遍历（常用）</span></div><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; arr.length; i++) &#123;</div><div class="line">	<span class="comment">// 数组遍历的固定结构</span></div><div class="line">&#125;</div><div class="line"><span class="comment">// 数组的反向遍历</span></div><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = arr.length - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) &#123;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-</blockquote>
 <h3 id="数组中新增元素"><a href="#数组中新增元素" class="headerlink" title="数组中新增元素"></a>数组中新增元素</h3><p>数组的赋值<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 格式：数组名[下标/索引] = 值;</span></div><div class="line"><span class="comment">// 如果下标有对应的值，会把原来的值覆盖，如果下标不存在，会给数组新增一个元素。</span></div><div class="line"><span class="keyword">var</span> arr = [<span class="string">"red"</span>, <span class="string">"green"</span>, <span class="string">"blue"</span>];</div><div class="line"><span class="comment">// 把red替换成了yellow</span></div><div class="line">arr[<span class="number">0</span>] = <span class="string">"yellow"</span>;</div><div class="line"><span class="comment">// 给数组新增加了一个pink的值</span></div><div class="line">arr[<span class="number">3</span>] = <span class="string">"pink"</span>;</div><div class="line"><span class="comment">// 给数组新增加了一个hotpink的值, arr[4]的就是undefined</span></div><div class="line">arr[<span class="number">5</span>] = <span class="string">"hotpink"</span>;</div></pre></td></tr></table></figure></p>
-<h3 id="案例练习"><a href="#案例练习" class="headerlink" title="案例练习"></a>案例练习</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">- 求一组数中的所有数的和和平均值</div><div class="line">- 求一组数中的最大值和最小值，以及所在位置</div><div class="line">- 将字符串数组用|或其他符号分割</div><div class="line">- 要求将数组中的0项去掉，将不为0的值存入一个新的数组，生成新的数组</div><div class="line">- 翻转数组</div><div class="line">- 冒泡排序，从小到大</div></pre></td></tr></table></figure>
+<h3 id="遍历数组"><a href="#遍历数组" class="headerlink" title="遍历数组"></a>遍历数组</h3><blockquote>
+<p>遍历：遍及所有，对数组的每一个元素都访问一次就叫遍历。<br>数组遍历的基本语法：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 数组的正向遍历（常用）</span></div><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; arr.length; i++) &#123;</div><div class="line">	<span class="comment">// 数组遍历的固定结构</span></div><div class="line">&#125;</div><div class="line"><span class="comment">// 数组的反向遍历</span></div><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = arr.length - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) &#123;</div><div class="line">  <span class="comment">// 数组遍历的固定结构</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+</blockquote>
+<h3 id="案例练习"><a href="#案例练习" class="headerlink" title="案例练习"></a>案例练习</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">- 求一组数中的所有数的和和平均值</div><div class="line">- 求一组数中的最大值和最小值，以及所在位置</div><div class="line">- 将字符串数组用|或其他符号分割</div><div class="line">- 要求将数组中的0项去掉，将不为0的值存入一个新的数组，生成新的数组</div><div class="line">- 翻转数组</div><div class="line">- 冒泡排序，从小到大</div></pre></td></tr></table></figure>
 <h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><h3 id="为什么要有函数"><a href="#为什么要有函数" class="headerlink" title="为什么要有函数"></a>为什么要有函数</h3><blockquote>
 <p>如果要在多个地方求1-100之间所有数的和，应该怎么做？</p>
 </blockquote>
 <h3 id="什么是函数"><a href="#什么是函数" class="headerlink" title="什么是函数"></a>什么是函数</h3><blockquote>
-<p>把一段相对独立的具有特定功能的代码块封装起来，形成一个独立实体，就是函数，起个名字（函数名），在后续开发中可以反复调用<br>函数的作用就是封装一段代码，将来可以重复使用</p>
+<p>把一段相对独立的具有特定功能的代码块封装起来，形成一个独立实体，就是函数，起个名字（函数名），在后续开发中可以反复调用,避免大量重复会造成大量的冗余代码。<br>函数的作用就是封装一段代码，它只需要声明一次，就可以被多次调用。</p>
 </blockquote>
+<h3 id="冗余代码的缺点："><a href="#冗余代码的缺点：" class="headerlink" title="冗余代码的缺点："></a>冗余代码的缺点：</h3><ol>
+<li>代码重复，可阅读性差</li>
+<li>不易维护，如果代码逻辑改变了，所有地方的代码都要跟着改变，效率太低。</li>
+</ol>
 <h3 id="函数的定义"><a href="#函数的定义" class="headerlink" title="函数的定义"></a>函数的定义</h3><ul>
 <li><p>函数声明</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> 函数名(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="comment">// 函数体</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -220,6 +237,12 @@
 <li>函数一般都用来干一件事情，需用使用动词+名词，表示做一件事情 <code>tellStory</code> <code>sayHello</code>等</li>
 </ul>
 </li>
+<li><p>这两种函数声明的区别：</p>
+<ol>
+<li>命名函数可以先调用，在声明，因为预解析</li>
+<li>函数表达式必须先声明，再调用（在DOM中注册事件的时候用的非常的多）</li>
+</ol>
+</li>
 </ul>
 <h3 id="函数的调用"><a href="#函数的调用" class="headerlink" title="函数的调用"></a>函数的调用</h3><ul>
 <li><p>调用函数的语法：</p>
@@ -227,7 +250,7 @@
 </li>
 <li><p>特点：</p>
 <ul>
-<li>函数体只有在调用的时候才会执行，调用需要()进行调用。</li>
+<li>函数体只有在调用的时候才会执行，调用需要 <code>()</code> 进行调用。</li>
 <li>可以调用多次(重复使用)</li>
 </ul>
 </li>
@@ -244,10 +267,16 @@
 <ul>
 <li>形式参数：在声明一个函数的时候，为了函数的功能更加灵活，有些值是固定不了的，对于这些固定不了的值。我们可以给函数设置参数。这个参数没有具体的值，仅仅起到一个占位置的作用，我们通常称之为形式参数，也叫形参。</li>
 <li>实际参数：如果函数在声明时，设置了形参，那么在函数调用的时候就需要传入对应的参数，我们把传入的参数叫做实际参数，也叫实参。</li>
+<li>在javascript，实参的个数可以和形参的个数不一致<ul>
+<li>如果实参的个数多于形参的个数，多余的参数会被舍弃。</li>
+<li>如果实参的个数少于形参的个数，缺少的实参是undefined。</li>
+</ul>
+</li>
+<li>形参仅仅起到占位的作用，它最终会被实参替换掉，实际上就是将实参的值赋值给形参<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//带参数的函数声明</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params">a, b</span>) </span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(a + b);</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> x = <span class="number">5</span>, y = <span class="number">6</span>;</div><div class="line">fn(x,y);</div><div class="line"><span class="comment">//x,y实参，有具体的值。函数执行的时候会把x,y复制一份给函数内部的a和b，函数内部的值是复制的新值，无法修改外部的x,y</span></div></pre></td></tr></table></figure>
+</li>
 </ul>
 </li>
 </ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params">a, b</span>) </span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(a + b);</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> x = <span class="number">5</span>, y = <span class="number">6</span>;</div><div class="line">fn(x,y);</div><div class="line"><span class="comment">//x,y实参，有具体的值。函数执行的时候会把x,y复制一份给函数内部的a和b，函数内部的值是复制的新值，无法修改外部的x,y</span></div></pre></td></tr></table></figure>
 <h3 id="案例练习-1"><a href="#案例练习-1" class="headerlink" title="案例练习"></a>案例练习</h3><ul>
 <li>求1-n之间所有数的和</li>
 <li>求n-m之间所有数额和</li>
@@ -267,7 +296,7 @@
 <li>如果函数没有显示的使用 return语句 ，那么函数有默认的返回值：undefined</li>
 <li>如果函数使用 return语句，那么跟再return后面的值，就成了函数的返回值</li>
 <li>如果函数使用 return语句，但是return后面没有任何值，那么函数的返回值也是：undefined</li>
-<li>函数使用return语句后，这个函数会在执行完 return 语句之后停止并立即退出，也就是说return后面的所有其他代码都不会再执行。</li>
+<li>函数使用return语句后，这个函数会在执行完 return 语句之后停止并立即退出(此时的作用就是结束函数的调用)，也就是说return后面的所有其他代码都不会再执行。</li>
 <li>推荐的做法是要么让函数始终都返回一个值，要么永远都不要返回值。</li>
 </ul>
 </blockquote>
@@ -277,8 +306,27 @@
 <li>求一组数中的最大值</li>
 <li>求一组数中的最小值</li>
 </ul>
+<h3 id="函数三要素"><a href="#函数三要素" class="headerlink" title="函数三要素"></a>函数三要素</h3><p>函数三要素包括：函数名、参数、返回值</p>
+<h3 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h3><blockquote>
+<p>构造函数 ，是一种特殊的函数。主要用来在创建对象时初始化对象， 即为对象成员变量赋初始值，总与new运算符一起使用在创建对象的语句中。</p>
+</blockquote>
+<ol>
+<li>构造函数用于创建一类对象，首字母要大写。</li>
+<li>构造函数要和new一起使用才有意义。</li>
+</ol>
+<p><strong>new在执行时会做四件事情</strong></p>
+<ol>
+<li>new 会创建一个新的空对象</li>
+<li>new 会让this指向这个新的对象</li>
+<li>执行构造函数  目的：给这个新对象加属性和方法</li>
+<li>new会返回这个新对象</li>
+</ol>
+<h3 id="文档补充"><a href="#文档补充" class="headerlink" title="文档补充"></a>文档补充</h3><p>关于文档注释，javascript中还有一种注释叫做文档注释，经常用在函数声明处，用来解释这个函数的作用。<br>文档注释： /<em>*   这是文档注释 </em>/<br>tips:以后写的函数的声明，都应该加上文档注释，方便阅读<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * 求圆的面积</span></div><div class="line"><span class="comment"> * @param r &#123;number&#125; 圆的半径</span></div><div class="line"><span class="comment"> * @returns &#123;number&#125; 圆的周长</span></div><div class="line"><span class="comment"> */</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getArea</span> (<span class="params">r</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> <span class="built_in">Math</span>.PI * r * r;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="函数调试"><a href="#函数调试" class="headerlink" title="函数调试"></a>函数调试</h3><p>在函数内部是可以继续调用别的函数的。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn1</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">"fn1开始..."</span>);</div><div class="line">    fn2();</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">"fn1结束..."</span>);</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn2</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">"执行fn2的代码"</span>); </div><div class="line">	<span class="built_in">console</span>.log(<span class="string">"执行fn2的代码"</span>);</div><div class="line">	<span class="built_in">console</span>.log(<span class="string">"执行fn2的代码"</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//在函数1中调用了函数2</span></div><div class="line">fn1();</div></pre></td></tr></table></figure></p>
+<p>断点调试：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="number">1.</span>	F8：跳到下一个断点，如果后面没有断点了，那么代码直接执行完。</div><div class="line"><span class="number">2.</span>	F10：单步调试（跳过函数调用）</div><div class="line"><span class="number">3.</span>	F11：单步调试（进入函数调用）</div><div class="line"><span class="number">4.</span>	shift+F11：跳出函数调用</div></pre></td></tr></table></figure></p>
+<h3 id="函数重载"><a href="#函数重载" class="headerlink" title="函数重载"></a>函数重载</h3><p>在javascript中，没有<strong>函数重载</strong>，只有覆盖，如果定义了两个同名的函数，后面的函数会覆盖掉前面的函数。</p>
 <h3 id="arguments的使用"><a href="#arguments的使用" class="headerlink" title="arguments的使用"></a>arguments的使用</h3><blockquote>
-<p>JavaScript中，arguments对象是比较特别的一个对象，实际上是当前函数的一个内置属性。也就是说所有函数都内置了一个arguments对象，arguments对象中存储了传递的所有的实参。arguments是一个伪数组，因此可以进行遍历</p>
+<p>JavaScript中，arguments对象是比较特别的一个对象，实际上是当前函数的一个内置属性。也就是说所有函数都内置了一个arguments对象，arguments对象中存储了传递的所有的实参。arguments是一个伪数组，因此可以进行遍历<br>arguments使用在参数个数不确定的场景下较多</p>
 </blockquote>
 <ul>
 <li>案例练习<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">求任意个数的最大值</div><div class="line">求任意个数的和</div><div class="line">求斐波那契数列Fibonacci中的第n个数是多少？      <span class="number">1</span> <span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">5</span> <span class="number">8</span> <span class="number">13</span> <span class="number">21.</span>..</div><div class="line">翻转数组，返回一个新数组</div><div class="line">对数组排序，从小到大</div><div class="line">输入一个年份，判断是否是闰年[闰年：能被<span class="number">4</span>整数并且不能被<span class="number">100</span>整数，或者能被<span class="number">400</span>整数]</div><div class="line">输入某年某月某日，判断这一天是这一年的第几天？</div></pre></td></tr></table></figure>
@@ -299,6 +347,12 @@
 <p>匿名函数不能通过直接调用来执行，因此可以通过匿名函数的自调用的方式来执行</p>
 </blockquote>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">  alert(<span class="number">123</span>);</div><div class="line">&#125;)();</div></pre></td></tr></table></figure>
+<h3 id="递归函数"><a href="#递归函数" class="headerlink" title="递归函数"></a>递归函数</h3><blockquote>
+<p>递归函数：自己直接或者间接调用自己的函数，递归函数一定要留有出口，不然就是死循环了<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="number">1.</span> 求<span class="number">1</span><span class="number">-100</span>所有数的和</div><div class="line"><span class="number">2.</span> 斐波那契数列</div></pre></td></tr></table></figure></p>
+</blockquote>
+<h3 id="回调函数"><a href="#回调函数" class="headerlink" title="回调函数"></a>回调函数</h3><blockquote>
+<p>把函数当成参数来使用，那么这个函数就叫回调函数。</p>
+</blockquote>
 <h3 id="函数是一种数据类型"><a href="#函数是一种数据类型" class="headerlink" title="函数是一种数据类型"></a>函数是一种数据类型</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>) </span>&#123;&#125;</div><div class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> fn);</div></pre></td></tr></table></figure>
 <p>所以函数可以作为：</p>
 <ul>
@@ -309,10 +363,10 @@
 </ul>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params">b</span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> a = <span class="number">10</span>;</div><div class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    alert(a+b);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">fn(<span class="number">15</span>)();</div></pre></td></tr></table></figure>
 <h2 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h2><blockquote>
-<p>作用域：变量可以起作用的范围</p>
+<p>作用域：变量可以起作用的范围<br>全局作用域：在script标签内，函数外定义的作用域就是全局作用域。在全局作用域中定义的变量都是全局变量。<br>函数作用域：在函数中的区域叫做函数作用域，在函数作用域中定义的变量就是局部变量，只能在当前函数内访问。<br>tips:在函数中，只有全局作用域和函数作用域，因为在if、while、for等语句中定义的变量都是全局变量。</p>
 </blockquote>
 <h3 id="全局变量和局部变量"><a href="#全局变量和局部变量" class="headerlink" title="全局变量和局部变量"></a>全局变量和局部变量</h3><ul>
-<li><p>全局变量<br>​在任何地方都可以访问到的变量就是全局变量，对应全局作用域</p>
+<li><p>全局变量<br>​在任何地方都可以访问到的变量就是全局变量，对应全局作用域<br>隐式全局变量：没有使用var定义的变量也是全局变量。</p>
 </li>
 <li><p>局部变量<br>​只在固定的代码片段内可访问到的变量，最常见的例如函数内部。对应局部作用域(函数作用域)</p>
 </li>
@@ -654,15 +708,15 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ES6</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ES6的学习笔记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -675,6 +729,10 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">传智播客教育</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">JavaScript高级</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -718,10 +776,6 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">特别关注faces</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">编辑器</a>
               </li>
              
@@ -731,6 +785,10 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">atom</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">特别关注faces</a>
               </li>
              
               <li class="article-tag-list-item">
