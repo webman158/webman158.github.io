@@ -8,21 +8,21 @@
   <link rel="dns-prefetch" href="http://www.biedongda.com">
   <title>javaScript-基础-第五天笔记 | 一个学徒的世界</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="前置知识 简单类型和复杂类型  简单类型和复杂类型的区别 基本类型又叫做值类型，复杂类型又叫做引用类型值类型：简单数据类型，基本数据类型，在存储时，变量中存储的是值本身，因此叫做值类型。引用类型：复杂数据类型，在存储是，变量中存储的仅仅是地址（引用），因此叫做引用数据类型。对于引用类型来说分为两个存储空间：  在栈中存储的时候 对象 的引用（内层地址） 在堆中存储的是 对象 本身    堆和栈 1">
+  <meta name="description" content="前置知识 简单类型和复杂类型  简单类型和复杂类型的区别 基本类型又叫做值类型，复杂类型又叫做引用类型值类型：简单数据类型，基本数据类型，在存储时，变量中存储的是值本身，因此叫做值类型。引用类型：复杂数据类型，在存储是，变量中存储的仅仅是地址（引用），因此叫做引用数据类型。对于引用类型来说分为两个存储空间：  在栈中存储的时候 对象 的引用（内层地址） 在堆中存储的是 对象 本身">
 <meta name="keywords" content="JavaScript,JavaScript基础,传智播客教育">
 <meta property="og:type" content="article">
 <meta property="og:title" content="javaScript-基础-第五天笔记">
 <meta property="og:url" content="http://www.biedongda.com/2017/12/04/javaScript-基础-第五天笔记/index.html">
 <meta property="og:site_name" content="一个学徒的世界">
-<meta property="og:description" content="前置知识 简单类型和复杂类型  简单类型和复杂类型的区别 基本类型又叫做值类型，复杂类型又叫做引用类型值类型：简单数据类型，基本数据类型，在存储时，变量中存储的是值本身，因此叫做值类型。引用类型：复杂数据类型，在存储是，变量中存储的仅仅是地址（引用），因此叫做引用数据类型。对于引用类型来说分为两个存储空间：  在栈中存储的时候 对象 的引用（内层地址） 在堆中存储的是 对象 本身    堆和栈 1">
+<meta property="og:description" content="前置知识 简单类型和复杂类型  简单类型和复杂类型的区别 基本类型又叫做值类型，复杂类型又叫做引用类型值类型：简单数据类型，基本数据类型，在存储时，变量中存储的是值本身，因此叫做值类型。引用类型：复杂数据类型，在存储是，变量中存储的仅仅是地址（引用），因此叫做引用数据类型。对于引用类型来说分为两个存储空间：  在栈中存储的时候 对象 的引用（内层地址） 在堆中存储的是 对象 本身">
 <meta property="og:image" content="http://www.biedongda.com/2017/12/04/javaScript-基础-第五天笔记/media/1498288494687.png">
 <meta property="og:image" content="http://www.biedongda.com/2017/12/04/javaScript-基础-第五天笔记/media/1498700592589.png">
 <meta property="og:image" content="http://www.biedongda.com/2017/12/04/javaScript-基础-第五天笔记/media/1497497605587-8288640195.png">
 <meta property="og:image" content="http://www.biedongda.com/2017/12/04/javaScript-基础-第五天笔记/media/1497497865969.png">
-<meta property="og:updated_time" content="2017-12-07T03:36:31.057Z">
+<meta property="og:updated_time" content="2017-12-07T04:38:36.941Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="javaScript-基础-第五天笔记">
-<meta name="twitter:description" content="前置知识 简单类型和复杂类型  简单类型和复杂类型的区别 基本类型又叫做值类型，复杂类型又叫做引用类型值类型：简单数据类型，基本数据类型，在存储时，变量中存储的是值本身，因此叫做值类型。引用类型：复杂数据类型，在存储是，变量中存储的仅仅是地址（引用），因此叫做引用数据类型。对于引用类型来说分为两个存储空间：  在栈中存储的时候 对象 的引用（内层地址） 在堆中存储的是 对象 本身    堆和栈 1">
+<meta name="twitter:description" content="前置知识 简单类型和复杂类型  简单类型和复杂类型的区别 基本类型又叫做值类型，复杂类型又叫做引用类型值类型：简单数据类型，基本数据类型，在存储时，变量中存储的是值本身，因此叫做值类型。引用类型：复杂数据类型，在存储是，变量中存储的仅仅是地址（引用），因此叫做引用数据类型。对于引用类型来说分为两个存储空间：  在栈中存储的时候 对象 的引用（内层地址） 在堆中存储的是 对象 本身">
 <meta name="twitter:image" content="http://www.biedongda.com/2017/12/04/javaScript-基础-第五天笔记/media/1498288494687.png">
   
     <link rel="alternative" href="/atom.xml" title="一个学徒的世界" type="application/atom+xml">
@@ -189,6 +189,7 @@
 <li>在堆中存储的是 对象 本身</li>
 </ol>
 </blockquote>
+<a id="more"></a>
 <ul>
 <li><p>堆和栈</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">堆栈空间分配区别：</div><div class="line">　　1、栈（操作系统）：由操作系统自动分配释放 ，存放函数的参数值，局部变量的值等。其操作方式类似于数据结构中的栈；</div><div class="line">　　2、堆（操作系统）： 存储复杂类型(对象)，一般由程序员分配释放， 若程序员不释放，由垃圾回收机制回收，分配方式倒是类似于链表。</div></pre></td></tr></table></figure>
@@ -557,11 +558,15 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">前端面试题</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">前端资源</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">前端面试题</a>
+                <a href="javascript:void(0)" class="js-tag color5">特别关注faces</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -574,10 +579,6 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">atom</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">特别关注faces</a>
               </li>
              
               <li class="article-tag-list-item">

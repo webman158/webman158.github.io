@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://www.biedongda.com/2017/11/22/收集前端面试题/index.html">
 <meta property="og:site_name" content="一个学徒的世界">
 <meta property="og:description" content="JS12345678910111213141516171819&amp;#123;    if(! &quot;a&quot; in window) &amp;#123;        var a = &quot;定义变量&quot;;    &amp;#125;    console.log(a);//undefined&amp;#125;// 以上代码预编译的结果是&amp;#123;    var a;    if(! &quot;a&quot; in window) &amp;#123;">
-<meta property="og:updated_time" content="2017-12-07T01:45:49.048Z">
+<meta property="og:updated_time" content="2017-12-07T04:39:41.480Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="收集前端面试题">
 <meta name="twitter:description" content="JS12345678910111213141516171819&amp;#123;    if(! &quot;a&quot; in window) &amp;#123;        var a = &quot;定义变量&quot;;    &amp;#125;    console.log(a);//undefined&amp;#125;// 以上代码预编译的结果是&amp;#123;    var a;    if(! &quot;a&quot; in window) &amp;#123;">
@@ -175,6 +175,7 @@
                 <div class="article-entry" itemprop="articleBody">
                     
                                         <h2 id="JS"><a href="#JS" class="headerlink" title="JS"></a>JS</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    <span class="keyword">if</span>(! <span class="string">"a"</span> <span class="keyword">in</span> <span class="built_in">window</span>) &#123;</div><div class="line">        <span class="keyword">var</span> a = <span class="string">"定义变量"</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">console</span>.log(a);<span class="comment">//undefined</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 以上代码预编译的结果是</span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">var</span> a;</div><div class="line">    <span class="keyword">if</span>(! <span class="string">"a"</span> <span class="keyword">in</span> <span class="built_in">window</span>) &#123;</div><div class="line">        a = <span class="string">"定义变量"</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">console</span>.log(a);<span class="comment">//undefined</span></div><div class="line"></div><div class="line">    <span class="comment">// 1. 代码在执行之前会进行预解析，会找到所有的变量声明，将其声明提升到当前作用域的顶部，而不会将赋值提升</span></div><div class="line">    <span class="comment">// 2. 所有的全局变量都是window的属性，语句 var a;等价于window.a = undefined;</span></div><div class="line">    <span class="comment">// 3. in 运算符用来检测某个属性是否存在于对象中，注意属性要用字符串形式</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<a id="more"></a>
 <blockquote>
 <p>封装一个count方法，能够实现如此调用：<code>count(a)(b)(c)(d)(e)...</code>,并且返回结果的值是<code>a*b*c*d*e...</code>。要求函数调用次数不限定。如<code>count(1)(3)(7)</code>得到结果 21<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">count</span>(<span class="params">a</span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> sum = a;</div><div class="line">    <span class="keyword">var</span> tmp = <span class="function"><span class="keyword">function</span>(<span class="params">b</span>)</span>&#123;</div><div class="line">        sum*=b;</div><div class="line">        <span class="keyword">return</span> tmp;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    tmp.toString = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="keyword">return</span> sum;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> tmp;</div><div class="line">&#125;</div><div class="line">count(<span class="number">1</span>)(<span class="number">3</span>)(<span class="number">7</span>)</div><div class="line">count(<span class="number">1</span>)(<span class="number">3</span>)(<span class="number">7</span>)(<span class="number">8</span>)</div><div class="line">count(<span class="number">1</span>)(<span class="number">3</span>)(<span class="number">7</span>)(<span class="number">8</span>)(<span class="number">10</span>)</div></pre></td></tr></table></figure></p>
 <p><a href="http://www.css88.com/archives/5147" target="_blank" rel="external">参考链接</a></p>
@@ -528,11 +529,15 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">前端面试题</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">前端资源</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">前端面试题</a>
+                <a href="javascript:void(0)" class="js-tag color5">特别关注faces</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -545,10 +550,6 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">atom</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">特别关注faces</a>
               </li>
              
               <li class="article-tag-list-item">
