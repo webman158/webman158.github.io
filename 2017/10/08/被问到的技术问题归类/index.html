@@ -24,7 +24,15 @@
 <meta property="og:image" content="http://biedongda.com/2017/10/08/被问到的技术问题归类/images/model01.jpg">
 <meta property="og:image" content="http://biedongda.com/2017/10/08/被问到的技术问题归类/images/sublime01.png">
 <meta property="og:image" content="http://biedongda.com/2017/10/08/被问到的技术问题归类/images/chrome01.png">
-<meta property="og:updated_time" content="2017-12-08T10:14:53.544Z">
+<meta property="og:image" content="http://biedongda.com/2017/10/08/被问到的技术问题归类/images/02.png">
+<meta property="og:image" content="http://biedongda.com/2017/10/08/被问到的技术问题归类/images/01.png">
+<meta property="og:image" content="http://biedongda.com/2017/10/08/被问到的技术问题归类/images/03.png">
+<meta property="og:image" content="http://biedongda.com/2017/10/08/被问到的技术问题归类/images/05.png">
+<meta property="og:image" content="http://biedongda.com/2017/10/08/被问到的技术问题归类/images/04.png">
+<meta property="og:image" content="http://biedongda.com/2017/10/08/被问到的技术问题归类/images/06.png">
+<meta property="og:image" content="http://biedongda.com/2017/10/08/被问到的技术问题归类/images/07.png">
+<meta property="og:image" content="http://biedongda.com/2017/10/08/被问到的技术问题归类/images/08.png">
+<meta property="og:updated_time" content="2017-12-08T13:36:11.610Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="带班常见技术问题总结">
 <meta name="twitter:description" content="HTML html5的表单pattern属性，使用的时候需要注意下：  MDN文档参考链接   页面一打开就会自动滚动到某个部分  一开始怀疑是不是js代码里面设置了页面滚动距离，但是将页面所有引用的js都注释了，还是会发生该现象。将引用的css文件也注释掉，也还是会发生该现象。于是将页面整体大块大块的删除，具体排除是那部分出了问题。最后排查到是由于表单元素input设置了autofocus属性，">
@@ -280,25 +288,17 @@
 <p>win10 的 Chrome浏览器最小化后被打开会出现黑屏的情况，在设置里面禁用GPU加速(硬件加速)即可，亲测有效<br><img src="/2017/10/08/被问到的技术问题归类/images/chrome01.png" alt="chrome01.png"><br>之后在重启下Chrome即可！</p>
 </blockquote>
 </li>
-<li><p><strong>添加拓展程序失败</strong></p>
+<li><p><strong>Chrome浏览器添加拓展程序失败</strong></p>
 <blockquote>
 <p>将.crx后缀文件拽拽到拓展程序界面，显示<code>该扩展程序未列在 Chrome 网上应用店中，并可能是在您不知情的情况下添加的</code>。解决办法：<br>1、首先把需要安装的第三方插件，后缀.crx 改成 .rar，然后解压，得到一个文件夹<br>2、再打开<code>chrome://extensions/</code>谷歌扩展应用管理，勾上右上角的<code>开发者模式</code>，就可以看到<code>加载已解压的扩展程序</code>这一选项。<br>3、选择刚才步骤1中解压好的文件夹，确定<br>4、确认新增扩展程序，点击添加，成功添加应用程序。</p>
 </blockquote>
 </li>
 <li><p><strong>Chrome浏览器怎么导出已安装的扩展程序(插件)为crx文件?</strong></p>
 <blockquote>
-<p>我们都知道，如今Chrome浏览器的应用商店都打不开，进不去了，需要翻出去才能上。所以对于一些已经安装过的扩展程序（插件）想导出保存一下。因为Chrome默认安装在C盘，怕重装系统后又要重新安装这些插件了。那么，怎么从Chrome浏览器中导出扩展程序为crx文件呢?Chrome其实也自带了这种功能，接下来我们就一起看看具体的操作步骤吧。</p>
+<p>我们都知道，如今Chrome浏览器的应用商店都打不开，进不去了，需要翻出去才能上。所以对于一些已经安装过的扩展程序（插件）想导出保存一下。因为Chrome默认安装在C盘，怕重装系统后又要重新安装这些插件了。那么，怎么从Chrome浏览器中导出扩展程序为crx文件呢?Chrome其实也自带了这种功能，接下来我们就一起看看具体的操作步骤吧。<br>1、打开Chrome浏览器扩展程序页<br>2、找到扩展程序本地电脑上的文件夹目录<br>Chrome安装的扩展程序其实都保存在本地磁盘了。Win10系统下Chrome扩展程序的默认保存目录在：<code>C:\Users\Administrator\AppData\Local\Google\Chrome\User Data\Default\Extensions</code> （其中<code>Administrator</code>为当前系统用户，不同电脑路径视其自己用户名而定）。找到目录后，可以看到目录下有好些都是字母为文件名的文件。<br><img src="/2017/10/08/被问到的技术问题归类/images/02.png" alt="扩展程序页"><br>3、查看需要打包的扩展程序的ID<br>在Chrome的扩展程序页中，可以看到每个安装的扩展的ID（都是唯一的）和版本。版本是很有必要的，比如这个扩展的版本是1.13.4。<br><img src="/2017/10/08/被问到的技术问题归类/images/01.png" alt="扩展程序页"><br>4、找到扩展程序对应的文件夹<br>知道ID和版本号后，再到Extensions目录下查找该ID对应的文件夹。<br>打开文件夹后，找到对应的版本号。也可以看一下文件夹中的文件。<br><img src="/2017/10/08/被问到的技术问题归类/images/03.png" alt="扩展程序页"><br><img src="/2017/10/08/被问到的技术问题归类/images/05.png" alt="扩展程序页"><br>5、打包扩展程序<br>打开扩展程序页中的<code>打包扩展程序</code>按钮<br><img src="/2017/10/08/被问到的技术问题归类/images/04.png" alt="扩展程序页"><br>选择要打包的扩展程序的根目录<br>该扩展程序的根目录就是刚才找到的Chrome的Extensions目录下的该扩展ID目录下的，以版本号为名的文件夹。注意路径中一定要包含版本号的文件夹，注意截图中的部分<br><img src="/2017/10/08/被问到的技术问题归类/images/06.png" alt="扩展程序页"><br>生成打包好的crx文件<br>选择好目录后，最后点击<code>打包扩展程序</code>。打包完成后会提示你打包好的文件位置，其实就是在ID为名的文件夹下。<br><img src="/2017/10/08/被问到的技术问题归类/images/07.png" alt="扩展程序页"><br><img src="/2017/10/08/被问到的技术问题归类/images/08.png" alt="扩展程序页"><br>6、安装扩展程序<br>需要安装扩展程序的时候，直接把.crx的文件拖动到Chrome的扩展程序页上就行。<br>提示你是否要添加，点击添加即可。<br><a href="http://www.jb51.net/softjc/578550.html" target="_blank" rel="external">参考链接</a></p>
 </blockquote>
 </li>
 </ul>
-<ol>
-<li>打开Chrome浏览器扩展程序页<!-- ![扩展程序页](被问到的技术问题归类/images/01.png) --></li>
-<li>找到扩展程序目录<br>Chrome安装的扩展程序其实都保存在本地磁盘了。Win10系统下Chrome扩展程序的默认保存目录在：<code>C:\Users\Administrator\AppData\Local\Google\Chrome\User Data\Default\Extensions</code> （其中<code>Administrator</code>为当前系统用户，不同电脑路径视其自己用户名而定）。找到目录后，可以看到目录下有好些都是n多字母为文件名的文件。<!-- ![扩展程序页](被问到的技术问题归类/images/02.png) --></li>
-<li>查看需要打包的扩展程序的ID<br>在Chrome的扩展程序页中，可以看到每个安装的扩展的ID（都是唯一的）和版本。版本是很有必要的，比如这个扩展的版本是1.13.4。上面扩展程序页图片中的标识。</li>
-<li>找到扩展程序对应的文件夹<br>知道ID和版本号后，再到Extensions目录下查找该ID对应的文件夹。<br>打开文件夹后，找到对应的版本号。也可以看一下文件夹中的文件。</li>
-<li>打包扩展程序<br>打开扩展程序页中的“打包扩展程序”按钮<br>选择要打包的扩展程序的根目录<br>该扩展程序的根目录就是刚才找到的Chrome的Extensions目录下的该扩展ID目录下的，以版本号为名的文件夹。比如这个ID的就是1.13.4。<br>生成打包好的crx文件<br>选择好目录后，最后点击“打包扩展程序”。打包完成后会提示你打包好的文件位置，其实就是在ID为名的文件夹下。</li>
-<li>安装扩展程序<br>需要安装扩展程序的时候，直接把.crx的文件拖动到Chrome的扩展程序页上就行。<br>提示你是否要添加，点击添加即可。<br><a href="http://www.jb51.net/softjc/578550.html" target="_blank" rel="external">参考链接</a></li>
-</ol>
 
       
 
@@ -558,15 +558,15 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ES6</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ES6的学习笔记</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -590,10 +590,6 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">websocket</a>
               </li>
              
@@ -603,6 +599,10 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">上海黑马13期</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
               </li>
              
               <li class="article-tag-list-item">
