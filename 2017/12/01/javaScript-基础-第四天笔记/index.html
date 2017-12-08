@@ -5,17 +5,17 @@
   
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <link rel="dns-prefetch" href="http://www.biedongda.com">
+  <link rel="dns-prefetch" href="http://biedongda.com">
   <title>javaScript-基础-第四天笔记 | 一个学徒的世界</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="前置知识 对象  为什么要有对象1234567function printPerson(name, age, sex....) &amp;#123;&amp;#125;// 函数的参数如果特别多的话，可以使用对象简化function printPerson(person) &amp;#123;  console.log(person.name);  ……&amp;#125;">
 <meta name="keywords" content="JavaScript,JavaScript基础,传智播客教育">
 <meta property="og:type" content="article">
 <meta property="og:title" content="javaScript-基础-第四天笔记">
-<meta property="og:url" content="http://www.biedongda.com/2017/12/01/javaScript-基础-第四天笔记/index.html">
+<meta property="og:url" content="http://biedongda.com/2017/12/01/javaScript-基础-第四天笔记/index.html">
 <meta property="og:site_name" content="一个学徒的世界">
 <meta property="og:description" content="前置知识 对象  为什么要有对象1234567function printPerson(name, age, sex....) &amp;#123;&amp;#125;// 函数的参数如果特别多的话，可以使用对象简化function printPerson(person) &amp;#123;  console.log(person.name);  ……&amp;#125;">
-<meta property="og:updated_time" content="2017-12-05T11:02:36.333Z">
+<meta property="og:updated_time" content="2017-12-07T08:47:34.127Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="javaScript-基础-第四天笔记">
 <meta name="twitter:description" content="前置知识 对象  为什么要有对象1234567function printPerson(name, age, sex....) &amp;#123;&amp;#125;// 函数的参数如果特别多的话，可以使用对象简化function printPerson(person) &amp;#123;  console.log(person.name);  ……&amp;#125;">
@@ -60,8 +60,6 @@
 			<ul>
 			
 				<li><a href="/">主页</a></li>
-	        
-				<li><a href="/2017/05/10/resume/">个人简历</a></li>
 	        
 			</ul>
 		</nav>
@@ -117,8 +115,6 @@
 			
 				
 			
-				
-			
 			
 			
 			<nav class="header-nav">
@@ -137,9 +133,7 @@
 				<ul style="width: 50%">
 				
 				
-					<li style="width: 50%"><a href="/">主页</a></li>
-		        
-					<li style="width: 50%"><a href="/2017/05/10/resume/">个人简历</a></li>
+					<li style="width: 100%"><a href="/">主页</a></li>
 		        
 				</ul>
 			</nav>
@@ -154,27 +148,29 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-javaScript-基础-第四天笔记" class="article article-type-post " itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-            <header class="article-header">
-                
+            <article id="post-javaScript-基础-第四天笔记"
+         class="article article-type-post " itemscope
+         itemprop="blogPost">
+  <div class="article-inner">
+    
+    <header class="article-header">
+      
   
     <h1 class="article-title" itemprop="name">
       javaScript-基础-第四天笔记
     </h1>
   
 
-                    
-                        <a href="/2017/12/01/javaScript-基础-第四天笔记/" class="archive-article-date">
+      
+      <a href="/2017/12/01/javaScript-基础-第四天笔记/" class="archive-article-date">
   	<time datetime="2017-12-01T03:30:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-01</time>
 </a>
-                            
-            </header>
-            
-                <div class="article-entry" itemprop="articleBody">
-                    
-                                        <h2 id="前置知识"><a href="#前置知识" class="headerlink" title="前置知识"></a>前置知识</h2><ol>
+      
+    </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      <h2 id="前置知识"><a href="#前置知识" class="headerlink" title="前置知识"></a>前置知识</h2><ol>
 <li>对象</li>
 </ol>
 <h3 id="为什么要有对象"><a href="#为什么要有对象" class="headerlink" title="为什么要有对象"></a>为什么要有对象</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">printPerson</span>(<span class="params">name, age, sex....</span>) </span>&#123;</div><div class="line">&#125;</div><div class="line"><span class="comment">// 函数的参数如果特别多的话，可以使用对象简化</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">printPerson</span>(<span class="params">person</span>) </span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(person.name);</div><div class="line">  ……</div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -248,18 +244,7 @@
 <h2 id="对象的使用"><a href="#对象的使用" class="headerlink" title="对象的使用"></a>对象的使用</h2><h3 id="遍历对象的属性"><a href="#遍历对象的属性" class="headerlink" title="遍历对象的属性"></a>遍历对象的属性</h3><blockquote>
 <p>通过for..in语法可以遍历一个对象<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> obj = &#123;&#125;;</div><div class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</div><div class="line">  obj[i] = i * <span class="number">2</span>;</div><div class="line">&#125;</div><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> key <span class="keyword">in</span> obj) &#123;</div><div class="line">  <span class="built_in">console</span>.log(key + <span class="string">"=="</span> + obj[key]);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 </blockquote>
-<h3 id="删除对象的属性"><a href="#删除对象的属性" class="headerlink" title="删除对象的属性"></a>删除对象的属性</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Fun</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">this</span>.name = <span class="string">'mm'</span>;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> obj = <span class="keyword">new</span> Fun();</div><div class="line"><span class="built_in">console</span>.log(obj.name); <span class="comment">// mm </span></div><div class="line"><span class="keyword">delete</span> obj.name;</div><div class="line"><span class="built_in">console</span>.log(obj.name); <span class="comment">// undefined</span></div></pre></td></tr></table></figure>
-<p><strong>delete操作符</strong></p>
-<blockquote>
-<p>delete 操作符会从某个对象上移除指定属性。成功删除的时候会返回 true，否则返回 false。但是，重要的是要考虑以下情况：</p>
-<ul>
-<li>如果你删除的属性在对象上不存在，那么delete将不会起作用，但仍会返回true</li>
-<li>如果 delete 操作符删除成功，则被删除的属性将从所属的对象上彻底消失。然后，如果该对象的原型链上有一个同名属性，则该对象会从原型链上继承该同名属性。（也就是说delete操作只会在自身的属性上起作用）</li>
-<li>任何使用 var 声明的属性不能从全局作用域或函数的作用域中删除。这样的话，delete操作不能删除任何在全局作用域中的函数（无论这个函数是来自于函数声明或函数表达式）除了在全局作用域中的函数不能被删除，在对象(object)中的函数是能够用delete操作删除的。</li>
-<li>任何用let或const声明的属性不能够从它被声明的作用域中删除。</li>
-<li>不可设置的(Non-configurable)属性不能被移除。这意味着像Math, Array, Object内置对象的属性以及使用Object.defineProperty()方法设置为不可设置的属性不能被删除。</li>
-</ul>
-</blockquote>
+<h3 id="删除对象的属性"><a href="#删除对象的属性" class="headerlink" title="删除对象的属性"></a>删除对象的属性</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Fun</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">this</span>.name = <span class="string">'mm'</span>;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> obj = <span class="keyword">new</span> Fun();</div><div class="line"><span class="built_in">console</span>.log(obj.name); <span class="comment">// mm </span></div><div class="line"><span class="keyword">delete</span> obj.name;<span class="comment">//delete的相关使用，在本文后续有说明</span></div><div class="line"><span class="built_in">console</span>.log(obj.name); <span class="comment">// undefined</span></div></pre></td></tr></table></figure>
 <h3 id="查看一个对象的类型"><a href="#查看一个对象的类型" class="headerlink" title="查看一个对象的类型"></a>查看一个对象的类型</h3><blockquote>
 <p>typeof 只能判断基本数据类型<br>instanceof 判断对象的具体类型 (使用instanceof判断基本数据类型都是返回false，应为基本数据不是对象)<br>constructor.name也可以获取到对象的具体类型</p>
 </blockquote>
@@ -267,36 +252,63 @@
 <p>JSON(JavaScript Object Notation) 是一种轻量级的数据交换格式，采用完全独立于语言的文本格式，是理想的数据交换格式。同时，JSON是 JavaScript 原生格式，这意味着在 JavaScript 中处理 JSON数据跟处理对象是一样的。<br>JSON对象是任何语言都能认识的<br>json在线校验网站：<a href="http://www.bejson.com/" target="_blank" rel="external">http://www.bejson.com/</a></p>
 </blockquote>
 <p><strong>JSON的属性必须用双引号引号引起来，而对象字面量是可以省略的</strong><br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//对于js对象来说，属性名的双引号是可以省略的。</span></div><div class="line"><span class="keyword">var</span> obj = &#123;</div><div class="line">  name:<span class="string">"zs"</span>,</div><div class="line">  age:<span class="number">18</span>,</div><div class="line">  sex:<span class="string">"男"</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//json对象的属性名必须使用双引号括起来才是合格的json对象</span></div><div class="line"><span class="keyword">var</span> obj = &#123;</div><div class="line">  <span class="string">"name"</span>:<span class="string">"zs"</span>,</div><div class="line">  <span class="string">"age"</span>:<span class="number">18</span>,</div><div class="line">  <span class="string">"sex"</span>:<span class="string">"男"</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//在js中，其实就可以把json当成javascript的对象，因此操作是一样。</span></div></pre></td></tr></table></figure></p>
+<h3 id="对象中常用的运算符"><a href="#对象中常用的运算符" class="headerlink" title="对象中常用的运算符"></a>对象中常用的运算符</h3><p><strong>in 操作符</strong></p>
+<blockquote>
+<p>作用：判断对象能不能访问到某个属性，如果能够访问到那么就返回：true, 否则返回：false<br>语法： 布尔值 = 属性 in 对象, 返回一个布尔值<br>注意：属性用引号引起来，或者是变量值为字符串的属性。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> obj = &#123;</div><div class="line">  name: <span class="string">'congcong'</span>,</div><div class="line">  age: <span class="number">20</span>,</div><div class="line">  gender: <span class="literal">undefined</span></div><div class="line">&#125;;</div><div class="line"><span class="comment">// 任何对象都能够调用 toString() 方法</span></div><div class="line"><span class="comment">// console.log( obj.toString() );</span></div><div class="line"><span class="comment">// console.log( 'toString' in obj ); // true</span></div><div class="line"><span class="comment">// 总结：只要是对象能访问到的属性都返回true，不管是对象自己本身的属性还是原型上的属性</span></div><div class="line"><span class="comment">// console.log( 'name' in obj ); // true</span></div><div class="line"><span class="comment">// console.log( 'name1' in obj ); // false</span></div><div class="line"><span class="comment">// console.log( 'gender' in obj ); // true</span></div><div class="line"><span class="comment">// console.log( gender in obj ); // 报错</span></div></pre></td></tr></table></figure></p>
+<p>应用场景：</p>
+<ul>
+<li><p>判断对象中是否具有指定的属性</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> obj = &#123;</div><div class="line">  name: <span class="string">'丛飞'</span>,</div><div class="line">  age: <span class="number">20</span>,</div><div class="line">  gender: <span class="literal">undefined</span></div><div class="line">&#125;;</div><div class="line"><span class="keyword">if</span>( <span class="string">'gender'</span> <span class="keyword">in</span> obj ) &#123;</div><div class="line">  <span class="built_in">console</span>.log( <span class="string">'对象含有这个属性'</span> )</div><div class="line">&#125; <span class="keyword">else</span> &#123;</div><div class="line">  <span class="built_in">console</span>.log( <span class="string">'没有！'</span> )</div><div class="line">&#125;</div><div class="line"><span class="comment">// 在没有in运算符的时候，只能通过下面这种方式判断</span></div><div class="line"><span class="keyword">if</span>(obj.gender) &#123;&#125;</div><div class="line"><span class="keyword">if</span>(obj.tradfadsfasdf) &#123;&#125;</div><div class="line"><span class="comment">// 这种方式无法区分，属性值为 undefined 的情况！</span></div><div class="line"><span class="comment">// 因为 访问对象中不存在的属性值也为 undefined</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>for in 遍历对象的属性</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> obj = &#123;</div><div class="line">  name: <span class="string">'丛飞'</span>,</div><div class="line">  age: <span class="number">30</span>,</div><div class="line">  gender: <span class="string">'male'</span></div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> k <span class="keyword">in</span> obj) &#123;</div><div class="line">  <span class="comment">// k表示对象属性的名称</span></div><div class="line">  <span class="comment">// console.log(k);</span></div><div class="line">  <span class="comment">// 对象的属性类型为字符串</span></div><div class="line">  <span class="comment">// console.log(typeof k);//string</span></div><div class="line">  <span class="built_in">console</span>.log( obj[k] );</div><div class="line"></div><div class="line">  <span class="comment">// 此处，访问对象的属性不能使用 点运算符！</span></div><div class="line">  <span class="comment">// console.log( obj.k );//这里 .k 代表着是 obj 的属性，obj对象没有k这个属性</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<p><strong>delete 操作符</strong></p>
+<blockquote>
+<p>delete 操作符会从对象上移除指定属性。成功删除的时候会返回 true，否则返回 false。但是，重要的是要考虑以下情况：</p>
+<ul>
+<li>如果你删除的属性在对象上不存在，那么delete将不会起作用，但仍会返回true</li>
+<li>如果 delete 操作符删除成功，则被删除的属性将从所属的对象上彻底消失。然后，如果该对象的原型链上有一个同名属性，则该对象会从原型链上继承该同名属性。（也就是说delete操作只会在自身的属性上起作用）</li>
+<li><p>任何使用 var 声明的变量(属性)不能从全局作用域或函数的作用域中删除。这样的话，delete操作不能删除任何在全局作用域中的函数（无论这个函数是来自于函数声明或函数表达式）除了在全局作用域中的函数不能被删除，在对象(object)中的函数是能够用delete操作删除的。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> obj = &#123;</div><div class="line">  name: <span class="string">'xiaomei'</span></div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="comment">// 将对象obj 中的 name 属性删除！</span></div><div class="line"><span class="keyword">delete</span> obj.name;</div><div class="line"><span class="built_in">console</span>.log(obj);</div><div class="line"></div><div class="line"><span class="comment">// - 删除用var声明的变量 ===&gt; 不起作用，删除不了</span></div><div class="line"><span class="keyword">delete</span> obj;<span class="comment">//true </span></div><div class="line"><span class="built_in">console</span>.log(obj)<span class="comment">//删除这个对象，但是还能打印到，说明删除不起作用</span></div><div class="line"></div><div class="line"><span class="comment">// - 删除没用var声明的全局变量 ===&gt; 起作用，删除成功</span></div><div class="line">obj1 = &#123;&#125;;</div><div class="line"><span class="keyword">delete</span> obj1;</div><div class="line"><span class="built_in">console</span>.log(obj1)<span class="comment">//报错，因为obj1 不存在，已经被删除了</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>任何用let或const声明的属性不能够从它被声明的作用域中删除。</p>
+</li>
+<li>不可设置的(Non-configurable)属性不能被移除。这意味着像Math, Array, Object内置对象的属性以及使用Object.defineProperty()方法设置为不可设置的属性不能被删除。</li>
+</ul>
+</blockquote>
 
-                                            
+      
 
-                                                
-                                                    <div class="page-reward">
-                                                        <a href="javascript:;" class="page-reward-btn tooltip-top">
-                                                            <div class="tooltip tooltip-east">
+      
+      <div class="page-reward">
+        <a href="javascript:;" class="page-reward-btn tooltip-top">
+          <div class="tooltip tooltip-east">
                                                                 <span class="tooltip-item">
               赏
             </span>
-                                                                <span class="tooltip-content">
+            <span class="tooltip-content">
               <span class="tooltip-text">
                 <span class="tooltip-inner">
                   <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i
                       class="icon icon-quo-right"></i></p>
                   <div class="reward-box">
                     
-                                                                
-                                                    </div>
-                                                    </span>
-                                                    </span>
-                                                    </span>
-                </div>
-                </a>
-    </div>
-    
-        </div>
-        <div class="article-info article-info-index">
-            
                     
+                  </div>
+                                                    </span>
+                                                    </span>
+                                                    </span>
+          </div>
+        </a>
+      </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -316,12 +328,12 @@
 		</ul>
 	</div>
 
-                        
+      
 
-                            
+      
 
-                                    
-                                        
+      
+      
 <div class="share-btn share-icons tooltip-left">
   <div class="tooltip tooltip-east">
     <span class="tooltip-item">
@@ -366,18 +378,18 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://www.biedongda.com/2017/12/01/javaScript-基础-第四天笔记/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://biedongda.com/2017/12/01/javaScript-基础-第四天笔记/" alt="微信分享二维码">
     </div>
 </div>
 
 <div class="mask js-mask"></div>
-                                            
-                                                <div class="clearfix"></div>
-        </div>
-        </div>
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
 </article>
 
-    
+
 <nav id="article-nav">
   
     <a href="/2017/12/04/javaScript-基础-第五天笔记/" id="article-nav-newer" class="article-nav-link-wrap">
@@ -397,8 +409,8 @@
   
 </nav>
 
-        
-            <aside class="wrap-side-operation">
+
+<aside class="wrap-side-operation">
     <div class="mod-side-operation">
         
         <div class="jump-container" id="js-jump-container" style="display:none;">
@@ -413,67 +425,30 @@
         
     </div>
 </aside>
-                
-                    
-                                
-                                            
-                                                <div id="SOHUCS" sid="javaScript-基础-第四天笔记" ></div> 
-<script type="text/javascript"> 
-window.YiliaChangyanWrap = function() {
-    var appid = "cytfMAyDI"; 
-    var conf = "prod_c985c594bdbecef408f0105c18383fa9"; 
-    var width = window.innerWidth || document.documentElement.clientWidth; 
-    if (width < 960) { 
-    window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("//changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); }
-}
+
+
+
+
+
+
+<div id="gitment-ctn"></div> 
+<link rel="stylesheet" href="//imsun.github.io/gitment/style/default.css">
+<script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  id: "http://biedongda.com/2017/12/01/javaScript-基础-第四天笔记/",
+  owner: '20714794',
+  repo: 'webman158.github.io',
+  oauth: {
+    client_id: '070993084baddc0b328d',
+    client_secret: '473e286c6e286881326c44f1c962d6c0b6271404',
+  },
+})
+gitment.render('gitment-ctn')
 </script>
-                                                    
 
-                                                        
-                                                            <!--畅言PC和WAP自适应版-->
-                                                            <div id="SOHUCS" sid="javaScript-基础-第四天笔记"></div>
-                                                            <script type="text/javascript">
-                                                                (function() {
-                                                                    var appid = 'cytfMAyDI';
-                                                                    var conf = 'prod_c985c594bdbecef408f0105c18383fa9';
-                                                                    var width = window.innerWidth || document.documentElement.clientWidth;
-                                                                    if (width < 960) {
-                                                                        window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>');
-                                                                    } else {
-                                                                        var loadJs = function(d, a) {
-                                                                            var c = document.getElementsByTagName("head")[0] || document.head || document.documentElement;
-                                                                            var b = document.createElement("script");
-                                                                            b.setAttribute("type", "text/javascript");
-                                                                            b.setAttribute("charset", "UTF-8");
-                                                                            b.setAttribute("src", d);
-                                                                            if (typeof a === "function") {
-                                                                                if (window.attachEvent) {
-                                                                                    b.onreadystatechange = function() {
-                                                                                        var e = b.readyState;
-                                                                                        if (e === "loaded" || e === "complete") {
-                                                                                            b.onreadystatechange = null;
-                                                                                            a()
-                                                                                        }
-                                                                                    }
-                                                                                } else {
-                                                                                    b.onload = a
-                                                                                }
-                                                                            }
-                                                                            c.appendChild(b)
-                                                                        };
-                                                                        loadJs("https://changyan.sohu.com/upload/changyan.js", function() {
-                                                                            window.changyan.api.config({
-                                                                                appid: appid,
-                                                                                conf: conf
-                                                                            })
-                                                                        });
-                                                                    }
-                                                                })();
-                                                            </script>
-                                                            
 
-                                                                
-                                                                            
+
           </div>
         </div>
       </div>
@@ -564,15 +539,23 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Chrome浏览器</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Chrome快捷键</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ES6</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ES6的学习笔记</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -624,15 +607,23 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">前端面试题</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">前端资源</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">前端面试题</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">特别关注faces</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">技术问题</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">黑马13期</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -644,15 +635,15 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">WebStorm</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">atom</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">技术问题</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">黑马13期</a>
               </li>
             
             <div class="clearfix"></div>
