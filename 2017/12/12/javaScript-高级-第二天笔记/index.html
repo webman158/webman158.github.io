@@ -6,18 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://biedongda.com">
-  <title>数组、字符串的常用操作 | 一个学徒的世界</title>
+  <title>javaScript-高级-第二天笔记 | 一个学徒的世界</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="web前端开发，移动端开发是一个很好的工种，希望你能和我携手共进前端职业发展">
+  <meta name="description" content="前置知识 constructor 面向对象特征介绍 JavaScript中的继承 原型链 Object.prototype中的成员  constructor属性 1 每个原型对象都有一个 constructor 属性 2 constructor描述的是创建对象的构造函数  Person.prototype.constructor === Person//true 3 p.constructor =">
+<meta name="keywords" content="JavaScript,传智播客教育,JavaScript高级">
 <meta property="og:type" content="article">
-<meta property="og:title" content="数组、字符串的常用操作">
-<meta property="og:url" content="http://biedongda.com/2017/11/27/数组、字符串的常用操作/index.html">
+<meta property="og:title" content="javaScript-高级-第二天笔记">
+<meta property="og:url" content="http://biedongda.com/2017/12/12/javaScript-高级-第二天笔记/index.html">
 <meta property="og:site_name" content="一个学徒的世界">
-<meta property="og:description" content="web前端开发，移动端开发是一个很好的工种，希望你能和我携手共进前端职业发展">
-<meta property="og:updated_time" content="2017-12-08T10:14:53.537Z">
+<meta property="og:description" content="前置知识 constructor 面向对象特征介绍 JavaScript中的继承 原型链 Object.prototype中的成员  constructor属性 1 每个原型对象都有一个 constructor 属性 2 constructor描述的是创建对象的构造函数  Person.prototype.constructor === Person//true 3 p.constructor =">
+<meta property="og:updated_time" content="2017-12-12T03:16:35.916Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="数组、字符串的常用操作">
-<meta name="twitter:description" content="web前端开发，移动端开发是一个很好的工种，希望你能和我携手共进前端职业发展">
+<meta name="twitter:title" content="javaScript-高级-第二天笔记">
+<meta name="twitter:description" content="前置知识 constructor 面向对象特征介绍 JavaScript中的继承 原型链 Object.prototype中的成员  constructor属性 1 每个原型对象都有一个 constructor 属性 2 constructor描述的是创建对象的构造函数  Person.prototype.constructor === Person//true 3 p.constructor =">
   
     <link rel="alternative" href="/atom.xml" title="一个学徒的世界" type="application/atom+xml">
   
@@ -147,7 +148,7 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-数组、字符串的常用操作"
+            <article id="post-javaScript-高级-第二天笔记"
          class="article article-type-post " itemscope
          itemprop="blogPost">
   <div class="article-inner">
@@ -156,20 +157,72 @@
       
   
     <h1 class="article-title" itemprop="name">
-      数组、字符串的常用操作
+      javaScript-高级-第二天笔记
     </h1>
   
 
       
-      <a href="/2017/11/27/数组、字符串的常用操作/" class="archive-article-date">
-  	<time datetime="2017-11-27T01:01:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-27</time>
+      <a href="/2017/12/12/javaScript-高级-第二天笔记/" class="archive-article-date">
+  	<time datetime="2017-12-12T01:05:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-12</time>
 </a>
       
     </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-      
+      <h2 id="前置知识"><a href="#前置知识" class="headerlink" title="前置知识"></a>前置知识</h2><ol>
+<li>constructor</li>
+<li>面向对象特征介绍</li>
+<li>JavaScript中的继承</li>
+<li>原型链</li>
+<li>Object.prototype中的成员</li>
+</ol>
+<h3 id="constructor属性"><a href="#constructor属性" class="headerlink" title="constructor属性"></a>constructor属性</h3><ul>
+<li>1 每个原型对象都有一个 <code>constructor</code> 属性</li>
+<li>2 constructor描述的是创建对象的构造函数<br>  <code>Person.prototype.constructor === Person</code>//true</li>
+<li>3 <code>p.constructor === Person</code> 结果为true</li>
+<li>4 对象的constructor属性是由构造函数的prototype提供的</li>
+</ul>
+<h3 id="面向对象特征介绍"><a href="#面向对象特征介绍" class="headerlink" title="面向对象特征介绍"></a>面向对象特征介绍</h3><blockquote>
+<p>面向对象的三大特征：封装、继承、 多态（了解）</p>
+</blockquote>
+<h4 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h4><blockquote>
+<p>封装：将复杂的操作包裹起来，让简单的留在外面<br>函数是对 具体过程的封装。<br>对象是对 行为(方法)和数据(属性)的封装。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> name = <span class="string">''</span></div><div class="line"><span class="keyword">var</span> age = <span class="number">19</span>;</div><div class="line"><span class="keyword">var</span> say = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> obj = &#123;</div><div class="line">    name: <span class="string">'xiaoming'</span>,</div><div class="line">    age: <span class="number">19</span>,</div><div class="line">    say: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+</blockquote>
+<h4 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h4><blockquote>
+<p>子类可以使用从父类继承的属性和方法<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</div><div class="line">    string name;</div><div class="line">    <span class="keyword">int</span> age;</div><div class="line">&#125;</div><div class="line"></div><div class="line">class Student : Person &#123; // c#</div><div class="line"><span class="comment">// class Student extends Person &#123; // java</span></div><div class="line">&#125;</div><div class="line"></div><div class="line">Student stu = <span class="keyword">new</span> Student();</div><div class="line">stu.name</div><div class="line"><span class="comment">// 即：让某个类型的对象获得另一个类型的对象的属性的方法</span></div></pre></td></tr></table></figure></p>
+</blockquote>
+<h4 id="多态（基于强类型）-了解"><a href="#多态（基于强类型）-了解" class="headerlink" title="多态（基于强类型） - 了解"></a>多态（基于强类型） - 了解</h4><blockquote>
+<p>javaScript是弱类型语言，js中没有多态的特征<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">把不同的子类对象都当作父类来看，可以屏蔽不同子类对象之间的差异，写出通用的代码，做出通用的编程，以适应需求的不断变化。 </div><div class="line"></div><div class="line">Animal ani = <span class="keyword">new</span> Animal();</div><div class="line">Dog dog = <span class="keyword">new</span> Dog();</div><div class="line">dog.jiao();</div><div class="line">Cat cat = <span class="keyword">new</span> Cat();</div><div class="line">cat.jiao();</div><div class="line"></div><div class="line">Animal dog1 = <span class="keyword">new</span> Dog();</div><div class="line">Animal cat1 = <span class="keyword">new</span> Cat();</div><div class="line"></div><div class="line">动物 animal = <span class="keyword">new</span> 子类(); <span class="comment">// 子类： 麻雀、狗、猫、猪、狐狸...</span></div><div class="line">动物 animal = <span class="keyword">new</span> 狗();</div><div class="line">动物 animal = <span class="keyword">new</span> 猫();</div><div class="line"><span class="comment">// animal.叫();</span></div></pre></td></tr></table></figure></p>
+</blockquote>
+<h3 id="JavaScript中的继承"><a href="#JavaScript中的继承" class="headerlink" title="JavaScript中的继承"></a>JavaScript中的继承</h3><blockquote>
+<p>拿来主义：自己没有，别人有，把别人的拿过来借用或者让其成为自己的<br>实现继承的方式：</p>
+<ul>
+<li>混入继承</li>
+<li>原型继承</li>
+<li>经典继承</li>
+</ul>
+</blockquote>
+<h4 id="混入继承-extend"><a href="#混入继承-extend" class="headerlink" title="混入继承 -extend"></a>混入继承 -extend</h4><blockquote>
+<p>一个对象可以继承自任意多个其他对象，把这个方式称为：混入继承<br>思路：将其他对象中的成员添加到自己身上<br>对象可以继承自任意的对象</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> o1 = &#123;<span class="attr">name</span>:<span class="string">"女娲"</span>, <span class="attr">age</span>: <span class="number">1</span>, <span class="attr">gender</span>: <span class="string">"female"</span>&#125;;</div><div class="line"><span class="keyword">var</span> o2 = &#123;<span class="attr">grade</span>: <span class="string">"三年级二班"</span>, <span class="attr">score</span>: <span class="number">100</span>&#125;;</div><div class="line"></div><div class="line"><span class="comment">// o2 继承 o1</span></div><div class="line"><span class="keyword">for</span> ( <span class="keyword">var</span> k <span class="keyword">in</span> o1 ) &#123;</div><div class="line">    <span class="comment">// 遍历o1对象，将该对象的属性和方法添加一份到o2上</span></div><div class="line">    o2[k] = o1[k];</div><div class="line">&#125;</div><div class="line"><span class="built_in">console</span>.log(o2);<span class="comment">//现在o2继承到了o1对象的属性和方法</span></div><div class="line"></div><div class="line"><span class="comment">// 如果希望 o2 可以继承自任意的对象. 所以为了简化继承的代码</span></div><div class="line"><span class="comment">// 给 o2 提供一个方法, 叫 extend（名字是随意取的，extend有继承、拓展的含义）</span></div><div class="line">o2.extend = <span class="function"><span class="keyword">function</span> (<span class="params">obj</span>) </span>&#123;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> k <span class="keyword">in</span> obj) &#123;</div><div class="line">        <span class="keyword">this</span>[k] = obj[k];</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">o2.extend(o1);  <span class="comment">// o2 继承 o1</span></div></pre></td></tr></table></figure>
+<h4 id="原型继承"><a href="#原型继承" class="headerlink" title="原型继承"></a>原型继承</h4><blockquote>
+<p>如果要让一个对象使用某些属性和方法，可以把它们放到原型对象中，因为对象继承自原型对象，所以对象就可以访问这些属性和方法。把这种继承方式称为：原型继承</p>
+<ul>
+<li>原型继承的3种实现方式<br>1 利用对象的动态特性  添加成员<br>2 覆盖原型对象        添加成员<br>3 利用混入继承        添加成员</li>
+</ul>
+</blockquote>
+<h6 id="利用对象的动态特性"><a href="#利用对象的动态特性" class="headerlink" title="利用对象的动态特性"></a>利用对象的动态特性</h6><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>) </span>&#123;&#125;</div><div class="line"></div><div class="line"><span class="comment">// 将需要的属性、方法添加到原型对象中</span></div><div class="line">Person.prototype.legs = <span class="number">2</span>;</div><div class="line">Person.prototype.sayHi = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;;</div><div class="line"></div><div class="line"><span class="keyword">var</span> p = <span class="keyword">new</span> Person();</div><div class="line"><span class="comment">// 现在实例对象就可以直接访问到原型上的方法或属性</span></div><div class="line">p.sayHi();</div></pre></td></tr></table></figure>
+<h5 id="覆盖原型对象"><a href="#覆盖原型对象" class="headerlink" title="覆盖原型对象"></a>覆盖原型对象</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">Person.prototype = &#123;</div><div class="line">    <span class="comment">// 推荐添加该属性，也可以省略</span></div><div class="line">    <span class="keyword">constructor</span>: Person,</div><div class="line"></div><div class="line">    sayHi: function() &#123;&#125;,</div><div class="line">    sayNo: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;,</div><div class="line">    sayYouAgin: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<h5 id="利用混入继承添加原型成员"><a href="#利用混入继承添加原型成员" class="headerlink" title="利用混入继承添加原型成员"></a>利用混入继承添加原型成员</h5><blockquote>
+<p>给原型对象添加<code>extend</code>方法来拓展原型对象上的对象或是属性</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> obj = &#123;</div><div class="line">    sayHi: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;,</div><div class="line">    sayNo: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;,</div><div class="line">    seeYouAgin: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">Person.prototype.extend = <span class="function"><span class="keyword">function</span>(<span class="params">obj</span>)</span>&#123;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> k <span class="keyword">in</span> obj)&#123;</div><div class="line">        <span class="keyword">this</span>[k] = obj[k];</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">Person.prototype.extend(obj);</div><div class="line"><span class="built_in">console</span>.log(Person.prototype)</div></pre></td></tr></table></figure>
+<h5 id="经典继承-Object-create"><a href="#经典继承-Object-create" class="headerlink" title="经典继承 - Object.create"></a>经典继承 - Object.create</h5><blockquote>
+<p>诠释 继承是什么。<br><a href="http://json.org/json-zh.html" target="_blank" rel="external">JSON的介绍</a><br>ES5提供的方法（IE9+ 开始支持）<br>提出者：Douglas Crockford(道格拉斯 克罗克福德) JSON作者 《js语言精粹》<br>作用：实现继承，即：让一个对象（o2）继承自另外一个对象（o1）<br>var o2 = Object.create( o1 );<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 语法</span></div><div class="line"><span class="keyword">var</span> o1 = &#123; </div><div class="line">    sayHi: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        alert(<span class="string">"hello，i am jj"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">var</span> o2 = <span class="built_in">Object</span>.create(o1);</div><div class="line"><span class="built_in">console</span>.log(o2)</div><div class="line">o2.sayHi();</div></pre></td></tr></table></figure></p>
+</blockquote>
+
       
 
       
@@ -199,6 +252,25 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">传智播客教育</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">JavaScript高级</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -249,7 +321,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://biedongda.com/2017/11/27/数组、字符串的常用操作/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://biedongda.com/2017/12/12/javaScript-高级-第二天笔记/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -263,18 +335,9 @@
 
 <nav id="article-nav">
   
-    <a href="/2017/11/28/javaScript-基础-第一天笔记/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          javaScript-基础-第一天笔记
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/11/22/收集前端面试题/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">收集前端面试题</div>
+    <a href="/2017/12/07/javaScript-高级-第一天笔记/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">javaScript-高级-第一天笔记</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -307,7 +370,7 @@
 <script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
 <script>
 var gitment = new Gitment({
-  id: "http://biedongda.com/2017/11/27/数组、字符串的常用操作/",
+  id: "http://biedongda.com/2017/12/12/javaScript-高级-第二天笔记/",
   owner: 'webman158',
   repo: 'webman158.github.io',
   oauth: {

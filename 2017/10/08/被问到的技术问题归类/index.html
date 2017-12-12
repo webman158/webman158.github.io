@@ -17,7 +17,6 @@
 <meta property="og:description" content="HTML html5的表单pattern属性，使用的时候需要注意下：  MDN文档参考链接   页面一打开就会自动滚动到某个部分  一开始怀疑是不是js代码里面设置了页面滚动距离，但是将页面所有引用的js都注释了，还是会发生该现象。将引用的css文件也注释掉，也还是会发生该现象。于是将页面整体大块大块的删除，具体排除是那部分出了问题。最后排查到是由于表单元素input设置了autofocus属性，">
 <meta property="og:image" content="http://biedongda.com/2017/10/08/被问到的技术问题归类/images/pattern.png">
 <meta property="og:image" content="http://biedongda.com/2017/10/08/被问到的技术问题归类/images/canvas01.png">
-<meta property="og:image" content="http://biedongda.com/2017/10/08/被问到的技术问题归类/images/chrome-debug.png">
 <meta property="og:image" content="http://biedongda.com/2017/10/08/被问到的技术问题归类/images/function01.png">
 <meta property="og:image" content="http://biedongda.com/2017/10/08/被问到的技术问题归类/images/webstrome_codeinput.png">
 <meta property="og:image" content="http://biedongda.com/2017/10/08/被问到的技术问题归类/images/webstrome_ip.png">
@@ -32,7 +31,7 @@
 <meta property="og:image" content="http://biedongda.com/2017/10/08/被问到的技术问题归类/images/06.png">
 <meta property="og:image" content="http://biedongda.com/2017/10/08/被问到的技术问题归类/images/07.png">
 <meta property="og:image" content="http://biedongda.com/2017/10/08/被问到的技术问题归类/images/08.png">
-<meta property="og:updated_time" content="2017-12-08T13:36:11.610Z">
+<meta property="og:updated_time" content="2017-12-12T01:15:44.096Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="带班常见技术问题总结">
 <meta name="twitter:description" content="HTML html5的表单pattern属性，使用的时候需要注意下：  MDN文档参考链接   页面一打开就会自动滚动到某个部分  一开始怀疑是不是js代码里面设置了页面滚动距离，但是将页面所有引用的js都注释了，还是会发生该现象。将引用的css文件也注释掉，也还是会发生该现象。于是将页面整体大块大块的删除，具体排除是那部分出了问题。最后排查到是由于表单元素input设置了autofocus属性，">
@@ -216,26 +215,61 @@
 </li>
 </ul>
 <a id="more"></a>
-<h3 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">##	给元素添加animation.css库动画和元素本身transform样式冲突</div><div class="line">要么修改animation库动画，修改transform的取值，要么元素样式不要用transform</div></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">## background、background-size的设置注意细节</div><div class="line">background: url(../被问到的技术问题归类/images/icons/jd-sprites.png) no-repeat <span class="number">0</span> <span class="number">-110</span>px;</div><div class="line">background-size: <span class="number">200</span>px;</div><div class="line"><span class="comment">//注意两者之间不能调换顺序，因为background包含着background-size属性，放在后面会把background-size覆盖掉</span></div></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">## 注意在引入css文件的时候，一定要加rel="stylesheet" </div><div class="line"><span class="comment">//虽然浏览器引用文件成功,但是就是样式作用不上,亲测用http协议打开和文件协议打开都失败,所以引用CSS文件的时候尤其注意要加rel="stylesheet"</span></div></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">## css里面单冒号和双冒号之间的区别是什么：</div><div class="line"><span class="comment">// :after是伪类（在pc端推荐使用单冒号，兼容IE低版本）</span></div><div class="line"><span class="comment">// ::after是伪元素（更推荐使用）</span></div><div class="line"><span class="comment">// 而且单标签(input/hr/br等)没有伪元素或者伪类</span></div></pre></td></tr></table></figure>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">## fixed是相对于可视区域定位的，不是body</div></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">## 移动端京东轮播图切换导致下面的元素闪烁</div><div class="line"><span class="comment">//Transition动画执行时有可能会出现闪烁的bug</span></div><div class="line"><span class="comment">//解决方法：</span></div><div class="line"><span class="comment">//1、-webkit-backface-visibility: hidden;(设置进行转换的元素的背面在面对用户时是否可见：隐藏)</span></div><div class="line"><span class="comment">//2、-webkit-transform-style: preserve-3d; (设置内嵌的元素在 3D 空间如何呈现：保留 3D)</span></div><div class="line"></div><div class="line"><span class="comment">//需要应用在动画元素上(这一点需要实测印证)</span></div><div class="line"><span class="comment">//第二种方法在低端android上会出现性能问题。所以推荐第一种方法</span></div><div class="line"></div><div class="line"><span class="comment">//更详细博文：Chrome渲染Transition时页面闪动Bug(http://blog.csdn.net/ft6302244/article/details/44939783)</span></div></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">## zindex在父子元素中</div><div class="line"><span class="comment">// 如果父元素设置了定位,那么父元素的zindex值越大,子元素的层级也越高,是没有办法把子元素的层级调整的比父元素还要低的</span></div></pre></td></tr></table></figure>
-<h3 id="JS"><a href="#JS" class="headerlink" title="JS"></a>JS</h3><ul>
-<li><p><strong>变量声明注意点</strong></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a = b = c = <span class="number">10</span>;</div><div class="line"><span class="comment">// 这种声明变量，只有a是var声明的，b和c都成了隐式的全局变量，尤其需要注意</span></div></pre></td></tr></table></figure>
+<h3 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h3><ul>
+<li><p><strong>给元素添加animation.css库动画和元素本身transform样式冲突</strong></p>
+<blockquote>
+<p>要么修改animation库动画，修改transform的取值，要么元素样式不要用transform</p>
+</blockquote>
 </li>
-<li><p><strong>变量声明注意点</strong></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">## 定义变量的时候，变量的名称不要叫： top或self，和window.top/window.self起冲突</div><div class="line">- <span class="built_in">window</span>.top</div><div class="line"><span class="comment">// 如果是直接访问的当前页面，那么 window.top === window</span></div><div class="line"><span class="comment">// 如果当前页面是嵌套在其他页面中的，那么此时，window.top 就不是当前页面的window了</span></div><div class="line"><span class="comment">// 而指向了 最外层的window</span></div><div class="line"><span class="comment">// console.log(window.top === window);</span></div><div class="line"></div><div class="line">- <span class="built_in">window</span>.self</div><div class="line"><span class="comment">// 不管是以什么形式访问的页面，self一直指向了 自身的window</span></div><div class="line"><span class="comment">// console.log(window.self === window);</span></div></pre></td></tr></table></figure>
+<li><p><strong>background、background-size的设置注意细节</strong></p>
+<blockquote>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">background: url(../被问到的技术问题归类/images/icons/jd-sprites.png) no-repeat 0 -110px;</div><div class="line"><span class="selector-tag">background-size</span>: 200<span class="selector-tag">px</span>;</div><div class="line">*注意两者之间不能调换顺序，因为<span class="selector-tag">background</span>包含着<span class="selector-tag">background-size</span>属性，放在后面会把<span class="selector-tag">background-size</span>覆盖掉*</div></pre></td></tr></table></figure>
+</blockquote>
+</li>
+<li><p><strong>注意在引入css文件的时候，一定要加rel=”stylesheet”</strong></p>
+<blockquote>
+<p>虽然浏览器引用文件成功,但是就是样式作用不上,亲测用http协议打开和文件协议打开都失败,所以引用CSS文件的时候尤其注意要加<code>rel=&quot;stylesheet&quot;</code></p>
+</blockquote>
+</li>
+<li><p><strong>css里面单冒号和双冒号之间的区别是什么：</strong></p>
+<blockquote>
+<p><code>:after</code> 是伪类（在pc端推荐使用单冒号，兼容IE低版本）<br><code>::after</code>是伪元素（更推荐使用）<br>单标签(input/hr/br等)没有伪元素或者伪类</p>
+</blockquote>
+</li>
+<li><p><strong>fixed是相对于可视区域定位的，不是body</strong></p>
+<blockquote>
+<p>这一点尤其注意</p>
+</blockquote>
+</li>
+<li><p><strong>移动端京东轮播图切换导致下面的元素闪烁</strong></p>
+<blockquote>
+<p>Transition动画执行时有可能会出现闪烁的bug<br>解决方法：<br>第一种办法：-webkit-backface-visibility: hidden;(设置进行转换的元素的背面在面对用户时是否可见：隐藏)<br>第二种办法：-webkit-transform-style: preserve-3d; (设置内嵌的元素在 3D 空间如何呈现：保留 3D)<br>需要应用在动画元素上(这一点需要实测印证)<br>第二种方法在低端android上会出现性能问题。所以推荐第一种方法<br><a href="http://blog.csdn.net/ft6302244/article/details/44939783" target="_blank" rel="external">更详细博文：Chrome渲染Transition时页面闪动Bug</a></p>
+</blockquote>
+</li>
+<li><p><strong>zindex在父子元素中</strong></p>
+<blockquote>
+<p>如果父元素设置了定位,那么父元素的zindex值越大,子元素的层级也越高,是没有办法把子元素的层级调整的比父元素还要低的</p>
+</blockquote>
 </li>
 </ul>
+<h3 id="JS"><a href="#JS" class="headerlink" title="JS"></a>JS</h3><ul>
+<li><p><strong>变量声明注意点–避免隐式创建全局变量</strong></p>
 <blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">在利用闭包来打印setTimeout的<span class="number">0</span><span class="number">-9</span>的时候，为什么使用断点调试的时候，打印出来的循序不是<span class="number">0</span><span class="number">-9</span>，而是随机的乱的。</div><div class="line">勾选掉下年的<span class="keyword">async</span>选项(异步的意思)</div></pre></td></tr></table></figure>
-<p><a href="http://www.cnblogs.com/w10234/p/5441335.html" target="_blank" rel="external">js断点调试心得参考链接：</a><br>  <img src="/2017/10/08/被问到的技术问题归类/images/chrome-debug.png" alt="chrome断点调试"></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a = b = c = <span class="number">10</span>;</div><div class="line"><span class="comment">// 这种声明变量，只有a是var声明的，b和c都成了隐式的全局变量，尤其需要注意避免这种问题</span></div></pre></td></tr></table></figure>
 </blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">## JS数组中的slice和splice的区别在哪？</div><div class="line">slice是用来返回一个新的数组，splice是用来添加和删除数组中的项</div></pre></td></tr></table></figure>
+</li>
+<li><p><strong>变量声明注意点</strong></p>
+<blockquote>
+<p>定义变量的时候，变量的名称不要叫： <code>top</code>或<code>self</code>，和<code>window.top</code>,<code>window.self</code>起冲突</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">- <span class="built_in">window</span>.top</div><div class="line"><span class="comment">// 如果是直接访问的当前页面，那么 window.top === window</span></div><div class="line"><span class="comment">// 如果当前页面是嵌套在其他页面中的，那么此时，window.top 就不是当前页面的window了</span></div><div class="line"><span class="comment">// 而指向了 最外层的window</span></div><div class="line"><span class="comment">// console.log(window.top === window);</span></div><div class="line"></div><div class="line">- <span class="built_in">window</span>.self</div><div class="line"><span class="comment">// 不管是以什么形式访问的页面，self一直指向了 自身的window</span></div><div class="line"><span class="comment">// console.log(window.self === window);</span></div></pre></td></tr></table></figure>
+</blockquote>
+</li>
+<li><p><strong>在利用闭包来打印setTimeout的0-9的时候，为什么使用断点调试的时候，打印出来的顺序不是0-9，而是随机的乱的。</strong></p>
+<blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++)&#123;</div><div class="line">  setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params">i</span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> (<span class="function"><span class="keyword">function</span>(<span class="params">j</span>)</span>&#123;</div><div class="line">      <span class="built_in">console</span>.log(j)</div><div class="line">    &#125;)(i)</div><div class="line">  &#125;, i*<span class="number">100</span>)</div><div class="line">&#125;</div><div class="line"><span class="string">``</span><span class="string">` </span></div><div class="line"><span class="string">勾选掉下年的async选项(异步的意思)</span></div><div class="line"><span class="string">![chrome断点调试](images/chrome-debug.png)</span></div><div class="line"><span class="string">[js断点调试心得参考链接：](http://www.cnblogs.com/w10234/p/5441335.html)</span></div><div class="line"><span class="string"></span></div><div class="line"><span class="string">`</span><span class="string">``</span>js</div><div class="line">## JS数组中的slice和splice的区别在哪？</div><div class="line">slice是用来返回一个新的数组，splice是用来添加和删除数组中的项</div></pre></td></tr></table></figure>
+</blockquote>
+</li>
+</ul>
 <blockquote>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">## 函数声明能否出现在if等语句中</div><div class="line">函数声明不允许出现在其他语句中（权威指南<span class="number">-168</span>页）</div></pre></td></tr></table></figure>
 <p><img src="/2017/10/08/被问到的技术问题归类/images/function01.png" alt="函数声明不允许出现在其他语句中"></p>
@@ -256,14 +290,35 @@
 </li>
 </ul>
 <h3 id="PHP"><a href="#PHP" class="headerlink" title="PHP"></a>PHP</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="comment">## php中大括号的作用</span></div><div class="line"><span class="number">1.</span> $str&#123;<span class="number">4</span>&#125;在字符串的变量的后面跟上&#123;&#125;,大括号和中括号一样都是把某个字符串变量当成数组处理</div><div class="line"><span class="number">2.</span> &#123;$val&#125;，这时候大括号起的作用就是，告诉PHP，括起来的要当成变量处理。</div><div class="line"></div><div class="line"></div><div class="line">$arr = <span class="keyword">array</span>(</div><div class="line">  <span class="number">0</span> =&gt; <span class="number">123</span>,</div><div class="line">  <span class="string">'name'</span> =&gt; <span class="string">'小猪'</span></div><div class="line">);</div><div class="line"></div><div class="line"><span class="keyword">foreach</span> ($arr <span class="keyword">as</span> $k =&gt; $v) &#123;</div><div class="line">  <span class="keyword">echo</span> <span class="string">"&#123;$arr[$k]&#125;"</span>;</div><div class="line">  <span class="comment">//加一个大括号只是将作为变量的标志符,在双引号中可以加也可以不加</span></div><div class="line">&#125;</div><div class="line"><span class="keyword">echo</span> <span class="string">'&lt;br/ &gt;&lt;br/ &gt;'</span>;</div><div class="line"></div><div class="line"><span class="keyword">foreach</span> ($arr <span class="keyword">as</span> $k =&gt; $v) &#123;</div><div class="line">  <span class="keyword">echo</span> <span class="string">"&#123;&#123;$arr[$k]&#125;&#125;"</span>; <span class="comment">//加两个大括号，外层的将作为普通的字符</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//注意：</span></div><div class="line"><span class="keyword">echo</span> <span class="string">"$arr[name]"</span>;<span class="comment">//小猪</span></div><div class="line"><span class="keyword">echo</span> $arr[<span class="string">'name'</span>];<span class="comment">//小猪</span></div><div class="line"><span class="keyword">echo</span> <span class="string">"&#123;$arr['name']&#125;"</span>;<span class="comment">//小猪,此句正常,大括号内的字符将作为变量来处理</span></div><div class="line"><span class="keyword">echo</span> <span class="string">"$arr['name']"</span>;<span class="comment">//报错</span></div><div class="line"></div><div class="line">$str = <span class="string">'abcdefg'</span>;</div><div class="line"><span class="keyword">echo</span> $str&#123;<span class="number">4</span>&#125;;<span class="comment">//在字符串的变量的后面跟上&#123;&#125;大括号和中括号一样都是把某个字符串变量当成数组处理</span></div></pre></td></tr></table></figure>
-<h3 id="WebStorm"><a href="#WebStorm" class="headerlink" title="WebStorm"></a>WebStorm</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">## 码着代码英文字母突然华丽分家了</div><div class="line">将输入法调整到英文输入状态，然后按Shift(上档)+Space(空格)。</div></pre></td></tr></table></figure>
-<p><img src="/2017/10/08/被问到的技术问题归类/images/webstrome_codeinput.png" alt="码着代码英文字母突然华丽分家了"></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">## WebStorm设置手机测试服务器-局域网内其他设备访问</div><div class="line">参考链接：http:<span class="comment">//blog.sina.com.cn/s/blog_6a8557730102wo0a.html</span></div><div class="line"><span class="comment">//是能设置成功,但是设置成功之后,编辑器卡的都不动了。注意需要在域名后面加上当前文件夹的名称</span></div></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">## 解决webstorm本地IP访问页面出错的问题</div><div class="line">参考链接：http:<span class="comment">//blog.csdn.net/u013934914/article/details/50068229</span></div></pre></td></tr></table></figure>
-<p><img src="/2017/10/08/被问到的技术问题归类/images/webstrome_ip.png" alt="解决webstorm本地IP访问页面出错的问题"></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">## webstorm 提示信息弹框</div><div class="line"><span class="comment">//原因：因为不支持该文件的调试，不要把它引入进来就行了。这个map是用在nodejs中编译的</span></div><div class="line"><span class="comment">//解决办法：找到min.css或者min.js里面,找到带map的链接删掉就好了</span></div></pre></td></tr></table></figure>
-<p><img src="/2017/10/08/被问到的技术问题归类/images/model01.jpg" alt="webstorm 提示弹框"></p>
-<h3 id="PhpStorm"><a href="#PhpStorm" class="headerlink" title="PhpStorm"></a>PhpStorm</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">## 如何破解</div><div class="line"><span class="comment">// 安装和webstorm一样;</span></div><div class="line"><span class="comment">// 直接用浏览器打开 http://idea.lanyus.com/ ，点击页面中的“获得注册码”，然后在注册时切换至Activation Code选项，输入获得的注册码一长串字符串，便可以注册成功了！（推荐用这种方式）</span></div><div class="line"></div><div class="line"><span class="comment">// 特别注意：</span></div><div class="line"><span class="comment">// 1.以上方式需要做这一步：为避免phpstorm联网时注册失效，请将“0.0.0.0 account.jetbrains.com”添加到hosts文件</span></div><div class="line"><span class="comment">// 2.hosts文件目录：C:\Windows\System32\drivers\etc</span></div></pre></td></tr></table></figure>
+<h3 id="WebStorm"><a href="#WebStorm" class="headerlink" title="WebStorm"></a>WebStorm</h3><ul>
+<li><strong>码着代码英文字母突然华丽分家了</strong><blockquote>
+<p>将输入法调整到英文输入状态，然后按Shift(上档)+Space(空格)。<br><img src="/2017/10/08/被问到的技术问题归类/images/webstrome_codeinput.png" alt="参考链接"></p>
+</blockquote>
+</li>
+</ul>
+<ul>
+<li><p><strong>WebStorm设置手机测试服务器-局域网内其他设备访问</strong></p>
+<blockquote>
+<p><a href="http://blog.sina.com.cn/s/blog_6a8557730102wo0a.html" target="_blank" rel="external">参考链接</a><br>是能设置成功,但是设置成功之后,编辑器卡的都不动了。注意需要在域名后面加上当前文件夹的名称</p>
+</blockquote>
+</li>
+<li><p><strong>解决webstorm本地IP访问页面出错的问题</strong></p>
+<blockquote>
+<p><img src="/2017/10/08/被问到的技术问题归类/images/webstrome_ip.png" alt="解决webstorm本地IP访问页面出错的问题"><br><a href="http://blog.csdn.net/u013934914/article/details/50068229" target="_blank" rel="external">参考链接</a></p>
+</blockquote>
+</li>
+<li><p><strong>webstorm 提示信息弹框</strong></p>
+<blockquote>
+<p><img src="/2017/10/08/被问到的技术问题归类/images/model01.jpg" alt="webstorm 提示弹框"><br>原因：因为不支持该文件的调试，不要把它引入进来就行了。这个map是用在nodejs中编译的<br>解决办法：找到min.css或者min.js里面,找到带map的链接删掉就好了</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="PhpStorm"><a href="#PhpStorm" class="headerlink" title="PhpStorm"></a>PhpStorm</h3><ul>
+<li><strong>如何破解</strong><blockquote>
+<p>安装和webstorm一样;<br>直接用浏览器打开 <a href="http://idea.lanyus.com/" target="_blank" rel="external">http://idea.lanyus.com/</a> ，点击页面中的“获得注册码”，然后在注册时切换至<code>Activation Code</code>选项，输入获得的注册码一长串字符串，便可以注册成功了！（推荐用这种方式）<br>特别注意：<br>1.以上方式需要做这一步：为避免phpstorm联网时注册失效，请将<code>0.0.0.0 account.jetbrains.com</code>添加到<code>hosts</code>文件<br>2.hosts文件目录：<code>C:\Windows\System32\drivers\etc</code></p>
+</blockquote>
+</li>
+</ul>
 <h3 id="sublime"><a href="#sublime" class="headerlink" title="sublime"></a>sublime</h3><ul>
 <li><p><strong>sublime3中文文件夹文件名乱码</strong></p>
 <blockquote>
@@ -418,6 +473,11 @@
     </a>
   
   
+    <a href="/2017/10/08/Chrome浏览器常用快捷键整理/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Chrome浏览器常用快捷键整理</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
 </nav>
 
 
@@ -562,14 +622,6 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ES6</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ES6的学习笔记</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
               </li>
              
@@ -582,11 +634,23 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ES6</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ES6的学习笔记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">JavaScript高级</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">vue</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -599,10 +663,6 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">上海黑马13期</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
               </li>
              
               <li class="article-tag-list-item">

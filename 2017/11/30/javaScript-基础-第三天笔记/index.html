@@ -17,7 +17,7 @@
 <meta property="og:description" content="前置知识 数组的相关知识 函数的相关知识  数组为什么要学习数组 之前学习的数据类型，只能存储一个值(比如：Number/String。我们想存储班级中所有学生的姓名，此时该如何存储？">
 <meta property="og:image" content="http://biedongda.com/2017/11/30/javaScript-基础-第三天笔记/media/06-1.png">
 <meta property="og:image" content="http://biedongda.com/2017/11/30/javaScript-基础-第三天笔记/media/06-2.png">
-<meta property="og:updated_time" content="2017-12-08T10:14:53.500Z">
+<meta property="og:updated_time" content="2017-12-11T01:10:10.452Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="javaScript-基础-第三天笔记">
 <meta name="twitter:description" content="前置知识 数组的相关知识 函数的相关知识  数组为什么要学习数组 之前学习的数据类型，只能存储一个值(比如：Number/String。我们想存储班级中所有学生的姓名，此时该如何存储？">
@@ -269,7 +269,12 @@
 <li>如果实参的个数少于形参的个数，缺少的实参是undefined。</li>
 </ul>
 </li>
-<li>形参仅仅起到占位的作用，它最终会被实参替换掉，实际上就是将实参的值赋值给形参<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//带参数的函数声明</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params">a, b</span>) </span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(a + b);</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> x = <span class="number">5</span>, y = <span class="number">6</span>;</div><div class="line">fn(x,y);</div><div class="line"><span class="comment">//x,y实参，有具体的值。函数执行的时候会把x,y复制一份给函数内部的a和b，函数内部的值是复制的新值，无法修改外部的x,y</span></div></pre></td></tr></table></figure>
+<li>形参仅仅起到占位的作用，它最终会被实参替换掉，实际上就是将实参的值赋值给形参<ul>
+<li>函数调用时不传入参数，则函数内部获取参数的值为：undefined</li>
+</ul>
+</li>
+<li>函数的实参和形参一一对应，顺序不能颠倒</li>
+<li>把函数参数看作是局部变量，只能在函数内部使用<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//带参数的函数声明</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params">a, b</span>) </span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(a + b);</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> x = <span class="number">5</span>, y = <span class="number">6</span>;</div><div class="line">fn(x,y);</div><div class="line"><span class="comment">//x,y实参，有具体的值。函数执行的时候会把x,y复制一份给函数内部的a和b，函数内部的值是复制的新值，无法修改外部的x,y</span></div></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
@@ -293,6 +298,10 @@
 <li>如果函数没有显示的使用 return语句 ，那么函数有默认的返回值：undefined</li>
 <li>如果函数使用 return语句，那么跟再return后面的值，就成了函数的返回值</li>
 <li>如果函数使用 return语句，但是return后面没有任何值，那么函数的返回值也是：undefined</li>
+<li><ul>
+<li>函数的返回值可以是任意类型</li>
+</ul>
+</li>
 <li>函数使用return语句后，这个函数会在执行完 return 语句之后停止并立即退出(此时的作用就是结束函数的调用)，也就是说return后面的所有其他代码都不会再执行。</li>
 <li>推荐的做法是要么让函数始终都返回一个值，要么永远都不要返回值。</li>
 </ul>
@@ -712,14 +721,6 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ES6</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ES6的学习笔记</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
               </li>
              
@@ -732,11 +733,23 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ES6</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ES6的学习笔记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">JavaScript高级</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">vue</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -749,10 +762,6 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">上海黑马13期</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
               </li>
              
               <li class="article-tag-list-item">
