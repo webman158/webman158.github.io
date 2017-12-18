@@ -6,37 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://biedongda.com">
-  <title>带班常见技术问题总结 | 一个学徒的世界</title>
+  <title>javaScript-高级-第四天笔记 | 一个学徒的世界</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="HTML html5的表单pattern属性，使用的时候需要注意下：  MDN文档参考链接   页面一打开就会自动滚动到某个部分  一开始怀疑是不是js代码里面设置了页面滚动距离，但是将页面所有引用的js都注释了，还是会发生该现象。将引用的css文件也注释掉，也还是会发生该现象。于是将页面整体大块大块的删除，具体排除是那部分出了问题。最后排查到是由于表单元素input设置了autofocus属性，">
-<meta name="keywords" content="技术问题,黑马13期">
+  <meta name="description" content="前置知识 词法作用域 变量提升和函数提升（hoisting） 作用域链 函数名和变量名同名的问题 理解闭包 沙箱模式">
+<meta name="keywords" content="JavaScript,传智播客教育,JavaScript高级">
 <meta property="og:type" content="article">
-<meta property="og:title" content="带班常见技术问题总结">
-<meta property="og:url" content="http://biedongda.com/2017/10/08/被问到的技术问题归类/index.html">
+<meta property="og:title" content="javaScript-高级-第四天笔记">
+<meta property="og:url" content="http://biedongda.com/2017/12/14/javaScript-高级-第四天笔记/index.html">
 <meta property="og:site_name" content="一个学徒的世界">
-<meta property="og:description" content="HTML html5的表单pattern属性，使用的时候需要注意下：  MDN文档参考链接   页面一打开就会自动滚动到某个部分  一开始怀疑是不是js代码里面设置了页面滚动距离，但是将页面所有引用的js都注释了，还是会发生该现象。将引用的css文件也注释掉，也还是会发生该现象。于是将页面整体大块大块的删除，具体排除是那部分出了问题。最后排查到是由于表单元素input设置了autofocus属性，">
-<meta property="og:image" content="http://biedongda.com/2017/10/08/被问到的技术问题归类/images/pattern.png">
-<meta property="og:image" content="http://biedongda.com/2017/10/08/被问到的技术问题归类/images/canvas01.png">
-<meta property="og:image" content="http://biedongda.com/2017/10/08/被问到的技术问题归类/images/chrome-debug.png">
-<meta property="og:image" content="http://biedongda.com/2017/10/08/被问到的技术问题归类/images/function01.png">
-<meta property="og:image" content="http://biedongda.com/2017/10/08/被问到的技术问题归类/images/webstrome_codeinput.png">
-<meta property="og:image" content="http://biedongda.com/2017/10/08/被问到的技术问题归类/images/webstrome_ip.png">
-<meta property="og:image" content="http://biedongda.com/2017/10/08/被问到的技术问题归类/images/model01.jpg">
-<meta property="og:image" content="http://biedongda.com/2017/10/08/被问到的技术问题归类/images/sublime01.png">
-<meta property="og:image" content="http://biedongda.com/2017/10/08/被问到的技术问题归类/images/chrome01.png">
-<meta property="og:image" content="http://biedongda.com/2017/10/08/被问到的技术问题归类/images/02.png">
-<meta property="og:image" content="http://biedongda.com/2017/10/08/被问到的技术问题归类/images/01.png">
-<meta property="og:image" content="http://biedongda.com/2017/10/08/被问到的技术问题归类/images/03.png">
-<meta property="og:image" content="http://biedongda.com/2017/10/08/被问到的技术问题归类/images/05.png">
-<meta property="og:image" content="http://biedongda.com/2017/10/08/被问到的技术问题归类/images/04.png">
-<meta property="og:image" content="http://biedongda.com/2017/10/08/被问到的技术问题归类/images/06.png">
-<meta property="og:image" content="http://biedongda.com/2017/10/08/被问到的技术问题归类/images/07.png">
-<meta property="og:image" content="http://biedongda.com/2017/10/08/被问到的技术问题归类/images/08.png">
-<meta property="og:updated_time" content="2017-12-18T01:45:27.136Z">
+<meta property="og:description" content="前置知识 词法作用域 变量提升和函数提升（hoisting） 作用域链 函数名和变量名同名的问题 理解闭包 沙箱模式">
+<meta property="og:updated_time" content="2017-12-15T13:38:13.957Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="带班常见技术问题总结">
-<meta name="twitter:description" content="HTML html5的表单pattern属性，使用的时候需要注意下：  MDN文档参考链接   页面一打开就会自动滚动到某个部分  一开始怀疑是不是js代码里面设置了页面滚动距离，但是将页面所有引用的js都注释了，还是会发生该现象。将引用的css文件也注释掉，也还是会发生该现象。于是将页面整体大块大块的删除，具体排除是那部分出了问题。最后排查到是由于表单元素input设置了autofocus属性，">
-<meta name="twitter:image" content="http://biedongda.com/2017/10/08/被问到的技术问题归类/images/pattern.png">
+<meta name="twitter:title" content="javaScript-高级-第四天笔记">
+<meta name="twitter:description" content="前置知识 词法作用域 变量提升和函数提升（hoisting） 作用域链 函数名和变量名同名的问题 理解闭包 沙箱模式">
   
     <link rel="alternative" href="/atom.xml" title="一个学徒的世界" type="application/atom+xml">
   
@@ -166,7 +148,7 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-被问到的技术问题归类"
+            <article id="post-javaScript-高级-第四天笔记"
          class="article article-type-post " itemscope
          itemprop="blogPost">
   <div class="article-inner">
@@ -175,221 +157,146 @@
       
   
     <h1 class="article-title" itemprop="name">
-      带班常见技术问题总结
+      javaScript-高级-第四天笔记
     </h1>
   
 
       
-      <a href="/2017/10/08/被问到的技术问题归类/" class="archive-article-date">
-  	<time datetime="2017-10-08T11:17:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-08</time>
+      <a href="/2017/12/14/javaScript-高级-第四天笔记/" class="archive-article-date">
+  	<time datetime="2017-12-14T06:11:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-14</time>
 </a>
       
     </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-      <h3 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h3><ul>
-<li><p><strong>html5的表单pattern属性，使用的时候需要注意下：</strong></p>
-<blockquote>
-<p><img src="/2017/10/08/被问到的技术问题归类/images/pattern.png" alt="html5的表单pattern属性，使用的时候需要注意下："><br><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/Input" target="_blank" rel="external">MDN文档参考链接</a></p>
-</blockquote>
-</li>
-<li><p><strong>页面一打开就会自动滚动到某个部分</strong></p>
-<blockquote>
-<p>一开始怀疑是不是js代码里面设置了页面滚动距离，但是将页面所有引用的js都注释了，还是会发生该现象。将引用的css文件也注释掉，也还是会发生该现象。于是将页面整体大块大块的删除，具体排除是那部分出了问题。<br>最后排查到是由于表单元素<code>input</code>设置了<code>autofocus</code>属性，输入框自动获取焦点页面就会滚动到光标所在处<br>（在jQuery项目阶段，有学员做过这样的事情，由于表单元素隐藏在很多元素中，没有注意到光标的闪烁在表单中，而且pc端光标聚焦了不像移动端键盘会自动弹出，所以一开始是真的没注意到。）</p>
-</blockquote>
-</li>
-<li><p><strong>canvas获取文字大小</strong></p>
-<blockquote>
-<p>在canvas中通过<code>measureText</code>方法获取文字的大小，注意将font的设置字体大小和字体样式放在获取文字宽度之前，否则获取的宽度是按照文字的初始大小来计算的<br><img src="/2017/10/08/被问到的技术问题归类/images/canvas01.png" alt="canvas获取文字大小"></p>
-</blockquote>
-</li>
-<li><p><strong>canvas引入外部资源</strong></p>
-<blockquote>
-<p>在canvas中引入视频，用服务器协议打开页面发现在canvas的画布中没有出现引用的视频，但是用文件协议打开却可以。</p>
-</blockquote>
-</li>
-<li><p><strong>HTML5 自定义属性data-*使用注意：</strong></p>
-<blockquote>
-<p>1.HTML5的自定义属性data-xxx不能使用大写字母,不论大写位置在哪，都是不行,浏览器默认会转成小写的,在浏览器Element面板中注意节点data-*的信息,所以在JS获取的时候，注意都是小写的。<br>2.当data-my-name=”itcast” 这样设置格式时，则需要以驼峰格式才能正确获取,获取Node.dataset[‘myName’]</p>
-</blockquote>
-</li>
-</ul>
+      <h2 id="前置知识"><a href="#前置知识" class="headerlink" title="前置知识"></a>前置知识</h2><ol>
+<li>词法作用域</li>
+<li>变量提升和函数提升（hoisting）</li>
+<li>作用域链</li>
+<li>函数名和变量名同名的问题</li>
+<li>理解闭包</li>
+<li>沙箱模式</li>
+</ol>
 <a id="more"></a>
-<h3 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h3><ul>
-<li><p><strong>给元素添加animation.css库动画和元素本身transform样式冲突</strong></p>
-<blockquote>
-<p>要么修改animation库动画，修改transform的取值，要么元素样式不要用transform</p>
+<h3 id="什么是作用域"><a href="#什么是作用域" class="headerlink" title="什么是作用域"></a>什么是作用域</h3><blockquote>
+<p>作用域，即 变量起作用的区域。<br>变量定义后，可以在哪个范围内使用该变量</p>
 </blockquote>
-</li>
-<li><p><strong>background、background-size的设置注意细节</strong></p>
-<blockquote>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">background: url(../被问到的技术问题归类/images/icons/jd-sprites.png) no-repeat 0 -110px;</div><div class="line"><span class="selector-tag">background-size</span>: 200<span class="selector-tag">px</span>;</div><div class="line">*注意两者之间不能调换顺序，因为<span class="selector-tag">background</span>包含着<span class="selector-tag">background-size</span>属性，放在后面会把<span class="selector-tag">background-size</span>覆盖掉*</div></pre></td></tr></table></figure>
-</blockquote>
-</li>
-<li><p><strong>注意在引入css文件的时候，一定要加rel=”stylesheet”</strong></p>
-<blockquote>
-<p>虽然浏览器引用文件成功,但是就是样式作用不上,亲测用http协议打开和文件协议打开都失败,所以引用CSS文件的时候尤其注意要加<code>rel=&quot;stylesheet&quot;</code></p>
-</blockquote>
-</li>
-<li><p><strong>css里面单冒号和双冒号之间的区别是什么：</strong></p>
-<blockquote>
-<p><code>:after</code> 是伪类（在pc端推荐使用单冒号，兼容IE低版本）<br><code>::after</code>是伪元素（更推荐使用）<br>单标签(input/hr/br等)没有伪元素或者伪类</p>
-</blockquote>
-</li>
-<li><p><strong>fixed是相对于可视区域定位的，不是body</strong></p>
-<blockquote>
-<p>这一点尤其注意</p>
-</blockquote>
-</li>
-<li><p><strong>移动端京东轮播图切换导致下面的元素闪烁</strong></p>
-<blockquote>
-<p>Transition动画执行时有可能会出现闪烁的bug<br>解决方法：<br>第一种办法：-webkit-backface-visibility: hidden;(设置进行转换的元素的背面在面对用户时是否可见：隐藏)<br>第二种办法：-webkit-transform-style: preserve-3d; (设置内嵌的元素在 3D 空间如何呈现：保留 3D)<br>需要应用在动画元素上(这一点需要实测印证)<br>第二种方法在低端android上会出现性能问题。所以推荐第一种方法<br><a href="http://blog.csdn.net/ft6302244/article/details/44939783" target="_blank" rel="external">更详细博文：Chrome渲染Transition时页面闪动Bug</a></p>
-</blockquote>
-</li>
-<li><p><strong>zindex在父子元素中</strong></p>
-<blockquote>
-<p>如果父元素设置了定位,那么父元素的zindex值越大,子元素的层级也越高,是没有办法把子元素的层级调整的比父元素还要低的</p>
-</blockquote>
-</li>
-</ul>
-<h3 id="JS"><a href="#JS" class="headerlink" title="JS"></a>JS</h3><ul>
-<li><p><strong>变量声明注意点–避免隐式创建全局变量</strong></p>
-<blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a = b = c = <span class="number">10</span>;</div><div class="line"><span class="comment">// 这种声明变量，只有a是var声明的，b和c都成了隐式的全局变量，尤其需要注意避免这种问题</span></div></pre></td></tr></table></figure>
-</blockquote>
-</li>
-<li><p><strong>变量声明注意点</strong></p>
-<blockquote>
-<p>定义变量的时候，变量的名称不要叫： <code>top</code>或<code>self</code>，和<code>window.top</code>,<code>window.self</code>起冲突</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">- <span class="built_in">window</span>.top</div><div class="line"><span class="comment">// 如果是直接访问的当前页面，那么 window.top === window</span></div><div class="line"><span class="comment">// 如果当前页面是嵌套在其他页面中的，那么此时，window.top 就不是当前页面的window了</span></div><div class="line"><span class="comment">// 而指向了 最外层的window</span></div><div class="line"><span class="comment">// console.log(window.top === window);</span></div><div class="line"></div><div class="line">- <span class="built_in">window</span>.self</div><div class="line"><span class="comment">// 不管是以什么形式访问的页面，self一直指向了 自身的window</span></div><div class="line"><span class="comment">// console.log(window.self === window);</span></div></pre></td></tr></table></figure>
-</blockquote>
-</li>
-<li><p><strong>在使用闭包没延时一秒（setTimeout）来打印0-9的时候，为什么使用断点调试的时候，打印出来的顺序不是0-9，而是随机的乱的。</strong></p>
-<blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</div><div class="line">    (<span class="function"><span class="keyword">function</span>(<span class="params">j</span>) </span>&#123;</div><div class="line">        setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">                <span class="built_in">console</span>.log(j)</div><div class="line">        &#125;, j * <span class="number">1000</span>)</div><div class="line">    &#125;)(i)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</blockquote>
-</li>
-</ul>
-<blockquote>
-<p>勾选掉下年的async选项(异步的意思，好像新版本的谷歌浏览器已经没有该选项了)<br><img src="/2017/10/08/被问到的技术问题归类/images/chrome-debug.png" alt="chrome断点调试"><br><a href="http://www.cnblogs.com/w10234/p/5441335.html" target="_blank" rel="external">js断点调试心得参考链接：</a></p>
+<h4 id="两种作用域"><a href="#两种作用域" class="headerlink" title="两种作用域"></a>两种作用域</h4><blockquote>
+<p>块级作用域（JavaScript不支持）<br>词法作用域</p>
 </blockquote>
 <ul>
-<li><p><strong>函数声明能否出现在if、switch、for等语句中</strong></p>
+<li><p>块级作用域：</p>
 <blockquote>
-<p>函数声明不允许出现在其他语句中（权威指南-168页）<br><img src="/2017/10/08/被问到的技术问题归类/images/function01.png" alt="函数声明不允许出现在其他语句中"></p>
+<p>用一个块（代码块）结构限制变量的访问区域。<br>即，块内的每一段代码都有各自的作用域，变量在声明它们的代码段之外是不可见的。<br>代表语言: C 语言( C系，如：Java、Object-C、C#)</p>
 </blockquote>
 </li>
-<li><p><strong>window.onload 到底是什么时候触发执行？</strong></p>
+<li><p>词法作用域 （函数作用域）</p>
 <blockquote>
-<p>在文档装载完成后会触发 load 事件。此时，在文档中的所有对象都在DOM中，<strong>所有图片</strong>，<strong>脚本</strong>，<strong>链接以及子框</strong>都完成了装载。<br>● window.onload 方法会将文档中所有的元素加载完毕并且所有的外部文件加载完毕后执行<br>● window.onload 只能有一个，如果出现多个最后一个会覆盖前面的所有函数。<br><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/GlobalEventHandlers/onload" target="_blank" rel="external">MDN参考链接</a></p>
-</blockquote>
-</li>
-<li><p><strong>函数构造法的问题</strong></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> name=<span class="string">'xiaoming'</span>;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">fun</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="keyword">var</span> name=<span class="string">'xiaohong'</span>;</div><div class="line">  <span class="comment">// 所有的参数都是字符串模式，只有一个参数的情况，参数就是函数体</span></div><div class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Function</span>(<span class="string">'return name'</span>);<span class="comment">//不能获取局部变量</span></div><div class="line">&#125;</div><div class="line"><span class="built_in">console</span>.log(fun()());<span class="comment">//xiaoming</span></div><div class="line"><span class="comment">//1. Function()构造函数每次执行时都会解析函数主体，并创建一个新的函数对象，所以当在一个循环或频繁执行的函数中调用Function()构造函数效率是非常低的。而函数字面量却不是每次遇到都会重新编译的，用Function()构造函数创建一个函数时并不遵循典型的作用域，它一直把它当作是顶级函数来执行。它只有自身作用域以及全局作用域。</span></div><div class="line"><span class="comment">//2. 构造函数没有参数的情况,括号可以省略</span></div></pre></td></tr></table></figure>
-</li>
-<li><p><strong>return false</strong></p>
-<blockquote>
-<p>● 在原生js中，只能做到阻止事件的默认行为（e.preventDefault）<br>● 在jQuery中return false 被封装成可以阻止事件冒泡和事件的默认行为</p>
-</blockquote>
-</li>
-<li><p><strong>js给元素做动画</strong></p>
-<blockquote>
-<p>触发事件写在父盒子上,动画可以作用于子元素，这样动画不会和事件牵扯在一起，不会有什么卡顿的现象</p>
-</blockquote>
-</li>
-<li><p><strong>mouseover和mouseenter的区别</strong></p>
-<blockquote>
-<p>● mouseover：鼠标经过事件<br>● mouseout:鼠标离开事件<br>● mouseenter:鼠标进入事件<br>● mouseleave：鼠标离开事件<br>总结：<br>不论鼠标指针穿过被选元素或其子元素，都会触发 mouseover 事件。对应mouseout<br>只有在鼠标指针穿过被选元素时，才会触发 mouseenter 事件。对应mouseleave<br>mouseenter子元素不会反复触发事件(尤其是注意在IE上经常有闪烁情况发生,是不是注册了mouseover事件)<br><a href="http://blog.csdn.net/ocean1010/article/details/7394599" target="_blank" rel="external">原文链接：</a> (附带demo)</p>
-</blockquote>
-</li>
-<li><p><strong>注册事件on、addEventListen注意点</strong></p>
-<blockquote>
-<p>在事件中绑定事件，注意不要用 <code>addEventListener</code> 或者 <code>jQuery的on</code> 事件来 绑定，当事件多次触发的时候，会注册多次事件.</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">document</span>.body.onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="comment">// 页面上有一个button按钮</span></div><div class="line">    <span class="comment">// 现在是把按钮的点击事件绑定在了body</span></div><div class="line">    <span class="built_in">document</span>.querySelectorAll(<span class="string">'button'</span>)[<span class="number">0</span>].addEventListener(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</div><div class="line">      alert(<span class="number">1</span>)</div><div class="line">    &#125;)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</blockquote>
-</li>
-<li><p><strong>AJAX</strong></p>
-<blockquote>
-<p>ajax,get请求异步有缓存<br>在IE中用ajax的get方式请求同一个地址获取数据时，经常碰到回调函数成功执行，前台又有数据的情况，但是无法请求到后台获得最新的数据。<br>原因是ajax存在异步缓存的问题<br>因为ajax本身自带有实时异步请求的功能，而IE缓存导致请求时不会请求后台，会直接读取缓存的数据。<br>解决办法：<a href="http://blog.csdn.net/commandbaby/article/details/51566881" target="_blank" rel="external">参考链接</a><br>第一种：jquery get请求时比较简单 只需将cache设置为false就好</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">$.ajax(&#123;  </div><div class="line">  type: <span class="string">'get'</span>,<span class="comment">//get请求时  </span></div><div class="line">  url: <span class="string">'........'</span>,  </div><div class="line">  cache: <span class="literal">false</span>,<span class="comment">//不缓存  </span></div><div class="line">  data: &#123; &#125;,  </div><div class="line">  success: <span class="function"><span class="keyword">function</span> (<span class="params">result</span>) </span>&#123;  </div><div class="line">    <span class="comment">//</span></div><div class="line">  &#125;  </div><div class="line">&#125;);  </div><div class="line"></div><div class="line"><span class="comment">//第二种：$.get();时 设置一个参数为随机数tempPara: Math.random() 或者获取当前时间new Date().getTime()</span></div><div class="line">$.get(<span class="string">'...........'</span>, &#123; <span class="attr">tempPara</span>: <span class="built_in">Math</span>.random() &#125;, <span class="function"><span class="keyword">function</span> (<span class="params">result</span>) </span>&#123;  </div><div class="line">  <span class="comment">//  </span></div><div class="line">&#125;);</div><div class="line"><span class="comment">//总结：因为请求同一个地址会直接读取缓存，所以可以在参数中加一个随机数或者当前时间戳, 让每次参数不一样就好</span></div></pre></td></tr></table></figure>
+<p>概念：<br>  变量的作用范围, 在书写代码的时候就已经决定, 与运行时无关。<br>  函数在定义它们的作用域中运行，而不是在调用它们的作用域里运行<br>JavaScript中只有函数才能形成作用域，因此也叫做函数作用域<br>在函数内部定义的变量，在函数外部无法访问到<br>在函数内部能够访问到函数外部声明的变量，但是在外部无法访问到内部函数的变量<br><em>面试题</em></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// </span></div><div class="line"><span class="keyword">var</span> num = <span class="number">123</span>;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(num); <span class="comment">// 123</span></div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">f2</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> num = <span class="number">456</span>;</div><div class="line">    <span class="comment">// 函数是在定义他们的作用域中运行的，所以f1回到定义的全局作用域去执行代码</span></div><div class="line">    f1();</div><div class="line">&#125;</div><div class="line">f2();</div><div class="line"></div><div class="line"><span class="comment">// 1</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> num = <span class="number">123</span>;</div><div class="line">    <span class="built_in">console</span>.log(num);  <span class="comment">// 123</span></div><div class="line">&#125;</div><div class="line">foo();</div><div class="line"><span class="built_in">console</span>.log(num); <span class="comment">// 报错</span></div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">// 2</span></div><div class="line"><span class="keyword">var</span> scope = <span class="string">"global"</span>;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(scope); <span class="comment">// undefined</span></div><div class="line">    <span class="keyword">var</span> scope = <span class="string">"local"</span>;</div><div class="line">    <span class="built_in">console</span>.log(scope); <span class="comment">// local</span></div><div class="line">&#125;</div><div class="line">foo();</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">// 3</span></div><div class="line"><span class="comment">// 声明的全局变量相当于 window 的属性</span></div><div class="line"><span class="keyword">if</span>(<span class="string">"a"</span> <span class="keyword">in</span> <span class="built_in">window</span>)&#123;</div><div class="line">    <span class="keyword">var</span> a = <span class="number">10</span>;</div><div class="line">&#125;</div><div class="line">alert(a); <span class="comment">// 10</span></div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">// 变体</span></div><div class="line"><span class="keyword">if</span>(!<span class="string">"a"</span> <span class="keyword">in</span> <span class="built_in">window</span>)&#123;</div><div class="line">    <span class="keyword">var</span> a = <span class="number">10</span>;</div><div class="line">&#125;</div><div class="line">alert(a); <span class="comment">// undefined</span></div><div class="line"></div><div class="line"><span class="comment">// 变体</span></div><div class="line"><span class="keyword">if</span>(!(<span class="string">"a"</span> <span class="keyword">in</span> <span class="built_in">window</span>))&#123;</div><div class="line">    <span class="keyword">var</span> a = <span class="number">10</span>;</div><div class="line">&#125;</div><div class="line">alert(a); <span class="comment">// undefined</span></div><div class="line"></div><div class="line"><span class="comment">// 4</span></div><div class="line"><span class="keyword">var</span> foo = <span class="number">1</span>;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">bar</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">if</span>(!foo) &#123;</div><div class="line">        <span class="keyword">var</span> foo = <span class="number">10</span>;</div><div class="line">    &#125;</div><div class="line">    alert(foo); <span class="comment">// 10</span></div><div class="line">&#125;</div><div class="line">bar();</div></pre></td></tr></table></figure>
 </blockquote>
 </li>
 </ul>
-<h3 id="JQ"><a href="#JQ" class="headerlink" title="JQ"></a>JQ</h3><ul>
-<li><p><strong>jquery的hover方法无法自动调用实现</strong></p>
 <blockquote>
-<p>jquery的hover方法无法自动调用实现，也无法trigger到hover，但是可以将hover修改为mouseenter/mouseleave/mouseover/mouseout事件来代替实现</p>
+<p>总结作用域：<br>  1 只看函数是在哪个环境中被创建的，而不管函数是在哪个环境中调用的<br>      不管在哪个环境中调用，最终都要回到创建它的环境中执行！(重要)<br>  2 变量（包括函数）的查找是从当前环境开始的<br>  在作用域链 或者 原型链中的同名的属性，会被“覆盖”,同名的变量或属性只能够访问到最近的一个！</p>
 </blockquote>
-</li>
-<li><p><strong>在多次调用jquery的animate动画时候，需要先stop清除动画队列里面的动画,防止动画累加</strong></p>
-</li>
-</ul>
-<h3 id="PHP"><a href="#PHP" class="headerlink" title="PHP"></a>PHP</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="comment">## php中大括号的作用</span></div><div class="line"><span class="number">1.</span> $str&#123;<span class="number">4</span>&#125;在字符串的变量的后面跟上&#123;&#125;,大括号和中括号一样都是把某个字符串变量当成数组处理</div><div class="line"><span class="number">2.</span> &#123;$val&#125;，这时候大括号起的作用就是，告诉PHP，括起来的要当成变量处理。</div><div class="line"></div><div class="line"></div><div class="line">$arr = <span class="keyword">array</span>(</div><div class="line">  <span class="number">0</span> =&gt; <span class="number">123</span>,</div><div class="line">  <span class="string">'name'</span> =&gt; <span class="string">'小猪'</span></div><div class="line">);</div><div class="line"></div><div class="line"><span class="keyword">foreach</span> ($arr <span class="keyword">as</span> $k =&gt; $v) &#123;</div><div class="line">  <span class="keyword">echo</span> <span class="string">"&#123;$arr[$k]&#125;"</span>;</div><div class="line">  <span class="comment">//加一个大括号只是将作为变量的标志符,在双引号中可以加也可以不加</span></div><div class="line">&#125;</div><div class="line"><span class="keyword">echo</span> <span class="string">'&lt;br/ &gt;&lt;br/ &gt;'</span>;</div><div class="line"></div><div class="line"><span class="keyword">foreach</span> ($arr <span class="keyword">as</span> $k =&gt; $v) &#123;</div><div class="line">  <span class="keyword">echo</span> <span class="string">"&#123;&#123;$arr[$k]&#125;&#125;"</span>; <span class="comment">//加两个大括号，外层的将作为普通的字符</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//注意：</span></div><div class="line"><span class="keyword">echo</span> <span class="string">"$arr[name]"</span>;<span class="comment">//小猪</span></div><div class="line"><span class="keyword">echo</span> $arr[<span class="string">'name'</span>];<span class="comment">//小猪</span></div><div class="line"><span class="keyword">echo</span> <span class="string">"&#123;$arr['name']&#125;"</span>;<span class="comment">//小猪,此句正常,大括号内的字符将作为变量来处理</span></div><div class="line"><span class="keyword">echo</span> <span class="string">"$arr['name']"</span>;<span class="comment">//报错</span></div><div class="line"></div><div class="line">$str = <span class="string">'abcdefg'</span>;</div><div class="line"><span class="keyword">echo</span> $str&#123;<span class="number">4</span>&#125;;<span class="comment">//在字符串的变量的后面跟上&#123;&#125;大括号和中括号一样都是把某个字符串变量当成数组处理</span></div></pre></td></tr></table></figure>
-<h3 id="WebStorm"><a href="#WebStorm" class="headerlink" title="WebStorm"></a>WebStorm</h3><ul>
-<li><strong>码着代码英文字母突然华丽分家了</strong><blockquote>
-<p>将输入法调整到英文输入状态，然后按Shift(上档)+Space(空格)。<br><img src="/2017/10/08/被问到的技术问题归类/images/webstrome_codeinput.png" alt="参考链接"></p>
+<h3 id="变量提升和函数提升（hoisting）"><a href="#变量提升和函数提升（hoisting）" class="headerlink" title="变量提升和函数提升（hoisting）"></a>变量提升和函数提升（hoisting）</h3><blockquote>
+<p>JavaScript的执行过程<br>JS运行的两个步骤：解析和执行<br>1 预解析(不是在执行代码)。 将所有的声明都加载到内存中，也就是：告诉解释器有什么东西了<br>2 一步一步的执行代码, 按照从上往下的顺序</p>
+<p>变量提升的是：变量的声明<br>函数提升的是：整个函数<br>注意，变脸和函数提升到当前作用域的最顶端！<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 2 </span></div><div class="line"><span class="keyword">if</span>(<span class="string">"b"</span> <span class="keyword">in</span> <span class="built_in">window</span>) &#123;</div><div class="line">    <span class="keyword">var</span> a = <span class="number">10</span>;</div><div class="line">&#125;</div><div class="line">alert(a); <span class="comment">// undefined</span></div><div class="line"></div><div class="line"><span class="comment">// 3</span></div><div class="line"><span class="keyword">if</span>(<span class="literal">true</span>) &#123;</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>) </span>&#123; alert(<span class="string">"true"</span>); &#125;</div><div class="line">&#125; <span class="keyword">else</span> &#123;</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>) </span>&#123; alert(<span class="string">"false"</span>); &#125;</div><div class="line">&#125;</div><div class="line">f();</div><div class="line"><span class="comment">// 以上代码是不标准的写法：</span></div><div class="line"><span class="comment">// 不确定，会根据不同浏览器实现不同</span></div><div class="line"></div><div class="line"><span class="comment">// 4</span></div><div class="line"><span class="comment">// 推荐使用函数表达式的方式来实现以上功能：根据不同的条件来声明函数</span></div><div class="line"><span class="keyword">if</span>(<span class="literal">true</span>) &#123;</div><div class="line">    <span class="keyword">var</span> f = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; alert(<span class="string">"true"</span>); &#125;</div><div class="line">&#125; <span class="keyword">else</span> &#123;</div><div class="line">    <span class="keyword">var</span> f = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; alert(<span class="string">"false"</span>); &#125;</div><div class="line">&#125;</div><div class="line">f(); <span class="comment">//alert("true");</span></div><div class="line"></div><div class="line"><span class="comment">// </span></div><div class="line"> <span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="number">123</span>);</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="number">456</span>);</div><div class="line">&#125;</div><div class="line">fn();   <span class="comment">//456</span></div><div class="line"><span class="comment">// 同名的函数，后面的函数会把前面的函数覆盖掉</span></div><div class="line"><span class="comment">// 将函数名想象为指针，也有助于理解为什么 js 中没有函数重载的概念</span></div></pre></td></tr></table></figure></p>
 </blockquote>
-</li>
-</ul>
+<h4 id="函数表达式"><a href="#函数表达式" class="headerlink" title="函数表达式"></a>函数表达式</h4><blockquote>
+<p>函数表达式中 可以省略函数名字，如果有函数名字，<br>那么这个函数名只能在函数内部使用。（IE8 除外）<br>函数声明不允许出现在其他语句</p>
+</blockquote>
+<h3 id="作用域链"><a href="#作用域链" class="headerlink" title="作用域链"></a>作用域链</h3><blockquote>
+<p>作用域链是什么<br>每个函数都会形成一个作用域，如果函数被其他函数包裹，包裹函数也有作用域，一直往上直到全局环境。这样就形成了一条作用域链。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 分析以下函数的作用域链</span></div><div class="line"><span class="keyword">var</span> a = <span class="number">11</span>;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">outer</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> num = <span class="number">123</span>;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">inner</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="keyword">var</span> str = <span class="string">"abc"</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="comment">// 函数outer的作用域链： 函数自身 -&gt; 全局环境</span></div><div class="line"><span class="comment">// inner的作用域链：   inner自身 -&gt; outer -&gt; 全局环境</span></div></pre></td></tr></table></figure></p>
+</blockquote>
+<h4 id="绘制作用域链规则"><a href="#绘制作用域链规则" class="headerlink" title="绘制作用域链规则"></a>绘制作用域链规则</h4><blockquote>
+<p>1 将全部的 script 标签看做一个整体，是一个 0 级别的链<br>2 如果遇到函数，就引出一条新的链出来，如果函数是在n级链中声明，那么就 引出 n + 1 级链<br>3 如果还有函数，继续绘制下去</p>
+<p>注意点：<br>1 绘制作用域链图的时候，只绘制作用域中声明的变量（也包括函数）,所以链中的成员包括：在该链所属范围内 <em>声明</em> 的变量, 函数<br>2 由于提升机制的存在，在开始的时候将 声明 都写在前面, 绘图的时候按照顺序绘制,会较为简单<br>3 先绘制链中的成员，其他赋值操作，等到代码执行的时候再看。<br>4 各链之间互不影响<br>5 变量的搜索原则就是沿着作用域链，由高级别的链往低级别的链进行搜索的！<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 1</span></div><div class="line"><span class="keyword">var</span> num = <span class="number">123</span>;</div><div class="line"><span class="keyword">var</span> f = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;;</div><div class="line"><span class="keyword">var</span> arr = [];</div><div class="line"></div><div class="line"><span class="comment">// 2</span></div><div class="line"><span class="keyword">var</span> num = <span class="number">123</span>;</div><div class="line"><span class="keyword">var</span> f = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> num = <span class="number">456</span>;</div><div class="line">    <span class="keyword">var</span> o = &#123;&#125;;</div><div class="line">    <span class="keyword">var</span> foo = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;;</div><div class="line">&#125;;</div><div class="line"><span class="keyword">var</span> arr = [];</div></pre></td></tr></table></figure></p>
+</blockquote>
+<h4 id="变量的读取和设置"><a href="#变量的读取和设置" class="headerlink" title="变量的读取和设置"></a>变量的读取和设置</h4><blockquote>
 <ul>
-<li><p><strong>WebStorm设置手机测试服务器-局域网内其他设备访问</strong></p>
+<li>读取<br>变量的搜索就是沿着作用域链进行搜索的！<br>在代码的运行过程中, 如果访问某一个变量，那么：<br>1 首先在当前链上找( 1 现在当前作用域中查找变量（声明）)<br>  如果有，则停止查找，就直接使用变量<br>  如果没有, 在 n-1 级上找( 在函数内部允许访问定义在函数外部的变量 )<br>2 如此往复, 直到 0 级链<br>  如果找到, 则结束寻找, 直接获得该链上变量的数据<br>  如果还没有 抛出异常。</li>
+<li>设置<br>设置：<br>首先在当前作用域（n级链）中查找，如果有，就直接赋值<br>如果没有，就在 n-1级链 中查找，如果有，就直接赋值<br>如此往复，直到 0级链<br>如果还没有找到，就创建全局变量（不要这么做！给没有用var声明的变量赋值不一定会创建全局变量，只有到这一步的时候才会全局变量）</li>
+</ul>
+</blockquote>
+<p>使用变量的时候，一定要先声明再赋值！(推荐做法!!!)<br>注意：不管是变量的读取还是设置，都是先查找到声明的位置！<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> num = <span class="number">456</span>;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    num = <span class="number">678</span>;</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="keyword">var</span> age = <span class="number">999</span>;</div><div class="line">        <span class="built_in">console</span>.log(age); <span class="comment">// 999</span></div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>)</span>&#123;</div><div class="line">            age = <span class="number">1000</span>;</div><div class="line">            <span class="built_in">console</span>.log(age);<span class="comment">//1000</span></div><div class="line">        &#125;</div><div class="line">        fn();</div><div class="line">    &#125;</div><div class="line">    foo();</div><div class="line">    <span class="built_in">console</span>.log(num); <span class="comment">// 678</span></div><div class="line">&#125;</div><div class="line">f();</div><div class="line"><span class="built_in">console</span>.log(age);   <span class="comment">//报错，age没有定义</span></div></pre></td></tr></table></figure></p>
+<h4 id="作用域面试题"><a href="#作用域面试题" class="headerlink" title="作用域面试题"></a>作用域面试题</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 1</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Foo</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    getName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123; alert(<span class="number">1</span>); &#125;;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">this</span>; </div><div class="line">&#125;</div><div class="line"></div><div class="line">Foo.getName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; alert(<span class="number">2</span>); &#125;;</div><div class="line">Foo.prototype.getName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123; alert(<span class="number">3</span>); &#125;;</div><div class="line"><span class="keyword">var</span> getName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; alert(<span class="number">4</span>); &#125;;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getName</span>(<span class="params"></span>)</span>&#123; alert(<span class="number">5</span>); &#125;</div><div class="line"></div><div class="line">Foo.getName();             <span class="comment">// ? </span></div><div class="line">getName();                 <span class="comment">// ? </span></div><div class="line">Foo().getName();           <span class="comment">// ? </span></div><div class="line">getName();                 <span class="comment">// ? </span></div><div class="line"><span class="keyword">new</span> Foo.getName();         <span class="comment">// ? </span></div><div class="line"><span class="keyword">new</span> Foo().getName();       <span class="comment">// ? </span></div><div class="line"><span class="keyword">new</span> <span class="keyword">new</span> Foo().getName();   <span class="comment">// ?</span></div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">// 2</span></div><div class="line"><span class="keyword">var</span> num = <span class="number">123</span>;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(num); <span class="comment">//</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">f2</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> num = <span class="number">456</span>;</div><div class="line">    f1();</div><div class="line">&#125;</div><div class="line"></div><div class="line">f2();</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">// 3</span></div><div class="line"><span class="keyword">var</span> num = <span class="number">123</span>;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params">num</span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(num);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">f2</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> num = <span class="number">456</span>;</div><div class="line">    f1(num);</div><div class="line">&#125;</div><div class="line"></div><div class="line">f2();</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">// 4</span></div><div class="line"><span class="keyword">var</span> num = <span class="number">123</span>;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">f1</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(num); <span class="comment">//</span></div><div class="line">&#125;</div><div class="line">f2();</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">f2</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    num = <span class="number">456</span>;</div><div class="line">    f1();</div><div class="line">&#125;</div><div class="line"><span class="built_in">console</span>.log(num); <span class="comment">//</span></div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">// 5</span></div><div class="line"><span class="comment">// 变量名 和 参数名冲突的问题</span></div><div class="line">(<span class="function"><span class="keyword">function</span> (<span class="params">a</span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(a);</div><div class="line">    <span class="keyword">var</span> a = <span class="number">10</span>;</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params"></span>)</span>&#123;&#125;</div><div class="line">&#125;( <span class="number">100</span> ));</div><div class="line"></div><div class="line"><span class="comment">// 自调用函数的写法：</span></div><div class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125; ());</div><div class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;)();</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">// new Function() 的作用域问题：</span></div><div class="line"><span class="comment">// 最佳实践: 只在全局环境中使用 new Function,因为这种方式创建函数，创建出来的函数作用域链只包含: 自身的作用域 以及 全局作用域</span></div><div class="line"><span class="keyword">var</span> num = <span class="number">888</span>;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> num = <span class="number">123</span>;</div><div class="line">    </div><div class="line">    <span class="keyword">var</span> f = <span class="keyword">new</span> <span class="built_in">Function</span>(<span class="string">'console.log(num);'</span>); <span class="comment">//888</span></div><div class="line">    <span class="comment">// var f = new Function('num', 'console.log(num);'); //123</span></div><div class="line">    <span class="comment">// var f = new Function('var num; console.log(num);'); // undefined</span></div><div class="line">    <span class="comment">// 也可以认为： 通过new Function创建出来的函数的作用域链：只包括 自身的作用域 以及 全局作用域</span></div><div class="line"></div><div class="line">    <span class="comment">// 调用函数的时候</span></div><div class="line">    <span class="comment">// 1 查找函数f</span></div><div class="line">    <span class="comment">// 2 查找变量num</span></div><div class="line">    f( num );</div><div class="line">&#125;</div><div class="line">fn();</div></pre></td></tr></table></figure>
+<h3 id="函数名和变量名同名的问题"><a href="#函数名和变量名同名的问题" class="headerlink" title="函数名和变量名同名的问题"></a>函数名和变量名同名的问题</h3><ul>
+<li><p>两个变量名冲突</p>
 <blockquote>
-<p><a href="http://blog.sina.com.cn/s/blog_6a8557730102wo0a.html" target="_blank" rel="external">参考链接</a><br>是能设置成功,但是设置成功之后,编辑器卡的都不动了。注意需要在域名后面加上当前文件夹的名称</p>
+<p>重复的var声明无效，会被忽略，只会起到赋值的作用</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> f = <span class="number">123</span>;</div><div class="line"><span class="keyword">var</span> f = <span class="number">456</span>;</div><div class="line"></div><div class="line"><span class="comment">// 同上</span></div><div class="line"><span class="keyword">var</span> f = <span class="number">123</span>;</div><div class="line">f = <span class="number">456</span>;</div></pre></td></tr></table></figure>
 </blockquote>
 </li>
-<li><p><strong>解决webstorm本地IP访问页面出错的问题</strong></p>
-<blockquote>
-<p><img src="/2017/10/08/被问到的技术问题归类/images/webstrome_ip.png" alt="解决webstorm本地IP访问页面出错的问题"><br><a href="http://blog.csdn.net/u013934914/article/details/50068229" target="_blank" rel="external">参考链接</a></p>
-</blockquote>
+<li><p>函数名和变量名冲突</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 1 如果是变量只声明了，但没有赋值，变量名会被忽略</span></div><div class="line"><span class="keyword">var</span> f;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>) </span>&#123;&#125;</div><div class="line"><span class="built_in">console</span>.log(f); <span class="comment">// f指的是函数</span></div><div class="line"></div><div class="line"><span class="comment">// 2 如果变量声明同时也被赋值了，此时：</span></div><div class="line">    <span class="comment">// a 如果是在赋值之前，获取到的是函数</span></div><div class="line">    <span class="comment">// b 如果是在赋值之后，获取到的是变量的值</span></div><div class="line"><span class="built_in">console</span>.log(f); <span class="comment">// function f() &#123;&#125;</span></div><div class="line"><span class="keyword">var</span> f = <span class="number">123</span>;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>) </span>&#123;&#125;</div><div class="line"><span class="built_in">console</span>.log(f); <span class="comment">// 123</span></div></pre></td></tr></table></figure>
 </li>
-<li><p><strong>webstorm 提示信息弹框</strong></p>
+<li><p>参数名和变量名冲突</p>
 <blockquote>
-<p><img src="/2017/10/08/被问到的技术问题归类/images/model01.jpg" alt="webstorm 提示弹框"><br>原因：因为不支持该文件的调试，不要把它引入进来就行了。这个map是用在nodejs中编译的<br>解决办法：找到min.css或者min.js里面,找到带map的链接删掉就好了</p>
+<p>1 参数优先被提升，其次才是变量和函数<br>2 如果参数名与内部的函数名冲突，此时值为：函数<br>3 如果参数名与内部的变量名冲突，<br>在变量赋值前，结果为：参数的值<br>在变量赋值后，结果为：变量的值</p>
 </blockquote>
 </li>
 </ul>
-<h3 id="PhpStorm"><a href="#PhpStorm" class="headerlink" title="PhpStorm"></a>PhpStorm</h3><ul>
-<li><strong>如何破解</strong><blockquote>
-<p>安装和webstorm一样;<br>直接用浏览器打开 <a href="http://idea.lanyus.com/" target="_blank" rel="external">http://idea.lanyus.com/</a> ，点击页面中的“获得注册码”，然后在注册时切换至<code>Activation Code</code>选项，输入获得的注册码一长串字符串，便可以注册成功了！（推荐用这种方式）<br>特别注意：<br>1.以上方式需要做这一步：为避免phpstorm联网时注册失效，请将<code>0.0.0.0 account.jetbrains.com</code>添加到<code>hosts</code>文件<br>2.hosts文件目录：<code>C:\Windows\System32\drivers\etc</code></p>
+<h3 id="理解闭包"><a href="#理解闭包" class="headerlink" title="理解闭包"></a>理解闭包</h3><h4 id="函数基础知识"><a href="#函数基础知识" class="headerlink" title="函数基础知识"></a>函数基础知识</h4><blockquote>
+<p>1 函数内部的代码在调用的时候执行<br>2 函数返回值类型:<br>    a 基本类型（number/string/boolean）<br>    b 对象类型（object）<br>3 怎么理解函数的返回值<br>    函数内用来返回数据，相当于没有函数的时候直接使用该数据<br>    不同之处在于：函数形成作用域，变量为局部变量<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> o = &#123;<span class="attr">age</span>: <span class="number">12</span>&#125;;</div><div class="line">    <span class="keyword">return</span> o;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> o1 = foo();</div><div class="line"></div><div class="line"><span class="comment">// 相当于：</span></div><div class="line"><span class="keyword">var</span> o2 = &#123;<span class="attr">age</span>: <span class="number">12</span>&#125;;</div></pre></td></tr></table></figure></p>
 </blockquote>
+<h4 id="作用域的结论"><a href="#作用域的结论" class="headerlink" title="作用域的结论"></a>作用域的结论</h4><blockquote>
+<p>1 函数才会形成作用域<br>2 JavaScript的作用域是词法作用域<br>3 词法作用域：变量(变量和函数)的作用范围 在代码写出来的就已经决定, 与运行时无关<br>4 函数内部可以访问函数外部的变量（函数外部不能访问函数内部的变量）<br>5 变量搜索原则：从当前链开始查找直到0级链，从高到低查找<br>6 当定义了一个函数，当前的作用域链就保存起来，并且成为函数的内部状态的一部分。</p>
+</blockquote>
+<h4 id="闭包的概念"><a href="#闭包的概念" class="headerlink" title="闭包的概念"></a>闭包的概念</h4><blockquote>
+<p>闭包从字面上看就是封闭和包裹, 在函数中定义的变量在函数外部无法访问, 因此这个函数就构成闭包。<br>闭包是一个受保护的变量空间。<br>闭包包括两部分：函数体 以及 创建该函数的环境（作用域链）<br><strong>闭包的其他解释：</strong><br>在计算机科学中，闭包（英语：Closure），又称词法闭包（Lexical Closure）或函数闭包（function closures），是引用了自由变量的函数。</p>
+<p>这个被引用的自由变量将和这个函数一同存在，即使已经离开了创造它的环境也不例外。所以，有另一种说法认为闭包是由函数和与其相关的引用环境组合而成的实体。</p>
+<p>闭包在运行时可以有多个实例，不同的引用环境和相同的函数组合可以产生不同的实例。<br><a href="https://www.zhihu.com/question/19554716" target="_blank" rel="external">JavaScript 里的闭包是什么？应用场景有哪些？</a><br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 闭包模型</span></div><div class="line"><span class="comment">// 函数内部在返回一个函数</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> num = <span class="number">0</span>;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="keyword">return</span> num++;</div><div class="line">    &#125;;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> getNum = foo();</div><div class="line"><span class="built_in">console</span>.log(getNum());</div></pre></td></tr></table></figure></p>
+</blockquote>
+<h4 id="闭包的使用"><a href="#闭包的使用" class="headerlink" title="闭包的使用"></a>闭包的使用</h4><blockquote>
+<p>目标：想办法（在外部）访问到函数内部的数据<br><strong>利用函数返回值</strong><br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 问题：调用函数两次，结果相同吗？</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> num = <span class="built_in">Math</span>.random();</div><div class="line"></div><div class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="keyword">return</span> num;</div><div class="line">    &#125;;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> num1 = foo();</div><div class="line"><span class="keyword">var</span> num2 = foo();</div><div class="line"><span class="built_in">console</span>.log(num1 === num2);<span class="comment">//false</span></div><div class="line"></div><div class="line"><span class="comment">// 普通的函数返回值说明</span></div><div class="line"><span class="comment">// 1 两次调用函数，返回的数据并不是同一个数据。</span></div><div class="line"><span class="comment">// 2 原因：函数在每次调用的时候，内部的数据会被新创建一次</span></div><div class="line"><span class="comment">// 3 解决思路：保证函数 foo 只调用一次即可</span></div><div class="line"></div><div class="line"><span class="comment">// 问题：函数只调用一次，但想获取多次数据怎么办？</span></div></pre></td></tr></table></figure></p>
+</blockquote>
+<h4 id="闭包模型"><a href="#闭包模型" class="headerlink" title="闭包模型"></a>闭包模型</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> num = <span class="built_in">Math</span>.random();</div><div class="line"></div><div class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="keyword">return</span> num;</div><div class="line">    &#125;;</div><div class="line">&#125;</div><div class="line"><span class="comment">// 调用</span></div><div class="line"><span class="keyword">var</span> f = foo();</div><div class="line"><span class="keyword">var</span> num1 = f();</div><div class="line"><span class="keyword">var</span> num2 = f();</div><div class="line"><span class="built_in">console</span>.log(num1 === num2); <span class="comment">//true</span></div><div class="line"></div><div class="line"><span class="comment">// 闭包说明：</span></div><div class="line"><span class="comment">// 在函数（outer）内部定义的函数（inner），执行的时候可以访问到上一级作用域中的变量。</span></div><div class="line"><span class="comment">// 因此，在函数（outer）外部，就可以间接访问到函数（outer）中的数据了。</span></div></pre></td></tr></table></figure>
+<p>函数内嵌函数<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 嵌套的函数</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">bar</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> num = <span class="number">123</span>;</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(num);</div><div class="line">    &#125;</div><div class="line">    f();</div><div class="line">&#125;</div><div class="line">bar(); <span class="comment">// 123</span></div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">// 如果利用闭包返回两个数的值</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> n = <span class="built_in">Math</span>.random();</div><div class="line">    <span class="keyword">var</span> m = <span class="built_in">Math</span>.random();</div><div class="line"></div><div class="line">    <span class="comment">// ...</span></div><div class="line">    <span class="comment">// 方式一：返回数组</span></div><div class="line">    <span class="comment">// 方式二：返回对象</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 练习：</span></div><div class="line"><span class="comment">// 给 foo 提供两个方法，分别实现对 num 设置值和读取值</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> num;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> &#123;</div><div class="line">        <span class="comment">// 设置</span></div><div class="line">        set: <span class="function"><span class="keyword">function</span>(<span class="params">newNum</span>)</span>&#123;</div><div class="line">            num = newNum;</div><div class="line">        &#125;,</div><div class="line">        <span class="comment">// 读取</span></div><div class="line">        get: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">            <span class="keyword">return</span> num;</div><div class="line">        &#125;</div><div class="line">    &#125;;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>闭包概念小结<br>闭包对内部的变量起到了保护的作用，除了返回的函数之外，无法通过任何其他手段访问到函数内部的数据</p>
+</blockquote>
+<h4 id="闭包的实际应用"><a href="#闭包的实际应用" class="headerlink" title="闭包的实际应用"></a>闭包的实际应用</h4><blockquote>
+<ul>
+<li><p>实现数据缓存<br>缓存介绍<br>缓存：暂存数据方便后续计算中使用。<br>缓存中存储的数据简单来说就是：键值对<br>工作中，缓存是经常被使用的手段。<br><a href="https://baike.baidu.com/item/%E7%BC%93%E5%AD%98?fr=aladdin" target="_blank" rel="external">计算机中的缓存</a></p>
+</li>
+<li><p>递归存在的问题<br>存在大量的重复计算，使得执行效率很低。<br>解决思路：使用缓存保存计算结果</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 计数测试下斐波那契 fib函数被调用了多少次</span></div><div class="line"><span class="comment">// 递归</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">fib</span>(<span class="params">n</span>) </span>&#123;</div><div class="line">    count++;</div><div class="line">    <span class="keyword">if</span>(n === <span class="number">0</span> || n === <span class="number">1</span>) &#123;</div><div class="line">        <span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> fib(n - <span class="number">1</span>) + fib(n - <span class="number">2</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line">fib(<span class="number">20</span>);</div><div class="line"><span class="built_in">console</span>.log(count);</div></pre></td></tr></table></figure>
 </li>
 </ul>
-<h3 id="sublime"><a href="#sublime" class="headerlink" title="sublime"></a>sublime</h3><ul>
-<li><p><strong>sublime3中文文件夹文件名乱码</strong></p>
-<blockquote>
-<p>在<code>首选项</code> –&gt; <code>设置</code> -<code>用户</code> –&gt; 在<code>Preferences.sublime-settings</code>文件中 –&gt; 添加<code>&quot;dpi_scale&quot;: 1.0</code>的代码，取值只能是1.0，不然还是不起作用。</p>
 </blockquote>
-</li>
-<li><p><strong>sublime中出现红色的波浪线</strong></p>
+<p><strong>缓存使用步骤</strong><br>1 首先查看缓存中有没有该数据，<br>2 如果有，直接从缓存中取出来；<br>3 如果没有就递归计算，并将结果放到缓存中(一定要将计算结果放到缓存中，方便下次直接使用)</p>
+<p><strong>抛开闭包谈问题</strong></p>
 <blockquote>
-<p>sublime中F6的按键会开启关闭这个红色的波浪线（开启和关闭拼写检查的）<br>有些电脑f系列的按键是需要fn按键的配合下才能起作用的<br><img src="/2017/10/08/被问到的技术问题归类/images/sublime01.png" alt="sublime中出现红色的波浪线"></p>
+<p>直接把 斐波那契数列 的前10项 放在数组中<br>var fibsArr = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55];<br>如何求第5项的值？第10项呢？<br>没有闭包实现存在的问题：<br>1 数组放在全局环境会造成全局污染<br>2 全局环境中谁都可以对数组修改<br>3 缓存中完全信任数组（缓存），就会造成数据不准确的问题<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> fib = (<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="comment">// 缓存容器，放在闭包中，对数据起到保护作用</span></div><div class="line">    <span class="keyword">var</span> arr = [];</div><div class="line"></div><div class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">n</span>) </span>&#123;</div><div class="line">        <span class="comment">// 1 判断缓存容器中有没有</span></div><div class="line">        <span class="keyword">if</span>(arr[n] !== <span class="literal">undefined</span>) &#123;</div><div class="line">            <span class="comment">// 1.1 取出结果</span></div><div class="line">            <span class="keyword">return</span> arr[n];</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            <span class="comment">// 缓存中没有</span></div><div class="line">            <span class="comment">// 则需要计算，并且将计算结果放到容器中</span></div><div class="line">            <span class="keyword">var</span> res;</div><div class="line">            <span class="comment">// 2 如果是0或者1直接 = 1</span></div><div class="line">            <span class="keyword">if</span> (n === <span class="number">1</span> || n === <span class="number">2</span>) &#123;</div><div class="line">                <span class="comment">// 保存计算结果</span></div><div class="line">                res = <span class="number">1</span>;</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                <span class="comment">// 否则，递归调用，并保存计算结果</span></div><div class="line">                res = <span class="built_in">arguments</span>.callee(n - <span class="number">1</span>) + <span class="built_in">arguments</span>.callee(n - <span class="number">2</span>);</div><div class="line">            &#125;</div><div class="line"></div><div class="line">            <span class="comment">// 3 将递归调用的结果放入缓存中以便下次使用</span></div><div class="line">            arr[n] = res;</div><div class="line"></div><div class="line">            <span class="comment">// 将结果返回</span></div><div class="line">            <span class="keyword">return</span> res;</div><div class="line">        &#125;</div><div class="line">    &#125;;</div><div class="line">&#125;)();</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(fib(<span class="number">5</span>))</div><div class="line"><span class="built_in">console</span>.log(fib(<span class="number">10</span>))</div></pre></td></tr></table></figure></p>
 </blockquote>
-</li>
+<h3 id="沙箱模式"><a href="#沙箱模式" class="headerlink" title="沙箱模式"></a>沙箱模式</h3><blockquote>
+<p>沙箱模式、沙盒模式、隔离模式<br>沙箱（sandbox）介绍：<br>用于为一些来源不可信、具备破坏力或无法判定程序意图的程序提供试验环境。然而，沙盒中的所有改动对操作系统不会造成任何损失。</p>
+</blockquote>
+<h4 id="沙箱模式的作用"><a href="#沙箱模式的作用" class="headerlink" title="沙箱模式的作用"></a>沙箱模式的作用</h4><ul>
+<li>作用：对变量进行隔离</li>
+<li>问题：在JS中如何实现隔离？<br><strong>JavaScritp中只有函数能限定作用域，所以，只有使用函数才能实现隔离。</strong></li>
 </ul>
-<h3 id="Node-js"><a href="#Node-js" class="headerlink" title="Node.js"></a>Node.js</h3><ul>
-<li><strong>win8 win10 安装msi 提示2502、2503的错误代码</strong><blockquote>
-<p>归根到底是权限不够导致的。win7应该不会有这个问题。<br>解决办法：<br>1、鼠标移到<code>window上</code> -&gt; <code>右键（或者直接： WIN+X键）</code>，<code>命令提示符（管理员）</code> 注意命令行一定要以管理员身份运行！！！命令行一定要以管理员身份运行！！！管理员身份运行！！！<br>2、输入：<code>msiexec /package +&#39;msi文件路径&#39;</code> <strong>（输入的时候注意半角字符且路径不能为中文名）</strong><br>例如：<code>$ C:\Windows\system32&gt;msiexec /package G:\tool\TortoiseSVN-x64-1.8.9.msi</code><br><a href="http://blog.csdn.net/shuideyidi/article/details/46891559" target="_blank" rel="external">参考链接</a></p>
-</blockquote>
+<h4 id="沙箱模式模型"><a href="#沙箱模式模型" class="headerlink" title="沙箱模式模型"></a>沙箱模式模型</h4><p><strong>使用 自调用函数 实现沙箱模式</strong></p>
+<ol>
+<li>函数形成独立作用域</li>
+<li>函数只有被调用内部代码才会执行</li>
+<li>将全局污染降到最低<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="comment">// ...</span></div><div class="line">    <span class="comment">// 代码</span></div><div class="line">    <span class="comment">// ...</span></div><div class="line">&#125;)();</div></pre></td></tr></table></figure>
 </li>
-</ul>
-<h3 id="Chrome相关问题"><a href="#Chrome相关问题" class="headerlink" title="Chrome相关问题"></a>Chrome相关问题</h3><ul>
-<li><p><strong>win10的Chrome浏览器黑屏</strong></p>
-<blockquote>
-<p>win10 的 Chrome浏览器最小化后被打开会出现黑屏的情况，在设置里面禁用GPU加速(硬件加速)即可，亲测有效<br><img src="/2017/10/08/被问到的技术问题归类/images/chrome01.png" alt="chrome01.png"><br>之后在重启下Chrome即可！</p>
+</ol>
+<h4 id="沙箱模式应用"><a href="#沙箱模式应用" class="headerlink" title="沙箱模式应用"></a>沙箱模式应用</h4><blockquote>
+<p><strong>最佳实践：在函数内定义变量的时候，将 变量定义 提到最前面。</strong><br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">(<span class="function"><span class="keyword">function</span>(<span class="params">win</span>) </span>&#123;</div><div class="line">    <span class="comment">// 独立的环境</span></div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">Itcast</span>(<span class="params"></span>) </span>&#123;&#125;</div><div class="line">    Itcast.prototype.say = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;;</div><div class="line"></div><div class="line">    <span class="comment">// 其他操作代码</span></div><div class="line">    <span class="comment">// ...</span></div><div class="line"></div><div class="line">    <span class="comment">// 暴露到全局环境中</span></div><div class="line">    win.i$ = Itcast;</div><div class="line">&#125;)(<span class="built_in">window</span>);</div></pre></td></tr></table></figure></p>
 </blockquote>
-</li>
-<li><p><strong>Chrome浏览器添加拓展程序失败</strong></p>
-<blockquote>
-<p>将.crx后缀文件拽拽到拓展程序界面，显示<code>该扩展程序未列在 Chrome 网上应用店中，并可能是在您不知情的情况下添加的</code>。解决办法：<br>1、首先把需要安装的第三方插件，后缀.crx 改成 .rar，然后解压，得到一个文件夹<br>2、再打开<code>chrome://extensions/</code>谷歌扩展应用管理，勾上右上角的<code>开发者模式</code>，就可以看到<code>加载已解压的扩展程序</code>这一选项。<br>3、选择刚才步骤1中解压好的文件夹，确定<br>4、确认新增扩展程序，点击添加，成功添加应用程序。</p>
+<h4 id="沙箱模式的说明"><a href="#沙箱模式的说明" class="headerlink" title="沙箱模式的说明"></a>沙箱模式的说明</h4><blockquote>
+<ol>
+<li>将代码放到一个 <code>立即执行的函数表达式(IIFE)</code> 中，这样就能实现代码的隔离</li>
+<li>使用 IIFE：减少一个函数名称的污染，将全局变量污染降到最低</li>
+<li>代码在函数内部执行，函数内部声明的变量不会影响到函数外部</li>
+<li>如果外部需要，则可以返回数据 或 把要返回的数据交给 window</li>
+</ol>
 </blockquote>
-</li>
-<li><p><strong>Chrome浏览器怎么导出已安装的扩展程序(插件)为crx文件?</strong></p>
-<blockquote>
-<p>我们都知道，如今Chrome浏览器的应用商店都打不开，进不去了，需要翻出去才能上。所以对于一些已经安装过的扩展程序（插件）想导出保存一下。因为Chrome默认安装在C盘，怕重装系统后又要重新安装这些插件了。那么，怎么从Chrome浏览器中导出扩展程序为crx文件呢?Chrome其实也自带了这种功能，接下来我们就一起看看具体的操作步骤吧。<br>1、打开Chrome浏览器扩展程序页<br>2、找到扩展程序本地电脑上的文件夹目录<br>Chrome安装的扩展程序其实都保存在本地磁盘了。Win10系统下Chrome扩展程序的默认保存目录在：<code>C:\Users\Administrator\AppData\Local\Google\Chrome\User Data\Default\Extensions</code> （其中<code>Administrator</code>为当前系统用户，不同电脑路径视其自己用户名而定）。找到目录后，可以看到目录下有好些都是字母为文件名的文件。<br><img src="/2017/10/08/被问到的技术问题归类/images/02.png" alt="扩展程序页"><br>3、查看需要打包的扩展程序的ID<br>在Chrome的扩展程序页中，可以看到每个安装的扩展的ID（都是唯一的）和版本。版本是很有必要的，比如这个扩展的版本是1.13.4。<br><img src="/2017/10/08/被问到的技术问题归类/images/01.png" alt="扩展程序页"><br>4、找到扩展程序对应的文件夹<br>知道ID和版本号后，再到Extensions目录下查找该ID对应的文件夹。<br>打开文件夹后，找到对应的版本号。也可以看一下文件夹中的文件。<br><img src="/2017/10/08/被问到的技术问题归类/images/03.png" alt="扩展程序页"><br><img src="/2017/10/08/被问到的技术问题归类/images/05.png" alt="扩展程序页"><br>5、打包扩展程序<br>打开扩展程序页中的<code>打包扩展程序</code>按钮<br><img src="/2017/10/08/被问到的技术问题归类/images/04.png" alt="扩展程序页"><br>选择要打包的扩展程序的根目录<br>该扩展程序的根目录就是刚才找到的Chrome的Extensions目录下的该扩展ID目录下的，以版本号为名的文件夹。注意路径中一定要包含版本号的文件夹，注意截图中的部分<br><img src="/2017/10/08/被问到的技术问题归类/images/06.png" alt="扩展程序页"><br>生成打包好的crx文件<br>选择好目录后，最后点击<code>打包扩展程序</code>。打包完成后会提示你打包好的文件位置，其实就是在ID为名的文件夹下。<br><img src="/2017/10/08/被问到的技术问题归类/images/07.png" alt="扩展程序页"><br><img src="/2017/10/08/被问到的技术问题归类/images/08.png" alt="扩展程序页"><br>6、安装扩展程序<br>需要安装扩展程序的时候，直接把.crx的文件拖动到Chrome的扩展程序页上就行。<br>提示你是否要添加，点击添加即可。<br><a href="http://www.jb51.net/softjc/578550.html" target="_blank" rel="external">参考链接</a></p>
-</blockquote>
-</li>
-</ul>
 
       
 
@@ -425,11 +332,15 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">技术问题</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">黑马13期</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">传智播客教育</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">JavaScript高级</a>
         		</li>
       		
 		</ul>
@@ -485,7 +396,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://biedongda.com/2017/10/08/被问到的技术问题归类/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://biedongda.com/2017/12/14/javaScript-高级-第四天笔记/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -499,18 +410,9 @@
 
 <nav id="article-nav">
   
-    <a href="/2017/10/09/前端资源整理/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          前端资源整理
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/10/08/Chrome浏览器常用快捷键整理/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Chrome浏览器常用快捷键整理</div>
+    <a href="/2017/12/13/javaScript-高级-第三天笔记/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">javaScript-高级-第三天笔记</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -543,7 +445,7 @@
 <script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
 <script>
 var gitment = new Gitment({
-  id: "http://biedongda.com/2017/10/08/被问到的技术问题归类/",
+  id: "http://biedongda.com/2017/12/14/javaScript-高级-第四天笔记/",
   owner: 'webman158',
   repo: 'webman158.github.io',
   oauth: {

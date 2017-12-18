@@ -148,6 +148,184 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-数组、字符串的常用操作"
+         class="article article-type-post  article-index" itemscope
+         itemprop="blogPost">
+  <div class="article-inner">
+    
+    <header class="article-header">
+      
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/27/数组、字符串的常用操作/">数组、字符串的常用操作</a>
+    </h1>
+  
+
+      
+      <a href="/2017/11/27/数组、字符串的常用操作/" class="archive-article-date">
+  	<time datetime="2017-11-27T01:01:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-27</time>
+</a>
+      
+    </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      <h2 id="字符串相关的方法"><a href="#字符串相关的方法" class="headerlink" title="字符串相关的方法"></a>字符串相关的方法</h2><h2 id="数组相关的方法"><a href="#数组相关的方法" class="headerlink" title="数组相关的方法"></a>数组相关的方法</h2><h3 id="数组遍历的方法："><a href="#数组遍历的方法：" class="headerlink" title="数组遍历的方法："></a>数组遍历的方法：</h3><blockquote>
+<p>以下方法是ES6提供的<br>forEach()<br>map()<br>every()<br>some()<br>filter()<br>reduce()</p>
+</blockquote>
+<ul>
+<li><p><strong>forEach</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">3</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">9</span>, <span class="number">10</span>];</div><div class="line"></div><div class="line"><span class="comment">// forEach方法会为数组中的每一项来调用这个回调函数</span></div><div class="line"><span class="comment">// 也就是：数组中有几个元素，回调函数就调用几次</span></div><div class="line">arr.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">value, index, arr</span>) </span>&#123;</div><div class="line">    <span class="comment">// value 表示数组中每一项的值</span></div><div class="line">    <span class="comment">// index 表示当前的索引号</span></div><div class="line">    <span class="comment">// arr   表示调用该方法的数组</span></div><div class="line">    <span class="built_in">console</span>.log(index, value, arr);</div><div class="line">&#125;);</div><div class="line"><span class="comment">// 注意这个方法没有办法做到停止循环,就是for循环中的break和continue的功能。</span></div></pre></td></tr></table></figure>
+</li>
+<li><p><strong>map</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">3</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">9</span>, <span class="number">10</span>];</div><div class="line"></div><div class="line"><span class="comment">// map() 能够遍历数组，并且会返回一个新数组，新数组中的值由每一个回调函数的返回值决定！</span></div><div class="line"><span class="keyword">var</span> newArr = arr.map(<span class="function"><span class="keyword">function</span>(<span class="params">value, index, arr</span>) </span>&#123;</div><div class="line">    <span class="comment">// console.log(index, value, arr);</span></div><div class="line">    <span class="keyword">return</span> value * <span class="number">10</span>;</div><div class="line">&#125;);</div><div class="line"><span class="built_in">console</span>.log(newArr);</div><div class="line"></div><div class="line"><span class="comment">// map常用的场景，是作为 映射 的功能。</span></div><div class="line"><span class="keyword">var</span> furit = [<span class="string">'苹果'</span>, <span class="string">'香蕉'</span>, <span class="string">'木瓜'</span>, <span class="string">'榴莲'</span>];</div><div class="line"><span class="built_in">document</span>.querySelector(<span class="string">'body'</span>).innerHTML = furit.map(<span class="function"><span class="keyword">function</span>(<span class="params">value</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="string">'&lt;p&gt;'</span> + value + <span class="string">'&lt;/p&gt;'</span>;</div><div class="line">&#125;).join(<span class="string">''</span>);</div></pre></td></tr></table></figure>
+</li>
+<li><p><strong>every</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">3</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">9</span>, <span class="number">10</span>];</div><div class="line"></div><div class="line"><span class="comment">// every()</span></div><div class="line"><span class="comment">// 1. 能够遍历数组</span></div><div class="line"><span class="comment">// 2. 如果回调函数的返回值为 true，循环继续；如果返回值为false，循环停止！</span></div><div class="line"><span class="comment">// 3. 返回值：当前方法的返回值是一个 布尔值：如果所有的回调函数都执行了（即：每个回调函数的返回值都为true），那么这个方法的返回值就为 true，否则返回值为：false</span></div><div class="line"><span class="keyword">var</span> ret = arr.every(<span class="function"><span class="keyword">function</span>(<span class="params">value, index</span>) </span>&#123;</div><div class="line">    <span class="comment">// if( index &gt; 3 ) &#123;</span></div><div class="line">    <span class="comment">//   return false;</span></div><div class="line">    <span class="comment">// &#125; else &#123;</span></div><div class="line">    <span class="comment">//   console.log(value);</span></div><div class="line">    <span class="comment">//   return true;</span></div><div class="line">    <span class="comment">// &#125;</span></div><div class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(ret);</div><div class="line"></div><div class="line"><span class="comment">// 该方法的循环条件可以来代替forEach不能停止循环的场景。当遍历元素，找到了自己需要的元素，就可以不用遍历后面的元素了，直接return false来停止循环。</span></div><div class="line"><span class="comment">// 该方法的返回值常用场景：在表格全选中：遍历所有的多选按钮，当所有的按钮都选中了，返回true，那么方法的返回值是true，来决定全选按钮被选中，只要其中一个多选按钮没有被选中，就返回false，全选按钮就不被选中。</span></div></pre></td></tr></table></figure>
+</li>
+<li><p><strong>some</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// some()</span></div><div class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">3</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">9</span>, <span class="number">10</span>];</div><div class="line"></div><div class="line"><span class="keyword">var</span> newArr = arr.some(<span class="function"><span class="keyword">function</span>(<span class="params">value, index, array</span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(value, index, array);</div><div class="line"></div><div class="line">    <span class="keyword">return</span> value &gt; <span class="number">5</span>;</div><div class="line">&#125;)</div><div class="line"><span class="built_in">console</span>.log(newArr);</div></pre></td></tr></table></figure>
+</li>
+<li><p><strong>filter</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// filter() 过滤</span></div><div class="line"><span class="comment">// 1. 能够遍历数组</span></div><div class="line"><span class="comment">// 2. 并且会返回一个新数组，新数组中的值由每一个回调函数的返回值决定！</span></div><div class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>, <span class="number">3</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">9</span>, <span class="number">10</span>];</div><div class="line"></div><div class="line"><span class="keyword">var</span> newArr = arr.filter(<span class="function"><span class="keyword">function</span>(<span class="params">value, index, array</span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(value, index, array);</div><div class="line"></div><div class="line">    <span class="keyword">return</span> value &gt; <span class="number">5</span>;</div><div class="line">&#125;)</div><div class="line"><span class="built_in">console</span>.log(newArr);</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">// 使用场景：数组去重</span></div><div class="line"><span class="keyword">var</span> arr1 = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">6</span>, <span class="number">1</span>, <span class="number">5</span>, <span class="number">2</span>, <span class="number">5</span>];</div><div class="line"><span class="keyword">var</span> newArr1 = arr1.filter(<span class="function"><span class="keyword">function</span>(<span class="params">v, i, self</span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> self.indexOf(v) === i;</div><div class="line">&#125;)</div><div class="line"><span class="built_in">console</span>.log(newArr1)</div><div class="line"><span class="comment">// 去除重复元素依靠的是indexOf总是返回第一个元素的位置，后续的重复元素位置与indexOf返回的位置不相等，因此被filter滤掉了。</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="数组常用操作："><a href="#数组常用操作：" class="headerlink" title="数组常用操作："></a>数组常用操作：</h3><ul>
+<li><strong>数组去重</strong><ul>
+<li>上面<code>filter</code>方法很简单</li>
+</ul>
+</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">js数组、字符串</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+      <p class="article-more-link">
+        <a class="article-more-a" href="/2017/11/27/数组、字符串的常用操作/">
+          展开全文 >></a>
+      </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+  
+    <article id="post-收集前端面试题"
+         class="article article-type-post  article-index" itemscope
+         itemprop="blogPost">
+  <div class="article-inner">
+    
+    <header class="article-header">
+      
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/22/收集前端面试题/">收集前端面试题</a>
+    </h1>
+  
+
+      
+      <a href="/2017/11/22/收集前端面试题/" class="archive-article-date">
+  	<time datetime="2017-11-22T14:59:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-22</time>
+</a>
+      
+    </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      <h2 id="JS"><a href="#JS" class="headerlink" title="JS"></a>JS</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    <span class="keyword">if</span>(! <span class="string">"a"</span> <span class="keyword">in</span> <span class="built_in">window</span>) &#123;</div><div class="line">        <span class="keyword">var</span> a = <span class="string">"定义变量"</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">console</span>.log(a);<span class="comment">//undefined</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 以上代码预编译的结果是</span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">var</span> a;</div><div class="line">    <span class="keyword">if</span>(! <span class="string">"a"</span> <span class="keyword">in</span> <span class="built_in">window</span>) &#123;</div><div class="line">        a = <span class="string">"定义变量"</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">console</span>.log(a);<span class="comment">//undefined</span></div><div class="line"></div><div class="line">    <span class="comment">// 1. 代码在执行之前会进行预解析，会找到所有的变量声明，将其声明提升到当前作用域的顶部，而不会将赋值提升</span></div><div class="line">    <span class="comment">// 2. 所有的全局变量都是window的属性，语句 var a;等价于window.a = undefined;</span></div><div class="line">    <span class="comment">// 3. in 运算符用来检测某个属性是否存在于对象中，注意属性要用字符串形式</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+      
+      <a class="article-more-a" href="/2017/11/22/收集前端面试题/#more">
+        more >></a>
+      
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">前端面试题</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+      <p class="article-more-link">
+        <a class="article-more-a" href="/2017/11/22/收集前端面试题/">
+          展开全文 >></a>
+      </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+  
     <article id="post-智言-你需要一个安静的世界来拥抱自己"
          class="article article-type-post  article-index" itemscope
          itemprop="blogPost">
@@ -845,196 +1023,6 @@
 
 
   
-    <article id="post-不要熬夜！送你一个全球公认最健康的作息时间表！"
-         class="article article-type-post  article-index" itemscope
-         itemprop="blogPost">
-  <div class="article-inner">
-    
-    <header class="article-header">
-      
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/10/13/不要熬夜！送你一个全球公认最健康的作息时间表！/">不要熬夜！送你一个全球公认最健康的作息时间表！</a>
-    </h1>
-  
-
-      
-      <a href="/2017/10/13/不要熬夜！送你一个全球公认最健康的作息时间表！/" class="archive-article-date">
-  	<time datetime="2017-10-13T00:32:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-13</time>
-</a>
-      
-    </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-      <h3 id="今年的诺贝尔生物和医学奖已经颁布了，获奖者是三个美国人"><a href="#今年的诺贝尔生物和医学奖已经颁布了，获奖者是三个美国人" class="headerlink" title="今年的诺贝尔生物和医学奖已经颁布了，获奖者是三个美国人"></a>今年的诺贝尔生物和医学奖已经颁布了，获奖者是三个美国人</h3><p><img src="/2017/10/13/不要熬夜！送你一个全球公认最健康的作息时间表！/images/01.jpg" alt="2017年诺贝尔生物和医学奖获得者"></p>
-<h4 id="关键是获奖理由："><a href="#关键是获奖理由：" class="headerlink" title="关键是获奖理由："></a>关键是获奖理由：</h4><p>Jeffrey C. Hall、Michael Rosbash 和Michael W. Young 三人的工作窥探了生物钟的秘密，并解释了其工作原理。他们的研究成果解释了植物、动物以及人类是如何适应这种生物节律，并同时与地球的自转保持同步。</p>
-<p><img src="/2017/10/13/不要熬夜！送你一个全球公认最健康的作息时间表！/images/02.jpg" alt="获奖理由"><br>好了，我知道你基本没看懂。</p>
-      
-      <a class="article-more-a" href="/2017/10/13/不要熬夜！送你一个全球公认最健康的作息时间表！/#more">
-        more >></a>
-      
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">程序员健康生活</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">健康</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">时间作息表</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-      <p class="article-more-link">
-        <a class="article-more-a" href="/2017/10/13/不要熬夜！送你一个全球公认最健康的作息时间表！/">
-          展开全文 >></a>
-      </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-  
-    <article id="post-前端资源整理"
-         class="article article-type-post  article-index" itemscope
-         itemprop="blogPost">
-  <div class="article-inner">
-    
-    <header class="article-header">
-      
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/10/09/前端资源整理/">前端资源整理</a>
-    </h1>
-  
-
-      
-      <a href="/2017/10/09/前端资源整理/" class="archive-article-date">
-  	<time datetime="2017-10-08T16:32:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-09</time>
-</a>
-      
-    </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-      <blockquote>
-<p>前端资源收集以及工作学习中遇到的问题总结，分类归纳！<br><img src="/2017/10/09/前端资源整理/images/01.jpeg" alt="Talk is cheap. Show me the code" title="Linus Torvalds"></p>
-</blockquote>
-<h3 id="最近更新"><a href="#最近更新" class="headerlink" title="最近更新"></a>最近更新</h3><blockquote>
-<ul>
-<li>新增hexo 搭建个人博客系列文章</li>
-<li>新增项目开发规范</li>
-<li>新增websocket技术<br>Last Modify: 2017-10-18</li>
-</ul>
-</blockquote>
-<h3 id="2017"><a href="#2017" class="headerlink" title="2017"></a>2017</h3><blockquote>
-<ul>
-<li><a href="https://juejin.im/entry/587766645c497d005888f237" target="_blank" rel="external">听说 2017 你想写前端？</a>(沪江UED—内容实在风趣又干货，对现在的前端有个更深更全的了解)</li>
-<li><a href="http://mp.weixin.qq.com/s/IteRXh0jBSbm2dlkHd-TXw" target="_blank" rel="external">2017年给前端开发者的建议</a></li>
-<li><a href="http://www.imooc.com/article/15357" target="_blank" rel="external">2017 年你应该学习的编程语言、框架和工具</a> (在这个行业，紧随潮流是很难的。所以在每年年底，我们都会给你提供一些建议，它涉及什么是最重要的，以及你在未来一年中应该学习什么。)</li>
-</ul>
-</blockquote>
-      
-      <a class="article-more-a" href="/2017/10/09/前端资源整理/#more">
-        more >></a>
-      
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">分享</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">上海黑马13期</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">前端资源</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-      <p class="article-more-link">
-        <a class="article-more-a" href="/2017/10/09/前端资源整理/">
-          展开全文 >></a>
-      </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
@@ -1140,6 +1128,18 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ES6</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ES6的学习笔记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
               </li>
              
@@ -1152,10 +1152,6 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">JavaScript高级</a>
               </li>
              
@@ -1164,11 +1160,7 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ES6</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ES6的学习笔记</a>
+                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1204,6 +1196,10 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">js数组、字符串</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">特别关注faces</a>
               </li>
              
@@ -1233,10 +1229,6 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">黑马13期</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
               </li>
             
             <div class="clearfix"></div>

@@ -8,19 +8,19 @@
   <link rel="dns-prefetch" href="http://biedongda.com">
   <title>javaScript-高级-第一天笔记 | 一个学徒的世界</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="前置知识 面向对象">
+  <meta name="description" content="前置知识 面向对象 初始原型链">
 <meta name="keywords" content="JavaScript,传智播客教育,JavaScript高级">
 <meta property="og:type" content="article">
 <meta property="og:title" content="javaScript-高级-第一天笔记">
 <meta property="og:url" content="http://biedongda.com/2017/12/07/javaScript-高级-第一天笔记/index.html">
 <meta property="og:site_name" content="一个学徒的世界">
-<meta property="og:description" content="前置知识 面向对象">
+<meta property="og:description" content="前置知识 面向对象 初始原型链">
 <meta property="og:image" content="http://biedongda.com/2017/12/07/javaScript-高级-第一天笔记/images/img01.jpg">
 <meta property="og:image" content="http://biedongda.com/2017/12/07/javaScript-高级-第一天笔记/images/img02.jpg">
-<meta property="og:updated_time" content="2017-12-12T03:24:34.682Z">
+<meta property="og:updated_time" content="2017-12-15T13:38:18.763Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="javaScript-高级-第一天笔记">
-<meta name="twitter:description" content="前置知识 面向对象">
+<meta name="twitter:description" content="前置知识 面向对象 初始原型链">
 <meta name="twitter:image" content="http://biedongda.com/2017/12/07/javaScript-高级-第一天笔记/images/img01.jpg">
   
     <link rel="alternative" href="/atom.xml" title="一个学徒的世界" type="application/atom+xml">
@@ -175,6 +175,7 @@
       
       <h2 id="前置知识"><a href="#前置知识" class="headerlink" title="前置知识"></a>前置知识</h2><ol>
 <li>面向对象<br><img src="/2017/12/07/javaScript-高级-第一天笔记/images/img01.jpg" alt="面向对象开发"></li>
+<li>初始原型链</li>
 </ol>
 <a id="more"></a>
 <p><img src="/2017/12/07/javaScript-高级-第一天笔记/images/img02.jpg" alt="程序员的另一种痛"></p>
@@ -182,8 +183,11 @@
 <li>案例：写一个对象描述一个人要求有姓名、年龄、性别、sayHello</li>
 </ul>
 <h3 id="对象字面量（直接量）"><a href="#对象字面量（直接量）" class="headerlink" title="对象字面量（直接量）"></a>对象字面量（直接量）</h3><h4 id="对象是键值对的集合"><a href="#对象是键值对的集合" class="headerlink" title="对象是键值对的集合"></a>对象是键值对的集合</h4><ul>
-<li>属性访问语法：点运算符 和 []</li>
-<li>字面量的缺点：无法复用对象<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 对象的直接量（字面量）来做上面的案例</span></div><div class="line"><span class="keyword">var</span> p = &#123;</div><div class="line">    name: <span class="string">'jim'</span>,</div><div class="line">    age: <span class="number">19</span>,</div><div class="line">    sex: <span class="string">'男'</span>,</div><div class="line">    sayHello: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        alert(<span class="string">'你好，哈哈哈哈'</span>);</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">p.sayHello();</div><div class="line"><span class="comment">// 此时可以把对象称为：关联数组</span></div><div class="line">p[<span class="string">'sayHello'</span>]();</div></pre></td></tr></table></figure>
+<li><p>属性访问语法：点运算符 和 []</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 关于对象访问属性是用点运算符还是[],或者说什么时候用点，什么时候用[]</span></div><div class="line"><span class="comment">// 能用`点运算符`的尽量用点，`[]` 更多的还是在 `for in` 循环当中去使用</span></div><div class="line"><span class="keyword">var</span> obj = &#123;</div><div class="line">    name: <span class="string">'li'</span>,</div><div class="line">    age: <span class="number">18</span></div><div class="line">&#125;;</div><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> k <span class="keyword">in</span> obj)&#123;</div><div class="line">    <span class="comment">// 在for in 循环中不能使用点，因为这样会把变量k当成是对象的属性，而对象中没有k属性</span></div><div class="line">    <span class="comment">// []里面放的是变量，并且该变量保存的是字符串形式的属性。</span></div><div class="line">    <span class="built_in">console</span>.log(obj[k]);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>字面量的缺点：无法复用对象</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 对象的直接量（字面量）来做上面的案例</span></div><div class="line"><span class="keyword">var</span> p = &#123;</div><div class="line">    name: <span class="string">'jim'</span>,</div><div class="line">    age: <span class="number">19</span>,</div><div class="line">    sex: <span class="string">'男'</span>,</div><div class="line">    sayHello: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        alert(<span class="string">'你好，哈哈哈哈'</span>);</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">p.sayHello();</div><div class="line"><span class="comment">// 此时可以把对象称为：关联数组</span></div><div class="line">p[<span class="string">'sayHello'</span>]();</div></pre></td></tr></table></figure>
 </li>
 </ul>
 <h3 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h3><ul>
@@ -200,50 +204,47 @@
 </li>
 </ul>
 <h3 id="原型（prototype）"><a href="#原型（prototype）" class="headerlink" title="原型（prototype）"></a>原型（prototype）</h3><ul>
-<li>构造函数的prototype属性的值就是原型</li>
-<li>原型中用于存放某一类对象的共有方法或属性</li>
+<li>说明：构造函数的 <code>prototype</code> 属性的值就是原型</li>
+<li>作用：原型中用于存放某一类对象的共有方法或属性</li>
 </ul>
 <h4 id="原型的说明"><a href="#原型的说明" class="headerlink" title="原型的说明"></a>原型的说明</h4><ul>
 <li>一个对象的原型就是：构造函数的prototype属性的值</li>
-<li>只要是函数就有 prototype 属性，即函数的原型属性</li>
+<li>只要是函数就有 <code>prototype</code> 属性，即函数的原型属性</li>
 <li>函数的原型属性（prototype）的类型是：’object’</li>
 <li>由 构造函数 创建出来的对象，会默认链接到其构造函数的这个属性（prototype）的值上</li>
-<li>构造函数的 prototype 属性的作用是：实现数据共享</li>
-<li>认为原型对象的作用：为了实现数据共享，我们可以将一些公共的数据，放到原型对象中，这样只要是通过当前构造函数创建初来的实例对象，都可以使用这个对象中（原型）的属性或方法<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>) </span>&#123;&#125;</div><div class="line"><span class="comment">// prototype 即 原型</span></div><div class="line">Person.prototype.legs = <span class="number">2</span>;</div><div class="line"></div><div class="line"><span class="keyword">var</span> p = <span class="keyword">new</span> Person();</div><div class="line"><span class="built_in">console</span>.log(p.legs);</div></pre></td></tr></table></figure>
+<li>构造函数的 <code>prototype</code> 属性的作用是：实现数据共享</li>
+<li>认为原型对象的作用：为了实现数据共享，我们可以将一些公共的数据，放到原型对象中，这样只要是通过当前构造函数创建初来的实例对象，都可以使用这个对象中（原型）的属性或方法<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>) </span>&#123;&#125;</div><div class="line"><span class="comment">// prototype 即 原型</span></div><div class="line">Person.prototype.legs = <span class="number">2</span>;</div><div class="line"></div><div class="line"><span class="keyword">var</span> p = <span class="keyword">new</span> Person();</div><div class="line"><span class="built_in">console</span>.log(p.legs);<span class="comment">// p实例对象上本身没有legs这个属性，而是原型对象上的</span></div></pre></td></tr></table></figure>
 </li>
 </ul>
 <h4 id="原型使用"><a href="#原型使用" class="headerlink" title="原型使用"></a>原型使用</h4><ul>
-<li>原则：只将公共的属性和方法放到 prototype 中<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 对象会到 与它联系的 prototype 中找数据</span></div><div class="line"><span class="comment">// 可以考虑将共享的数据, 放到 里面</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name</span>) </span>&#123;</div><div class="line">    <span class="keyword">this</span>.name = name;</div><div class="line">&#125;</div><div class="line">Person.prototype.sayHello = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    alert(<span class="keyword">this</span>.name);</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">var</span> p = <span class="keyword">new</span> Person();</div><div class="line">p.sayHello();</div></pre></td></tr></table></figure>
+<li>原则：只将公共的属性和方法放到 <code>prototype</code> 中<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 对象会到 与它联系的 prototype 中找数据</span></div><div class="line"><span class="comment">// 可以考虑将共享的数据, 放到 prototype 里面</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name</span>) </span>&#123;</div><div class="line">    <span class="keyword">this</span>.name = name;</div><div class="line">&#125;</div><div class="line">Person.prototype.sayHello = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    alert(<span class="keyword">this</span>.name);</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">var</span> p = <span class="keyword">new</span> Person();</div><div class="line">p.sayHello();</div></pre></td></tr></table></figure>
 </li>
 </ul>
 <h4 id="属性搜索规则"><a href="#属性搜索规则" class="headerlink" title="属性搜索规则"></a>属性搜索规则</h4><ul>
 <li>在访问对象的某一个属性 (方法)的时候：<blockquote>
-<p>1 首先在对象本身查找有没有该属性，如果有就直接使用<br>2 如果没有，就到该对象的原型对象中查找，如果有直接使用<br>3 如果还没有，就到 原型对象的原型对象中查找，如果有直接使用<br>4 如此往复，最终会找到： Object.prototype ，如果这个对象中也没有该属性<br>5 最终，返回结果为：undefined<br>简单来说，就是现在对象本身查找，然后，在原型对象中查找</p>
+<p>1 首先在对象本身查找有没有该属性，如果有就直接使用<br>2 如果没有，就到该对象的原型对象中查找，如果有直接使用<br>3 如果还没有，就到 原型对象的原型对象中查找，如果有直接使用<br>4 如此往复，最终会找到： <code>Object.prototype</code> ，如果这个对象中也没有该属性<br>5 最终，返回结果为：<code>undefined</code><br><strong>简单来说，就是现在对象本身查找，然后，在原型对象中查找</strong></p>
 </blockquote>
 </li>
 </ul>
-<h4 id="属性修改和读取的区别"><a href="#属性修改和读取的区别" class="headerlink" title="属性修改和读取的区别"></a>属性修改和读取的区别</h4><ul>
-<li><p>获取操作：<br>遵循属性搜索原则</p>
-</li>
-<li><p>赋值操作（只与当前对象有关）：<br>只会操作对象本身，如果对象中没有该属性则创建该属性，并赋值；如果对象中有，则修改</p>
-</li>
+<h4 id="属性修改和读取的区别"><a href="#属性修改和读取的区别" class="headerlink" title="属性修改和读取的区别"></a>属性修改和读取的区别</h4><blockquote>
+<ul>
+<li>获取操作：<br>遵循属性搜索原则</li>
+<li>赋值操作（只与当前对象有关）：<br>只会操作对象本身，如果对象中没有该属性则创建该属性，并赋值；如果对象中有，则修改</li>
 </ul>
-<h4 id="非标准属性-proto"><a href="#非标准属性-proto" class="headerlink" title="非标准属性 proto"></a>非标准属性 <strong>proto</strong></h4><ul>
-<li>注意：因为该属性是非标准属性，不该在生产环境中使用！<blockquote>
-<p>1 对象中有一个 内置属性 叫：<strong>proto</strong><br>2 这个属性是非标准的，由浏览器提供<br>3 对象的 <code>__proto__</code> 与创建它的构造函数的 <code>prototype</code> 是同一个对象</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">F</span>(<span class="params"></span>) </span>&#123;&#125;</div><div class="line"><span class="keyword">var</span> o = <span class="keyword">new</span> F();</div><div class="line"></div><div class="line"><span class="comment">// __proto__ 与 prototype 的关系：</span></div><div class="line"><span class="built_in">console</span>.log(o.__proto__ === F.prototype); <span class="comment">// true</span></div></pre></td></tr></table></figure>
 </blockquote>
+<h4 id="实例对象访问原型"><a href="#实例对象访问原型" class="headerlink" title="实例对象访问原型"></a>实例对象访问原型</h4><blockquote>
+<p>1 对象中有一个 内置属性 叫：<code>__proto__</code><br>2 这个属性是非标准的，由浏览器提供<br>3 对象的 <code>__proto__</code> 与创建它的构造函数的 <code>prototype</code> 是同一个对象</p>
+<ul>
+<li>注意：因为 <code>__proto__</code> 属性是非标准属性，不该在生产环境中使用！<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">F</span>(<span class="params"></span>) </span>&#123;&#125;</div><div class="line"><span class="keyword">var</span> o = <span class="keyword">new</span> F();</div><div class="line"></div><div class="line"><span class="comment">// __proto__ 与 prototype 的关系：</span></div><div class="line"><span class="built_in">console</span>.log(o.__proto__ === F.prototype); <span class="comment">// true</span></div></pre></td></tr></table></figure>
 </li>
 </ul>
+</blockquote>
 <h4 id="DOM就是一个非常典型的面向对象，所有的节点都是对象"><a href="#DOM就是一个非常典型的面向对象，所有的节点都是对象" class="headerlink" title="DOM就是一个非常典型的面向对象，所有的节点都是对象"></a>DOM就是一个非常典型的面向对象，所有的节点都是对象</h4><p>在DOM中所有的东西全部都是对象，所以，使用DOM非常简单方便<br>jQuery中所有的东西也都是对象</p>
 <h3 id="js中面向对象的实现方式："><a href="#js中面向对象的实现方式：" class="headerlink" title="js中面向对象的实现方式："></a>js中面向对象的实现方式：</h3><blockquote>
-<p>构造函数+原型<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">this</span>.name = <span class="string">''</span>;</div><div class="line">&#125;</div><div class="line">Person.prototype.say = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;;</div><div class="line"><span class="keyword">var</span> p = <span class="keyword">new</span> Person();</div></pre></td></tr></table></figure></p>
-</blockquote>
-<h3 id="使用面向对象编程最基本的原则：（组织代码的结构）"><a href="#使用面向对象编程最基本的原则：（组织代码的结构）" class="headerlink" title="使用面向对象编程最基本的原则：（组织代码的结构）"></a>使用面向对象编程最基本的原则：（组织代码的结构）</h3><blockquote>
-<p>1 属性都放到构造函数中<br>2 方法或公共的属性放到原型中<br>这样任何的实例对象都可以使用这同一份属性或方法</p>
+<p>构造函数+原型。使用面向对象编程最基本的原则：（组织代码的结构）<br>1 属性都放到构造函数中<br>2 方法或公共的属性放到原型中<br><strong>这样任何的实例对象都可以使用这同一份属性或方法</strong><br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">this</span>.name = <span class="string">''</span>;</div><div class="line">&#125;</div><div class="line">Person.prototype.say = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;;</div><div class="line"><span class="keyword">var</span> p = <span class="keyword">new</span> Person();</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">// 思考，以下代码的作用</span></div><div class="line"><span class="keyword">var</span> Person = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="comment">// 主要是这块if判断的作用</span></div><div class="line">    <span class="keyword">if</span>( !(<span class="keyword">this</span> <span class="keyword">instanceof</span> Person) ) &#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">new</span> Person();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">this</span>.name = <span class="string">'小明'</span>;</div><div class="line">&#125;;</div><div class="line">Person.prototype.say = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log( <span class="string">'hello world'</span> )</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">new</span> Person().say();</div><div class="line"><span class="comment">// new实例化对象的时候，构造函数内部的this指向新创建出来的实例对象，那 this instanceof Person 为true，跳过if语句，继续后面的代码给新对象添加属性。</span></div><div class="line"></div><div class="line">Person().say();</div><div class="line"><span class="comment">// 上面代码省略 new 运算符来调用构造函数。</span></div><div class="line"><span class="comment">// 此时，Person函数内部的this指向：window（后面会专门讲到 this指向的问题）</span></div><div class="line"><span class="comment">// window instanceof Person  --&gt; 返回false ，走进if语句，返回一个Person实例对象</span></div><div class="line"><span class="comment">// 那这样在实例化对象的时候，不管带不带 new 运算符都可以创建出一个实例对象了。</span></div><div class="line"><span class="comment">// 总结作用：省略 new 来创建实例对象</span></div></pre></td></tr></table></figure></p>
 </blockquote>
 <h3 id="补充几个概念："><a href="#补充几个概念：" class="headerlink" title="补充几个概念："></a>补充几个概念：</h3><blockquote>
-<p>函数、构造函数、对象、实例<br>函数：复用（代码的重复利用）<br>构造函数：复用（模板，复用产生对象的代码）<br>实例对象：由构造函数创建出来的对象<br>对象：泛指JavaScript中的复杂数据类型<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>) </span>&#123;&#125;</div><div class="line">Person();<span class="comment">//普通的函数调用</span></div><div class="line"><span class="keyword">var</span> p = <span class="keyword">new</span> Person();<span class="comment">// 称 p 是构造函数Person的实例</span></div></pre></td></tr></table></figure></p>
+<p>函数、构造函数、对象、实例<br>函数：复用（代码的重复利用）<br>构造函数：复用（模板，复用产生对象的代码）<br>实例对象：由构造函数创建出来的对象<br>对象：泛指 <code>JavaScript</code> 中的复杂数据类型<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>) </span>&#123;&#125;</div><div class="line">Person();<span class="comment">//普通的函数调用</span></div><div class="line"><span class="keyword">var</span> p = <span class="keyword">new</span> Person();<span class="comment">// 称 p 是构造函数Person的实例</span></div></pre></td></tr></table></figure></p>
 </blockquote>
 
       
@@ -513,6 +514,18 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ES6</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ES6的学习笔记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
               </li>
              
@@ -525,10 +538,6 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">JavaScript高级</a>
               </li>
              
@@ -537,11 +546,7 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ES6</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ES6的学习笔记</a>
+                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -577,6 +582,10 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">js数组、字符串</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">特别关注faces</a>
               </li>
              
@@ -606,10 +615,6 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">黑马13期</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
               </li>
             
             <div class="clearfix"></div>

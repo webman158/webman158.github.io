@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://biedongda.com/2017/12/01/javaScript-基础-第四天笔记/index.html">
 <meta property="og:site_name" content="一个学徒的世界">
 <meta property="og:description" content="前置知识 对象  为什么要有对象1234567function printPerson(name, age, sex....) &amp;#123;&amp;#125;// 函数的参数如果特别多的话，可以使用对象简化function printPerson(person) &amp;#123;  console.log(person.name);  ……&amp;#125;">
-<meta property="og:updated_time" content="2017-12-11T01:14:44.011Z">
+<meta property="og:updated_time" content="2017-12-14T02:19:02.613Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="javaScript-基础-第四天笔记">
 <meta name="twitter:description" content="前置知识 对象  为什么要有对象1234567function printPerson(name, age, sex....) &amp;#123;&amp;#125;// 函数的参数如果特别多的话，可以使用对象简化function printPerson(person) &amp;#123;  console.log(person.name);  ……&amp;#125;">
@@ -246,12 +246,12 @@
 </blockquote>
 <h3 id="删除对象的属性"><a href="#删除对象的属性" class="headerlink" title="删除对象的属性"></a>删除对象的属性</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Fun</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">this</span>.name = <span class="string">'mm'</span>;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> obj = <span class="keyword">new</span> Fun();</div><div class="line"><span class="built_in">console</span>.log(obj.name); <span class="comment">// mm </span></div><div class="line"><span class="keyword">delete</span> obj.name;<span class="comment">//delete的相关使用，在本文后续有说明</span></div><div class="line"><span class="built_in">console</span>.log(obj.name); <span class="comment">// undefined</span></div></pre></td></tr></table></figure>
 <h3 id="查看一个对象的类型"><a href="#查看一个对象的类型" class="headerlink" title="查看一个对象的类型"></a>查看一个对象的类型</h3><blockquote>
-<p>typeof 只能判断基本数据类型<br>instanceof 判断对象的具体类型 (使用instanceof判断基本数据类型都是返回false，应为基本数据不是对象)<br>constructor.name也可以获取到对象的具体类型</p>
+<p><code>typeof</code> 只能判断基本数据类型,检测引用类型的值时，这个操作符的用处不大。我们并不是想知道某个值是对象，而是想知道它是什么类型的对象。为此，<code>ECMAScript</code> 提供了 <code>instanceof</code> 操作符.<br><code>instanceof</code> 判断对象的具体类型 (如果使用 <code>instanceof</code> 操作符检测基本类型的值，则该操作符始终会返回 false ，因为基本类型不是对象。)<br>关于 <code>instanceof</code> 的使用在 <em>javaScript-高级-第二天笔记</em>中有介绍使用<br><code>constructor.name</code> 也可以获取到对象的具体类型</p>
 </blockquote>
 <h3 id="JSON对象"><a href="#JSON对象" class="headerlink" title="JSON对象"></a>JSON对象</h3><blockquote>
-<p>JSON(JavaScript Object Notation) 是一种轻量级的数据交换格式，采用完全独立于语言的文本格式，是理想的数据交换格式。同时，JSON是 JavaScript 原生格式，这意味着在 JavaScript 中处理 JSON数据跟处理对象是一样的。<br>JSON对象是任何语言都能认识的<br>json在线校验网站：<a href="http://www.bejson.com/" target="_blank" rel="external">http://www.bejson.com/</a></p>
+<p>JSON(JavaScript Object Notation) 是一种<strong>轻量级的数据交换格式</strong>，采用完全独立于语言的文本格式，是理想的数据交换格式。同时，JSON是 JavaScript 原生格式，这意味着在 JavaScript 中处理 JSON数据跟处理对象是一样的。<br>JSON对象是任何语言都能认识的<br><a href="http://json.org/json-zh.html" target="_blank" rel="external">JSON的介绍</a><br><a href="http://www.bejson.com/" target="_blank" rel="external">json在线校验网站</a></p>
 </blockquote>
-<p><strong>JSON的属性必须用双引号引号引起来，而对象字面量是可以省略的</strong><br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//对于js对象来说，属性名的双引号是可以省略的。</span></div><div class="line"><span class="keyword">var</span> obj = &#123;</div><div class="line">  name:<span class="string">"zs"</span>,</div><div class="line">  age:<span class="number">18</span>,</div><div class="line">  sex:<span class="string">"男"</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//json对象的属性名必须使用双引号括起来才是合格的json对象</span></div><div class="line"><span class="keyword">var</span> obj = &#123;</div><div class="line">  <span class="string">"name"</span>:<span class="string">"zs"</span>,</div><div class="line">  <span class="string">"age"</span>:<span class="number">18</span>,</div><div class="line">  <span class="string">"sex"</span>:<span class="string">"男"</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//在js中，其实就可以把json当成javascript的对象，因此操作是一样。</span></div></pre></td></tr></table></figure></p>
+<p><strong>JSON的属性必须用双引号引起来，而对象字面量是可以省略的</strong><br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//对于js对象来说，属性名的双引号是可以省略的。</span></div><div class="line"><span class="keyword">var</span> obj = &#123;</div><div class="line">  name:<span class="string">"zs"</span>,</div><div class="line">  age:<span class="number">18</span>,</div><div class="line">  sex:<span class="string">"男"</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//json对象的属性名必须使用双引号括起来才是合格的json对象</span></div><div class="line"><span class="keyword">var</span> obj = &#123;</div><div class="line">  <span class="string">"name"</span>:<span class="string">"zs"</span>,</div><div class="line">  <span class="string">"age"</span>:<span class="number">18</span>,</div><div class="line">  <span class="string">"sex"</span>:<span class="string">"男"</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//在js中，其实就可以把json当成javascript的对象，因此操作是一样。</span></div></pre></td></tr></table></figure></p>
 <h3 id="对象中常用的运算符"><a href="#对象中常用的运算符" class="headerlink" title="对象中常用的运算符"></a>对象中常用的运算符</h3><p><strong>in 操作符</strong></p>
 <blockquote>
 <p>作用：判断对象能不能访问到某个属性，如果能够访问到那么就返回：true, 否则返回：false<br>语法： 布尔值 = 属性 in 对象, 返回一个布尔值<br>注意：属性用引号引起来，或者是变量值为字符串的属性。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> obj = &#123;</div><div class="line">  name: <span class="string">'congcong'</span>,</div><div class="line">  age: <span class="number">20</span>,</div><div class="line">  gender: <span class="literal">undefined</span></div><div class="line">&#125;;</div><div class="line"><span class="comment">// 任何对象都能够调用 toString() 方法</span></div><div class="line"><span class="comment">// console.log( obj.toString() );</span></div><div class="line"><span class="comment">// console.log( 'toString' in obj ); // true</span></div><div class="line"><span class="comment">// 总结：只要是对象能访问到的属性都返回true，不管是对象自己本身的属性还是原型上的属性</span></div><div class="line"><span class="comment">// console.log( 'name' in obj ); // true</span></div><div class="line"><span class="comment">// console.log( 'name1' in obj ); // false</span></div><div class="line"><span class="comment">// console.log( 'gender' in obj ); // true</span></div><div class="line"><span class="comment">// console.log( gender in obj ); // 报错</span></div></pre></td></tr></table></figure></p>
@@ -555,6 +555,18 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ES6</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ES6的学习笔记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
               </li>
              
@@ -567,10 +579,6 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">JavaScript高级</a>
               </li>
              
@@ -579,11 +587,7 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ES6</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ES6的学习笔记</a>
+                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -619,6 +623,10 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">js数组、字符串</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">特别关注faces</a>
               </li>
              
@@ -648,10 +656,6 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">黑马13期</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
               </li>
             
             <div class="clearfix"></div>
