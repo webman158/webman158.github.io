@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://biedongda.com/2017/12/01/javaScript-基础-第四天笔记/index.html">
 <meta property="og:site_name" content="一个学徒的世界">
 <meta property="og:description" content="前置知识 对象  为什么要有对象1234567function printPerson(name, age, sex....) &amp;#123;&amp;#125;// 函数的参数如果特别多的话，可以使用对象简化function printPerson(person) &amp;#123;  console.log(person.name);  ……&amp;#125;">
-<meta property="og:updated_time" content="2017-12-14T02:19:02.613Z">
+<meta property="og:updated_time" content="2017-12-18T13:17:52.649Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="javaScript-基础-第四天笔记">
 <meta name="twitter:description" content="前置知识 对象  为什么要有对象1234567function printPerson(name, age, sex....) &amp;#123;&amp;#125;// 函数的参数如果特别多的话，可以使用对象简化function printPerson(person) &amp;#123;  console.log(person.name);  ……&amp;#125;">
@@ -270,8 +270,8 @@
 <p>delete 操作符会从对象上移除指定属性。成功删除的时候会返回 true，否则返回 false。但是，重要的是要考虑以下情况：</p>
 <ul>
 <li>如果你删除的属性在对象上不存在，那么delete将不会起作用，但仍会返回true</li>
-<li>如果 delete 操作符删除成功，则被删除的属性将从所属的对象上彻底消失。然后，如果该对象的原型链上有一个同名属性，则该对象会从原型链上继承该同名属性。（也就是说delete操作只会在自身的属性上起作用）</li>
-<li>任何使用 var 声明的变量(属性)不能从全局作用域或函数的作用域中删除。这样的话，delete操作不能删除任何在全局作用域中的函数（无论这个函数是来自于函数声明或函数表达式）除了在全局作用域中的函数不能被删除，在对象(object)中的函数是能够用delete操作删除的。</li>
+<li>如果 delete 操作符删除成功，则被删除的属性将从所属的对象上彻底消失。然后，如果该对象的原型链上有一个同名属性，则该对象会从原型链上继承该同名属性。（也就是说delete操作符只会在自身的属性上起作用）</li>
+<li><strong>任何使用 var 声明的变量(属性)不能从全局作用域或函数的作用域中删除。</strong>这样的话，delete操作不能删除任何在全局作用域中的函数（无论这个函数是来自于函数声明或函数表达式）除了在全局作用域中的函数不能被删除，在对象(object)中的函数是能够用delete操作删除的。</li>
 </ul>
 <p>使用场景:</p>
 <ul>
@@ -283,8 +283,8 @@
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> obj = &#123;</div><div class="line">  name: <span class="string">'xiaomei'</span></div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="comment">// 将对象obj 中的 name 属性删除！</span></div><div class="line"><span class="keyword">delete</span> obj.name;</div><div class="line"><span class="built_in">console</span>.log(obj);</div><div class="line"></div><div class="line"><span class="comment">// - 删除用var声明的变量 ===&gt; 不起作用，删除不了</span></div><div class="line"><span class="keyword">delete</span> obj;<span class="comment">//true </span></div><div class="line"><span class="built_in">console</span>.log(obj)<span class="comment">//删除这个对象，但是还能打印到，说明删除不起作用</span></div><div class="line"></div><div class="line"><span class="comment">// - 删除没用var声明的全局变量 ===&gt; 起作用，删除成功</span></div><div class="line">obj1 = &#123;&#125;;</div><div class="line"><span class="keyword">delete</span> obj1;</div><div class="line"><span class="built_in">console</span>.log(obj1)<span class="comment">//报错，因为obj1 不存在，已经被删除了</span></div></pre></td></tr></table></figure>
 <blockquote>
 <ul>
-<li>任何用let或const声明的属性不能够从它被声明的作用域中删除。</li>
-<li>不可设置的(Non-configurable)属性不能被移除。这意味着像Math, Array, Object内置对象的属性以及使用Object.defineProperty()方法设置为不可设置的属性不能被删除。</li>
+<li>任何用 <code>let</code> 或 <code>const</code> 声明的属性不能够从它被声明的作用域中删除。</li>
+<li>不可设置的(Non-configurable)属性不能被移除。这意味着像Math, Array, Object内置对象的属性以及使用<code>Object.defineProperty()</code> 方法设置为不可设置的属性不能被删除。</li>
 </ul>
 </blockquote>
 
@@ -563,10 +563,6 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
               </li>
              
@@ -576,6 +572,10 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">传智播客教育</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -615,11 +615,11 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">前端资源</a>
+                <a href="javascript:void(0)" class="js-tag color1">前端面试题</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">前端面试题</a>
+                <a href="javascript:void(0)" class="js-tag color5">前端资源</a>
               </li>
              
               <li class="article-tag-list-item">

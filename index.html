@@ -148,6 +148,79 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Object常用方法总结"
+         class="article article-type-post  article-index" itemscope
+         itemprop="blogPost">
+  <div class="article-inner">
+    
+    <header class="article-header">
+      
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/12/19/Object常用方法总结/">Object常用方法总结</a>
+    </h1>
+  
+
+      
+      <a href="/2017/12/19/Object常用方法总结/" class="archive-article-date">
+  	<time datetime="2017-12-18T16:29:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-19</time>
+</a>
+      
+    </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      <h2 id="前置知识"><a href="#前置知识" class="headerlink" title="前置知识"></a>前置知识</h2><p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object" target="_blank" rel="external">Object属性、方法参考链接</a></p>
+<h3 id="属性："><a href="#属性：" class="headerlink" title="属性："></a>属性：</h3><h3 id="方法"><a href="#方法" class="headerlink" title="方法:"></a>方法:</h3><ul>
+<li><p><strong>Object.create()</strong></p>
+</li>
+<li><p><strong>Object.defineProperties()</strong></p>
+</li>
+<li><p><strong>Object.keys()</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 作用：该方法会返回一个由一个给定对象的自身可枚举属性组成的数组，数组中属性名的排列顺序和使用 for...in 循环遍历该对象时返回的顺序一致 （两者的主要区别是 一个 for-in 循环还会枚举其原型链上的属性）。</span></div><div class="line"><span class="comment">// 语法：Object.keys(obj)</span></div><div class="line"><span class="comment">// 参数：要返回其枚举自身属性的对象</span></div><div class="line"><span class="comment">// 返回值：一个表示给定对象的所有可枚举属性的字符串数组。</span></div><div class="line"><span class="comment">// 说明： 该方法返回一个所有元素为字符串的数组，其元素来自于从给定的对象上面可直接枚举的属性。元素的顺序与手动遍历该对象属性时的一致。</span></div><div class="line"></div><div class="line"><span class="comment">// Array 对象</span></div><div class="line"><span class="keyword">var</span> arr = [<span class="string">'abc'</span>, <span class="string">'foo'</span>, <span class="string">'baz'</span>];</div><div class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.keys(arr)); <span class="comment">//['0', '1', '2']</span></div><div class="line"></div><div class="line"><span class="comment">// Object 对象</span></div><div class="line"><span class="keyword">var</span> obj = &#123;</div><div class="line">    a: <span class="number">123</span>,</div><div class="line">    b: [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</div><div class="line">&#125;</div><div class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.keys(obj)); <span class="comment">// ['a', 'b']</span></div><div class="line"><span class="comment">// 1. 返回一个数组</span></div><div class="line"><span class="comment">// 2. 数组内的元素都为字符串类型</span></div><div class="line"><span class="comment">// 3. 元素的来源是参数对象上可以直接枚举的属性</span></div><div class="line"><span class="comment">// 4. 元素的顺序和手动遍历该对象属性时一致</span></div><div class="line"></div><div class="line"><span class="comment">// 应用场景：</span></div><div class="line"><span class="comment">// 1. 获取关联数组（对象）的长度</span></div><div class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.keys(obj).length) <span class="comment">// 2</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <p class="article-more-link">
+        <a class="article-more-a" href="/2017/12/19/Object常用方法总结/">
+          展开全文 >></a>
+      </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+  
     <article id="post-javaScript-高级-第四天笔记"
          class="article article-type-post  article-index" itemscope
          itemprop="blogPost">
@@ -978,112 +1051,6 @@
 
 
   
-    <article id="post-javaScript-基础-第一天笔记"
-         class="article article-type-post  article-index" itemscope
-         itemprop="blogPost">
-  <div class="article-inner">
-    
-    <header class="article-header">
-      
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/28/javaScript-基础-第一天笔记/">javaScript-基础-第一天笔记</a>
-    </h1>
-  
-
-      
-      <a href="/2017/11/28/javaScript-基础-第一天笔记/" class="archive-article-date">
-  	<time datetime="2017-11-28T08:30:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-28</time>
-</a>
-      
-    </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-      <h2 id="前置学习内容-："><a href="#前置学习内容-：" class="headerlink" title="前置学习内容 ："></a>前置学习内容 ：</h2><ol>
-<li>初体验JS</li>
-</ol>
-<h2 id="什么是JS语言"><a href="#什么是JS语言" class="headerlink" title="什么是JS语言"></a>什么是JS语言</h2><blockquote>
-<p>JavaScript是一种运行在<strong>客户端</strong> 的<strong>脚本语言</strong><br>客户端：即接受服务的一端，与服务端相对应，在前端开发中，通常客户端指的就是浏览器。<br>脚本语言：也叫解释型语言，特点是执行一行，解释一行，如果发现报错，代码就停止执行。<br>JavaScript的解释器被称为JavaScript引擎，为浏览器的一部分，广泛用于客户端的脚本语言，最早是在HTML（标准通用标记语言下的一个应用）网页上使用，用来给HTML网页增加动态功能。</p>
-</blockquote>
-<h3 id="JavaScript最初的目的"><a href="#JavaScript最初的目的" class="headerlink" title="JavaScript最初的目的"></a>JavaScript最初的目的</h3><blockquote>
-<p>最初的目的是为了处理表单的验证操作。</p>
-</blockquote>
-<h3 id="JavaScript现在的意义-应用场景"><a href="#JavaScript现在的意义-应用场景" class="headerlink" title="JavaScript现在的意义(应用场景)"></a>JavaScript现在的意义(应用场景)</h3><blockquote>
-<p>JavaScript 发展到现在几乎无所不能。</p>
-<ol>
-<li>网页特效</li>
-<li>服务端开发(Node.js)</li>
-<li>命令行工具(Node.js)</li>
-<li>桌面程序(Electron)</li>
-<li>App(Cordova)</li>
-<li>控制硬件-物联网(Ruff)</li>
-<li>游戏开发(cocos2d-js)</li>
-</ol>
-</blockquote>
-      
-      <a class="article-more-a" href="/2017/11/28/javaScript-基础-第一天笔记/#more">
-        more >></a>
-      
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">JavaScript基础</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">传智播客教育</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-      <p class="article-more-link">
-        <a class="article-more-a" href="/2017/11/28/javaScript-基础-第一天笔记/">
-          展开全文 >></a>
-      </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1197,10 +1164,6 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
               </li>
              
@@ -1210,6 +1173,10 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">传智播客教育</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1249,11 +1216,11 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">前端资源</a>
+                <a href="javascript:void(0)" class="js-tag color1">前端面试题</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">前端面试题</a>
+                <a href="javascript:void(0)" class="js-tag color5">前端资源</a>
               </li>
              
               <li class="article-tag-list-item">

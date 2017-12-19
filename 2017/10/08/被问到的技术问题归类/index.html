@@ -32,7 +32,7 @@
 <meta property="og:image" content="http://biedongda.com/2017/10/08/被问到的技术问题归类/images/06.png">
 <meta property="og:image" content="http://biedongda.com/2017/10/08/被问到的技术问题归类/images/07.png">
 <meta property="og:image" content="http://biedongda.com/2017/10/08/被问到的技术问题归类/images/08.png">
-<meta property="og:updated_time" content="2017-12-18T01:45:27.136Z">
+<meta property="og:updated_time" content="2017-12-18T16:23:38.524Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="带班常见技术问题总结">
 <meta name="twitter:description" content="HTML html5的表单pattern属性，使用的时候需要注意下：  MDN文档参考链接   页面一打开就会自动滚动到某个部分  一开始怀疑是不是js代码里面设置了页面滚动距离，但是将页面所有引用的js都注释了，还是会发生该现象。将引用的css文件也注释掉，也还是会发生该现象。于是将页面整体大块大块的删除，具体排除是那部分出了问题。最后排查到是由于表单元素input设置了autofocus属性，">
@@ -256,7 +256,7 @@
 <h3 id="JS"><a href="#JS" class="headerlink" title="JS"></a>JS</h3><ul>
 <li><p><strong>变量声明注意点–避免隐式创建全局变量</strong></p>
 <blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a = b = c = <span class="number">10</span>;</div><div class="line"><span class="comment">// 这种声明变量，只有a是var声明的，b和c都成了隐式的全局变量，尤其需要注意避免这种问题</span></div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a = b = c = <span class="number">10</span>;</div><div class="line"><span class="comment">// 这种声明变量，只有a是var声明的，b和c都成了隐式的全局变量，尤其需要注意避免这种问题</span></div><div class="line"></div><div class="line"><span class="comment">// 面试题</span></div><div class="line"><span class="comment">// 立即执行函数表达式（IIFE）</span></div><div class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="keyword">var</span> a = b = <span class="number">5</span>;</div><div class="line">&#125;)()</div><div class="line"><span class="built_in">console</span>.log(b);<span class="comment">//5</span></div><div class="line"><span class="built_in">console</span>.log(a);<span class="comment">//报错</span></div><div class="line"></div><div class="line"><span class="comment">// 注意：以上IIFE代码中没有开启严格模式('use strict';)</span></div><div class="line"><span class="comment">// 如果 严格模式开启，那么代码就会报出未捕获引用错误（Uncaught ReferenceError）：b没有定义。需要注意，在严格模式要求在需要使用全局变量时，明确地引用该变量。因此，需要像下面这么写：</span></div><div class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line"><span class="meta">  'use strict'</span>;</div><div class="line">  <span class="keyword">var</span> a = <span class="built_in">window</span>.b = <span class="number">5</span>;</div><div class="line">&#125;)()</div><div class="line"><span class="built_in">console</span>.log(b);</div></pre></td></tr></table></figure>
 </blockquote>
 </li>
 <li><p><strong>变量声明注意点</strong></p>
@@ -280,6 +280,17 @@
 <p>函数声明不允许出现在其他语句中（权威指南-168页）<br><img src="/2017/10/08/被问到的技术问题归类/images/function01.png" alt="函数声明不允许出现在其他语句中"></p>
 </blockquote>
 </li>
+<li><p><strong>声明提升是先提升函数还是变量（Hoisting）</strong></p>
+<blockquote>
+<p>函数提升优先级比变量提升要高，且不会被变量声明覆盖，但是会被变量赋值覆盖，</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> foo = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123; </div><div class="line">    <span class="comment">// Some code</span></div><div class="line">&#125;; </div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">bar</span>(<span class="params"></span>)</span>&#123; </div><div class="line">    <span class="comment">// Some code</span></div><div class="line">&#125;;</div><div class="line"><span class="built_in">console</span>.log(foo);</div><div class="line"><span class="built_in">console</span>.log(bar);</div><div class="line"></div><div class="line"><span class="comment">// 预解析（变量提升之后）</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">bar</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="comment">// Some code</span></div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> foo;</div><div class="line"><span class="built_in">console</span>.log(foo); <span class="comment">//undefined</span></div><div class="line"><span class="built_in">console</span>.log(bar); <span class="comment">// 函数bar</span></div></pre></td></tr></table></figure>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<p>在考虑下函数和变量名冲突的问题<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure></p>
+</blockquote>
+<ul>
 <li><p><strong>window.onload 到底是什么时候触发执行？</strong></p>
 <blockquote>
 <p>在文档装载完成后会触发 load 事件。此时，在文档中的所有对象都在DOM中，<strong>所有图片</strong>，<strong>脚本</strong>，<strong>链接以及子框</strong>都完成了装载。<br>● window.onload 方法会将文档中所有的元素加载完毕并且所有的外部文件加载完毕后执行<br>● window.onload 只能有一个，如果出现多个最后一个会覆盖前面的所有函数。<br><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/GlobalEventHandlers/onload" target="_blank" rel="external">MDN参考链接</a></p>
@@ -288,6 +299,17 @@
 <li><p><strong>函数构造法的问题</strong></p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> name=<span class="string">'xiaoming'</span>;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">fun</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="keyword">var</span> name=<span class="string">'xiaohong'</span>;</div><div class="line">  <span class="comment">// 所有的参数都是字符串模式，只有一个参数的情况，参数就是函数体</span></div><div class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Function</span>(<span class="string">'return name'</span>);<span class="comment">//不能获取局部变量</span></div><div class="line">&#125;</div><div class="line"><span class="built_in">console</span>.log(fun()());<span class="comment">//xiaoming</span></div><div class="line"><span class="comment">//1. Function()构造函数每次执行时都会解析函数主体，并创建一个新的函数对象，所以当在一个循环或频繁执行的函数中调用Function()构造函数效率是非常低的。而函数字面量却不是每次遇到都会重新编译的，用Function()构造函数创建一个函数时并不遵循典型的作用域，它一直把它当作是顶级函数来执行。它只有自身作用域以及全局作用域。</span></div><div class="line"><span class="comment">//2. 构造函数没有参数的情况,括号可以省略</span></div></pre></td></tr></table></figure>
 </li>
+<li><p><strong>什么是 undefined x 1 ？</strong></p>
+<blockquote>
+<p>在chrome下执行如下代码，我们就可以看到undefined x 1。（新版的chrome是 empty x 1）</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> trees = [<span class="string">"redwood"</span>,<span class="string">"bay"</span>,<span class="string">"cedar"</span>,<span class="string">"oak"</span>,<span class="string">"maple"</span>];</div><div class="line"><span class="keyword">delete</span> trees[<span class="number">3</span>];</div><div class="line"><span class="built_in">console</span>.log(trees);</div></pre></td></tr></table></figure>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<p>当我们使用 <code>delete</code> 操作符删除一个数组中的元素，这个元素的位置就会变成一个占位符。打印出来就是undefined x 1。<br>注意如果我们使用 <code>trees[3] === &#39;undefined × 1&#39;</code> 返回的是 false。因为它仅仅是一种打印表示，并不是值变为undefined x 1。而是undefined. <code>trees[2] === undefined</code> 返回 true<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 在上面代码的基础上拓展</span></div><div class="line"><span class="built_in">console</span>.log(trees.length); <span class="comment">// 5</span></div><div class="line"><span class="comment">// 因为delete操作符并不是影响数组的长度。</span></div></pre></td></tr></table></figure></p>
+</blockquote>
+<ul>
 <li><p><strong>return false</strong></p>
 <blockquote>
 <p>● 在原生js中，只能做到阻止事件的默认行为（e.preventDefault）<br>● 在jQuery中return false 被封装成可以阻止事件冒泡和事件的默认行为</p>
@@ -662,10 +684,6 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
               </li>
              
@@ -675,6 +693,10 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">传智播客教育</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -714,11 +736,11 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">前端资源</a>
+                <a href="javascript:void(0)" class="js-tag color1">前端面试题</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">前端面试题</a>
+                <a href="javascript:void(0)" class="js-tag color5">前端资源</a>
               </li>
              
               <li class="article-tag-list-item">
