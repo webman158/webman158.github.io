@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="一个学徒的世界">
 <meta property="og:description" content="前置知识 原型中的 constructor 属性 面向对象特征介绍 JavaScript中的继承 原型链 站在原型链的角度来看 instanceof 运算符 站在原型链的角度来看 in 运算符">
 <meta property="og:image" content="http://biedongda.com/2017/12/12/javaScript-高级-第二天笔记/images/完整的原型链结构图.jpg">
-<meta property="og:updated_time" content="2017-12-18T13:37:02.269Z">
+<meta property="og:updated_time" content="2017-12-19T07:42:06.612Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="javaScript-高级-第二天笔记">
 <meta name="twitter:description" content="前置知识 原型中的 constructor 属性 面向对象特征介绍 JavaScript中的继承 原型链 站在原型链的角度来看 instanceof 运算符 站在原型链的角度来看 in 运算符">
@@ -324,6 +324,7 @@
 </ul>
 </blockquote>
 <h4 id="案例练习-绘制完整的原型链图"><a href="#案例练习-绘制完整的原型链图" class="headerlink" title="案例练习 - 绘制完整的原型链图"></a>案例练习 - 绘制完整的原型链图</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 1</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Foo</span>(<span class="params"></span>) </span>&#123;&#125;</div><div class="line"><span class="comment">// Foo、Function、Function.prototype、Object.prototype</span></div><div class="line"></div><div class="line"><span class="comment">// 2 Function 也是函数的情况</span></div><div class="line"><span class="comment">// Function.__proto__ === Function.prototype</span></div><div class="line"></div><div class="line"><span class="comment">// 3</span></div><div class="line"><span class="keyword">var</span> o = <span class="keyword">new</span> <span class="built_in">Object</span>();</div><div class="line"></div><div class="line"><span class="comment">// 4 完整的原型链结构图</span></div></pre></td></tr></table></figure>
+<p><strong>注意：原型链在画的时候是从实例对象自身开始的，结束到null，但是实例对象本身以及null都不在原型链上的</strong><br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>) </span>&#123;&#125;</div><div class="line"><span class="keyword">var</span> p = <span class="keyword">new</span> Person();</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(Person.prototype.isPrototypeOf(p)); <span class="comment">// true</span></div><div class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.prototype.isPrototypeOf(p)); <span class="comment">// true</span></div><div class="line"><span class="built_in">console</span>.log(Person.prototype.isPrototypeOf(Person)); <span class="comment">//false</span></div><div class="line"><span class="built_in">console</span>.log(p.isPrototypeOf(p));    <span class="comment">//false</span></div><div class="line"></div><div class="line"><span class="comment">// Person 的原型链：</span></div><div class="line">Person -&gt; <span class="built_in">Function</span>.prototype -&gt; <span class="built_in">Object</span>.prototype -&gt; <span class="literal">null</span>;</div><div class="line"></div><div class="line"><span class="comment">// p 的原型链：</span></div><div class="line">p -&gt; Person.prototype -&gt; <span class="built_in">Object</span>.prototype -&gt; <span class="literal">null</span>;</div></pre></td></tr></table></figure></p>
 <h3 id="站在原型链的角度来看-instanceof-运算符"><a href="#站在原型链的角度来看-instanceof-运算符" class="headerlink" title="站在原型链的角度来看 instanceof 运算符"></a>站在原型链的角度来看 <code>instanceof</code> 运算符</h3><blockquote>
 <ul>
 <li>语法：实例对象 instanceof 构造函数</li>
@@ -611,6 +612,10 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
               </li>
              
@@ -620,10 +625,6 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">传智播客教育</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -663,11 +664,19 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">前端面试题</a>
+                <a href="javascript:void(0)" class="js-tag color5">前端资源</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">前端资源</a>
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript技巧、窍门</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">JavaScript最佳实践</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">前端面试题</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -704,6 +713,10 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">黑马13期</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
               </li>
             
             <div class="clearfix"></div>

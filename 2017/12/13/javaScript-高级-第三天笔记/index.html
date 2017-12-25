@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://biedongda.com/2017/12/13/javaScript-高级-第三天笔记/index.html">
 <meta property="og:site_name" content="一个学徒的世界">
 <meta property="og:description" content="前置知识 函数的三种创建方式 new Function 和 eval 联系和区别  静态成员和实例成员 function的相关属性和方法 递归 自调用函数 Object.prototype 常用成员">
-<meta property="og:updated_time" content="2017-12-15T09:06:03.190Z">
+<meta property="og:updated_time" content="2017-12-19T10:52:42.835Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="javaScript-高级-第三天笔记">
 <meta name="twitter:description" content="前置知识 函数的三种创建方式 new Function 和 eval 联系和区别  静态成员和实例成员 function的相关属性和方法 递归 自调用函数 Object.prototype 常用成员">
@@ -200,10 +200,10 @@
 <h4 id="eval"><a href="#eval" class="headerlink" title="eval"></a>eval</h4><blockquote>
 <ul>
 <li>语法：eval(‘字符串’);</li>
-<li>作用：这个函数在调用的时候会将字符串参数作为js代码来执行<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 简单使用</span></div><div class="line"><span class="comment">// 下面这样a成为全局的了</span></div><div class="line"><span class="built_in">eval</span>(<span class="string">'var a = 10;'</span>);</div><div class="line"><span class="built_in">console</span>.log(a);</div><div class="line"></div><div class="line"><span class="comment">// 变量是局部的</span></div><div class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="built_in">eval</span>(<span class="string">'var b = 10;'</span>);</div><div class="line">    <span class="built_in">console</span>.log(b);</div><div class="line">&#125;)()</div><div class="line"></div><div class="line"><span class="comment">// 应用场景: Ajax中将字符串转化为对象字面量</span></div><div class="line"><span class="comment">// - 使用eval将字符串转化为对象的两种方式：</span></div><div class="line"><span class="keyword">var</span> str = <span class="string">'&#123; "name":"jim", "age": 18, "gender": "男" &#125;'</span>;</div><div class="line"><span class="comment">// 标准方式</span></div><div class="line"><span class="keyword">var</span> o = <span class="built_in">eval</span>(<span class="string">'('</span> + str + <span class="string">')'</span>);</div><div class="line"></div><div class="line"><span class="comment">// 2</span></div><div class="line"><span class="built_in">eval</span>(<span class="string">'var o = '</span> + str);</div><div class="line"></div><div class="line"><span class="comment">// - 使用 new Function 处理 json字符串</span></div><div class="line"><span class="keyword">var</span> str = <span class="string">'&#123; "name":"jim", "age": 18, "gender": "男" &#125;'</span>;</div><div class="line"><span class="keyword">var</span> o = <span class="keyword">new</span> <span class="built_in">Function</span>(<span class="string">'return '</span> + str)();</div><div class="line"><span class="built_in">console</span>.log(o.name);</div><div class="line"></div><div class="line"><span class="comment">// 这里涉及到 js引擎：词法分析</span></div><div class="line"><span class="comment">// js中&#123;&#125;的用法：</span></div><div class="line"><span class="comment">// 1 代码块，用来包裹代码，组织语句，代码块出现冒号导致语法解析错误。</span></div><div class="line"><span class="comment">//     if(true) &#123;&#125;</span></div><div class="line"><span class="comment">//     while(true) &#123;&#125;</span></div><div class="line"><span class="comment">//     for()&#123;&#125;</span></div><div class="line"><span class="comment">// 2  对象字面量</span></div><div class="line"></div><div class="line"><span class="comment">// eval(str) 中的str，优先成被解释成代码块，代码块出现冒号导致语法解析错误。</span></div><div class="line"></div><div class="line"><span class="comment">// 小括号：只允许出现表达式</span></div><div class="line"><span class="comment">// 我们将 &#123;&#125; 放在 小括号中，此时，js引擎会将其解析为：对象字面量</span></div><div class="line"><span class="comment">// 如果没有小括号，就被解析为：代码块</span></div><div class="line"><span class="comment">// eval('(' + str + ')') 参数字符串小括号解释：此处的小括号不是提升优先级的作用，(&#123;&#125;) 小括号的作用是内部只能出现表达式，此时的&#123;&#125;被解析成对象字面量了，就没问题了</span></div><div class="line"></div><div class="line"><span class="comment">// 在 eval() 中创建的任何变量或函数都不会被提升，因为在解析代码的时候，它们被包含在一个字符串中；它们只在 eval() 执行的时候创建。</span></div><div class="line"><span class="comment">// 严格模式下，在外部访问不到 eval() 中创建的任何变量或函数，因此前面的例子在严格模式下都会导致错误。</span></div><div class="line"><span class="comment">// 同样，在严格模式下，为 eval 赋值也会导致错误：</span></div><div class="line"><span class="comment">// "use strict";</span></div><div class="line"><span class="comment">// eval = "hi"; // Uncaught SyntaxError: Unexpected eval or arguments in strict mode</span></div></pre></td></tr></table></figure>
+<li>作用：这个函数在调用的时候会将字符串参数作为js代码来执行<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 简单使用</span></div><div class="line"><span class="comment">// 下面这样a成为全局的了</span></div><div class="line"><span class="built_in">eval</span>(<span class="string">'var a = 10;'</span>);</div><div class="line"><span class="built_in">console</span>.log(a);</div><div class="line"></div><div class="line"><span class="comment">// 变量是局部的</span></div><div class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="built_in">eval</span>(<span class="string">'var b = 10;'</span>);</div><div class="line">    <span class="built_in">console</span>.log(b);</div><div class="line">&#125;)()</div><div class="line"></div><div class="line"><span class="comment">// 应用场景: Ajax中将字符串转化为对象字面量</span></div><div class="line"><span class="comment">// - 使用eval将字符串转化为对象的两种方式：</span></div><div class="line"><span class="keyword">var</span> str = <span class="string">'&#123; "name":"jim", "age": 18, "gender": "男" &#125;'</span>;</div><div class="line"><span class="comment">// 方式1：</span></div><div class="line"><span class="keyword">var</span> o = <span class="built_in">eval</span>(<span class="string">'('</span> + str + <span class="string">')'</span>);</div><div class="line"></div><div class="line"><span class="comment">// 方式2：</span></div><div class="line"><span class="built_in">eval</span>(<span class="string">'var o = '</span> + str); <span class="comment">// 字符串拼接了，这样的话，在被eval解析后，相当于是var o = &#123; "name":"jim", "age": 18, "gender": "男" &#125;； &#123;&#125;在等号右边被作为赋值语句了， 赋值语句也是表达式， 也被解析成了对象；</span></div><div class="line"></div><div class="line"><span class="comment">// 注意：</span></div><div class="line"><span class="built_in">eval</span>(str); <span class="comment">//这样会报错</span></div><div class="line"><span class="comment">// eval(str) 中的str，优先成被解释成代码块，代码块出现冒号导致语法解析错误。</span></div><div class="line"></div><div class="line"><span class="comment">// 这里涉及到 js引擎：词法分析</span></div><div class="line"><span class="comment">// js中&#123;&#125;的用法：</span></div><div class="line"><span class="comment">// 1 代码块，用来包裹代码，组织语句，代码块出现冒号导致语法解析错误。</span></div><div class="line"><span class="comment">//     if(true) &#123;&#125;</span></div><div class="line"><span class="comment">//     while(true) &#123;&#125;</span></div><div class="line"><span class="comment">//     for()&#123;&#125;</span></div><div class="line"><span class="comment">// 2  对象字面量</span></div><div class="line"></div><div class="line"><span class="comment">// 小括号内只允许出现表达式</span></div><div class="line"><span class="comment">// 我们将 &#123;&#125; 放在 小括号中，此时，js引擎会将其解析为：对象字面量</span></div><div class="line"><span class="comment">// 如果没有小括号，就被解析为：代码块</span></div><div class="line"><span class="comment">// eval('(' + str + ')') 参数字符串小括号解释：此处的小括号不是提升优先级的作用，(&#123;&#125;) 小括号的作用是内部只能出现表达式，此时的&#123;&#125;被解析成对象字面量了，就没问题了</span></div><div class="line"></div><div class="line"><span class="comment">// - 使用 new Function 处理 json字符串</span></div><div class="line"><span class="keyword">var</span> str = <span class="string">'&#123; "name":"jim", "age": 18, "gender": "男" &#125;'</span>;</div><div class="line"><span class="keyword">var</span> o = <span class="keyword">new</span> <span class="built_in">Function</span>(<span class="string">'return '</span> + str)(); <span class="comment">// new Function() 返回一个函数对象，后面直接加小括号直接调用</span></div><div class="line"><span class="built_in">console</span>.log(o.name);</div><div class="line"></div><div class="line"><span class="comment">// 在 eval() 中创建的任何变量或函数都不会被提升，因为在解析代码的时候，它们被包含在一个字符串中；它们只在 eval() 执行的时候创建。</span></div><div class="line"><span class="comment">// 严格模式下，在外部访问不到 eval() 中创建的任何变量或函数，因此前面的例子在严格模式下都会导致错误。</span></div><div class="line"><span class="comment">// 同样，在严格模式下，为 eval 赋值也会导致错误：</span></div><div class="line"><span class="comment">// "use strict";</span></div><div class="line"><span class="comment">// eval = "hi"; // Uncaught SyntaxError: Unexpected eval or arguments in strict mode</span></div></pre></td></tr></table></figure>
 </li>
 </ul>
-<p>能够解释代码字符串的能力非常强大，但也非常危险。因此在使用 eval() 时必须极为谨慎，特别是在用它执行用户输入数据的情况下。否则，可能会有恶意用户输入威胁你的站点或应用程序安全的代码（即所谓的代码注入）。<br><a href="http://qingbob.com/Excess-XSS/" target="_blank" rel="external">了解XSS攻击</a></p>
+<p>能够解释代码字符串的能力非常强大，但也非常危险。因此在使用 eval() 时必须极为谨慎，特别是在用它执行用户输入数据的情况下。否则，可能会有恶意用户输入威胁你的站点或应用程序安全的代码（即所谓的代码注入）。<br><a href="http://qingbob.com/Excess-XSS/" target="_blank" rel="external">了解XSS攻击</a><br><a href="http://javascript.ruanyifeng.com/bom/engine.html#toc11" target="_blank" rel="external">浏览器的组成</a> (阮一峰的JS标准教程)</p>
 </blockquote>
 <h4 id="eval-和-new-Function-的总结："><a href="#eval-和-new-Function-的总结：" class="headerlink" title="eval 和 new Function() 的总结："></a>eval 和 new Function() 的总结：</h4><blockquote>
 <ul>
@@ -597,6 +597,10 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
               </li>
              
@@ -606,10 +610,6 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">传智播客教育</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -649,11 +649,19 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">前端面试题</a>
+                <a href="javascript:void(0)" class="js-tag color5">前端资源</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">前端资源</a>
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript技巧、窍门</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">JavaScript最佳实践</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">前端面试题</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -690,6 +698,10 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">黑马13期</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
               </li>
             
             <div class="clearfix"></div>

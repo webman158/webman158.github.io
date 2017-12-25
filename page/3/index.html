@@ -148,6 +148,360 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-vue初学笔记整理"
+         class="article article-type-post  article-index" itemscope
+         itemprop="blogPost">
+  <div class="article-inner">
+    
+    <header class="article-header">
+      
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/09/vue初学笔记整理/">vue初学笔记整理</a>
+    </h1>
+  
+
+      
+      <a href="/2017/11/09/vue初学笔记整理/" class="archive-article-date">
+  	<time datetime="2017-11-09T12:36:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-09</time>
+</a>
+      
+    </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      <h2 id="前置："><a href="#前置：" class="headerlink" title="前置："></a>前置：</h2><ol>
+<li>再用vue-cli组件式的运用vue，在main.js里面初始化vue实例的时候，渲染被替换的#app节点只能用render函数的原因</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">new</span> Vue(&#123;</div><div class="line">  el: <span class="string">'#app'</span>,</div><div class="line">  router,</div><div class="line">  data: &#123;</div><div class="line">    message: <span class="string">'hello hui'</span></div><div class="line">  &#125;,</div><div class="line">  <span class="comment">// template: '&lt;div id="app"&gt;&lt;h1&gt;Hello&lt;/h1&gt;&lt;/div&gt;',</span></div><div class="line">  <span class="comment">//报错： You are using the runtime-only build of Vue where the template compiler is not available. Either pre-compile the templates into render functions, or use the compiler-included build.</span></div><div class="line">  <span class="comment">//因为用ES6去加载vue得到的是vue.runtime.esm.js文件(这个可以去vue/package.json文件去看不同的加载方式对应的加载到的vue版本)，这个运行时不包括编译器，所以template模板不识别，只能用render的方式来渲染替换#app节点</span></div><div class="line">  render(createElement)&#123;</div><div class="line">    <span class="comment">// 一定要通过 render 的方式，用 App.vue 替换过来才可以，否则不能用</span></div><div class="line">    <span class="comment">// createElement函数会将APP组件编译成一个节点返回</span></div><div class="line">    <span class="comment">// render函数会把当前实例的#app节点给替换掉</span></div><div class="line">    <span class="built_in">console</span>.log(createElement);</div><div class="line">    <span class="keyword">return</span> createElement(App);</div><div class="line">  &#125;</div><div class="line">  <span class="comment">// render: h =&gt; h(App)//在以前的老版本中可能是这样写的，就是上面代码的箭头函数写法</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>总结：</p>
+<ol>
+<li>注意查看vue不同版本的区别：[对不同构建版本的解释]<a href="https://cn.vuejs.org/v2/guide/installation.html#%E5%AF%B9%E4%B8%8D%E5%90%8C%E6%9E%84%E5%BB%BA%E7%89%88%E6%9C%AC%E7%9A%84%E8%A7%A3%E9%87%8A" target="_blank" rel="external">https://cn.vuejs.org/v2/guide/installation.html#%E5%AF%B9%E4%B8%8D%E5%90%8C%E6%9E%84%E5%BB%BA%E7%89%88%E6%9C%AC%E7%9A%84%E8%A7%A3%E9%87%8A</a> () </li>
+<li>同时对应的查看node-modules/vue/package.json文件中不同加载方式对应的加载到的vue版本</li>
+<li>render 函数的作用</li>
+<li>使用ES6模块来加载vue，如果实在非要使用<code>vue.esm.js</code>版本的话，不建议更改vue目录下的<code>package.json</code>文件中的<code>module</code>属性来更改加载<code>vue.esm.js</code>版本。因为这样将项目给别人，自己的更改将不能同步，导致在别人电脑上运行时还是报错的信息。这时候可以使用webpack的<code>reslove</code>选项来配置vue的别名<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">resolve: &#123;</div><div class="line">    <span class="comment">// 处理别名</span></div><div class="line">    alias: &#123;</div><div class="line">        vue$: path.resolve(__dirname, <span class="string">'node_modules/vue/dist/vue.esm.js'</span>),</div><div class="line">    &#125;</div><div class="line">&#125;,</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>类似的，<code>vue-cli</code>脚手架做的<code>&#39;@&#39;: resolve(&#39;src&#39;)</code>事情是一样</p>
+<ol>
+<li>Vue 选项中的 render 函数若存在，则 Vue 构造函数不会从 template 选项或通过 el 选项指定的挂载元素中提取出的 HTML 模板编译渲染函数。</li>
+</ol>
+      
+      <a class="article-more-a" href="/2017/11/09/vue初学笔记整理/#more">
+        more >></a>
+      
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+      <p class="article-more-link">
+        <a class="article-more-a" href="/2017/11/09/vue初学笔记整理/">
+          展开全文 >></a>
+      </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+  
+    <article id="post-ES6学习笔记"
+         class="article article-type-post  article-index" itemscope
+         itemprop="blogPost">
+  <div class="article-inner">
+    
+    <header class="article-header">
+      
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/08/ES6学习笔记/">ES6学习笔记</a>
+    </h1>
+  
+
+      
+      <a href="/2017/11/08/ES6学习笔记/" class="archive-article-date">
+  	<time datetime="2017-11-08T07:07:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-08</time>
+</a>
+      
+    </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      <h2 id="箭头函数"><a href="#箭头函数" class="headerlink" title="箭头函数"></a>箭头函数</h2><ol>
+<li>箭头函数没有函数声明</li>
+<li>箭头函数要吗是函数表达式要是匿名函数</li>
+<li>箭头函数不能当做构造函数，也就是不能 new，否则会报错</li>
+<li>箭头函数内部不要使用arguments对象，会有问题，可以使用rest参数代替arguments。</li>
+<li>关于箭头函数this的指向问题<ul>
+<li>可以理解为箭头函数相当于默认了bind了当前执行环境的this指向。</li>
+<li>也可以理解为箭头函数内部没有自己的this，所以去外部查找this 的指向问题。<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Fn</span> (<span class="params">name, age</span>)</span>&#123;</div><div class="line">    <span class="keyword">this</span>.name = name;</div><div class="line">    <span class="keyword">this</span>.age = age;</div><div class="line"></div><div class="line">    <span class="keyword">this</span>.sayAge = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="comment">// setTimeout(function()&#123;</span></div><div class="line">        <span class="comment">//     console.log(this.age);</span></div><div class="line">        <span class="comment">//     // 得到undefined</span></div><div class="line">        <span class="comment">// &#125;,1000)</span></div><div class="line"></div><div class="line">        <span class="comment">// 解决办法①：</span></div><div class="line">        setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">            <span class="built_in">console</span>.log(<span class="keyword">this</span>.age);</div><div class="line">            <span class="comment">// 得到19</span></div><div class="line">        &#125;.bind(<span class="keyword">this</span>),<span class="number">1000</span>)</div><div class="line"></div><div class="line">        <span class="comment">// 解决办法②:</span></div><div class="line">        setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">            <span class="built_in">console</span>.log(<span class="keyword">this</span>.age);</div><div class="line">            <span class="comment">// 得到19</span></div><div class="line">        &#125;,<span class="number">1000</span>)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">new</span> Fn(<span class="string">'jack'</span>,<span class="number">19</span>).sayAge();</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ol>
+<p>6.使用箭头函数返回一个对象，对象必须要用小括号包裹起来<br>    因为{}有两层含义，</p>
+      
+      <a class="article-more-a" href="/2017/11/08/ES6学习笔记/#more">
+        more >></a>
+      
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ES6</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">ES6的学习笔记</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+      <p class="article-more-link">
+        <a class="article-more-a" href="/2017/11/08/ES6学习笔记/">
+          展开全文 >></a>
+      </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+  
+    <article id="post-编辑器IDE"
+         class="article article-type-post  article-index" itemscope
+         itemprop="blogPost">
+  <div class="article-inner">
+    
+    <header class="article-header">
+      
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/07/编辑器IDE/">编辑器IDE</a>
+    </h1>
+  
+
+      
+      <a href="/2017/11/07/编辑器IDE/" class="archive-article-date">
+  	<time datetime="2017-11-07T06:36:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-07</time>
+</a>
+      
+    </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      <h3 id="sublime"><a href="#sublime" class="headerlink" title="sublime"></a>sublime</h3><blockquote>
+<ul>
+<li><a href="http://www.sublimetextcn.com/" target="_blank" rel="external">sublime text 中文网</a></li>
+<li><a href="http://www.bluesdream.com/blog/sublime-text-snippets-function.html" target="_blank" rel="external">Sublime Text Snippets（添加代码片段）功能</a></li>
+</ul>
+</blockquote>
+      
+      <a class="article-more-a" href="/2017/11/07/编辑器IDE/#more">
+        more >></a>
+      
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">编辑器</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">sublime</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">vscode</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">WebStorm</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">atom</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+      <p class="article-more-link">
+        <a class="article-more-a" href="/2017/11/07/编辑器IDE/">
+          展开全文 >></a>
+      </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+  
+    <article id="post-websocket初体验02"
+         class="article article-type-post  article-index" itemscope
+         itemprop="blogPost">
+  <div class="article-inner">
+    
+    <header class="article-header">
+      
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/02/websocket初体验02/">websocket初体验02</a>
+    </h1>
+  
+
+      
+      <a href="/2017/11/02/websocket初体验02/" class="archive-article-date">
+  	<time datetime="2017-11-02T09:42:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-02</time>
+</a>
+      
+    </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      <h3 id="续"><a href="#续" class="headerlink" title="续"></a>续</h3><p>上次说到，websocket在用来客户端和服务端通信上面的方便之处。但是websocket作为H5的新特性，在IE低版本浏览器上是玩不转的。这次我们来说说socket.io。</p>
+<h3 id="一、Socket-io的介绍："><a href="#一、Socket-io的介绍：" class="headerlink" title="一、Socket.io的介绍："></a>一、Socket.io的介绍：</h3><p>具体的介绍可以上官网，上面说的比较详细 <a href="http://javacheng.oschina.io/socket.io/" target="_blank" rel="external">1.x版本的中文网</a> <a href="https://socket.io/" target="_blank" rel="external">2.x版本的官网</a></p>
+      
+      <a class="article-more-a" href="/2017/11/02/websocket初体验02/#more">
+        more >></a>
+      
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <p class="article-more-link">
+        <a class="article-more-a" href="/2017/11/02/websocket初体验02/">
+          展开全文 >></a>
+      </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+  
     <article id="post-websocket初体验"
          class="article article-type-post  article-index" itemscope
          itemprop="blogPost">
@@ -362,6 +716,7 @@
 <li><a href="https://juejin.im/entry/587766645c497d005888f237" target="_blank" rel="external">听说 2017 你想写前端？</a>(沪江UED—内容实在风趣又干货，对现在的前端有个更深更全的了解)</li>
 <li><a href="http://mp.weixin.qq.com/s/IteRXh0jBSbm2dlkHd-TXw" target="_blank" rel="external">2017年给前端开发者的建议</a></li>
 <li><a href="http://www.imooc.com/article/15357" target="_blank" rel="external">2017 年你应该学习的编程语言、框架和工具</a> (在这个行业，紧随潮流是很难的。所以在每年年底，我们都会给你提供一些建议，它涉及什么是最重要的，以及你在未来一年中应该学习什么。)</li>
+<li><a href="https://zhuanlan.zhihu.com/p/23412169?hmsr=toutiao.io&amp;utm_medium=toutiao.io&amp;utm_source=toutiao.io" target="_blank" rel="external">6周学习计划，攻克JavaScript难关(React/Redux/ES6 etc.)</a></li>
 </ul>
 </blockquote>
       
@@ -449,33 +804,21 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-      <h3 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h3><ul>
-<li><p><strong>html5的表单pattern属性，使用的时候需要注意下：</strong></p>
-<blockquote>
-<p><img src="/2017/10/08/被问到的技术问题归类/images/pattern.png" alt="html5的表单pattern属性，使用的时候需要注意下："><br><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/Input" target="_blank" rel="external">MDN文档参考链接</a></p>
-</blockquote>
-</li>
-<li><p><strong>页面一打开就会自动滚动到某个部分</strong></p>
-<blockquote>
-<p>一开始怀疑是不是js代码里面设置了页面滚动距离，但是将页面所有引用的js都注释了，还是会发生该现象。将引用的css文件也注释掉，也还是会发生该现象。于是将页面整体大块大块的删除，具体排除是那部分出了问题。<br>最后排查到是由于表单元素<code>input</code>设置了<code>autofocus</code>属性，输入框自动获取焦点页面就会滚动到光标所在处<br>（在jQuery项目阶段，有学员做过这样的事情，由于表单元素隐藏在很多元素中，没有注意到光标的闪烁在表单中，而且pc端光标聚焦了不像移动端键盘会自动弹出，所以一开始是真的没注意到。）</p>
-</blockquote>
-</li>
-<li><p><strong>canvas获取文字大小</strong></p>
-<blockquote>
-<p>在canvas中通过<code>measureText</code>方法获取文字的大小，注意将font的设置字体大小和字体样式放在获取文字宽度之前，否则获取的宽度是按照文字的初始大小来计算的<br><img src="/2017/10/08/被问到的技术问题归类/images/canvas01.png" alt="canvas获取文字大小"></p>
-</blockquote>
-</li>
-<li><p><strong>canvas引入外部资源</strong></p>
-<blockquote>
-<p>在canvas中引入视频，用服务器协议打开页面发现在canvas的画布中没有出现引用的视频，但是用文件协议打开却可以。</p>
-</blockquote>
-</li>
-<li><p><strong>HTML5 自定义属性data-*使用注意：</strong></p>
-<blockquote>
-<p>1.HTML5的自定义属性data-xxx不能使用大写字母,不论大写位置在哪，都是不行,浏览器默认会转成小写的,在浏览器Element面板中注意节点data-*的信息,所以在JS获取的时候，注意都是小写的。<br>2.当data-my-name=”itcast” 这样设置格式时，则需要以驼峰格式才能正确获取,获取Node.dataset[‘myName’]</p>
-</blockquote>
-</li>
-</ul>
+      <h2 id="前置知识"><a href="#前置知识" class="headerlink" title="前置知识"></a>前置知识</h2><ol>
+<li>html</li>
+<li>css</li>
+<li>JS</li>
+<li>JQ</li>
+<li>php</li>
+<li>WebStorm</li>
+<li>PhpStorm</li>
+<li>sublime</li>
+<li>Node.js</li>
+<li>Chrome相关问题</li>
+<li>实战项目开发注意点总结</li>
+<li>其他插件</li>
+<li>其他软件</li>
+</ol>
       
       <a class="article-more-a" href="/2017/10/08/被问到的技术问题归类/#more">
         more >></a>
@@ -727,6 +1070,10 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
               </li>
              
@@ -736,10 +1083,6 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">传智播客教育</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -779,11 +1122,19 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">前端面试题</a>
+                <a href="javascript:void(0)" class="js-tag color5">前端资源</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">前端资源</a>
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript技巧、窍门</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">JavaScript最佳实践</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">前端面试题</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -820,6 +1171,10 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">黑马13期</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
               </li>
             
             <div class="clearfix"></div>

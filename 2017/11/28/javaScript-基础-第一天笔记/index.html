@@ -17,7 +17,7 @@
 <meta property="og:description" content="前置学习内容 ： 初体验JS  什么是JS语言 JavaScript是一种运行在客户端 的脚本语言客户端：即接受服务的一端，与服务端相对应，在前端开发中，通常客户端指的就是浏览器。脚本语言：也叫解释型语言，特点是执行一行，解释一行，如果发现报错，代码就停止执行。JavaScript的解释器被称为JavaScript引擎，为浏览器的一部分，广泛用于客户端的脚本语言，最早是在HTML（标准通用标记语言">
 <meta property="og:image" content="http://biedongda.com/2017/11/28/javaScript-基础-第一天笔记/media/1496912475691.png">
 <meta property="og:image" content="http://biedongda.com/2017/11/28/javaScript-基础-第一天笔记/media/1498289626813.png">
-<meta property="og:updated_time" content="2017-12-15T03:14:34.479Z">
+<meta property="og:updated_time" content="2017-12-25T15:07:17.386Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="javaScript-基础-第一天笔记">
 <meta name="twitter:description" content="前置学习内容 ： 初体验JS  什么是JS语言 JavaScript是一种运行在客户端 的脚本语言客户端：即接受服务的一端，与服务端相对应，在前端开发中，通常客户端指的就是浏览器。脚本语言：也叫解释型语言，特点是执行一行，解释一行，如果发现报错，代码就停止执行。JavaScript的解释器被称为JavaScript引擎，为浏览器的一部分，广泛用于客户端的脚本语言，最早是在HTML（标准通用标记语言">
@@ -343,7 +343,7 @@
 </ul>
 <h3 id="复杂数据类型"><a href="#复杂数据类型" class="headerlink" title="复杂数据类型"></a>复杂数据类型</h3><p>  Object <a href="/2017/12/01/javaScript-基础-第四天笔记/">对象内容后面详细章节介绍</a></p>
 <h2 id="获取变量的类型"><a href="#获取变量的类型" class="headerlink" title="获取变量的类型"></a>获取变量的类型</h2><p>使用 <code>typeof</code> 运算符(关键字)查看数据类型<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> age = <span class="number">18</span>;</div><div class="line"><span class="keyword">var</span> result = <span class="keyword">typeof</span> age;</div><div class="line"><span class="built_in">console</span>.log(result);  <span class="comment">// 'number'</span></div><div class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> result);  <span class="comment">// 'string'</span></div><div class="line"></div><div class="line"><span class="keyword">typeof</span> name;<span class="comment">//注意name是window对象的一个属性，类型是字符串</span></div><div class="line"><span class="keyword">typeof</span>(name2);<span class="comment">//注意，typeof 检测不存在的变量，不会报错，得到undefined</span></div><div class="line"><span class="keyword">typeof</span>(name2());<span class="comment">//报错</span></div></pre></td></tr></table></figure></p>
-<p>注意点：通过<code>typeof</code> 获取的类型都是小写字母，获得的结果类型是string<br>通过<code>typeof</code> 运算符获取数据类型的时候，有两个需要注意的地方：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 1. typeof null ===&gt; object</span></div><div class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> <span class="literal">null</span>);</div><div class="line"></div><div class="line"><span class="comment">// 函数是js中的一等公民（其实就是说明函数非常重要的！！！）</span></div><div class="line"><span class="comment">// 2. typeof function ===&gt; function</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  </div><div class="line">&#125;</div><div class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> fn);</div></pre></td></tr></table></figure></p>
+<p>注意点：通过<code>typeof</code> 获取的类型都是小写字母，获得的结果类型是string<br>通过<code>typeof</code> 运算符获取数据类型的时候，有两个需要注意的地方：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 1. typeof null ===&gt; object</span></div><div class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> <span class="literal">null</span>);</div><div class="line"></div><div class="line"><span class="comment">// 函数是js中的一等公民（其实就是说明函数非常重要的！！！）</span></div><div class="line"><span class="comment">// 一种编程语言被称为具有头等函数时，语言中的函数将会像任何其他变量一样被对待。例如， 在这样的语言中, 一个函数可以作为参数传递给其他函数，可以被当作返回值被另一个函数返回，可以当作值指定给一个变量。</span></div><div class="line"><span class="comment">// 2. typeof function ===&gt; function</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  </div><div class="line">&#125;</div><div class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> fn);</div></pre></td></tr></table></figure></p>
 <h2 id="数据类型转换"><a href="#数据类型转换" class="headerlink" title="数据类型转换"></a>数据类型转换</h2><ul>
 <li>如何使用谷歌浏览器，快速的查看数据类型？<br>字符串的颜色是黑色的，数值类型是蓝色的，布尔类型也是蓝色的，undefined和null是灰色的.这个在调试过程中时非常有用的。</li>
 </ul>
@@ -410,7 +410,7 @@
 <li><strong>找假值,只要找到这个假值，就不往后找了。返回找到的那个假值，找不到假值就返回最后一个</strong><br><code>||</code> 逻辑或 </li>
 <li>两个操作数有一个为true，结果为true，否则为false。</li>
 <li><strong>找真值,只要找到这个真值，就不往后找了。返回找到的那个真值，找不到真值就返回最后一个</strong><br><code>!</code>  非  </li>
-<li>取反<br>总结：<br>逻辑运算符（短路运算）<br><strong>逻辑或 常用于 给函数参数设置默认值</strong><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params">num1</span>)</span>&#123;</div><div class="line">  <span class="comment">//  给参数初始化默认值</span></div><div class="line">  <span class="comment">// 在调用函数的时候，如果没有传入参数，那么参数的值为：undefined</span></div><div class="line">  <span class="built_in">console</span>.log(num1)<span class="comment">//undefined</span></div><div class="line"></div><div class="line">  <span class="comment">// 给num1设置默认值</span></div><div class="line">  <span class="comment">// 此处逻辑或的作用：</span></div><div class="line">      <span class="comment">// 找真值,只要找到这个真值，就不往后找了。返回找到的那个真值，找不到真值就返回最后一个</span></div><div class="line">      <span class="comment">// 简单理解就是如果num1是真值，那么就返回num1的值赋值给num1，如果不是真值的话，就将1赋值给num1.</span></div><div class="line">  num1 = num1 || <span class="number">1</span>;</div><div class="line">  <span class="comment">// 但是以上代码在fn(0)的时候，就不可用了，因为0是假值，所以num1的值还是1，这时候可以这样解决：</span></div><div class="line">  <span class="comment">// 1. num1 = (typeof num1 === 'undefined') ? 1 : num1;//如果num1 是undefined的话，就赋值1</span></div><div class="line">  <span class="comment">// 2. if(typeof num1 === 'undefined')&#123;</span></div><div class="line">  <span class="comment">//      num1 = 1;</span></div><div class="line">  <span class="comment">//    &#125;</span></div><div class="line">&#125;</div><div class="line">fn();</div></pre></td></tr></table></figure>
+<li>取反<br>总结：<br>逻辑运算符（短路运算）<br>短路运算符在进行求值时，只要最终的结果已经可以确定是真或假，求值过程便告终止，这称之为短路求值。<br><strong>逻辑或 常用于 给函数参数设置默认值</strong><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params">num1</span>)</span>&#123;</div><div class="line">  <span class="comment">//  给参数初始化默认值</span></div><div class="line">  <span class="comment">// 在调用函数的时候，如果没有传入参数，那么参数的值为：undefined</span></div><div class="line">  <span class="built_in">console</span>.log(num1)<span class="comment">//undefined</span></div><div class="line"></div><div class="line">  <span class="comment">// 给num1设置默认值</span></div><div class="line">  <span class="comment">// 此处逻辑或的作用：</span></div><div class="line">      <span class="comment">// 找真值,只要找到这个真值，就不往后找了。返回找到的那个真值，找不到真值就返回最后一个</span></div><div class="line">      <span class="comment">// 简单理解就是如果num1是真值，那么就返回num1的值赋值给num1，如果不是真值的话，就将1赋值给num1.</span></div><div class="line">  num1 = num1 || <span class="number">1</span>;</div><div class="line">  <span class="comment">// 但是以上代码在fn(0)的时候，就不可用了，因为0是假值，所以num1的值还是1，这时候可以这样解决：</span></div><div class="line">  <span class="comment">// 1. num1 = (typeof num1 === 'undefined') ? 1 : num1;//如果num1 是undefined的话，就赋值1</span></div><div class="line">  <span class="comment">// 2. if(typeof num1 === 'undefined')&#123;</span></div><div class="line">  <span class="comment">//      num1 = 1;</span></div><div class="line">  <span class="comment">//    &#125;</span></div><div class="line">&#125;</div><div class="line">fn();</div></pre></td></tr></table></figure>
 </li>
 </ul>
 <h4 id="案例练习："><a href="#案例练习：" class="headerlink" title="案例练习："></a>案例练习：</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="literal">true</span> &amp;&amp; <span class="literal">true</span>;				<span class="comment">//true</span></div><div class="line"><span class="literal">false</span> || <span class="literal">false</span>;				<span class="comment">//false</span></div><div class="line"><span class="literal">null</span> &amp;&amp; <span class="literal">undefined</span>			<span class="comment">//null</span></div><div class="line"><span class="literal">null</span> || <span class="literal">undefined</span>			<span class="comment">//undefined</span></div><div class="line"><span class="string">'abc'</span> &amp;&amp; <span class="literal">undefined</span>			<span class="comment">//undefined</span></div><div class="line"><span class="string">'abc'</span> || <span class="literal">undefined</span>			<span class="comment">//abc</span></div><div class="line"><span class="literal">null</span> || <span class="literal">false</span> || <span class="number">0</span> || <span class="number">1</span> || <span class="literal">null</span>			<span class="comment">//1</span></div><div class="line"><span class="string">'abc'</span> &amp;&amp; <span class="string">'bcd'</span> &amp;&amp; <span class="string">'def'</span>					<span class="comment">//def</span></div></pre></td></tr></table></figure>
@@ -716,6 +716,10 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
               </li>
              
@@ -725,10 +729,6 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">传智播客教育</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -768,11 +768,19 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">前端面试题</a>
+                <a href="javascript:void(0)" class="js-tag color5">前端资源</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">前端资源</a>
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript技巧、窍门</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">JavaScript最佳实践</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">前端面试题</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -809,6 +817,10 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">黑马13期</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
               </li>
             
             <div class="clearfix"></div>

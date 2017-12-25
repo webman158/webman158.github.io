@@ -8,17 +8,17 @@
   <link rel="dns-prefetch" href="http://biedongda.com">
   <title>数组、字符串的常用操作 | 一个学徒的世界</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="字符串相关的方法数组相关的方法数组遍历的方法： 以下方法是ES6提供的forEach()map()every()some()filter()reduce()   forEach 1234567891011var arr = [1, 3, 6, 7, 9, 10];// forEach方法会为数组中的每一项来调用这个回调函数// 也就是：数组中有几个元素，回调函数就调用几次arr.forEach(f">
+  <meta name="description" content="字符串相关的方法数组相关的方法数组的增删取 增加删除取出push()concat() 可以传递多个参数，参数之间用逗号分隔   push 12// 可以传递多个参数，参数之间用逗号分隔// 返回值：返回添加之后的数组新长度  concat 1// 不会改变原数组，返回拼接过后的新数组   数组遍历的方法： 以下方法是ES6提供的forEach()map()every()some()filter()">
 <meta name="keywords" content="js数组、字符串">
 <meta property="og:type" content="article">
 <meta property="og:title" content="数组、字符串的常用操作">
 <meta property="og:url" content="http://biedongda.com/2017/11/27/数组、字符串的常用操作/index.html">
 <meta property="og:site_name" content="一个学徒的世界">
-<meta property="og:description" content="字符串相关的方法数组相关的方法数组遍历的方法： 以下方法是ES6提供的forEach()map()every()some()filter()reduce()   forEach 1234567891011var arr = [1, 3, 6, 7, 9, 10];// forEach方法会为数组中的每一项来调用这个回调函数// 也就是：数组中有几个元素，回调函数就调用几次arr.forEach(f">
-<meta property="og:updated_time" content="2017-12-19T01:36:14.547Z">
+<meta property="og:description" content="字符串相关的方法数组相关的方法数组的增删取 增加删除取出push()concat() 可以传递多个参数，参数之间用逗号分隔   push 12// 可以传递多个参数，参数之间用逗号分隔// 返回值：返回添加之后的数组新长度  concat 1// 不会改变原数组，返回拼接过后的新数组   数组遍历的方法： 以下方法是ES6提供的forEach()map()every()some()filter()">
+<meta property="og:updated_time" content="2017-12-22T07:44:32.594Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数组、字符串的常用操作">
-<meta name="twitter:description" content="字符串相关的方法数组相关的方法数组遍历的方法： 以下方法是ES6提供的forEach()map()every()some()filter()reduce()   forEach 1234567891011var arr = [1, 3, 6, 7, 9, 10];// forEach方法会为数组中的每一项来调用这个回调函数// 也就是：数组中有几个元素，回调函数就调用几次arr.forEach(f">
+<meta name="twitter:description" content="字符串相关的方法数组相关的方法数组的增删取 增加删除取出push()concat() 可以传递多个参数，参数之间用逗号分隔   push 12// 可以传递多个参数，参数之间用逗号分隔// 返回值：返回添加之后的数组新长度  concat 1// 不会改变原数组，返回拼接过后的新数组   数组遍历的方法： 以下方法是ES6提供的forEach()map()every()some()filter()">
   
     <link rel="alternative" href="/atom.xml" title="一个学徒的世界" type="application/atom+xml">
   
@@ -170,7 +170,18 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-      <h2 id="字符串相关的方法"><a href="#字符串相关的方法" class="headerlink" title="字符串相关的方法"></a>字符串相关的方法</h2><h2 id="数组相关的方法"><a href="#数组相关的方法" class="headerlink" title="数组相关的方法"></a>数组相关的方法</h2><h3 id="数组遍历的方法："><a href="#数组遍历的方法：" class="headerlink" title="数组遍历的方法："></a>数组遍历的方法：</h3><blockquote>
+      <h2 id="字符串相关的方法"><a href="#字符串相关的方法" class="headerlink" title="字符串相关的方法"></a>字符串相关的方法</h2><h2 id="数组相关的方法"><a href="#数组相关的方法" class="headerlink" title="数组相关的方法"></a>数组相关的方法</h2><h3 id="数组的增删取"><a href="#数组的增删取" class="headerlink" title="数组的增删取"></a>数组的增删取</h3><blockquote>
+<p>增加<br>删除<br>取出<br>push()<br>concat() 可以传递多个参数，参数之间用逗号分隔</p>
+</blockquote>
+<ul>
+<li><p><strong>push</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 可以传递多个参数，参数之间用逗号分隔</span></div><div class="line"><span class="comment">// 返回值：返回添加之后的数组新长度</span></div></pre></td></tr></table></figure>
+</li>
+<li><p><strong>concat</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 不会改变原数组，返回拼接过后的新数组</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="数组遍历的方法："><a href="#数组遍历的方法：" class="headerlink" title="数组遍历的方法："></a>数组遍历的方法：</h3><blockquote>
 <p>以下方法是ES6提供的<br>forEach()<br>map()<br>every()<br>some()<br>filter()<br>reduce()</p>
 </blockquote>
 <ul>
@@ -200,10 +211,16 @@
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arrayList = [<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>,<span class="string">'d'</span>,<span class="string">'e'</span>,<span class="string">'f'</span>];</div><div class="line"><span class="comment">// 需求：清空 arrayList 数组</span></div><div class="line"><span class="comment">// 方法1：</span></div><div class="line">arrayList = []; <span class="comment">// 直接改变arrayList所指向的对象，原对象并不改变。</span></div><div class="line"></div><div class="line"><span class="comment">// 方法2：</span></div><div class="line">arrayList.length = <span class="number">0</span>; <span class="comment">//设置length=0 使原数组清除元素</span></div><div class="line"></div><div class="line"><span class="comment">// 方法3：</span></div><div class="line">arrayList.splice(<span class="number">0</span>, arrayList.length); <span class="comment">//和length方法类似，清空原数组元素</span></div></pre></td></tr></table></figure>
 </li>
 <li><p><strong>怎么判断一个object是否是数组(array)</strong></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 思路：封装一个函数 isArray 来判断传递的参数是否是数组，返回布尔值</span></div><div class="line"></div><div class="line"><span class="comment">// 方法1：</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">isArray</span>(<span class="params">obj</span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="built_in">Object</span>.prototype.toString.call(obj) === <span class="string">'[object Array]'</span>;</div><div class="line">&#125;</div><div class="line"><span class="comment">// 使用call来使 toString 中 this 指向 obj。进而完成判断</span></div><div class="line"></div><div class="line"><span class="comment">// 方法2：</span></div><div class="line"><span class="comment">// JQuery的实现</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">isArray</span>(<span class="params">obj</span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> $.isArray(obj);</div><div class="line">&#125;</div><div class="line"><span class="comment">// JQuery的内部实现就是方法一的思路</span></div><div class="line"></div><div class="line"><span class="comment">// 方法3：</span></div><div class="line"><span class="built_in">Array</span>.isArray([]); <span class="comment">// =&gt; true </span></div><div class="line"><span class="built_in">Array</span>.isArray(&#123;<span class="number">0</span>: <span class="string">'a'</span>, <span class="attr">length</span>: <span class="number">1</span>&#125;); <span class="comment">// =&gt; false</span></div><div class="line"><span class="comment">// Array.isArray 是ES6新增的API。</span></div><div class="line"><span class="comment">// 封装代码</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">isArray</span>(<span class="params">obj</span>)</span>&#123;</div><div class="line">    <span class="keyword">if</span>(<span class="built_in">Array</span>.isArray)&#123;</div><div class="line">        <span class="keyword">return</span> <span class="built_in">Array</span>.isArray(obj);</div><div class="line">    &#125;</div><div class="line">    <span class="comment">// 实际上，通过Object.prototype.toString去判断一个值的类型，也是各大主流库的标准。</span></div><div class="line">    <span class="keyword">return</span> <span class="built_in">Object</span>.prototype.toString.call(obj) === <span class="string">'[object Array]'</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 方法4：</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">isArray</span>(<span class="params">obj</span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> obj.__proto__ === <span class="built_in">Array</span>.prototype;</div><div class="line">&#125;</div><div class="line"><span class="comment">// 使用 原型链 来完成判断</span></div><div class="line"><span class="comment">// 基本思想是利用 实例如果是某个构造函数构造出来的那么 它的 __proto__是指向构造函数的 prototype属性。</span></div><div class="line"><span class="comment">// __proto__ 是不规范的API，最好只在开发阶段使用。</span></div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 思路：封装一个函数 isArray 来判断传递的参数是否是数组，返回布尔值</span></div><div class="line"></div><div class="line"><span class="comment">// 方法1：</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">isArray</span>(<span class="params">obj</span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="built_in">Object</span>.prototype.toString.call(obj) === <span class="string">'[object Array]'</span>;</div><div class="line">&#125;</div><div class="line"><span class="comment">// 使用call来使 toString 中 this 指向 obj。进而完成判断</span></div><div class="line"></div><div class="line"><span class="comment">// 方法2：</span></div><div class="line"><span class="comment">// JQuery的实现</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">isArray</span>(<span class="params">obj</span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> $.isArray(obj);</div><div class="line">&#125;</div><div class="line"><span class="comment">// JQuery的内部实现就是方法一的思路</span></div><div class="line"></div><div class="line"><span class="comment">// 方法3：</span></div><div class="line"><span class="built_in">Array</span>.isArray([]); <span class="comment">// =&gt; true </span></div><div class="line"><span class="built_in">Array</span>.isArray(&#123;<span class="number">0</span>: <span class="string">'a'</span>, <span class="attr">length</span>: <span class="number">1</span>&#125;); <span class="comment">// =&gt; false</span></div><div class="line"><span class="comment">// Array.isArray 在ECMA Script5中定义的，保证其兼容性，封装下</span></div><div class="line"><span class="comment">// 封装代码</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">isArray</span>(<span class="params">obj</span>)</span>&#123;</div><div class="line">    <span class="keyword">if</span>(<span class="keyword">typeof</span> <span class="built_in">Array</span>.isArray !== <span class="string">'undefined'</span>)&#123;</div><div class="line">        <span class="keyword">return</span> <span class="built_in">Array</span>.isArray(obj);</div><div class="line">    &#125;</div><div class="line">    <span class="comment">// 实际上，通过Object.prototype.toString去判断一个值的类型，也是各大主流库的标准。</span></div><div class="line">    <span class="keyword">return</span> <span class="built_in">Object</span>.prototype.toString.call(obj) === <span class="string">'[object Array]'</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 方法4：</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">isArray</span>(<span class="params">obj</span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> obj.__proto__ === <span class="built_in">Array</span>.prototype;</div><div class="line">&#125;</div><div class="line"><span class="comment">// 使用 原型链 来完成判断</span></div><div class="line"><span class="comment">// 基本思想是利用 实例如果是某个构造函数构造出来的那么 它的 __proto__是指向构造函数的 prototype属性。</span></div><div class="line"><span class="comment">// __proto__ 是不规范的API，最好只在开发阶段使用。</span></div></pre></td></tr></table></figure>
 </li>
 <li><p><strong>如何快速复制一个数组</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr = [<span class="string">'abc'</span>, <span class="string">'def'</span>, <span class="string">'bar'</span>, <span class="string">'foo'</span>];</div><div class="line"></div><div class="line"><span class="comment">// 方法1: 使用数组的拼接concat </span></div><div class="line"><span class="keyword">var</span> newArr = arr.concat([]);</div><div class="line"><span class="built_in">console</span>.log(newArr);</div><div class="line"></div><div class="line"><span class="comment">// 方法2：使用数组的slice</span></div><div class="line"><span class="keyword">var</span> newArr2 = arr.slice(<span class="number">0</span>); <span class="comment">// 参数0 也可以不传递，结果也是一样</span></div><div class="line"><span class="built_in">console</span>.log(newArr2);</div></pre></td></tr></table></figure>
 </li>
+<li><p><strong>将伪数组转化成真数组(具有数组的方法)</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 页面上有若干个div元素。</span></div><div class="line"><span class="keyword">var</span> dvs = <span class="built_in">document</span>.getElementsByTagName(<span class="string">'div'</span>);</div><div class="line"><span class="comment">// dvs 就是一个元素集合也就是一个伪数组。</span></div><div class="line"></div><div class="line"><span class="keyword">var</span> arr = [].slice.apply(dvs);</div><div class="line"><span class="built_in">console</span>.log(arr);</div></pre></td></tr></table></figure>
+</li>
+<li><p><strong>求数组中最大的值</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr = [<span class="number">9</span>, <span class="number">1</span>, <span class="number">4</span>, <span class="number">10</span>, <span class="number">7</span>, <span class="number">22</span>, <span class="number">8</span>];</div><div class="line"></div><div class="line"><span class="comment">// 普通做法 - 假设成立法</span></div><div class="line"><span class="keyword">var</span> max = arr[<span class="number">0</span>];<span class="comment">//假设数组中的第一项是是最大的</span></div><div class="line"><span class="comment">// 注意i 初始值是1，没必要是0 ，因为已经假设第一项是最大值了，没必要让假设值和自己在比较大小一次</span></div><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">1</span>; i &lt; arr.length; i++)&#123;</div><div class="line">    <span class="keyword">if</span>(max &lt; arr[i])&#123;</div><div class="line">        max = arr[i]</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="built_in">console</span>.log(max);</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">// 简便做法 - 上下文调用模式</span></div><div class="line"><span class="keyword">var</span> newMax = <span class="built_in">Math</span>.max.apply(<span class="literal">null</span>, arr);</div><div class="line"><span class="built_in">console</span>.log(newMax); <span class="comment">// 22</span></div></pre></td></tr></table></figure></li>
 </ul>
 
       
@@ -473,6 +490,10 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
               </li>
              
@@ -482,10 +503,6 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">传智播客教育</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -525,11 +542,19 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">前端面试题</a>
+                <a href="javascript:void(0)" class="js-tag color5">前端资源</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">前端资源</a>
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript技巧、窍门</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">JavaScript最佳实践</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">前端面试题</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -566,6 +591,10 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">黑马13期</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
               </li>
             
             <div class="clearfix"></div>

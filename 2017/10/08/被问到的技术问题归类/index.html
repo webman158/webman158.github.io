@@ -8,13 +8,13 @@
   <link rel="dns-prefetch" href="http://biedongda.com">
   <title>带班常见技术问题总结 | 一个学徒的世界</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="HTML html5的表单pattern属性，使用的时候需要注意下：  MDN文档参考链接   页面一打开就会自动滚动到某个部分  一开始怀疑是不是js代码里面设置了页面滚动距离，但是将页面所有引用的js都注释了，还是会发生该现象。将引用的css文件也注释掉，也还是会发生该现象。于是将页面整体大块大块的删除，具体排除是那部分出了问题。最后排查到是由于表单元素input设置了autofocus属性，">
+  <meta name="description" content="前置知识 html css JS JQ php WebStorm PhpStorm sublime Node.js Chrome相关问题 实战项目开发注意点总结 其他插件 其他软件">
 <meta name="keywords" content="技术问题,黑马13期">
 <meta property="og:type" content="article">
 <meta property="og:title" content="带班常见技术问题总结">
 <meta property="og:url" content="http://biedongda.com/2017/10/08/被问到的技术问题归类/index.html">
 <meta property="og:site_name" content="一个学徒的世界">
-<meta property="og:description" content="HTML html5的表单pattern属性，使用的时候需要注意下：  MDN文档参考链接   页面一打开就会自动滚动到某个部分  一开始怀疑是不是js代码里面设置了页面滚动距离，但是将页面所有引用的js都注释了，还是会发生该现象。将引用的css文件也注释掉，也还是会发生该现象。于是将页面整体大块大块的删除，具体排除是那部分出了问题。最后排查到是由于表单元素input设置了autofocus属性，">
+<meta property="og:description" content="前置知识 html css JS JQ php WebStorm PhpStorm sublime Node.js Chrome相关问题 实战项目开发注意点总结 其他插件 其他软件">
 <meta property="og:image" content="http://biedongda.com/2017/10/08/被问到的技术问题归类/images/pattern.png">
 <meta property="og:image" content="http://biedongda.com/2017/10/08/被问到的技术问题归类/images/canvas01.png">
 <meta property="og:image" content="http://biedongda.com/2017/10/08/被问到的技术问题归类/images/chrome-debug.png">
@@ -23,6 +23,7 @@
 <meta property="og:image" content="http://biedongda.com/2017/10/08/被问到的技术问题归类/images/webstrome_ip.png">
 <meta property="og:image" content="http://biedongda.com/2017/10/08/被问到的技术问题归类/images/model01.jpg">
 <meta property="og:image" content="http://biedongda.com/2017/10/08/被问到的技术问题归类/images/sublime01.png">
+<meta property="og:image" content="http://biedongda.com/2017/10/08/被问到的技术问题归类/images/node_server.png">
 <meta property="og:image" content="http://biedongda.com/2017/10/08/被问到的技术问题归类/images/chrome01.png">
 <meta property="og:image" content="http://biedongda.com/2017/10/08/被问到的技术问题归类/images/02.png">
 <meta property="og:image" content="http://biedongda.com/2017/10/08/被问到的技术问题归类/images/01.png">
@@ -32,10 +33,11 @@
 <meta property="og:image" content="http://biedongda.com/2017/10/08/被问到的技术问题归类/images/06.png">
 <meta property="og:image" content="http://biedongda.com/2017/10/08/被问到的技术问题归类/images/07.png">
 <meta property="og:image" content="http://biedongda.com/2017/10/08/被问到的技术问题归类/images/08.png">
-<meta property="og:updated_time" content="2017-12-18T16:23:38.524Z">
+<meta property="og:image" content="http://biedongda.com/2017/10/08/被问到的技术问题归类/images/art-template01.png">
+<meta property="og:updated_time" content="2017-12-25T16:02:13.307Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="带班常见技术问题总结">
-<meta name="twitter:description" content="HTML html5的表单pattern属性，使用的时候需要注意下：  MDN文档参考链接   页面一打开就会自动滚动到某个部分  一开始怀疑是不是js代码里面设置了页面滚动距离，但是将页面所有引用的js都注释了，还是会发生该现象。将引用的css文件也注释掉，也还是会发生该现象。于是将页面整体大块大块的删除，具体排除是那部分出了问题。最后排查到是由于表单元素input设置了autofocus属性，">
+<meta name="twitter:description" content="前置知识 html css JS JQ php WebStorm PhpStorm sublime Node.js Chrome相关问题 实战项目开发注意点总结 其他插件 其他软件">
 <meta name="twitter:image" content="http://biedongda.com/2017/10/08/被问到的技术问题归类/images/pattern.png">
   
     <link rel="alternative" href="/atom.xml" title="一个学徒的世界" type="application/atom+xml">
@@ -188,7 +190,23 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-      <h3 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h3><ul>
+      <h2 id="前置知识"><a href="#前置知识" class="headerlink" title="前置知识"></a>前置知识</h2><ol>
+<li>html</li>
+<li>css</li>
+<li>JS</li>
+<li>JQ</li>
+<li>php</li>
+<li>WebStorm</li>
+<li>PhpStorm</li>
+<li>sublime</li>
+<li>Node.js</li>
+<li>Chrome相关问题</li>
+<li>实战项目开发注意点总结</li>
+<li>其他插件</li>
+<li>其他软件</li>
+</ol>
+<a id="more"></a>
+<h3 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h3><ul>
 <li><p><strong>html5的表单pattern属性，使用的时候需要注意下：</strong></p>
 <blockquote>
 <p><img src="/2017/10/08/被问到的技术问题归类/images/pattern.png" alt="html5的表单pattern属性，使用的时候需要注意下："><br><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/Input" target="_blank" rel="external">MDN文档参考链接</a></p>
@@ -214,12 +232,46 @@
 <p>1.HTML5的自定义属性data-xxx不能使用大写字母,不论大写位置在哪，都是不行,浏览器默认会转成小写的,在浏览器Element面板中注意节点data-*的信息,所以在JS获取的时候，注意都是小写的。<br>2.当data-my-name=”itcast” 这样设置格式时，则需要以驼峰格式才能正确获取,获取Node.dataset[‘myName’]</p>
 </blockquote>
 </li>
+<li><p><strong>a链接的target属性取值问题</strong></p>
+<blockquote>
+<p><code>target</code> 属性的作用：规定在何处打开链接文档。<br>a链接的target属性具体取值问题，blank的写法，记得要带下划线，这些 target 的所有4个值都以下划线开始还有就是blank写错了，也能实现打开一个新的标签页，具体是什么原因！<br><a href="http://www.w3school.com.cn/tags/att_a_target.asp" target="_blank" rel="external">参考链接</a></p>
+</blockquote>
+</li>
+<li><p><strong>form 表单元素相关属性</strong></p>
+<blockquote>
+<p><strong>表单元素的 <code>disabled</code> 属性</strong></p>
+</blockquote>
+</li>
 </ul>
-<a id="more"></a>
+<ol>
+<li>只要表单元素有 <code>disabled</code> 属性就会被禁止使用，而不管其属性取什么值都会被禁用的。</li>
+<li>且在js里面，设置元素禁用的 <code>disabled</code> 的属性，取值可以是布尔值为true的类型即可。<blockquote>
+<p><strong>select下拉框</strong></p>
+</blockquote>
+</li>
+<li><code>select</code> 下拉框的 <code>option</code>的 <code>value</code> 用于提交给后台的数据，展示在页面的内容是写在 <code>option</code> 标签里面的文本<blockquote>
+<p><strong><code>readonly</code> 属性和 <code>disabled</code> 属性的区别是什么呢！</strong></p>
+</blockquote>
+</li>
+<li>表现都是被禁用的，但在与后台传输数据，readonly表单的value可以被上传到后台</li>
+<li>disabled表单的value不可以上传到后台的。<blockquote>
+<p><code>multiple</code> 属性支持多选（布尔类型）<br><strong>change和input的区别</strong></p>
+</blockquote>
+</li>
+<li><code>change</code> 当表单里面的值发生改变的时候，并且失去焦点的时候触发</li>
+<li><code>input</code> 事件是在表单输入的时候不断触发</li>
+<li><code>disabled</code>、<code>readonly</code> 、<code>checked</code>、<code>selected</code> 只要有这个属性就会起作用，跟这个属性的值没有关系.<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">disabled</span>=<span class="string">"false"</span>&gt;</span> <span class="tag">&lt;<span class="name">br</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">disabled</span>=<span class="string">"true"</span>&gt;</span> <span class="tag">&lt;<span class="name">br</span>&gt;</span></div><div class="line"><span class="comment">&lt;!-- 以上不管disabled 属性的取值是 true、false。input元素都会被禁用 --&gt;</span></div></pre></td></tr></table></figure>
+</li>
+</ol>
 <h3 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h3><ul>
 <li><p><strong>给元素添加animation.css库动画和元素本身transform样式冲突</strong></p>
 <blockquote>
 <p>要么修改animation库动画，修改transform的取值，要么元素样式不要用transform</p>
+</blockquote>
+</li>
+<li><p><strong>给元素设置transition，元素没有过渡动画效果</strong></p>
+<blockquote>
+<p>给元素设置了过渡效果 <code>transition</code> ，然后鼠标滑上去的时候，改变元素的位置left，但是元素的left变化没有过渡的效果。<br>原因:给元素的默认状态没有添加left初始值，鼠标滑上去的时候transition没有前后对比值。需要给元素添加left初始值。<br>或者可以直接给 <code>transform</code> 的变化来改变元素的位移。</p>
 </blockquote>
 </li>
 <li><p><strong>background、background-size的设置注意细节</strong></p>
@@ -252,6 +304,19 @@
 <p>如果父元素设置了定位,那么父元素的zindex值越大,子元素的层级也越高,是没有办法把子元素的层级调整的比父元素还要低的</p>
 </blockquote>
 </li>
+<li><p><strong>禁止textarea可以缩放的属性</strong></p>
+<blockquote>
+<p><code>resize: none;</code></p>
+</blockquote>
+</li>
+<li><p><strong>label标签的for是干啥用的</strong></p>
+</li>
+<li><p><strong>vertical-align 和 line-height 之间的使用</strong></p>
+<!-- ![images/]() -->
+<blockquote>
+<p><a href="http://blog.csdn.net/u014445339/article/details/60757390" target="_blank" rel="external">参考链接: 深入理解vertical-align属性</a><br><a href="http://blog.csdn.net/u012062760/article/details/52999416" target="_blank" rel="external">参考链接: 深入理解vertical-align属性</a></p>
+</blockquote>
+</li>
 </ul>
 <h3 id="JS"><a href="#JS" class="headerlink" title="JS"></a>JS</h3><ul>
 <li><p><strong>变量声明注意点–避免隐式创建全局变量</strong></p>
@@ -262,7 +327,7 @@
 <li><p><strong>变量声明注意点</strong></p>
 <blockquote>
 <p>定义变量的时候，变量的名称不要叫： <code>top</code>或<code>self</code>，和<code>window.top</code>,<code>window.self</code>起冲突</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">- <span class="built_in">window</span>.top</div><div class="line"><span class="comment">// 如果是直接访问的当前页面，那么 window.top === window</span></div><div class="line"><span class="comment">// 如果当前页面是嵌套在其他页面中的，那么此时，window.top 就不是当前页面的window了</span></div><div class="line"><span class="comment">// 而指向了 最外层的window</span></div><div class="line"><span class="comment">// console.log(window.top === window);</span></div><div class="line"></div><div class="line">- <span class="built_in">window</span>.self</div><div class="line"><span class="comment">// 不管是以什么形式访问的页面，self一直指向了 自身的window</span></div><div class="line"><span class="comment">// console.log(window.self === window);</span></div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">- <span class="built_in">window</span>.top</div><div class="line"><span class="comment">// 如果是直接访问的当前页面，那么 window.top === window</span></div><div class="line"><span class="comment">// 如果当前页面是嵌套在其他页面中的，那么此时，window.top 就不是当前页面的window了</span></div><div class="line"><span class="comment">// 而指向了 最外层的window</span></div><div class="line"><span class="comment">// console.log(window.top === window);</span></div><div class="line"></div><div class="line">- <span class="built_in">window</span>.self</div><div class="line"><span class="comment">// 不管是以什么形式访问的页面，self一直指向了 自身的window</span></div><div class="line"><span class="comment">// console.log(window.self === window);</span></div><div class="line"><span class="comment">// 如何避免页面被人家作为iframe嵌入到人家的页面</span></div><div class="line"></div><div class="line">- <span class="built_in">window</span>.name</div><div class="line"><span class="comment">// 当前窗口的标志</span></div><div class="line"></div><div class="line">- <span class="built_in">window</span>.length </div><div class="line"><span class="comment">// 是页面中iframe 标签的个数</span></div></pre></td></tr></table></figure>
 </blockquote>
 </li>
 <li><p><strong>在使用闭包没延时一秒（setTimeout）来打印0-9的时候，为什么使用断点调试的时候，打印出来的顺序不是0-9，而是随机的乱的。</strong></p>
@@ -282,22 +347,45 @@
 </li>
 <li><p><strong>声明提升是先提升函数还是变量（Hoisting）</strong></p>
 <blockquote>
-<p>函数提升优先级比变量提升要高，且不会被变量声明覆盖，但是会被变量赋值覆盖，</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> foo = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123; </div><div class="line">    <span class="comment">// Some code</span></div><div class="line">&#125;; </div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">bar</span>(<span class="params"></span>)</span>&#123; </div><div class="line">    <span class="comment">// Some code</span></div><div class="line">&#125;;</div><div class="line"><span class="built_in">console</span>.log(foo);</div><div class="line"><span class="built_in">console</span>.log(bar);</div><div class="line"></div><div class="line"><span class="comment">// 预解析（变量提升之后）</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">bar</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="comment">// Some code</span></div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> foo;</div><div class="line"><span class="built_in">console</span>.log(foo); <span class="comment">//undefined</span></div><div class="line"><span class="built_in">console</span>.log(bar); <span class="comment">// 函数bar</span></div></pre></td></tr></table></figure>
+<p>这一点的纠结尤其是在函数名字和变量命名冲突的时候。<br>函数会首先被提升，然后才是变量。(在 <code>你不知道的JavaScript（上卷）</code> 书中第40页中写到)</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 1</span></div><div class="line"><span class="built_in">console</span>.log(foo);   </div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">"函数声明"</span>);</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> foo = <span class="string">"变量"</span>;</div><div class="line"></div><div class="line"><span class="comment">// 提升之后（预解析）</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">"函数声明"</span>);</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> foo;</div><div class="line"><span class="built_in">console</span>.log(foo); <span class="comment">// 函数foo</span></div><div class="line"><span class="comment">// 这里foo 为啥不是 undefined</span></div><div class="line"><span class="comment">// 注意：函数提升优先级比变量提升要高，且不会被同名变量声明覆盖，但是会被同名变量赋值覆盖</span></div><div class="line">foo = <span class="string">"变量"</span>;</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">// 上面的代码其实也可以这样理解</span></div><div class="line"><span class="comment">// 将函数声明理解为函数表达式</span></div><div class="line"><span class="keyword">var</span> foo = <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">"函数声明"</span>);</div><div class="line">&#125;</div><div class="line"><span class="comment">// 这里是重复的变量声明，视为无效</span></div><div class="line"><span class="keyword">var</span> foo;</div><div class="line"><span class="comment">// 所以foo 还是函数</span></div><div class="line"><span class="built_in">console</span>.log(foo); <span class="comment">// 函数foo</span></div><div class="line">foo = <span class="string">"变量"</span>;</div></pre></td></tr></table></figure>
 </blockquote>
 </li>
-</ul>
+<li><p><strong>获取页面的可视区域的宽高不正常</strong></p>
 <blockquote>
-<p>在考虑下函数和变量名冲突的问题<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure></p>
+<p>获取页面的可视区域的宽高不正常的时候，注意页面有没有被放大缩放了，<strong>放大缩小过后，页面可视区域的宽度等于正常宽度/放大缩小的百分比</strong></p>
 </blockquote>
-<ul>
-<li><p><strong>window.onload 到底是什么时候触发执行？</strong></p>
+</li>
+<li><p><strong>class是关键字</strong></p>
+<blockquote>
+<p>在html中元素有属性class设置元素的类名，但是在js中不可以通过class属性设置元素的类名，因为在js中class是关键字，所以在js中用className来代替使用class</p>
+</blockquote>
+</li>
+<li><p><strong>js代码放置位置</strong></p>
+<blockquote>
+<p>在操作dom元素的时候不要把script中的js代码放在head标签里面，这样在找dom元素的时候找不到元素，因为代码还没走到body内，对js内的dom操作就会报错。</p>
+</blockquote>
+</li>
+<li><p><strong>id获取元素</strong></p>
+<blockquote>
+<p>在js中，可以不用通过document.getElementById去获取元素，直接拿id来获取，但是不推荐这么使用。</p>
+</blockquote>
+</li>
+<li><p><strong>字符串的不可变</strong></p>
+<blockquote>
+<p>字符串不可变是指：字符串对象一旦创建出来，便不能被更改</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> s = <span class="string">"abcdef"</span>;</div><div class="line">s[<span class="number">2</span>] = <span class="string">"a"</span>;</div><div class="line"><span class="built_in">console</span>.log(s)<span class="comment">//还是"abcdef"</span></div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(s+<span class="string">'1'</span>); <span class="comment">// abcdef1</span></div><div class="line"><span class="comment">// 可能会认为 s+='1' 只是在 s 后面增加一个元素 1 而已，但事实在js引擎内部：</span></div><div class="line"><span class="comment">// 1. 先将 s 拷贝一份，记为 temp</span></div><div class="line"><span class="comment">// 2. 在 temp 末尾加上'1'</span></div><div class="line"><span class="comment">// 3. 将 s 变量指向 temp，并删去temp</span></div><div class="line"><span class="comment">// 这一特性，可以从字符串对象的许多方法中看出来，如 replace，并不是在原字符串对象上修改，而是会返回一个新的字符串</span></div></pre></td></tr></table></figure>
+</blockquote>
+</li>
+<li><p><strong>window.onload 是什么时候触发执行？</strong></p>
 <blockquote>
 <p>在文档装载完成后会触发 load 事件。此时，在文档中的所有对象都在DOM中，<strong>所有图片</strong>，<strong>脚本</strong>，<strong>链接以及子框</strong>都完成了装载。<br>● window.onload 方法会将文档中所有的元素加载完毕并且所有的外部文件加载完毕后执行<br>● window.onload 只能有一个，如果出现多个最后一个会覆盖前面的所有函数。<br><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/GlobalEventHandlers/onload" target="_blank" rel="external">MDN参考链接</a></p>
 </blockquote>
 </li>
 <li><p><strong>函数构造法的问题</strong></p>
+<blockquote>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> name=<span class="string">'xiaoming'</span>;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">fun</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="keyword">var</span> name=<span class="string">'xiaohong'</span>;</div><div class="line">  <span class="comment">// 所有的参数都是字符串模式，只有一个参数的情况，参数就是函数体</span></div><div class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Function</span>(<span class="string">'return name'</span>);<span class="comment">//不能获取局部变量</span></div><div class="line">&#125;</div><div class="line"><span class="built_in">console</span>.log(fun()());<span class="comment">//xiaoming</span></div><div class="line"><span class="comment">//1. Function()构造函数每次执行时都会解析函数主体，并创建一个新的函数对象，所以当在一个循环或频繁执行的函数中调用Function()构造函数效率是非常低的。而函数字面量却不是每次遇到都会重新编译的，用Function()构造函数创建一个函数时并不遵循典型的作用域，它一直把它当作是顶级函数来执行。它只有自身作用域以及全局作用域。</span></div><div class="line"><span class="comment">//2. 构造函数没有参数的情况,括号可以省略</span></div></pre></td></tr></table></figure>
+</blockquote>
 </li>
 <li><p><strong>什么是 undefined x 1 ？</strong></p>
 <blockquote>
@@ -315,7 +403,7 @@
 <p>● 在原生js中，只能做到阻止事件的默认行为（e.preventDefault）<br>● 在jQuery中return false 被封装成可以阻止事件冒泡和事件的默认行为</p>
 </blockquote>
 </li>
-<li><p><strong>js给元素做动画</strong></p>
+<li><p><strong>js给元素做动画卡顿</strong></p>
 <blockquote>
 <p>触发事件写在父盒子上,动画可以作用于子元素，这样动画不会和事件牵扯在一起，不会有什么卡顿的现象</p>
 </blockquote>
@@ -325,16 +413,27 @@
 <p>● mouseover：鼠标经过事件<br>● mouseout:鼠标离开事件<br>● mouseenter:鼠标进入事件<br>● mouseleave：鼠标离开事件<br>总结：<br>不论鼠标指针穿过被选元素或其子元素，都会触发 mouseover 事件。对应mouseout<br>只有在鼠标指针穿过被选元素时，才会触发 mouseenter 事件。对应mouseleave<br>mouseenter子元素不会反复触发事件(尤其是注意在IE上经常有闪烁情况发生,是不是注册了mouseover事件)<br><a href="http://blog.csdn.net/ocean1010/article/details/7394599" target="_blank" rel="external">原文链接：</a> (附带demo)</p>
 </blockquote>
 </li>
-<li><p><strong>注册事件on、addEventListen注意点</strong></p>
-<blockquote>
-<p>在事件中绑定事件，注意不要用 <code>addEventListener</code> 或者 <code>jQuery的on</code> 事件来 绑定，当事件多次触发的时候，会注册多次事件.</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">document</span>.body.onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="comment">// 页面上有一个button按钮</span></div><div class="line">    <span class="comment">// 现在是把按钮的点击事件绑定在了body</span></div><div class="line">    <span class="built_in">document</span>.querySelectorAll(<span class="string">'button'</span>)[<span class="number">0</span>].addEventListener(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</div><div class="line">      alert(<span class="number">1</span>)</div><div class="line">    &#125;)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</blockquote>
-</li>
 <li><p><strong>AJAX</strong></p>
 <blockquote>
 <p>ajax,get请求异步有缓存<br>在IE中用ajax的get方式请求同一个地址获取数据时，经常碰到回调函数成功执行，前台又有数据的情况，但是无法请求到后台获得最新的数据。<br>原因是ajax存在异步缓存的问题<br>因为ajax本身自带有实时异步请求的功能，而IE缓存导致请求时不会请求后台，会直接读取缓存的数据。<br>解决办法：<a href="http://blog.csdn.net/commandbaby/article/details/51566881" target="_blank" rel="external">参考链接</a><br>第一种：jquery get请求时比较简单 只需将cache设置为false就好</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">$.ajax(&#123;  </div><div class="line">  type: <span class="string">'get'</span>,<span class="comment">//get请求时  </span></div><div class="line">  url: <span class="string">'........'</span>,  </div><div class="line">  cache: <span class="literal">false</span>,<span class="comment">//不缓存  </span></div><div class="line">  data: &#123; &#125;,  </div><div class="line">  success: <span class="function"><span class="keyword">function</span> (<span class="params">result</span>) </span>&#123;  </div><div class="line">    <span class="comment">//</span></div><div class="line">  &#125;  </div><div class="line">&#125;);  </div><div class="line"></div><div class="line"><span class="comment">//第二种：$.get();时 设置一个参数为随机数tempPara: Math.random() 或者获取当前时间new Date().getTime()</span></div><div class="line">$.get(<span class="string">'...........'</span>, &#123; <span class="attr">tempPara</span>: <span class="built_in">Math</span>.random() &#125;, <span class="function"><span class="keyword">function</span> (<span class="params">result</span>) </span>&#123;  </div><div class="line">  <span class="comment">//  </span></div><div class="line">&#125;);</div><div class="line"><span class="comment">//总结：因为请求同一个地址会直接读取缓存，所以可以在参数中加一个随机数或者当前时间戳, 让每次参数不一样就好</span></div></pre></td></tr></table></figure>
+</blockquote>
+</li>
+<li><p><strong>闭包相关的问题</strong></p>
+</li>
+<li>闭包之间为什么不会相互影响?<blockquote>
+<p>因为每一个闭包都会产生一份内存, 都是一个新的函数</p>
+</blockquote>
+</li>
+<li><p>闭包中返回的只能是匿名函数吗？</p>
+<blockquote>
+<p>可以返回带函数名字的函数，比如返回下面格式的</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 形式1：</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="keyword">var</span> num = <span class="number">10</span>;</div><div class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(num)</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 形式2：</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="keyword">var</span> num = <span class="number">10</span>;</div><div class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(num)</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 形式3：</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="keyword">var</span> num = <span class="number">10</span>;</div><div class="line">  <span class="function"><span class="keyword">function</span> <span class="title">bar</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(num)</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span> bar;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</blockquote>
+</li>
+<li><p><strong>计算offsetLeft或者是offsetTop取值</strong></p>
+<blockquote>
+<p>js计算元素的 <code>offsetLeft</code> 或者是 <code>offsetTop</code> 取值，容易出错，原因在于是找元素的相对元素</p>
 </blockquote>
 </li>
 </ul>
@@ -390,8 +489,19 @@
 </li>
 </ul>
 <h3 id="Node-js"><a href="#Node-js" class="headerlink" title="Node.js"></a>Node.js</h3><ul>
-<li><strong>win8 win10 安装msi 提示2502、2503的错误代码</strong><blockquote>
+<li><p><strong>win8 win10 安装msi 提示2502、2503的错误代码</strong></p>
+<blockquote>
 <p>归根到底是权限不够导致的。win7应该不会有这个问题。<br>解决办法：<br>1、鼠标移到<code>window上</code> -&gt; <code>右键（或者直接： WIN+X键）</code>，<code>命令提示符（管理员）</code> 注意命令行一定要以管理员身份运行！！！命令行一定要以管理员身份运行！！！管理员身份运行！！！<br>2、输入：<code>msiexec /package +&#39;msi文件路径&#39;</code> <strong>（输入的时候注意半角字符且路径不能为中文名）</strong><br>例如：<code>$ C:\Windows\system32&gt;msiexec /package G:\tool\TortoiseSVN-x64-1.8.9.msi</code><br><a href="http://blog.csdn.net/shuideyidi/article/details/46891559" target="_blank" rel="external">参考链接</a></p>
+</blockquote>
+</li>
+<li><p><strong>端口被占用</strong></p>
+<blockquote>
+<p>在node开启http服务器的时候，如果重复一个文件开启多个服务器会报错（比如在cmd里面开启了服务器，然后又在gitBash里面有去开服务器的话，会直接报错的），同时只能开启一个<br><img src="/2017/10/08/被问到的技术问题归类/images/node_server.png" alt="node 服务器端口被占用"><br><code>Error: listen EADDRINUSE :::3000</code> 该错误表示当前这个端口号被占用了，就是开了其他的服务器把当前的端口给占用了</p>
+</blockquote>
+</li>
+<li><p><strong>命令行（cmd、gitbash）</strong></p>
+<blockquote>
+<p>1.注意在<code>cmd</code>命令行内，找到盘符不是用cd D：这种形式，是直接<code>D：</code>就可以了，<code>cd D：</code>是git bash的语法命令<br>2.git窗口一移动或者选中代码就相当于<code>ctrl+c</code>导致代码程序中断。可能是翻译软件划词和屏幕取词功能导致的问题，关闭掉这些软件的划词、取词功能即可。</p>
 </blockquote>
 </li>
 </ul>
@@ -409,6 +519,30 @@
 <li><p><strong>Chrome浏览器怎么导出已安装的扩展程序(插件)为crx文件?</strong></p>
 <blockquote>
 <p>我们都知道，如今Chrome浏览器的应用商店都打不开，进不去了，需要翻出去才能上。所以对于一些已经安装过的扩展程序（插件）想导出保存一下。因为Chrome默认安装在C盘，怕重装系统后又要重新安装这些插件了。那么，怎么从Chrome浏览器中导出扩展程序为crx文件呢?Chrome其实也自带了这种功能，接下来我们就一起看看具体的操作步骤吧。<br>1、打开Chrome浏览器扩展程序页<br>2、找到扩展程序本地电脑上的文件夹目录<br>Chrome安装的扩展程序其实都保存在本地磁盘了。Win10系统下Chrome扩展程序的默认保存目录在：<code>C:\Users\Administrator\AppData\Local\Google\Chrome\User Data\Default\Extensions</code> （其中<code>Administrator</code>为当前系统用户，不同电脑路径视其自己用户名而定）。找到目录后，可以看到目录下有好些都是字母为文件名的文件。<br><img src="/2017/10/08/被问到的技术问题归类/images/02.png" alt="扩展程序页"><br>3、查看需要打包的扩展程序的ID<br>在Chrome的扩展程序页中，可以看到每个安装的扩展的ID（都是唯一的）和版本。版本是很有必要的，比如这个扩展的版本是1.13.4。<br><img src="/2017/10/08/被问到的技术问题归类/images/01.png" alt="扩展程序页"><br>4、找到扩展程序对应的文件夹<br>知道ID和版本号后，再到Extensions目录下查找该ID对应的文件夹。<br>打开文件夹后，找到对应的版本号。也可以看一下文件夹中的文件。<br><img src="/2017/10/08/被问到的技术问题归类/images/03.png" alt="扩展程序页"><br><img src="/2017/10/08/被问到的技术问题归类/images/05.png" alt="扩展程序页"><br>5、打包扩展程序<br>打开扩展程序页中的<code>打包扩展程序</code>按钮<br><img src="/2017/10/08/被问到的技术问题归类/images/04.png" alt="扩展程序页"><br>选择要打包的扩展程序的根目录<br>该扩展程序的根目录就是刚才找到的Chrome的Extensions目录下的该扩展ID目录下的，以版本号为名的文件夹。注意路径中一定要包含版本号的文件夹，注意截图中的部分<br><img src="/2017/10/08/被问到的技术问题归类/images/06.png" alt="扩展程序页"><br>生成打包好的crx文件<br>选择好目录后，最后点击<code>打包扩展程序</code>。打包完成后会提示你打包好的文件位置，其实就是在ID为名的文件夹下。<br><img src="/2017/10/08/被问到的技术问题归类/images/07.png" alt="扩展程序页"><br><img src="/2017/10/08/被问到的技术问题归类/images/08.png" alt="扩展程序页"><br>6、安装扩展程序<br>需要安装扩展程序的时候，直接把.crx的文件拖动到Chrome的扩展程序页上就行。<br>提示你是否要添加，点击添加即可。<br><a href="http://www.jb51.net/softjc/578550.html" target="_blank" rel="external">参考链接</a></p>
+</blockquote>
+</li>
+</ul>
+<h3 id="实战项目开发注意点总结"><a href="#实战项目开发注意点总结" class="headerlink" title="实战项目开发注意点总结"></a>实战项目开发注意点总结</h3><ul>
+<li><strong>博学谷项目</strong><blockquote>
+<p>使用jQuery的form表单插件的时候，使用ajaxSubmit提交功能，一定要引用form表单插件，而且需要在表单校验中加上<code>return false</code> 来阻止表单的默认提交跳转事件。<br>由于在该项目中使用<code>require.js</code>模块化开发的时候，很容易在<code>define</code>中忘记添加form表单插件的引用，导致使用form功能的<code>ajaxSubmit</code>没有拿到会报错，下面的<code>return false</code>没有走，默认事件没有阻止掉，表单就按照form表单上面的action和method跳转了。页面跳转了这样也看不到上面的报错信息。<br>博学谷项目中引用的<code>uploadify</code>插件来说，是使用的flash做的图片上传，所以在浏览器测试的时候必须要有flash插件，以及开启flash，设置该网站允许。(默认情况下谷歌浏览器中flash是不开启的)</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="其他插件"><a href="#其他插件" class="headerlink" title="其他插件"></a>其他插件</h3><ul>
+<li><p><strong>art-template不识别标签</strong></p>
+<blockquote>
+<p>配置下 <code>template.config(&quot;escape&quot;, false);</code> 或者是在标签的前面加上<code>#</code>即可<br><img src="/2017/10/08/被问到的技术问题归类/images/art-template01.png" alt="art-template不识别标签"></p>
+</blockquote>
+</li>
+<li><p><strong>art-template的原始语法</strong></p>
+<blockquote>
+<p>art-template的原始语法<code>&lt;%= %&gt;</code>其中的等于号不能和左边的分开存在空格，不然语法报错</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="其他软件"><a href="#其他软件" class="headerlink" title="其他软件"></a>其他软件</h3><ul>
+<li><strong>PowerDesigner画原型链、作用域链图</strong><blockquote>
+<p>使用PowerDesigner把原型图导出成图片（选择Edit—&gt;Export Image 到出你需要的格式）<br>PowerDesigner画图是直接拖拽右侧的图标就可以拖拽到画布中</p>
 </blockquote>
 </li>
 </ul>
@@ -684,6 +818,10 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
               </li>
              
@@ -693,10 +831,6 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">传智播客教育</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -736,11 +870,19 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">前端面试题</a>
+                <a href="javascript:void(0)" class="js-tag color5">前端资源</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">前端资源</a>
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript技巧、窍门</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">JavaScript最佳实践</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">前端面试题</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -777,6 +919,10 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">黑马13期</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
               </li>
             
             <div class="clearfix"></div>
