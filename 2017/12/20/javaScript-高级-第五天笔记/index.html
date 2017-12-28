@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://biedongda.com/2017/12/20/javaScript-高级-第五天笔记/index.html">
 <meta property="og:site_name" content="一个学徒的世界">
 <meta property="og:description" content="前置知识 函数四种调用模式 构造器模式 上下文（借用方法）模式 继承补充 ES5补充">
-<meta property="og:updated_time" content="2017-12-25T08:56:42.070Z">
+<meta property="og:updated_time" content="2017-12-26T07:06:43.475Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="javaScript-高级-第五天笔记">
 <meta name="twitter:description" content="前置知识 函数四种调用模式 构造器模式 上下文（借用方法）模式 继承补充 ES5补充">
@@ -214,6 +214,7 @@
 </li>
 </ul>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// call方法</span></div><div class="line"><span class="comment">// call() 方法的作用 和 apply() 方法的作用完全相同</span></div><div class="line">    <span class="comment">// 唯一的区别：参数不同</span></div><div class="line"></div><div class="line"><span class="comment">// call() 和 apply() 用哪一个？？？</span></div><div class="line"><span class="comment">// 1 如果参数比较少，直接使用call会更加简洁</span></div><div class="line"><span class="comment">// 2 如果需要将数组开展，此时，我们使用 apply</span></div><div class="line"></div><div class="line"><span class="keyword">var</span> foo = <span class="function"><span class="keyword">function</span>(<span class="params">num1, num2, num3</span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>, num1, num2, num3);</div><div class="line">&#125;;</div><div class="line"><span class="keyword">var</span> obj = &#123;&#125;;</div><div class="line"></div><div class="line">foo.call(obj, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>); <span class="comment">// obj 1 2 3</span></div></pre></td></tr></table></figure>
+<p><a href="http://www.cnblogs.com/coco1s/p/4833199.html" target="_blank" rel="external">【优雅代码】深入浅出 妙用Javascript中apply、call、bind</a></p>
 
       
 
@@ -337,8 +338,8 @@
     </a>
   
   
-    <a href="/2017/12/19/Object常用方法总结/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Object常用方法总结</div>
+    <a href="/2017/12/14/javaScript-高级-第四天笔记/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">javaScript-高级-第四天笔记</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -487,6 +488,14 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ES6的学习笔记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Markdown基本使用</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Markdown语法规则</a>
               </li>
              
               <li class="article-tag-list-item">
