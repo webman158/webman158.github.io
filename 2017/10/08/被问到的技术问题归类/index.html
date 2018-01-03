@@ -8,13 +8,13 @@
   <link rel="dns-prefetch" href="http://biedongda.com">
   <title>带班常见技术问题总结 | 一个学徒的世界</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="前置知识 html css JS JQ php WebStorm PhpStorm sublime Node.js Chrome相关问题 实战项目开发注意点总结 其他插件 其他软件">
+  <meta name="description" content="前置知识 html css JS JQ php WebStorm/PhpStorm sublime Node.js Chrome相关问题 实战项目开发注意点总结 其他插件 其他软件">
 <meta name="keywords" content="技术问题,黑马13期">
 <meta property="og:type" content="article">
 <meta property="og:title" content="带班常见技术问题总结">
 <meta property="og:url" content="http://biedongda.com/2017/10/08/被问到的技术问题归类/index.html">
 <meta property="og:site_name" content="一个学徒的世界">
-<meta property="og:description" content="前置知识 html css JS JQ php WebStorm PhpStorm sublime Node.js Chrome相关问题 实战项目开发注意点总结 其他插件 其他软件">
+<meta property="og:description" content="前置知识 html css JS JQ php WebStorm/PhpStorm sublime Node.js Chrome相关问题 实战项目开发注意点总结 其他插件 其他软件">
 <meta property="og:image" content="http://biedongda.com/2017/10/08/被问到的技术问题归类/images/pattern.png">
 <meta property="og:image" content="http://biedongda.com/2017/10/08/被问到的技术问题归类/images/canvas01.png">
 <meta property="og:image" content="http://biedongda.com/2017/10/08/被问到的技术问题归类/images/chrome-debug.png">
@@ -34,10 +34,10 @@
 <meta property="og:image" content="http://biedongda.com/2017/10/08/被问到的技术问题归类/images/07.png">
 <meta property="og:image" content="http://biedongda.com/2017/10/08/被问到的技术问题归类/images/08.png">
 <meta property="og:image" content="http://biedongda.com/2017/10/08/被问到的技术问题归类/images/art-template01.png">
-<meta property="og:updated_time" content="2017-12-28T08:59:05.259Z">
+<meta property="og:updated_time" content="2017-12-29T07:20:00.681Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="带班常见技术问题总结">
-<meta name="twitter:description" content="前置知识 html css JS JQ php WebStorm PhpStorm sublime Node.js Chrome相关问题 实战项目开发注意点总结 其他插件 其他软件">
+<meta name="twitter:description" content="前置知识 html css JS JQ php WebStorm/PhpStorm sublime Node.js Chrome相关问题 实战项目开发注意点总结 其他插件 其他软件">
 <meta name="twitter:image" content="http://biedongda.com/2017/10/08/被问到的技术问题归类/images/pattern.png">
   
     <link rel="alternative" href="/atom.xml" title="一个学徒的世界" type="application/atom+xml">
@@ -196,8 +196,7 @@
 <li>JS</li>
 <li>JQ</li>
 <li>php</li>
-<li>WebStorm</li>
-<li>PhpStorm</li>
+<li>WebStorm/PhpStorm</li>
 <li>sublime</li>
 <li>Node.js</li>
 <li>Chrome相关问题</li>
@@ -327,7 +326,7 @@
 <li><p><strong>变量声明注意点</strong></p>
 <blockquote>
 <p>定义变量的时候，变量的名称不要叫： <code>top</code>或<code>self</code>，和<code>window.top</code>,<code>window.self</code>起冲突</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">- <span class="built_in">window</span>.top</div><div class="line"><span class="comment">// 如果是直接访问的当前页面，那么 window.top === window</span></div><div class="line"><span class="comment">// 如果当前页面是嵌套在其他页面中的，那么此时，window.top 就不是当前页面的window了</span></div><div class="line"><span class="comment">// 而指向了 最外层的window</span></div><div class="line"><span class="comment">// console.log(window.top === window);</span></div><div class="line"></div><div class="line">- <span class="built_in">window</span>.self</div><div class="line"><span class="comment">// 不管是以什么形式访问的页面，self一直指向了 自身的window</span></div><div class="line"><span class="comment">// console.log(window.self === window);</span></div><div class="line"><span class="comment">// 如何避免页面被人家作为iframe嵌入到人家的页面</span></div><div class="line"></div><div class="line">- <span class="built_in">window</span>.name</div><div class="line"><span class="comment">// 当前窗口的标志</span></div><div class="line"></div><div class="line">- <span class="built_in">window</span>.length </div><div class="line"><span class="comment">// 是页面中iframe 标签的个数</span></div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">- <span class="built_in">window</span>.top</div><div class="line"><span class="comment">// 如果是直接访问的当前页面，那么 window.top === window</span></div><div class="line"><span class="comment">// 如果当前页面是嵌套在其他页面中的，那么此时，window.top 就不是当前页面的window了</span></div><div class="line"><span class="comment">// 而指向了 最外层的window</span></div><div class="line"><span class="comment">// console.log(window.top === window);</span></div><div class="line"></div><div class="line">- <span class="built_in">window</span>.self</div><div class="line"><span class="comment">// 不管是以什么形式访问的页面，self一直指向了 自身的window</span></div><div class="line"><span class="comment">// console.log(window.self === window);</span></div><div class="line"><span class="comment">// 如何避免自己网站的页面被人家作为iframe嵌入到别人的网站内</span></div><div class="line"><span class="keyword">if</span>(top !== <span class="built_in">window</span>) top.location.href = <span class="built_in">window</span>.location.href;</div><div class="line"><span class="comment">// 判断当前的window对象是否是top对象</span></div><div class="line"><span class="comment">// 如果不是，将top对象的网址自动导向被嵌入网页(自己的网页)的网址</span></div><div class="line"></div><div class="line">- <span class="built_in">window</span>.name</div><div class="line"><span class="comment">// 当前窗口的标志</span></div><div class="line"></div><div class="line">- <span class="built_in">window</span>.length </div><div class="line"><span class="comment">// 是页面中iframe 标签的个数</span></div></pre></td></tr></table></figure>
 </blockquote>
 </li>
 <li><p><strong>在使用闭包没延时一秒（setTimeout）来打印0-9的时候，为什么使用断点调试的时候，打印出来的顺序不是0-9，而是随机的乱的。</strong></p>
@@ -719,7 +718,7 @@ gitment.render('gitment-ctn')
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2017 前端学徒
+    		&copy; 2018 前端学徒
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -810,14 +809,6 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ES6</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ES6的学习笔记</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Markdown基本使用</a>
               </li>
              
@@ -826,7 +817,11 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
+                <a href="javascript:void(0)" class="js-tag color4">ES6</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ES6的学习笔记</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -839,6 +834,10 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">传智播客教育</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -866,6 +865,14 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript技巧、窍门</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">JavaScript最佳实践</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">程序员健康生活</a>
               </li>
              
@@ -882,23 +889,15 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">JavaScript技巧、窍门</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JavaScript最佳实践</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">前端面试题</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">js数组、字符串</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">特别关注faces</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">前端面试题</a>
               </li>
              
               <li class="article-tag-list-item">

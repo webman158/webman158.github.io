@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://biedongda.com/2017/11/22/收集前端面试题/index.html">
 <meta property="og:site_name" content="一个学徒的世界">
 <meta property="og:description" content="有种放水叫不问技术、有种欣赏叫不问技术、有种不爱叫只问技术。 拓展外链80% 应聘者都不及格的 JS 面试题 (不错的js精品文章，可以多回顾下，ES6、7都有涉及)BAT及各大互联网公司2014前端笔试面试题：JavaScript篇 (伯乐在线,整理到初级第二十二题)前端工程师面试题(js)–掘金文章如何理解这 14 道 JavaScript 题？–知乎 (如果大家觉得自己JS很牛的话不妨来做做">
-<meta property="og:updated_time" content="2017-12-27T06:34:12.989Z">
+<meta property="og:updated_time" content="2017-12-29T07:16:48.871Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="收集前端面试题">
 <meta name="twitter:description" content="有种放水叫不问技术、有种欣赏叫不问技术、有种不爱叫只问技术。 拓展外链80% 应聘者都不及格的 JS 面试题 (不错的js精品文章，可以多回顾下，ES6、7都有涉及)BAT及各大互联网公司2014前端笔试面试题：JavaScript篇 (伯乐在线,整理到初级第二十二题)前端工程师面试题(js)–掘金文章如何理解这 14 道 JavaScript 题？–知乎 (如果大家觉得自己JS很牛的话不妨来做做">
@@ -277,7 +277,7 @@
 <hr>
 <blockquote>
 <ul>
-<li><strong>定义一个 <code>log</code> 方法，让它可以实现 <code>console.log</code> 方法的功能</strong><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 常见解决办法：</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">log</span>(<span class="params">msg</span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(msg);</div><div class="line">&#125;</div><div class="line">log(<span class="number">1</span>); <span class="comment">// 1</span></div><div class="line">log(<span class="number">1</span>, <span class="number">2</span>); <span class="comment">// 1</span></div><div class="line"></div><div class="line"><span class="comment">// 上面方法可以解决最基本的需求，但是当传入参数的个数是不确定的时候，上面的方法就失效了，这个时候就可以考虑使用 apply/call/bind，这里传入多少个参数是不确定的，所以使用apply是最好的，方法如下：</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">log</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log.apply(<span class="literal">null</span>, <span class="built_in">arguments</span>);</div><div class="line">&#125;</div><div class="line">log(<span class="number">1</span>); <span class="comment">// 1</span></div><div class="line">log(<span class="number">1</span>, <span class="number">2</span>); <span class="comment">// 1 2</span></div><div class="line"></div><div class="line"><span class="comment">// 现在需要在上面的基础上每次调用log方法的时候，都需要在前面加上‘ITcast：’的前缀</span></div><div class="line"><span class="comment">// 比如 log("hello world");    //ITcast：hello world</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">log</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="comment">// 将arguments转化成数组</span></div><div class="line">    <span class="keyword">var</span> args = <span class="built_in">Array</span>.prototype.slice.apply(<span class="built_in">arguments</span>);</div><div class="line">    <span class="comment">// 在数组前添加固定项</span></div><div class="line">    args.unshift(<span class="string">'ITcast: '</span>);</div><div class="line"></div><div class="line">    <span class="built_in">console</span>.log.apply(<span class="literal">null</span>, args);</div><div class="line">&#125;</div><div class="line">log(<span class="number">1</span>); <span class="comment">// ITcast: 1 </span></div><div class="line">log(<span class="number">1</span>, <span class="number">2</span>); <span class="comment">// ITcast: 1 2</span></div></pre></td></tr></table></figure>
+<li><strong>定义一个 <code>log</code> 方法，让它可以实现 <code>console.log</code> 方法的功能</strong><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 常见解决办法：</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">log</span>(<span class="params">msg</span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(msg);</div><div class="line">&#125;</div><div class="line">log(<span class="number">1</span>); <span class="comment">// 1</span></div><div class="line">log(<span class="number">1</span>, <span class="number">2</span>); <span class="comment">// 1</span></div><div class="line"></div><div class="line"><span class="comment">// 上面方法可以解决最基本的需求，但是当传入参数的个数是不确定的时候，上面的方法就失效了，这个时候就可以考虑使用 apply/call/bind，这里传入多少个参数是不确定的，所以使用apply是最好的，方法如下：</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">log</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log.apply(<span class="literal">null</span>, <span class="built_in">arguments</span>);</div><div class="line">&#125;</div><div class="line">log(<span class="number">1</span>); <span class="comment">// 1</span></div><div class="line">log(<span class="number">1</span>, <span class="number">2</span>); <span class="comment">// 1 2</span></div><div class="line"></div><div class="line"><span class="comment">// 现在需要在上面的基础上每次调用log方法的时候，都需要在前面加上‘ITcast：’的前缀</span></div><div class="line"><span class="comment">// 比如 log("hello world");    //ITcast：hello world</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">log</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="comment">// 将arguments转化成数组。slice方法得到一个新数组</span></div><div class="line">    <span class="keyword">var</span> args = <span class="built_in">Array</span>.prototype.slice.apply(<span class="built_in">arguments</span>);</div><div class="line">    <span class="comment">// 在数组前添加固定项</span></div><div class="line">    args.unshift(<span class="string">'ITcast: '</span>);</div><div class="line"></div><div class="line">    <span class="comment">// 将上面两步整成一步:</span></div><div class="line">    <span class="comment">// [].unshift.apply(arguments, ['ITcast：']);</span></div><div class="line">    <span class="comment">// [].unshift.call(arguments, 'ITcast：');</span></div><div class="line">    <span class="comment">// 如果像上面那样改造了，就需要这样调用了，因为改变的是arguments</span></div><div class="line">    <span class="comment">// console.log.apply(null, arguments);</span></div><div class="line"></div><div class="line">    <span class="built_in">console</span>.log.apply(<span class="literal">null</span>, args);</div><div class="line">&#125;</div><div class="line">log(<span class="number">1</span>); <span class="comment">// ITcast: 1 </span></div><div class="line">log(<span class="number">1</span>, <span class="number">2</span>); <span class="comment">// ITcast: 1 2</span></div></pre></td></tr></table></figure>
 </li>
 </ul>
 </blockquote>
@@ -466,7 +466,7 @@ gitment.render('gitment-ctn')
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2017 前端学徒
+    		&copy; 2018 前端学徒
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -557,14 +557,6 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ES6</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ES6的学习笔记</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Markdown基本使用</a>
               </li>
              
@@ -573,7 +565,11 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
+                <a href="javascript:void(0)" class="js-tag color4">ES6</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ES6的学习笔记</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -586,6 +582,10 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">传智播客教育</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -613,6 +613,14 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript技巧、窍门</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">JavaScript最佳实践</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">程序员健康生活</a>
               </li>
              
@@ -629,23 +637,15 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">JavaScript技巧、窍门</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">JavaScript最佳实践</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">前端面试题</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">js数组、字符串</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">特别关注faces</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">前端面试题</a>
               </li>
              
               <li class="article-tag-list-item">
