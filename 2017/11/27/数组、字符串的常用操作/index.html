@@ -148,29 +148,30 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-数组、字符串的常用操作"
-         class="article article-type-post " itemscope
-         itemprop="blogPost">
-  <div class="article-inner">
-    
-    <header class="article-header">
-      
+            <article id="post-数组、字符串的常用操作" class="article article-type-post " itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
   
     <h1 class="article-title" itemprop="name">
       数组、字符串的常用操作
     </h1>
   
 
-      
-      <a href="/2017/11/27/数组、字符串的常用操作/" class="archive-article-date">
+                    
+                        <a href="/2017/11/27/数组、字符串的常用操作/" class="archive-article-date">
   	<time datetime="2017-11-27T01:01:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-27</time>
 </a>
-      
-    </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-      <h2 id="字符串相关的方法"><a href="#字符串相关的方法" class="headerlink" title="字符串相关的方法"></a>字符串相关的方法</h2><h2 id="数组相关的方法"><a href="#数组相关的方法" class="headerlink" title="数组相关的方法"></a>数组相关的方法</h2><h3 id="数组的增删取"><a href="#数组的增删取" class="headerlink" title="数组的增删取"></a>数组的增删取</h3><blockquote>
+                            
+            </header>
+            
+                <!-- 目录内容 -->
+                
+                        <!-- 目录内容结束 -->
+                        <div class="article-entry" itemprop="articleBody">
+                            
+                                                <h2 id="字符串相关的方法"><a href="#字符串相关的方法" class="headerlink" title="字符串相关的方法"></a>字符串相关的方法</h2><h2 id="数组相关的方法"><a href="#数组相关的方法" class="headerlink" title="数组相关的方法"></a>数组相关的方法</h2><h3 id="数组的增删取"><a href="#数组的增删取" class="headerlink" title="数组的增删取"></a>数组的增删取</h3><blockquote>
 <p>增加<br>删除<br>取出<br>push()<br>concat() 可以传递多个参数，参数之间用逗号分隔</p>
 </blockquote>
 <ul>
@@ -226,35 +227,35 @@
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr = [<span class="number">9</span>, <span class="number">1</span>, <span class="number">4</span>, <span class="number">10</span>, <span class="number">7</span>, <span class="number">22</span>, <span class="number">8</span>];</div><div class="line"></div><div class="line"><span class="comment">// 普通做法 - 假设成立法</span></div><div class="line"><span class="keyword">var</span> max = arr[<span class="number">0</span>];<span class="comment">//假设数组中的第一项是是最大的</span></div><div class="line"><span class="comment">// 注意i 初始值是1，没必要是0 ，因为已经假设第一项是最大值了，没必要让假设值和自己在比较大小一次</span></div><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">1</span>; i &lt; arr.length; i++)&#123;</div><div class="line">    <span class="keyword">if</span>(max &lt; arr[i])&#123;</div><div class="line">        max = arr[i]</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="built_in">console</span>.log(max);</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">// 简便做法 - 上下文调用模式</span></div><div class="line"><span class="keyword">var</span> newMax = <span class="built_in">Math</span>.max.apply(<span class="literal">null</span>, arr);</div><div class="line"><span class="built_in">console</span>.log(newMax); <span class="comment">// 22</span></div></pre></td></tr></table></figure></li>
 </ul>
 
-      
+                                                    
 
-      
-      <div class="page-reward">
-        <a href="javascript:;" class="page-reward-btn tooltip-top">
-          <div class="tooltip tooltip-east">
-                                                                <span class="tooltip-item">
+                                                        
+                                                            <div class="page-reward">
+                                                                <a href="javascript:;" class="page-reward-btn tooltip-top">
+                                                                    <div class="tooltip tooltip-east">
+                                                                        <span class="tooltip-item">
               赏
             </span>
-            <span class="tooltip-content">
+                                                                        <span class="tooltip-content">
               <span class="tooltip-text">
                 <span class="tooltip-inner">
                   <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i
                       class="icon icon-quo-right"></i></p>
                   <div class="reward-box">
                     
-                    
-                  </div>
-                                                    </span>
-                                                    </span>
-                                                    </span>
-          </div>
-        </a>
-      </div>
-      
+                                                                        
+                                                            </div>
+                                                            </span>
+                                                            </span>
+                                                            </span>
+                        </div>
+                        </a>
     </div>
-    <div class="article-info article-info-index">
-      
-      
+    
+        </div>
+        <div class="article-info article-info-index">
+            
+                    
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -266,12 +267,12 @@
 		</ul>
 	</div>
 
-      
+                        
 
-      
+                            
 
-      
-      
+                                    
+                                        
 <div class="share-btn share-icons tooltip-left">
   <div class="tooltip tooltip-east">
     <span class="tooltip-item">
@@ -321,13 +322,13 @@
 </div>
 
 <div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
+                                            
+                                                <div class="clearfix"></div>
+        </div>
+        </div>
 </article>
 
-
+    
 <nav id="article-nav">
   
     <a href="/2017/11/28/javaScript-基础-第一天笔记/" id="article-nav-newer" class="article-nav-link-wrap">
@@ -347,8 +348,8 @@
   
 </nav>
 
-
-<aside class="wrap-side-operation">
+        
+            <aside class="wrap-side-operation">
     <div class="mod-side-operation">
         
         <div class="jump-container" id="js-jump-container" style="display:none;">
@@ -361,15 +362,28 @@
         </div>
         
         
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#字符串相关的方法"><span class="toc-number">1.</span> <span class="toc-text">字符串相关的方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数组相关的方法"><span class="toc-number">2.</span> <span class="toc-text">数组相关的方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#数组的增删取"><span class="toc-number">2.1.</span> <span class="toc-text">数组的增删取</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数组遍历的方法："><span class="toc-number">2.2.</span> <span class="toc-text">数组遍历的方法：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数组常用操作："><span class="toc-number">2.3.</span> <span class="toc-text">数组常用操作：</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
     </div>
 </aside>
-
-
-
-
-
-
-<div id="gitment-ctn"></div> 
+                
+                    
+                                
+                                            
+                                                        
+                                                                
+                                                                    <div id="gitment-ctn"></div> 
 <link rel="stylesheet" href="//imsun.github.io/gitment/style/default.css">
 <script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
 <script>
@@ -384,9 +398,8 @@ var gitment = new Gitment({
 })
 gitment.render('gitment-ctn')
 </script>
-
-
-
+                                                                        
+                                                                            
           </div>
         </div>
       </div>
@@ -411,8 +424,8 @@ gitment.render('gitment-ctn')
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
-		open_in_new: false,
-		toc_hide_index: true,
+		open_in_new: true,
+		toc_hide_index: false,
 		root: "/",
 		innerArchive: true,
 		showTags: false
@@ -485,19 +498,19 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Markdown基本使用</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Markdown语法规则</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ES6</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ES6的学习笔记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Markdown基本使用</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Markdown语法规则</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -569,11 +582,11 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">特别关注faces</a>
+                <a href="javascript:void(0)" class="js-tag color4">js数组、字符串</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">js数组、字符串</a>
+                <a href="javascript:void(0)" class="js-tag color5">特别关注faces</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -150,29 +150,30 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-javaScript-高级-第二天笔记"
-         class="article article-type-post " itemscope
-         itemprop="blogPost">
-  <div class="article-inner">
-    
-    <header class="article-header">
-      
+            <article id="post-javaScript-高级-第二天笔记" class="article article-type-post " itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
   
     <h1 class="article-title" itemprop="name">
       javaScript-高级-第二天笔记
     </h1>
   
 
-      
-      <a href="/2017/12/12/javaScript-高级-第二天笔记/" class="archive-article-date">
+                    
+                        <a href="/2017/12/12/javaScript-高级-第二天笔记/" class="archive-article-date">
   	<time datetime="2017-12-12T01:05:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-12</time>
 </a>
-      
-    </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-      <h2 id="前置知识"><a href="#前置知识" class="headerlink" title="前置知识"></a>前置知识</h2><ol>
+                            
+            </header>
+            
+                <!-- 目录内容 -->
+                
+                        <!-- 目录内容结束 -->
+                        <div class="article-entry" itemprop="articleBody">
+                            
+                                                <h2 id="前置知识"><a href="#前置知识" class="headerlink" title="前置知识"></a>前置知识</h2><ol>
 <li>原型中的 <code>constructor</code> 属性</li>
 <li>面向对象特征介绍</li>
 <li>JavaScript中的继承</li>
@@ -337,35 +338,35 @@
 </blockquote>
 <h3 id="站在原型链的角度来看-in-运算符"><a href="#站在原型链的角度来看-in-运算符" class="headerlink" title="站在原型链的角度来看 in 运算符"></a>站在原型链的角度来看 <code>in</code> 运算符</h3><p><em>in 运算符相关的使用说明在 JavaScript基础-第四天笔记中有说明</em><br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> Person = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">this</span>.age = <span class="number">19</span>;</div><div class="line">&#125;;</div><div class="line">Person.prototype.say = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;;</div><div class="line"></div><div class="line"><span class="keyword">var</span> p = <span class="keyword">new</span> Person();</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(<span class="string">'age'</span> <span class="keyword">in</span> p);		<span class="comment">// age属性在 p对象上</span></div><div class="line"><span class="built_in">console</span>.log(<span class="string">'say'</span> <span class="keyword">in</span> p);		<span class="comment">// say方法在 Person.prototype</span></div><div class="line"><span class="built_in">console</span>.log(<span class="string">'toString'</span> <span class="keyword">in</span> p);	<span class="comment">// toString方法在 Object.prototype</span></div><div class="line"></div><div class="line"><span class="comment">// 总结:只要属性或是方法能被对象访问到都返回 true，不管属性是对象自身有的还是原型上的。</span></div></pre></td></tr></table></figure></p>
 
-      
+                                                    
 
-      
-      <div class="page-reward">
-        <a href="javascript:;" class="page-reward-btn tooltip-top">
-          <div class="tooltip tooltip-east">
-                                                                <span class="tooltip-item">
+                                                        
+                                                            <div class="page-reward">
+                                                                <a href="javascript:;" class="page-reward-btn tooltip-top">
+                                                                    <div class="tooltip tooltip-east">
+                                                                        <span class="tooltip-item">
               赏
             </span>
-            <span class="tooltip-content">
+                                                                        <span class="tooltip-content">
               <span class="tooltip-text">
                 <span class="tooltip-inner">
                   <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i
                       class="icon icon-quo-right"></i></p>
                   <div class="reward-box">
                     
-                    
-                  </div>
-                                                    </span>
-                                                    </span>
-                                                    </span>
-          </div>
-        </a>
-      </div>
-      
+                                                                        
+                                                            </div>
+                                                            </span>
+                                                            </span>
+                                                            </span>
+                        </div>
+                        </a>
     </div>
-    <div class="article-info article-info-index">
-      
-      
+    
+        </div>
+        <div class="article-info article-info-index">
+            
+                    
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -385,12 +386,12 @@
 		</ul>
 	</div>
 
-      
+                        
 
-      
+                            
 
-      
-      
+                                    
+                                        
 <div class="share-btn share-icons tooltip-left">
   <div class="tooltip tooltip-east">
     <span class="tooltip-item">
@@ -440,13 +441,13 @@
 </div>
 
 <div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
+                                            
+                                                <div class="clearfix"></div>
+        </div>
+        </div>
 </article>
 
-
+    
 <nav id="article-nav">
   
     <a href="/2017/12/13/javaScript-高级-第三天笔记/" id="article-nav-newer" class="article-nav-link-wrap">
@@ -466,8 +467,8 @@
   
 </nav>
 
-
-<aside class="wrap-side-operation">
+        
+            <aside class="wrap-side-operation">
     <div class="mod-side-operation">
         
         <div class="jump-container" id="js-jump-container" style="display:none;">
@@ -480,15 +481,28 @@
         </div>
         
         
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前置知识"><span class="toc-number">1.</span> <span class="toc-text">前置知识</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#constructor-属性"><span class="toc-number">1.1.</span> <span class="toc-text">constructor 属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#面向对象特征介绍"><span class="toc-number">1.2.</span> <span class="toc-text">面向对象特征介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#封装"><span class="toc-number">1.2.1.</span> <span class="toc-text">封装</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#继承"><span class="toc-number">1.2.2.</span> <span class="toc-text">继承</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#多态（基于强类型）-了解"><span class="toc-number">1.2.3.</span> <span class="toc-text">多态（基于强类型） - 了解</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JavaScript中的继承"><span class="toc-number">1.3.</span> <span class="toc-text">JavaScript中的继承</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#混入式继承"><span class="toc-number">1.3.1.</span> <span class="toc-text">混入式继承</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#原型式继承"><span class="toc-number">1.3.2.</span> <span class="toc-text">原型式继承</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#利用对象的动态特性"><span class="toc-number">1.3.2.0.1.</span> <span class="toc-text">利用对象的动态特性</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#覆盖原型对象"><span class="toc-number">1.3.2.1.</span> <span class="toc-text">覆盖原型对象</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#利用混入继承添加原型成员"><span class="toc-number">1.3.2.2.</span> <span class="toc-text">利用混入继承添加原型成员</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#经典继承-Object-create"><span class="toc-number">1.3.2.3.</span> <span class="toc-text">经典继承 - Object.create</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#原型链"><span class="toc-number">1.4.</span> <span class="toc-text">原型链</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#理解原型链"><span class="toc-number">1.4.1.</span> <span class="toc-text">理解原型链</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#注意点"><span class="toc-number">1.4.1.1.</span> <span class="toc-text">注意点</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Object对象与其他对象的关系"><span class="toc-number">1.4.2.</span> <span class="toc-text">Object对象与其他对象的关系</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#数据的存储注意点："><span class="toc-number">1.4.3.</span> <span class="toc-text">数据的存储注意点：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#构造函数和原型的一些结论"><span class="toc-number">1.4.4.</span> <span class="toc-text">构造函数和原型的一些结论</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#构造函数与实例对象的关系"><span class="toc-number">1.4.5.</span> <span class="toc-text">构造函数与实例对象的关系</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#函数的原型链"><span class="toc-number">1.4.6.</span> <span class="toc-text">函数的原型链</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Function和普通函数的关系"><span class="toc-number">1.4.7.</span> <span class="toc-text">Function和普通函数的关系</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#案例练习-绘制完整的原型链图"><span class="toc-number">1.4.8.</span> <span class="toc-text">案例练习 - 绘制完整的原型链图</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#站在原型链的角度来看-instanceof-运算符"><span class="toc-number">1.5.</span> <span class="toc-text">站在原型链的角度来看 instanceof 运算符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#站在原型链的角度来看-in-运算符"><span class="toc-number">1.6.</span> <span class="toc-text">站在原型链的角度来看 in 运算符</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
     </div>
 </aside>
-
-
-
-
-
-
-<div id="gitment-ctn"></div> 
+                
+                    
+                                
+                                            
+                                                        
+                                                                
+                                                                    <div id="gitment-ctn"></div> 
 <link rel="stylesheet" href="//imsun.github.io/gitment/style/default.css">
 <script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
 <script>
@@ -503,9 +517,8 @@ var gitment = new Gitment({
 })
 gitment.render('gitment-ctn')
 </script>
-
-
-
+                                                                        
+                                                                            
           </div>
         </div>
       </div>
@@ -530,8 +543,8 @@ gitment.render('gitment-ctn')
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
-		open_in_new: false,
-		toc_hide_index: true,
+		open_in_new: true,
+		toc_hide_index: false,
 		root: "/",
 		innerArchive: true,
 		showTags: false
@@ -604,19 +617,19 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Markdown基本使用</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Markdown语法规则</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ES6</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ES6的学习笔记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Markdown基本使用</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Markdown语法规则</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -688,11 +701,11 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">特别关注faces</a>
+                <a href="javascript:void(0)" class="js-tag color4">js数组、字符串</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">js数组、字符串</a>
+                <a href="javascript:void(0)" class="js-tag color5">特别关注faces</a>
               </li>
              
               <li class="article-tag-list-item">
