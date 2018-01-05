@@ -2265,7 +2265,7 @@ pre .id {
 
 .article-inner h4 {
     letter-spacing: .140625em;
-    text-transform: uppercase
+    /* text-transform: uppercase */
 }
 
 .article-inner h6 {
@@ -4182,7 +4182,7 @@ a.pswp__share--download:hover {
     right: 0;
     bottom: 0;
     top: 0;
-    z-index: 9999;
+    z-index: 1000;
 }
 
 .toc-article .toc-close {

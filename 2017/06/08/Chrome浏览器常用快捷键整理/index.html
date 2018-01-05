@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://biedongda.com/2017/06/08/Chrome浏览器常用快捷键整理/index.html">
 <meta property="og:site_name" content="一个学徒的世界">
 <meta property="og:description" content="Chrome为网页浏览设置了许多快捷键,许多复杂的鼠标操作可以用键盘轻松完成.合理地使用快捷键可以让你的操作事半功倍.">
-<meta property="og:updated_time" content="2018-01-02T07:24:48.054Z">
+<meta property="og:updated_time" content="2018-01-05T06:35:15.848Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Chrome浏览器常用快捷键整理">
 <meta name="twitter:description" content="Chrome为网页浏览设置了许多快捷键,许多复杂的鼠标操作可以用键盘轻松完成.合理地使用快捷键可以让你的操作事半功倍.">
@@ -168,6 +168,31 @@
             
                 <!-- 目录内容 -->
                 
+                    <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
+                        <span class="btn-bg"></span>
+                        <span class="btn-text">文章导航</span>
+                    </p>
+                    <div id="toc-article" class="toc-article">
+                        <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+                        <strong class="toc-title">文章目录</strong>
+                        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#窗口和标签页快捷方式"><span class="toc-number">1.</span> <span class="toc-text">窗口和标签页快捷方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#谷歌浏览器功能快捷键"><span class="toc-number">2.</span> <span class="toc-text">谷歌浏览器功能快捷键</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#地址栏快捷键"><span class="toc-number">3.</span> <span class="toc-text">地址栏快捷键</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#网页快捷键"><span class="toc-number">4.</span> <span class="toc-text">网页快捷键</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#文本快捷键"><span class="toc-number">5.</span> <span class="toc-text">文本快捷键</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#zoomit教学软件"><span class="toc-number">6.</span> <span class="toc-text">zoomit教学软件</span></a></li></ol>
+                    </div>
+                    <script type="text/javascript">
+                        function showToc() {
+                            var toc_article = document.getElementById("toc-article");
+                            var show_toc_btn = document.getElementById("show-toc-btn");
+                            toc_article.setAttribute("style", "display:block");
+                            show_toc_btn.setAttribute("style", "display:none");
+                        };
+
+                        function showBtn() {
+                            var toc_article = document.getElementById("toc-article");
+                            var show_toc_btn = document.getElementById("show-toc-btn");
+                            toc_article.setAttribute("style", "display:none");
+                            show_toc_btn.setAttribute("style", "display:block");
+                        };
+                    </script>
+                    
                         <!-- 目录内容结束 -->
                         <div class="article-entry" itemprop="articleBody">
                             
@@ -268,6 +293,13 @@
 <li><code>Ctrl+X</code>    删除突出显示的内容并将其复制到剪贴板中。</li>
 </ul>
 <p><a href="http://www.jb51.net/softjc/120409.html" target="_blank" rel="external">参考链接</a></p>
+<h3 id="zoomit教学软件"><a href="#zoomit教学软件" class="headerlink" title="zoomit教学软件"></a>zoomit教学软件</h3><p>ZoomIt的使用方法：</p>
+<ol>
+<li>屏幕放大<br>Ctrl+1进入放大模式，此时屏幕默认放大2倍，视野中显示屏幕的1/4。滚动鼠标滚轮或者通过上下方向键可以改变放大比例。移动鼠标可以改变放大区域。单击鼠标右键或Esc退出。</li>
+<li>屏幕标注<br>在屏幕放大状态下，单击鼠标左键进入标注模式。按下鼠标左键的同时移动鼠标，可以标注想要突出的内容。<br>你可以画一些规则的图形：<br>按住Shift键可以画出直线；<br>按住Ctrl键可以画出矩形；<br>按住tab键可以画出椭圆形；<br>按住shift+ctrl 可以画出箭头。<br>你也可以改变笔的颜色：<br>r 红色；g 绿色；b 蓝色；o 橙色；y 黄色；p 粉色。<br>按住Ctrl滚动滚轮可以改变笔的粗细。<br>W可以进入白板，K可以进入黑板。<br>T可以进入打字模式，按住Ctrl滚动滚轮可以改变字体的大小。遗憾的事不能输入中文。<br>Ctrl+Z撤消最后的标注，E是擦除所有标注。<br>Esc或鼠标右键退出标注模式，双击鼠标右键直接退出放大镜。</li>
+<li>屏幕截图<br>Ctrl+S 可以保存当前屏幕为图片。</li>
+<li>屏幕倒计时<br>Ctrl+3进入倒计时模式，鼠标滚动可以改变初始时间，还可以从零开始计时。<br><a href="http://blog.163.com/th_sjy/blog/static/23301005020147257533326/" target="_blank" rel="external">参考链接-屏幕缩放注释工具(ZoomIt)4.5汉化版</a></li>
+</ol>
 
                                                     
 
@@ -415,7 +447,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#窗口和标签页快捷方式"><span class="toc-number">1.</span> <span class="toc-text">窗口和标签页快捷方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#谷歌浏览器功能快捷键"><span class="toc-number">2.</span> <span class="toc-text">谷歌浏览器功能快捷键</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#地址栏快捷键"><span class="toc-number">3.</span> <span class="toc-text">地址栏快捷键</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#网页快捷键"><span class="toc-number">4.</span> <span class="toc-text">网页快捷键</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#文本快捷键"><span class="toc-number">5.</span> <span class="toc-text">文本快捷键</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#窗口和标签页快捷方式"><span class="toc-number">1.</span> <span class="toc-text">窗口和标签页快捷方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#谷歌浏览器功能快捷键"><span class="toc-number">2.</span> <span class="toc-text">谷歌浏览器功能快捷键</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#地址栏快捷键"><span class="toc-number">3.</span> <span class="toc-text">地址栏快捷键</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#网页快捷键"><span class="toc-number">4.</span> <span class="toc-text">网页快捷键</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#文本快捷键"><span class="toc-number">5.</span> <span class="toc-text">文本快捷键</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#zoomit教学软件"><span class="toc-number">6.</span> <span class="toc-text">zoomit教学软件</span></a></li></ol>
                     </div>
                 </span>
             </div>

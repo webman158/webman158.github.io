@@ -8,17 +8,17 @@
   <link rel="dns-prefetch" href="http://biedongda.com">
   <title>javaScript-高级-第三天笔记 | 一个学徒的世界</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="前置知识 函数的三种创建方式 new Function 和 eval 联系和区别  静态成员和实例成员 function的相关属性和方法 递归 自调用函数 Object.prototype 常用成员">
+  <meta name="description" content="函数的三种创建方式 函数声明 1function foo() &amp;#123;&amp;#125;  函数表达式 1234567891011var foo = function() &amp;#123;&amp;#125;;// 函数声明 和 函数表达式的区别：// 1 函数声明会将整个函数体提升// 2 函数表达式只会将函数名提升，所以，只能在赋值以后，才能调用函数// 3 函数表达式中 function 后面的名称可以省">
 <meta name="keywords" content="JavaScript,传智播客教育,JavaScript高级">
 <meta property="og:type" content="article">
 <meta property="og:title" content="javaScript-高级-第三天笔记">
 <meta property="og:url" content="http://biedongda.com/2017/12/13/javaScript-高级-第三天笔记/index.html">
 <meta property="og:site_name" content="一个学徒的世界">
-<meta property="og:description" content="前置知识 函数的三种创建方式 new Function 和 eval 联系和区别  静态成员和实例成员 function的相关属性和方法 递归 自调用函数 Object.prototype 常用成员">
-<meta property="og:updated_time" content="2017-12-19T10:52:42.835Z">
+<meta property="og:description" content="函数的三种创建方式 函数声明 1function foo() &amp;#123;&amp;#125;  函数表达式 1234567891011var foo = function() &amp;#123;&amp;#125;;// 函数声明 和 函数表达式的区别：// 1 函数声明会将整个函数体提升// 2 函数表达式只会将函数名提升，所以，只能在赋值以后，才能调用函数// 3 函数表达式中 function 后面的名称可以省">
+<meta property="og:updated_time" content="2018-01-05T14:27:31.444Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="javaScript-高级-第三天笔记">
-<meta name="twitter:description" content="前置知识 函数的三种创建方式 new Function 和 eval 联系和区别  静态成员和实例成员 function的相关属性和方法 递归 自调用函数 Object.prototype 常用成员">
+<meta name="twitter:description" content="函数的三种创建方式 函数声明 1function foo() &amp;#123;&amp;#125;  函数表达式 1234567891011var foo = function() &amp;#123;&amp;#125;;// 函数声明 和 函数表达式的区别：// 1 函数声明会将整个函数体提升// 2 函数表达式只会将函数名提升，所以，只能在赋值以后，才能调用函数// 3 函数表达式中 function 后面的名称可以省">
   
     <link rel="alternative" href="/atom.xml" title="一个学徒的世界" type="application/atom+xml">
   
@@ -168,21 +168,35 @@
             
                 <!-- 目录内容 -->
                 
+                    <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
+                        <span class="btn-bg"></span>
+                        <span class="btn-text">文章导航</span>
+                    </p>
+                    <div id="toc-article" class="toc-article">
+                        <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+                        <strong class="toc-title">文章目录</strong>
+                        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#函数的三种创建方式"><span class="toc-number">1.</span> <span class="toc-text">函数的三种创建方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#（new-Function）-和-（eval）的联系和区别"><span class="toc-number">2.</span> <span class="toc-text">（new Function） 和 （eval）的联系和区别</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#eval"><span class="toc-number">2.1.</span> <span class="toc-text">eval</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#eval-和-new-Function-的总结："><span class="toc-number">2.2.</span> <span class="toc-text">eval 和 new Function() 的总结：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#项目中转化JSON"><span class="toc-number">2.3.</span> <span class="toc-text">项目中转化JSON</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#实例成员和静态成员"><span class="toc-number">3.</span> <span class="toc-text">实例成员和静态成员</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#function的相关属性和方法"><span class="toc-number">4.</span> <span class="toc-text">function的相关属性和方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#递归"><span class="toc-number">5.</span> <span class="toc-text">递归</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#如何写递归"><span class="toc-number">5.1.</span> <span class="toc-text">如何写递归</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#递归案例和练习"><span class="toc-number">5.2.</span> <span class="toc-text">递归案例和练习</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#递归应用"><span class="toc-number">5.3.</span> <span class="toc-text">递归应用</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#自调用函数"><span class="toc-number">6.</span> <span class="toc-text">自调用函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Object-prototype-常用成员"><span class="toc-number">7.</span> <span class="toc-text">Object.prototype 常用成员</span></a></li></ol>
+                    </div>
+                    <script type="text/javascript">
+                        function showToc() {
+                            var toc_article = document.getElementById("toc-article");
+                            var show_toc_btn = document.getElementById("show-toc-btn");
+                            toc_article.setAttribute("style", "display:block");
+                            show_toc_btn.setAttribute("style", "display:none");
+                        };
+
+                        function showBtn() {
+                            var toc_article = document.getElementById("toc-article");
+                            var show_toc_btn = document.getElementById("show-toc-btn");
+                            toc_article.setAttribute("style", "display:none");
+                            show_toc_btn.setAttribute("style", "display:block");
+                        };
+                    </script>
+                    
                         <!-- 目录内容结束 -->
                         <div class="article-entry" itemprop="articleBody">
                             
-                                                <h2 id="前置知识"><a href="#前置知识" class="headerlink" title="前置知识"></a>前置知识</h2><ol>
-<li>函数的三种创建方式</li>
-<li><code>new Function</code> 和 <code>eval</code> 联系和区别</li>
-<li></li>
-<li>静态成员和实例成员</li>
-<li>function的相关属性和方法</li>
-<li>递归</li>
-<li>自调用函数</li>
-<li>Object.prototype 常用成员</li>
-</ol>
-<a id="more"></a>
-<h3 id="函数的三种创建方式"><a href="#函数的三种创建方式" class="headerlink" title="函数的三种创建方式"></a>函数的三种创建方式</h3><ul>
+                                                <h3 id="函数的三种创建方式"><a href="#函数的三种创建方式" class="headerlink" title="函数的三种创建方式"></a>函数的三种创建方式</h3><ul>
 <li><p>函数声明</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;&#125;</div></pre></td></tr></table></figure>
 </li>
@@ -195,6 +209,7 @@
 </ul>
 <p>注意点<br>1 所有的参数都是字符串类型<br>2 除了最后一个参数，其他的所有的参数都作为生成函数的参数<br>3 参数可省略<br>4 最后一个参数，表示函数体function(){}花括号里面的代码<br>5 如果新创建的函数没有参数，那么第一个就是函数体（如果只有一个参数，那么这一个就是函数体）</p>
 <p>案例练习<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 原始写法</span></div><div class="line"><span class="keyword">var</span> fn = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'这是一个函数'</span>);</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="comment">// 使用new Function来模拟上面的函数：</span></div><div class="line"><span class="keyword">var</span> foo = <span class="keyword">new</span> <span class="built_in">Function</span>(<span class="string">'console.log("这是一个函数");'</span>);</div><div class="line">foo();</div><div class="line"></div><div class="line"><span class="comment">// 求两个数的最大值</span></div><div class="line"><span class="comment">// 原始写法</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">max</span>(<span class="params">a, b</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> a &gt; b ? a : b;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> fnMax = <span class="keyword">new</span> <span class="built_in">Function</span>(<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'return a &gt; b ? a : b;'</span>);</div><div class="line"><span class="keyword">var</span> ret = fnMax(<span class="number">3</span>, <span class="number">8</span>);</div><div class="line"><span class="built_in">console</span>.log(ret);   <span class="comment">//8</span></div><div class="line"></div><div class="line"><span class="comment">// 简化一步</span></div><div class="line"><span class="comment">// new创建了一个函数对象，所以后面加()直接调用</span></div><div class="line"><span class="keyword">var</span> ret = <span class="keyword">new</span> <span class="built_in">Function</span>(<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'return a &gt; b ? a : b;'</span>)(<span class="number">3</span>, <span class="number">8</span>);</div><div class="line"><span class="built_in">console</span>.log(ret);</div><div class="line"></div><div class="line"><span class="comment">// 求两个数的和</span></div><div class="line"><span class="comment">// 原始写法：</span></div><div class="line"><span class="keyword">var</span> sum = <span class="function"><span class="keyword">function</span>(<span class="params">num1, num2</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> num1 + num2;</div><div class="line">&#125;;</div><div class="line"><span class="keyword">var</span> sumFn = <span class="keyword">new</span> <span class="built_in">Function</span>(<span class="string">'num1'</span>, <span class="string">'num2'</span>, <span class="string">'return num1 + num2;'</span>);</div><div class="line"><span class="keyword">var</span> ret = sumFn(<span class="number">1</span>, <span class="number">7</span>);</div><div class="line"><span class="built_in">console</span>.log(ret);   <span class="comment">//8</span></div></pre></td></tr></table></figure></p>
+<a id="more"></a>
 <h3 id="（new-Function）-和-（eval）的联系和区别"><a href="#（new-Function）-和-（eval）的联系和区别" class="headerlink" title="（new Function） 和 （eval）的联系和区别"></a>（new Function） 和 （eval）的联系和区别</h3><blockquote>
 <p>共同点：都可以将字符串作为js代码来执行<br>应用场景：<br>1 将JSON字符串转化为JSON对象<br>2 在线学习网站<br>3 模板引擎（将模板字符串转化为js代码执行）</p>
 </blockquote>
@@ -473,7 +488,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前置知识"><span class="toc-number">1.</span> <span class="toc-text">前置知识</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#函数的三种创建方式"><span class="toc-number">1.1.</span> <span class="toc-text">函数的三种创建方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#（new-Function）-和-（eval）的联系和区别"><span class="toc-number">1.2.</span> <span class="toc-text">（new Function） 和 （eval）的联系和区别</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#eval"><span class="toc-number">1.2.1.</span> <span class="toc-text">eval</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#eval-和-new-Function-的总结："><span class="toc-number">1.2.2.</span> <span class="toc-text">eval 和 new Function() 的总结：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#项目中转化JSON"><span class="toc-number">1.2.3.</span> <span class="toc-text">项目中转化JSON</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#实例成员和静态成员"><span class="toc-number">1.3.</span> <span class="toc-text">实例成员和静态成员</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#function的相关属性和方法"><span class="toc-number">1.4.</span> <span class="toc-text">function的相关属性和方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#递归"><span class="toc-number">1.5.</span> <span class="toc-text">递归</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#如何写递归"><span class="toc-number">1.5.1.</span> <span class="toc-text">如何写递归</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#递归案例和练习"><span class="toc-number">1.5.2.</span> <span class="toc-text">递归案例和练习</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#递归应用"><span class="toc-number">1.5.3.</span> <span class="toc-text">递归应用</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#自调用函数"><span class="toc-number">1.6.</span> <span class="toc-text">自调用函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Object-prototype-常用成员"><span class="toc-number">1.7.</span> <span class="toc-text">Object.prototype 常用成员</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#函数的三种创建方式"><span class="toc-number">1.</span> <span class="toc-text">函数的三种创建方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#（new-Function）-和-（eval）的联系和区别"><span class="toc-number">2.</span> <span class="toc-text">（new Function） 和 （eval）的联系和区别</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#eval"><span class="toc-number">2.1.</span> <span class="toc-text">eval</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#eval-和-new-Function-的总结："><span class="toc-number">2.2.</span> <span class="toc-text">eval 和 new Function() 的总结：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#项目中转化JSON"><span class="toc-number">2.3.</span> <span class="toc-text">项目中转化JSON</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#实例成员和静态成员"><span class="toc-number">3.</span> <span class="toc-text">实例成员和静态成员</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#function的相关属性和方法"><span class="toc-number">4.</span> <span class="toc-text">function的相关属性和方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#递归"><span class="toc-number">5.</span> <span class="toc-text">递归</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#如何写递归"><span class="toc-number">5.1.</span> <span class="toc-text">如何写递归</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#递归案例和练习"><span class="toc-number">5.2.</span> <span class="toc-text">递归案例和练习</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#递归应用"><span class="toc-number">5.3.</span> <span class="toc-text">递归应用</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#自调用函数"><span class="toc-number">6.</span> <span class="toc-text">自调用函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Object-prototype-常用成员"><span class="toc-number">7.</span> <span class="toc-text">Object.prototype 常用成员</span></a></li></ol>
                     </div>
                 </span>
             </div>
