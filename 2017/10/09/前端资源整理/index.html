@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="一个学徒的世界">
 <meta property="og:description" content="前端资源收集以及工作学习中遇到的问题总结，分类归纳！  最近更新  新增hexo 搭建个人博客系列文章 新增项目开发规范 新增websocket技术Last Modify: 2017-10-18   2017  听说 2017 你想写前端？(沪江UED—内容实在风趣又干货，对现在的前端有个更深更全的了解) 2017年给前端开发者的建议 2017 年你应该学习的编程语言、框架和工具 (在这个行业，">
 <meta property="og:image" content="http://biedongda.com/2017/10/09/前端资源整理/images/01.jpeg">
-<meta property="og:updated_time" content="2018-01-02T01:01:03.077Z">
+<meta property="og:updated_time" content="2018-01-07T15:22:36.247Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端资源整理">
 <meta name="twitter:description" content="前端资源收集以及工作学习中遇到的问题总结，分类归纳！  最近更新  新增hexo 搭建个人博客系列文章 新增项目开发规范 新增websocket技术Last Modify: 2017-10-18   2017  听说 2017 你想写前端？(沪江UED—内容实在风趣又干货，对现在的前端有个更深更全的了解) 2017年给前端开发者的建议 2017 年你应该学习的编程语言、框架和工具 (在这个行业，">
@@ -170,6 +170,31 @@
             
                 <!-- 目录内容 -->
                 
+                    <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
+                        <span class="btn-bg"></span>
+                        <span class="btn-text">文章导航</span>
+                    </p>
+                    <div id="toc-article" class="toc-article">
+                        <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+                        <strong class="toc-title">文章目录</strong>
+                        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#最近更新"><span class="toc-number">1.</span> <span class="toc-text">最近更新</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2017"><span class="toc-number">2.</span> <span class="toc-text">2017</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3年、5年、10年程序员职业规划"><span class="toc-number">3.</span> <span class="toc-text">3年、5年、10年程序员职业规划</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#心灵砒霜"><span class="toc-number">4.</span> <span class="toc-text">心灵砒霜</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#移动端适配方案："><span class="toc-number">5.</span> <span class="toc-text">移动端适配方案：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#项目开发规范："><span class="toc-number">6.</span> <span class="toc-text">项目开发规范：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#项目总结："><span class="toc-number">7.</span> <span class="toc-text">项目总结：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#移动端其他注意事项："><span class="toc-number">8.</span> <span class="toc-text">移动端其他注意事项：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#H5-amp-C3-amp-H5-api："><span class="toc-number">9.</span> <span class="toc-text">H5&C3&H5-api：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#H5标签"><span class="toc-number">9.1.</span> <span class="toc-text">H5标签</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#CSS3样式"><span class="toc-number">9.2.</span> <span class="toc-text">CSS3样式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#JS-API"><span class="toc-number">9.3.</span> <span class="toc-text">JS-API</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Jquery最佳编程实践"><span class="toc-number">10.</span> <span class="toc-text">Jquery最佳编程实践</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Jquery源码分析系列"><span class="toc-number">11.</span> <span class="toc-text">Jquery源码分析系列</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JS学习资源"><span class="toc-number">12.</span> <span class="toc-text">JS学习资源</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ES6"><span class="toc-number">13.</span> <span class="toc-text">ES6</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JS工具库"><span class="toc-number">14.</span> <span class="toc-text">JS工具库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#开发中的小问题"><span class="toc-number">15.</span> <span class="toc-text">开发中的小问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Git-amp-github"><span class="toc-number">16.</span> <span class="toc-text">Git & github</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HEXO搭建个人博客"><span class="toc-number">17.</span> <span class="toc-text">HEXO搭建个人博客</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CSS预处理器"><span class="toc-number">18.</span> <span class="toc-text">CSS预处理器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Node-js"><span class="toc-number">19.</span> <span class="toc-text">Node.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#gulp"><span class="toc-number">20.</span> <span class="toc-text">gulp</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#webpack"><span class="toc-number">21.</span> <span class="toc-text">webpack</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Vue"><span class="toc-number">22.</span> <span class="toc-text">Vue</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#React"><span class="toc-number">23.</span> <span class="toc-text">React</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Angular"><span class="toc-number">24.</span> <span class="toc-text">Angular</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#前端练手项目"><span class="toc-number">25.</span> <span class="toc-text">前端练手项目</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#面试相关的事情"><span class="toc-number">26.</span> <span class="toc-text">面试相关的事情</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#经典面试题收集："><span class="toc-number">27.</span> <span class="toc-text">经典面试题收集：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#正则表达式"><span class="toc-number">28.</span> <span class="toc-text">正则表达式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#浏览器调试"><span class="toc-number">29.</span> <span class="toc-text">浏览器调试</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#页面性能优化"><span class="toc-number">30.</span> <span class="toc-text">页面性能优化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#一次完整的HTTP事务是怎样的一个过程？"><span class="toc-number">31.</span> <span class="toc-text">一次完整的HTTP事务是怎样的一个过程？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#浏览器重排-reflows-、回流-DOM的重汇与重排"><span class="toc-number">32.</span> <span class="toc-text">浏览器重排(reflows)、回流(DOM的重汇与重排)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#BFC-块级格式化上下文"><span class="toc-number">33.</span> <span class="toc-text">BFC(块级格式化上下文)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#BAT团队："><span class="toc-number">34.</span> <span class="toc-text">BAT团队：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#在线web前端导航："><span class="toc-number">35.</span> <span class="toc-text">在线web前端导航：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#技术社区："><span class="toc-number">36.</span> <span class="toc-text">技术社区：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#博客大牛："><span class="toc-number">37.</span> <span class="toc-text">博客大牛：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#在线学习网站："><span class="toc-number">38.</span> <span class="toc-text">在线学习网站：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#工具"><span class="toc-number">39.</span> <span class="toc-text">工具</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#同样资源总结："><span class="toc-number">40.</span> <span class="toc-text">同样资源总结：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#个人简历"><span class="toc-number">41.</span> <span class="toc-text">个人简历</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#用技术做点有趣的事情"><span class="toc-number">42.</span> <span class="toc-text">用技术做点有趣的事情</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#备注"><span class="toc-number">43.</span> <span class="toc-text">备注</span></a></li></ol>
+                    </div>
+                    <script type="text/javascript">
+                        function showToc() {
+                            var toc_article = document.getElementById("toc-article");
+                            var show_toc_btn = document.getElementById("show-toc-btn");
+                            toc_article.setAttribute("style", "display:block");
+                            show_toc_btn.setAttribute("style", "display:none");
+                        };
+
+                        function showBtn() {
+                            var toc_article = document.getElementById("toc-article");
+                            var show_toc_btn = document.getElementById("show-toc-btn");
+                            toc_article.setAttribute("style", "display:none");
+                            show_toc_btn.setAttribute("style", "display:block");
+                        };
+                    </script>
+                    
                         <!-- 目录内容结束 -->
                         <div class="article-entry" itemprop="articleBody">
                             
@@ -869,19 +894,19 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ES6</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ES6的学习笔记</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Markdown基本使用</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Markdown语法规则</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ES6</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ES6的学习笔记</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -937,10 +962,6 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">前端资源</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">JavaScript技巧、窍门</a>
               </li>
              
@@ -949,11 +970,15 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">前端面试题</a>
+                <a href="javascript:void(0)" class="js-tag color5">前端资源</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">js数组、字符串</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">前端面试题</a>
               </li>
              
               <li class="article-tag-list-item">

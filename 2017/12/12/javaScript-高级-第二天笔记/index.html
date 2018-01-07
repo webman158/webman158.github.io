@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="一个学徒的世界">
 <meta property="og:description" content="constructor 属性 1 每个原型对象都有一个 constructor 属性2 constructor 描述的是创建对象的构造函数3 p.constructor === Person 结果为true4 对象的constructor属性是由构造函数的prototype提供的注意在写的时候，不要把值写成字符串的构造函数12345678910111213141516171819function">
 <meta property="og:image" content="http://biedongda.com/2017/12/12/javaScript-高级-第二天笔记/images/完整的原型链结构图.jpg">
-<meta property="og:updated_time" content="2018-01-05T15:11:43.840Z">
+<meta property="og:updated_time" content="2018-01-06T00:58:19.380Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="javaScript-高级-第二天笔记">
 <meta name="twitter:description" content="constructor 属性 1 每个原型对象都有一个 constructor 属性2 constructor 描述的是创建对象的构造函数3 p.constructor === Person 结果为true4 对象的constructor属性是由构造函数的prototype提供的注意在写的时候，不要把值写成字符串的构造函数12345678910111213141516171819function">
@@ -356,7 +356,7 @@
 </blockquote>
 <h3 id="站在原型链的角度来看-in-运算符"><a href="#站在原型链的角度来看-in-运算符" class="headerlink" title="站在原型链的角度来看 in 运算符"></a>站在原型链的角度来看 <code>in</code> 运算符</h3><p><em>in 运算符相关的使用说明在 JavaScript基础-第四天笔记中有说明</em><br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> Person = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">this</span>.age = <span class="number">19</span>;</div><div class="line">&#125;;</div><div class="line">Person.prototype.say = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;;</div><div class="line"></div><div class="line"><span class="keyword">var</span> p = <span class="keyword">new</span> Person();</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(<span class="string">'age'</span> <span class="keyword">in</span> p);		<span class="comment">// age属性在 p对象上</span></div><div class="line"><span class="built_in">console</span>.log(<span class="string">'say'</span> <span class="keyword">in</span> p);		<span class="comment">// say方法在 Person.prototype</span></div><div class="line"><span class="built_in">console</span>.log(<span class="string">'toString'</span> <span class="keyword">in</span> p);	<span class="comment">// toString方法在 Object.prototype</span></div><div class="line"></div><div class="line"><span class="comment">// 总结:只要属性或是方法能被对象访问到都返回 true，不管属性是对象自身有的还是原型上的。</span></div></pre></td></tr></table></figure></p>
 <p><a href="http://www.cnblogs.com/wangfupeng1988/p/3979290.html" target="_blank" rel="external">参考链接-深入理解javascript原型和闭包</a></p>
-
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 上面文章的评论</span></div><div class="line">而且每个对象其实都有<span class="keyword">constructor</span>属性 指向创建它的函数。</div><div class="line">如 &#123;&#125;.constructor 指向<span class="built_in">Object</span>函数</div><div class="line"><span class="keyword">new</span> Foo().constructor指向Foo函数</div><div class="line">而<span class="built_in">Function</span>.constructor指向了<span class="built_in">Function</span>自己！！！，也说明了<span class="built_in">Function</span>这个函数是自己创建了自己！！！，这样一看<span class="built_in">Function</span>.__proto__指向<span class="built_in">Function</span>.prototype也就能解释得通了。</div><div class="line">所有对象（除了调用<span class="built_in">Object</span>.create(<span class="literal">null</span>)）都继承了<span class="built_in">Object</span>。</div><div class="line">而<span class="built_in">Object</span>又是由<span class="built_in">Function</span>创建的。</div><div class="line">那么是不是可以说<span class="built_in">Function</span>函数才是js的根基？<span class="built_in">Function</span>创造了一切？</div><div class="line"></div><div class="line"></div><div class="line">通过<span class="built_in">Object</span>.create(<span class="literal">null</span>)创建的对象是没有原型链的，因此并不是所有对象的.__proto__最终都指向<span class="built_in">Object</span>.prototype</div><div class="line"></div><div class="line"></div><div class="line">牛逼，楼主是怎么把这些东西都理解清楚了的啊，都看几次忘几次??我觉得这种东西需要形成一定的理论体系，理解javascript这样设计的作用，如果只是单独的看某一个点，看了就忘很正常</div><div class="line"></div><div class="line"></div><div class="line"><span class="built_in">Function</span>.prototype 为什么是一个函数？？？</div></pre></td></tr></table></figure>
                                                     
 
                                                         
@@ -636,19 +636,19 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ES6</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ES6的学习笔记</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Markdown基本使用</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Markdown语法规则</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ES6</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ES6的学习笔记</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -704,10 +704,6 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">前端资源</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">JavaScript技巧、窍门</a>
               </li>
              
@@ -716,11 +712,15 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">前端面试题</a>
+                <a href="javascript:void(0)" class="js-tag color5">前端资源</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">js数组、字符串</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">前端面试题</a>
               </li>
              
               <li class="article-tag-list-item">
