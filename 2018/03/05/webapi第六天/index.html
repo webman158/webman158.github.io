@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="杂七杂八随机清除选中的文字（不用记） 1window.getSelection ? window.getSelection().removeAllRanges() : document.selection.empty(); document几个常用的属性 1234document.body  --&amp;gt; bodydocument.documentElement  --&amp;gt; htmldocum">
+<meta property="og:type" content="article">
+<meta property="og:title" content="webapi第六天">
+<meta property="og:url" content="http://biedongda.com/2018/03/05/webapi第六天/index.html">
+<meta property="og:site_name" content="一个学徒的世界">
+<meta property="og:description" content="杂七杂八随机清除选中的文字（不用记） 1window.getSelection ? window.getSelection().removeAllRanges() : document.selection.empty(); document几个常用的属性 1234document.body  --&amp;gt; bodydocument.documentElement  --&amp;gt; htmldocum">
+<meta property="og:image" content="http://biedongda.com/2018/03/05/webapi第六天/images/yuan.png">
+<meta property="og:image" content="http://biedongda.com/2018/03/05/webapi第六天/images/duixiangshuxing.png">
+<meta property="og:image" content="http://biedongda.com/2018/03/05/webapi第六天/images/qianzhan01.png">
+<meta property="og:image" content="http://biedongda.com/2018/03/05/webapi第六天/images/qianzhan02.png">
+<meta property="og:updated_time" content="2018-03-14T11:17:56.188Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="webapi第六天">
+<meta name="twitter:description" content="杂七杂八随机清除选中的文字（不用记） 1window.getSelection ? window.getSelection().removeAllRanges() : document.selection.empty(); document几个常用的属性 1234document.body  --&amp;gt; bodydocument.documentElement  --&amp;gt; htmldocum">
+<meta name="twitter:image" content="http://biedongda.com/2018/03/05/webapi第六天/images/yuan.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://biedongda.com/2018/03/05/webapi第六天/"/>
+
+
+
+
+
+  <title>webapi第六天 | 一个学徒的世界</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">一个学徒的世界</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">不敢面对的永远受其折磨</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Startseite
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archiv
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://biedongda.com/2018/03/05/webapi第六天/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="前端学徒">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="一个学徒的世界">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">webapi第六天</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-05T16:44:56+08:00">
+                2018-03-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="杂七杂八随机"><a href="#杂七杂八随机" class="headerlink" title="杂七杂八随机"></a>杂七杂八随机</h1><p>清除选中的文字（不用记）</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">window</span>.getSelection ? <span class="built_in">window</span>.getSelection().removeAllRanges() : <span class="built_in">document</span>.selection.empty();</div></pre></td></tr></table></figure>
+<p>document几个常用的属性</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">document</span>.body  --&gt; body</div><div class="line"><span class="built_in">document</span>.documentElement  --&gt; html</div><div class="line"><span class="built_in">document</span>.title  --&gt; title</div><div class="line"><span class="built_in">document</span>.head   --&gt; head</div></pre></td></tr></table></figure>
+<h1 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h1><blockquote>
+<p>正则表达式：用于匹配规律规则的表达式，正则表达式最初是科学家对人类神经系统的工作原理的早期研究，现在在编程语言中有广泛的应用，经常用于表单校验，高级搜索等。</p>
+<p>简单的说：按照每种规则去匹配符合条件的字符串</p>
+</blockquote>
+<p>正则表达式有一定难度，不要求非常的熟练，现阶段只要能用正则表达式完成表单校验即可，后面的框架课也会涉及到一些，将来需要使用到正则的时候，网上一搜一大堆。</p>
+<h2 id="创建正则表达式"><a href="#创建正则表达式" class="headerlink" title="创建正则表达式"></a>创建正则表达式</h2><p>【07-正则表达式的创建.html】</p>
+<p>构造函数的方式</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> regExp = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="regexp">/\d/</span>);</div><div class="line"><span class="comment">//参数也可以是不带两斜杠的字符串</span></div></pre></td></tr></table></figure>
+<p>正则字面量</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> regExp = <span class="regexp">/\d/</span>;</div></pre></td></tr></table></figure>
+<p>正则的使用</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">/\d/.test(<span class="string">"aaa1"</span>);</div><div class="line"><span class="comment">// test是用来测试某一个字符串是否符合这个正则规则的。返回true、false</span></div><div class="line"></div><div class="line"><span class="keyword">var</span> reg = <span class="regexp">/\w/g</span>;</div><div class="line">reg.test(<span class="string">'a'</span>)<span class="comment">//true</span></div><div class="line">reg.test(<span class="string">'a'</span>)<span class="comment">//false</span></div><div class="line">reg.test(<span class="string">'a'</span>)<span class="comment">//true</span></div><div class="line">reg.test(<span class="string">'a'</span>)<span class="comment">//false</span></div><div class="line"><span class="comment">//为什么四次调用后的结果不一样，因为全局匹配涉及到 lastIndex</span></div><div class="line"><span class="comment">// 可以直接通过正则来查看lastIndex属性的取值</span></div><div class="line"><span class="built_in">console</span>.log(reg.lastIndex);</div></pre></td></tr></table></figure>
+<h2 id="正则表达式的构成："><a href="#正则表达式的构成：" class="headerlink" title="正则表达式的构成："></a>正则表达式的构成：</h2><blockquote>
+<p>正则表达式由一些普通字符和元字符组成，普通字符包括大小写字母、数字等，而元字符则具有特殊的含义。</p>
+</blockquote>
+<p>由两种基本字符类型组成：</p>
+<p>-原义文本字符：’abc’</p>
+<p>-元字符:在正则表达式中有特殊含义的非字母字符</p>
+<h3 id="预定义类"><a href="#预定义类" class="headerlink" title="预定义类"></a>预定义类</h3><p> 正则表达式中具有特殊意义的字符。</p>
+<p>【08-预定义类.html】</p>
+<p><img src="/2018/03/05/webapi第六天/images/yuan.png" alt="yuan"></p>
+<p>注意：上面的字符出了数字和字母，还包括下划线</p>
+<p><code>​ .</code>表示任意字符，所以在想用点就是代表点的时候，需要用到转意字符 \.来表示点</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">\n | 查找换行符。</div><div class="line">\f | 查找换页符。</div><div class="line">\r | 查找回车符。</div><div class="line">\t | 查找水平制表符。(就是tab)</div><div class="line">\v | 查找垂直制表符。</div></pre></td></tr></table></figure>
+<h3 id="正则优先级"><a href="#正则优先级" class="headerlink" title="正则优先级"></a>正则优先级</h3><p><code>|</code>表示或，优先级最低</p>
+<p><code>()</code>优先级最高</p>
+<p>【09-正则表达式的优先级问题.html】</p>
+<h2 id="字符类"><a href="#字符类" class="headerlink" title="字符类"></a>字符类</h2><p>【10-正则表达式的字符类.html】</p>
+<p><code>[]</code>在正则表达式中表示一个字符的位置，[]里面写这个位置可以出现的字符。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(<span class="regexp">/[abc]/</span>);<span class="comment">//表示匹配a或者b或者c  (a|b|c)</span></div></pre></td></tr></table></figure>
+<p><code>[^]</code>在中扩号中的<code>^</code>表示非的意思。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//^表示该位置不可以出现的字符</span></div><div class="line"><span class="built_in">console</span>.log(<span class="regexp">/[^abc]/</span>);<span class="comment">//匹配除了a，b，c以外的其他字符</span></div></pre></td></tr></table></figure>
+<p><code>[a-z]</code> <code>[1-9]</code>表示范围</p>
+<p>​    [a-z]来连接两个字符表示从a到z的任意字符，这是个闭区间，也就是包含a和z本身</p>
+<p>​    在[]中组成类内部是可以连写的[a-zA-Z]，在[a-z]中，”-“表示的是范围的意思，不代表中划线，要想使用中划线，可以[a-z-],后面的-就表示的是中划线</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(<span class="regexp">/[a-z]/</span>.test(<span class="string">"d"</span>));<span class="comment">//小写字母</span></div><div class="line"><span class="built_in">console</span>.log(<span class="regexp">/[A-Z]/</span>.test(<span class="string">"d"</span>));<span class="comment">//大写字母</span></div><div class="line"><span class="built_in">console</span>.log(<span class="regexp">/[0-9]/</span>.test(<span class="string">"8"</span>));<span class="comment">//数字</span></div><div class="line"><span class="built_in">console</span>.log(<span class="regexp">/[a-zA-Z0-9]/</span>);<span class="comment">//所有的小写字母和大写字母以及数字</span></div></pre></td></tr></table></figure>
+<p>【11-案例-验证密码强度.html】</p>
+<h2 id="正则进阶"><a href="#正则进阶" class="headerlink" title="正则进阶"></a>正则进阶</h2><h3 id="边界"><a href="#边界" class="headerlink" title="边界"></a>边界</h3><blockquote>
+<p>我们前面学习的正则只要有满足的条件的就会返回true，并不能做到精确的匹配。</p>
+</blockquote>
+<p>【12-正则边界.html】</p>
+<p><code>^</code>表示开头   <strong>[]里面的^表示取反</strong></p>
+<p>$表示结尾</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(<span class="regexp">/^chuan/</span>.test(<span class="string">"dachuan"</span>));<span class="comment">//必须以chuan开头</span></div><div class="line"><span class="built_in">console</span>.log(<span class="regexp">/chuan$/</span>.test(<span class="string">"chuang"</span>));<span class="comment">//必须以chuan结尾</span></div><div class="line"><span class="built_in">console</span>.log(<span class="regexp">/^chuan$/</span>.test(<span class="string">"chuan"</span>));<span class="comment">//精确匹配chuan</span></div><div class="line"></div><div class="line"><span class="comment">//精确匹配chuan,表示必须是这个</span></div><div class="line"><span class="built_in">console</span>.log(<span class="regexp">/^chuan$/</span>.test(<span class="string">"chuanchuan"</span>));<span class="comment">//fasle</span></div></pre></td></tr></table></figure>
+<p>\b: 单词边界</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="string">'This is a boy , This is a dog, where find a girl'</span>.replace(<span class="regexp">/is/g</span>, <span class="string">'0'</span>);</div><div class="line"><span class="string">'This is a boy, This is a dog, where find a girl'</span>.replace(<span class="regexp">/\bis\b/g</span>, <span class="string">'0'</span>);</div><div class="line"><span class="string">'This is a boy, This is a dog, where find a girl'</span>.replace(<span class="regexp">/\Bis\b/g</span>, <span class="string">'0'</span>);</div></pre></td></tr></table></figure>
+<p>\B:非单词边界</p>
+<h3 id="量词"><a href="#量词" class="headerlink" title="量词"></a>量词</h3><blockquote>
+<p>量词用来控制出现的次数，一般来说量词和边界会一起使用</p>
+<p>量词默认匹配紧挨的单词或内容，需要用（）分组来匹配整个单词</p>
+</blockquote>
+<p>【13-正则量词.html】</p>
+<ol>
+<li><code>*</code>表示能够出现0次或者更多次，x&gt;=0;</li>
+<li><code>+</code>表示能够出现1次或者多次，x&gt;=1</li>
+<li><code>?</code>表示能够出现0次或者1次，x=0或者x=1</li>
+<li><code>{n}</code>表示能够出现n次</li>
+<li><code>{n,}</code>表示能够出现n次或者n次以上</li>
+<li><code>{n,m}</code>表示能够出现n-m次</li>
+</ol>
+<p>思考：如何使用{}来表示*+? </p>
+<h2 id="括号总结"><a href="#括号总结" class="headerlink" title="括号总结"></a>括号总结</h2><p><code>{}</code>大括号限定出现的次数</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(<span class="regexp">/chuan&#123;2&#125;/</span>.test(<span class="string">"chuanchuan"</span>));</div><div class="line"><span class="built_in">console</span>.log(<span class="regexp">/chuan&#123;2&#125;/</span>.test(<span class="string">"chuann"</span>));</div></pre></td></tr></table></figure>
+<p><code>[]</code>表示一个字符出现的位置,<code>[]</code> 里面写这个位置可以出现的字符</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(<span class="regexp">/^[fb]oot$/</span>.test(<span class="string">"foot"</span>));</div><div class="line"><span class="built_in">console</span>.log(<span class="regexp">/^[fb]oot$/</span>.test(<span class="string">"boot"</span>));</div></pre></td></tr></table></figure>
+<p><code>()</code>用来提升优先级，也可以理解为分组</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(<span class="regexp">/^(chuan)&#123;2&#125;$/</span>.test(<span class="string">"chuanchuan"</span>));</div></pre></td></tr></table></figure>
+<h3 id="修饰符："><a href="#修饰符：" class="headerlink" title="修饰符："></a>修饰符：</h3><ol>
+<li>​ g::global: 全文搜索，不添加，搜索到第一个匹配停止</li>
+<li>​i::ignore: case 忽略大小写，默认大小写敏感(因为JS区分大小写的)</li>
+<li>m:multiple lines多行搜索</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> mulStr = <span class="string">"@123\n@456\n@789"</span>;	<span class="comment">// \n:换行符</span></div><div class="line">mulStr.replace(<span class="regexp">/^@\d/g</span>, <span class="string">'X'</span>);	<span class="comment">//发现只有第一个被匹配到了，因为在我们看来是换行了，但是在程序里换行符也只是一个普通的字符，不能是新的一行，所以还是在一行，所以只有第一个@是开始的</span></div></pre></td></tr></table></figure>
+<p><img src="/2018/03/05/webapi第六天/images/duixiangshuxing.png" alt="正则对象的属性"></p>
+<p>以上列举的正则的属性是只读的，不可更改(注意：lastIndex是读写的属性)</p>
+<p>非贪婪模式：</p>
+<p>​    让正则表达式尽可能少的匹配，也就是说一旦成功匹配不在继续尝试，就是非贪婪模式(JS正则默认是贪婪模式，尽可能多的匹配)</p>
+<p>​    做法也很简单，在量词后面加上<code>&#39;?&#39;</code>即可</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="string">'123456789'</span>.replace(<span class="regexp">/\d&#123;3,5&#125;/g</span>,<span class="string">'X'</span>);</div><div class="line"></div><div class="line"><span class="string">'123456789'</span>.replace(<span class="regexp">/\d&#123;3,5&#125;?/g</span>,<span class="string">'X'</span>);</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">$<span class="number">1</span> $<span class="number">2</span> $<span class="number">3</span> .... $n	<span class="comment">//表示分组内捕获得到的内容，必须要有分组，不然就代表原意"$1"这样的字符串了</span></div><div class="line"></div><div class="line"><span class="string">'2012-02-23'</span>.replace(<span class="regexp">/(\d&#123;4&#125;)-(\d&#123;2&#125;)-(\d&#123;2&#125;)/g</span>,<span class="string">'$2/$3/$1'</span>);</div><div class="line"><span class="comment">//OUTPUT "02/23/2012"</span></div><div class="line"></div><div class="line"><span class="comment">//不希望捕获某些分组，只需要在分组内加上?: 就可以</span></div><div class="line">忽略分组之后（针对年份忽略分组）:</div><div class="line"><span class="string">'2012-02-23'</span>.replace(<span class="regexp">/(?:\d&#123;4&#125;)-(\d&#123;2&#125;)-(\d&#123;2&#125;)/g</span>,<span class="string">'$2/$3/$1'</span>)<span class="comment">//（？：） 忽略分组</span></div><div class="line"><span class="string">"23/$3/02"</span></div><div class="line">注意点：年份忽略分组之后，月份分组为$<span class="number">1</span>,日为$<span class="number">2</span></div></pre></td></tr></table></figure>
+<p>前瞻：</p>
+<p><img src="/2018/03/05/webapi第六天/images/qianzhan01.png" alt="什么是前瞻"></p>
+<p><img src="/2018/03/05/webapi第六天/images/qianzhan02.png" alt="前瞻的具体规则"></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//正向前瞻	exp(?=assert)</span></div><div class="line"></div><div class="line"><span class="string">'a2*3'</span>.replace(<span class="regexp">/\w(?=\d)/g</span>,<span class="string">'X'</span>);<span class="comment">//X2*3</span></div><div class="line"><span class="string">'a2*34v8'</span>.replace(<span class="regexp">/\w(?=\d)/g</span>,<span class="string">'X'</span>);<span class="comment">//X2*X4X8</span></div><div class="line"><span class="string">'a2*34vv'</span>.replace(<span class="regexp">/\w(?=\d)/g</span>,<span class="string">'X'</span>);<span class="comment">//X2*X4vv</span></div><div class="line">(从以上的结果也可以看出，匹配到的部分不包含断言部分)</div><div class="line"></div><div class="line"><span class="comment">//负向前瞻	exp(?!assert)</span></div><div class="line"><span class="string">'a2*34vv'</span>.replace(<span class="regexp">/\w(?!\d)/g</span>,<span class="string">'X'</span>);<span class="comment">//aX*3XXX</span></div><div class="line"></div><div class="line"><span class="comment">//总结、注意点</span></div><div class="line"><span class="comment">//首先前面是个正则表达式，后面是一个断言部分，就是符合正则表达式部分还不够，还需要符合断言部分(断言部分也是一个正则),</span></div><div class="line"><span class="comment">//注意：匹配到的内容不包含断言部分</span></div></pre></td></tr></table></figure>
+<p>​    </p>
+<p>​    经验：</p>
+<p>​        检验格式（邮箱格式、IP格式）是否正确，用test()<br>​        抓取星期（如所有手机号），用exec()、match()<br>​        替换敏感词汇，用replace()</p>
+<h2 id="案例练习"><a href="#案例练习" class="headerlink" title="案例练习"></a>案例练习</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">talk is cheap show me the code.</div><div class="line"></div><div class="line">															-- Linus Torvalds</div><div class="line">																李纳斯•托沃兹</div></pre></td></tr></table></figure>
+<ol>
+<li><p>验证座机</p>
+<ul>
+<li>比如010-12345678  0797-1234567</li>
+<li>开头是3-4位，首位必须是0</li>
+<li>-后面是7-8位</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> phoneReg = <span class="regexp">/^0\d&#123;2,3&#125;-\d&#123;7,8&#125;$/</span>;</div></pre></td></tr></table></figure>
+<p>​</p>
+</li>
+<li><p>验证姓名</p>
+<ul>
+<li>只能是汉字</li>
+<li>长度2-6位之间</li>
+<li>汉字范围[\u4e00-\u9fa5]</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> nameReg = <span class="regexp">/^[\u4e00-\u9fa5]&#123;2,6&#125;$/</span>;</div></pre></td></tr></table></figure>
+</li>
+<li><p>验证QQ</p>
+<ul>
+<li>只能是数字</li>
+<li>开头不能是0</li>
+<li>长度为5-11位</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> qqReg = <span class="regexp">/^[1-9]\d&#123;4,10&#125;$/</span>;</div></pre></td></tr></table></figure>
+</li>
+<li><p>验证手机</p>
+<ul>
+<li>11位数字组成</li>
+<li>号段13[0-9] 147 15[0-9] 177[0178] 18[0-9]</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> mobileReg = <span class="regexp">/^(13[0-9]|147|15[0-9]|17[0178]|18[0-9])\d&#123;8&#125;$/</span>;</div></pre></td></tr></table></figure>
+</li>
+<li><p>验证邮箱</p>
+<ul>
+<li>前面是字母或者数字</li>
+<li>必须有@</li>
+<li>@后面是字母或者数字</li>
+<li>必须有.</li>
+<li>.后面是字母或者数字</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"> <span class="keyword">var</span> emailReg = <span class="regexp">/^\w+@\w+(\.\w+)+$/</span>;</div><div class="line"><span class="comment">//  有类似这种的多个域名  158@qq.com.cn</span></div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>【14-案例-完整版表单校验.html.html】</p>
+<h1 id="补充知识点"><a href="#补充知识点" class="headerlink" title="补充知识点"></a>补充知识点</h1><h2 id="string-replace方法"><a href="#string-replace方法" class="headerlink" title="string.replace方法"></a>string.replace方法</h2><blockquote>
+<p>string.replace(searchValue, replaceValue);replace方法的第一个参数，可以传正则表达式。功能非常的强大。</p>
+</blockquote>
+<p>【15-string的replace方法.html】</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> str = <span class="string">"   123AD  asadf   asadfasf  adf  "</span>;</div><div class="line"><span class="number">1</span> 替换掉字符串中的所有空白</div><div class="line"><span class="number">2.</span> 将所有的ad替换成xx</div><div class="line"><span class="number">3.</span> 将所有的ad/AD替换成xx</div><div class="line"></div><div class="line"><span class="keyword">var</span> str = <span class="string">'abc,efg,123,abc,123,a'</span>;</div><div class="line"><span class="number">4.</span> 所有的逗号替换成句号</div><div class="line"></div><div class="line"><span class="keyword">var</span> jsonStr = <span class="string">'[&#123;"name":"张三",score:80&#125;,&#123;"name":"张三",score:90&#125;,&#123;"name":"张三",score:81&#125;]'</span>; </div><div class="line"><span class="number">5.</span> 把所有成绩都修改成<span class="number">100</span>分</div><div class="line"></div><div class="line"><span class="keyword">var</span> str = <span class="string">"“你饿了,调我们的粮进京。你渴了.调我们的水进京。高考了，你特么想尽千方百计不让我们的孩子进京。为什么？!” 我们呼吁：全国一张卷，一个录取线！愿赌服输！最近高考方案闹得沸沸扬扬，其实大家就是要的公平竞争！同样都是孩子，同样的国家，同样的教育！为何不同的待遇？"</span>; </div><div class="line"><span class="number">6.</span> 把所有，。,.！!?？全部替换成.</div><div class="line"></div><div class="line"><span class="number">7.</span><span class="string">'a1b2c3d4e5f6'</span>把字符串中的数字都加<span class="number">1</span>；</div><div class="line">str.replace(exp,<span class="function"><span class="keyword">function</span>);	//函数的返回值决定了替换的内容，就是可以有动态的替换内容了</span></div><div class="line"><span class="function"></span></div><div class="line"><span class="function">'<span class="title">a1b2c3d4e5f6</span>'.<span class="title">replace</span>(<span class="params"><span class="regexp">/\d/g</span>, function(match,index,ora</span>)</span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(match);</div><div class="line">  <span class="built_in">console</span>.log(index)</div><div class="line">  <span class="built_in">console</span>.log(ora)</div><div class="line">  <span class="keyword">return</span> <span class="built_in">parseInt</span>(match)+<span class="number">1</span>;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<h2 id="arguments参数"><a href="#arguments参数" class="headerlink" title="arguments参数"></a>arguments参数</h2><blockquote>
+<p>JavaScript中，arguments对象是比较特别的一个对象，实际上是当前函数的一个内置属性。也就是说所有函数都内置了一个arguments对象，arguments对象中存储了传递的所有的实参。arguments是一个伪数组，因此及可以进行遍历</p>
+</blockquote>
+<p>【16-arguments参数.html】</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//1. 求任意个数的最大值</span></div><div class="line"><span class="comment">//2. 求任意个数的和</span></div></pre></td></tr></table></figure>
+<h2 id="递归函数"><a href="#递归函数" class="headerlink" title="递归函数"></a>递归函数</h2><blockquote>
+<p>递归函数指的是函数直接的或者间接的调用函数本身。递归函数一定要留有出口，不然浏览器会崩溃。</p>
+</blockquote>
+<p>递归函数比较抽象，尤其是第一次接触的同学们，大家了解即可。</p>
+<p>【17-求1-100所有数的和.html】</p>
+<p>【18-斐波那契数列.html】</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/03/05/webapi第五天/" rel="next" title="webapi第五天">
+                <i class="fa fa-chevron-left"></i> webapi第五天
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/03/09/http服务与ajax编程/" rel="prev" title="http服务与ajax编程">
+                http服务与ajax编程 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Übersicht
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">前端学徒</p>
+              <p class="site-description motion-element" itemprop="description">web前端开发，移动端开发是一个很好的工种，希望你能和我携手共进前端职业发展</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">43</span>
+                  <span class="site-state-item-name">Artikel</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">41</span>
+                  <span class="site-state-item-name">Tags</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#杂七杂八随机"><span class="nav-number">1.</span> <span class="nav-text">杂七杂八随机</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#正则表达式"><span class="nav-number">2.</span> <span class="nav-text">正则表达式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建正则表达式"><span class="nav-number">2.1.</span> <span class="nav-text">创建正则表达式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#正则表达式的构成："><span class="nav-number">2.2.</span> <span class="nav-text">正则表达式的构成：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#预定义类"><span class="nav-number">2.2.1.</span> <span class="nav-text">预定义类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#正则优先级"><span class="nav-number">2.2.2.</span> <span class="nav-text">正则优先级</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符类"><span class="nav-number">2.3.</span> <span class="nav-text">字符类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#正则进阶"><span class="nav-number">2.4.</span> <span class="nav-text">正则进阶</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#边界"><span class="nav-number">2.4.1.</span> <span class="nav-text">边界</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#量词"><span class="nav-number">2.4.2.</span> <span class="nav-text">量词</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#括号总结"><span class="nav-number">2.5.</span> <span class="nav-text">括号总结</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#修饰符："><span class="nav-number">2.5.1.</span> <span class="nav-text">修饰符：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#案例练习"><span class="nav-number">2.6.</span> <span class="nav-text">案例练习</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#补充知识点"><span class="nav-number">3.</span> <span class="nav-text">补充知识点</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#string-replace方法"><span class="nav-number">3.1.</span> <span class="nav-text">string.replace方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#arguments参数"><span class="nav-number">3.2.</span> <span class="nav-text">arguments参数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#递归函数"><span class="nav-number">3.3.</span> <span class="nav-text">递归函数</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">前端学徒</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

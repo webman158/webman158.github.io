@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="BOM BOM（Browser Object Model）：浏览器对象模型，提供了一套操作浏览器功能的工具。    BOM包含的内容很多，但是很多东西都不太常用，在BOM中需要大家掌握的就一个东西，那就是定时器 。 window对象 window对象是一个全局对象，也可以说是JavaScript中的顶级对象 像document、alert()、console.log()这些都是window的属性，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="webApi第三天">
+<meta property="og:url" content="http://biedongda.com/2018/03/02/webApi第三天/index.html">
+<meta property="og:site_name" content="一个学徒的世界">
+<meta property="og:description" content="BOM BOM（Browser Object Model）：浏览器对象模型，提供了一套操作浏览器功能的工具。    BOM包含的内容很多，但是很多东西都不太常用，在BOM中需要大家掌握的就一个东西，那就是定时器 。 window对象 window对象是一个全局对象，也可以说是JavaScript中的顶级对象 像document、alert()、console.log()这些都是window的属性，">
+<meta property="og:image" content="http://biedongda.com/2018/03/02/webApi第三天/images/1.png">
+<meta property="og:updated_time" content="2018-03-02T08:59:45.566Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="webApi第三天">
+<meta name="twitter:description" content="BOM BOM（Browser Object Model）：浏览器对象模型，提供了一套操作浏览器功能的工具。    BOM包含的内容很多，但是很多东西都不太常用，在BOM中需要大家掌握的就一个东西，那就是定时器 。 window对象 window对象是一个全局对象，也可以说是JavaScript中的顶级对象 像document、alert()、console.log()这些都是window的属性，">
+<meta name="twitter:image" content="http://biedongda.com/2018/03/02/webApi第三天/images/1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://biedongda.com/2018/03/02/webApi第三天/"/>
+
+
+
+
+
+  <title>webApi第三天 | 一个学徒的世界</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">一个学徒的世界</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">不敢面对的永远受其折磨</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Startseite
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archiv
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://biedongda.com/2018/03/02/webApi第三天/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="前端学徒">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="一个学徒的世界">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">webApi第三天</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-02T16:59:25+08:00">
+                2018-03-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="BOM"><a href="#BOM" class="headerlink" title="BOM"></a>BOM</h1><blockquote>
+<p>BOM（Browser Object Model）：浏览器对象模型，提供了一套操作浏览器功能的工具。</p>
+</blockquote>
+<p> <img src="/2018/03/02/webApi第三天/images/1.png" alt="1"></p>
+<p>BOM包含的内容很多，但是很多东西都不太常用，在BOM中需要大家掌握的就一个东西，那就是<strong><em>定时器</em></strong> 。</p>
+<h2 id="window对象"><a href="#window对象" class="headerlink" title="window对象"></a>window对象</h2><ol>
+<li>window对象是一个全局对象，也可以说是JavaScript中的顶级对象</li>
+<li>像document、alert()、console.log()这些都是window的属性，其实BOM中基本所有的属性和方法都是属性window的。</li>
+<li>所有定义在全局作用域中的变量、函数都会变成window对象的属性和方法</li>
+<li>window对象下的属性和方法调用的时候可以省略window</li>
+</ol>
+<p>重谈 this 关键字</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="number">1.</span> <span class="keyword">this</span>在普通函数中指的是<span class="built_in">window</span>对象</div><div class="line"><span class="number">2.</span> <span class="keyword">this</span>在方法中，指定的调用这个方法的对象（对象本身）</div><div class="line"><span class="number">3.</span> <span class="keyword">this</span>在构造函数中，<span class="keyword">this</span>指向新创建的对象</div><div class="line"><span class="number">4.</span> <span class="keyword">this</span>在事件中，指向事件源，即触发事件的对象。</div></pre></td></tr></table></figure>
+<h3 id="window-onload（掌握）"><a href="#window-onload（掌握）" class="headerlink" title="window.onload（掌握）"></a>window.onload（掌握）</h3><blockquote>
+<p>window.onload事件会在窗体加载完成后执行，通常我们称之为入口函数。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">window</span>.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	<span class="comment">//里面的代码会在窗体加载完成后执行。</span></div><div class="line">	<span class="comment">//窗体加载完成包括文档树的加载、还有图片、文件的加载完成。</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>如果有图片加载，那么代码一定要写到window.onload里面，否则会出现图片没有加载完成，获取到的宽度和高度不对的情况。</p>
+<p>浏览器会对页面的加载做优化，在加载图片的时候，图片的引入会延迟。</p>
+<p>思考：一个页面能不能写两个window.onload?</p>
+<h3 id="window-open与window-close-了解"><a href="#window-open与window-close-了解" class="headerlink" title="window.open与window.close(了解)"></a>window.open与window.close(了解)</h3><blockquote>
+<p>window.open() 打开一个窗口</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//语法：window.open(url, [name], [features]);</span></div><div class="line"><span class="comment">//参数1：需要载入的url地址</span></div><div class="line"><span class="comment">//参数2：新窗口的名称</span></div><div class="line">	<span class="comment">//_self:在当前窗口打开</span></div><div class="line">	<span class="comment">//_blank:在新的窗口打开</span></div><div class="line"><span class="comment">//参数3：窗口的属性，指定窗口的大小</span></div><div class="line"><span class="comment">//返回值：会返回刚刚创建的那个窗口，用于关闭</span></div><div class="line"><span class="comment">//示例：</span></div><div class="line"><span class="keyword">var</span> newWin = <span class="built_in">window</span>.open(<span class="string">"http://www.baidu.com"</span>,<span class="string">"_blank"</span>, <span class="string">"width=300,height=300"</span>);</div></pre></td></tr></table></figure>
+<blockquote>
+<p>window.close 关闭窗口</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">newWin.close()；<span class="comment">//newWin是刚刚创建的那个窗口</span></div><div class="line"><span class="built_in">window</span>.close();<span class="comment">//把当前窗口给关闭了</span></div></pre></td></tr></table></figure>
+<h2 id="定时器（重点）"><a href="#定时器（重点）" class="headerlink" title="定时器（重点）"></a>定时器（重点）</h2><h3 id="延时定时器"><a href="#延时定时器" class="headerlink" title="延时定时器"></a>延时定时器</h3><blockquote>
+<p>延时定时器可以让代码延迟一段时间之后才执行（定时炸弹）</p>
+</blockquote>
+<p>设置延时定时器<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//语法：setTimeout(callback, time);</span></div><div class="line"><span class="comment">//参数1：回调函数，时间到了就会执行。</span></div><div class="line"><span class="comment">//参数2：延时的时间</span></div><div class="line"><span class="comment">//返回：定时器的id，用于清除</span></div><div class="line"><span class="comment">//示例：</span></div><div class="line"><span class="keyword">var</span> timer = setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	<span class="comment">//1秒后将执行的代码。</span></div><div class="line">&#125;, <span class="number">1000</span>);</div></pre></td></tr></table></figure></p>
+<p>清除延时定时器<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//语法：clearTimeout(timerId)</span></div><div class="line"><span class="comment">//参数：定时器id</span></div><div class="line"><span class="comment">//示例：</span></div><div class="line">clearTimeOut(timer);<span class="comment">//清除上面定义的定时器</span></div></pre></td></tr></table></figure></p>
+<h3 id="间歇定时器"><a href="#间歇定时器" class="headerlink" title="间歇定时器"></a>间歇定时器</h3><blockquote>
+<p>间歇定时器让定时器每隔一段时间就会执行一次，并且会一直执行，直到清除定时器为止.</p>
+</blockquote>
+<p>设置间歇定时器<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//语法：var intervalID = setInterval(func, delay);</span></div><div class="line"><span class="comment">//参数1：重复执行的函数</span></div><div class="line"><span class="comment">//参数2：每次延迟的毫秒数</span></div><div class="line"><span class="comment">//返回：定时器的id，用于清除</span></div><div class="line"><span class="comment">//示例：</span></div><div class="line"><span class="keyword">var</span> timer = setInterval(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	<span class="comment">//重复执行的代码。</span></div><div class="line">&#125;, <span class="number">1000</span>);</div></pre></td></tr></table></figure></p>
+<p>清除间歇定时器<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//语法：clearInterval(intervalID)</span></div><div class="line"><span class="comment">//参数：定时器id</span></div><div class="line"><span class="comment">//示例：</span></div><div class="line">clearInterval(timer);<span class="comment">//清除上面定义的定时器</span></div></pre></td></tr></table></figure></p>
+<h3 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h3><p>【短信验证码案例.html】<br>【电子表案例.html】<br>【机械表案例.html】</p>
+<h2 id="location对象"><a href="#location对象" class="headerlink" title="location对象"></a>location对象</h2><blockquote>
+<p>location对象也是window的一个属性，location其实对应的就是浏览器中的地址栏。</p>
+</blockquote>
+<h3 id="常用属性和方法"><a href="#常用属性和方法" class="headerlink" title="常用属性和方法"></a>常用属性和方法</h3><blockquote>
+<p>location.href:控制地址栏中的地址</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">location.href = “http:<span class="comment">//www.baidu.com”;//让页面跳转到百度首页</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>location.reload()：让页面重新加载</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">location.reload(<span class="literal">true</span>);<span class="comment">//强制刷新，相当于ctrl+F5</span></div><div class="line">location.reload(<span class="literal">false</span>);<span class="comment">//刷新，相当于F5</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>location的其他属性</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(<span class="built_in">window</span>.location.hash);<span class="comment">//哈希值 其实就是锚点</span></div><div class="line"><span class="built_in">console</span>.log(<span class="built_in">window</span>.location.host);<span class="comment">//服务器 服务器名+端口号</span></div><div class="line"><span class="built_in">console</span>.log(<span class="built_in">window</span>.location.hostname);<span class="comment">//服务器名</span></div><div class="line"><span class="built_in">console</span>.log(<span class="built_in">window</span>.location.pathname);<span class="comment">//路径名</span></div><div class="line"><span class="built_in">console</span>.log(<span class="built_in">window</span>.location.port);<span class="comment">//端口</span></div><div class="line"><span class="built_in">console</span>.log(<span class="built_in">window</span>.location.protocol);<span class="comment">//协议</span></div><div class="line"><span class="built_in">console</span>.log(<span class="built_in">window</span>.location.search);<span class="comment">//参数</span></div></pre></td></tr></table></figure>
+<p>【案例：定时跳转.html】</p>
+<h2 id="其他对象"><a href="#其他对象" class="headerlink" title="其他对象"></a>其他对象</h2><blockquote>
+<p>window.navigator的一些属性可以获取客户端的一些信息</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//navigator.userAgent：浏览器版本</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>history对象表示页面的历史</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//后退：</span></div><div class="line">history.back();</div><div class="line">history.go(<span class="number">-1</span>);</div><div class="line"><span class="comment">//前进：</span></div><div class="line">history.forward();</div><div class="line">history.go(<span class="number">1</span>);</div></pre></td></tr></table></figure>
+<blockquote>
+<p>screen对象</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(screen.width);<span class="comment">//屏幕的宽度 </span></div><div class="line"><span class="built_in">console</span>.log(screen.height);<span class="comment">//屏幕的高度</span></div><div class="line"><span class="built_in">console</span>.log(screen.availWidth);<span class="comment">//浏览器可占用的宽度(和浏览器伸缩大小无关)</span></div><div class="line"><span class="built_in">console</span>.log(screen.availHeight);<span class="comment">//浏览器可占用的高度(和浏览器伸缩大小无关)</span></div></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/03/02/webApi第二天/" rel="next" title="webApi第二天">
+                <i class="fa fa-chevron-left"></i> webApi第二天
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/03/04/webapi第四天/" rel="prev" title="webapi第四天">
+                webapi第四天 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Übersicht
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">前端学徒</p>
+              <p class="site-description motion-element" itemprop="description">web前端开发，移动端开发是一个很好的工种，希望你能和我携手共进前端职业发展</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">43</span>
+                  <span class="site-state-item-name">Artikel</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">41</span>
+                  <span class="site-state-item-name">Tags</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#BOM"><span class="nav-number">1.</span> <span class="nav-text">BOM</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#window对象"><span class="nav-number">1.1.</span> <span class="nav-text">window对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#window-onload（掌握）"><span class="nav-number">1.1.1.</span> <span class="nav-text">window.onload（掌握）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#window-open与window-close-了解"><span class="nav-number">1.1.2.</span> <span class="nav-text">window.open与window.close(了解)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#定时器（重点）"><span class="nav-number">1.2.</span> <span class="nav-text">定时器（重点）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#延时定时器"><span class="nav-number">1.2.1.</span> <span class="nav-text">延时定时器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#间歇定时器"><span class="nav-number">1.2.2.</span> <span class="nav-text">间歇定时器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#案例"><span class="nav-number">1.2.3.</span> <span class="nav-text">案例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#location对象"><span class="nav-number">1.3.</span> <span class="nav-text">location对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#常用属性和方法"><span class="nav-number">1.3.1.</span> <span class="nav-text">常用属性和方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他对象"><span class="nav-number">1.4.</span> <span class="nav-text">其他对象</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">前端学徒</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

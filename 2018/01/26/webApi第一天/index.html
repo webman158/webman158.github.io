@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="DOM 学习目标：1. 学会找DOM对象  2. 学会给DOM对象注册事件 3. 修改DOM对象的属性  DOM基本概念为什么要学习DOM？ 我们前6天学习的ECMAScript语法规范，都是在打基础。 javascript分为三部分：ECMAScript、DOM、BOM 想要做出好看的页面效果，就需要学习DOM，学了DOM之后就能操作页面元素了。  12345678910//前面6天学习的内容">
+<meta property="og:type" content="article">
+<meta property="og:title" content="webApi第一天">
+<meta property="og:url" content="http://biedongda.com/2018/01/26/webApi第一天/index.html">
+<meta property="og:site_name" content="一个学徒的世界">
+<meta property="og:description" content="DOM 学习目标：1. 学会找DOM对象  2. 学会给DOM对象注册事件 3. 修改DOM对象的属性  DOM基本概念为什么要学习DOM？ 我们前6天学习的ECMAScript语法规范，都是在打基础。 javascript分为三部分：ECMAScript、DOM、BOM 想要做出好看的页面效果，就需要学习DOM，学了DOM之后就能操作页面元素了。  12345678910//前面6天学习的内容">
+<meta property="og:image" content="http://biedongda.com/2018/01/26/webApi第一天/images/1.png">
+<meta property="og:updated_time" content="2018-03-13T08:21:56.062Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="webApi第一天">
+<meta name="twitter:description" content="DOM 学习目标：1. 学会找DOM对象  2. 学会给DOM对象注册事件 3. 修改DOM对象的属性  DOM基本概念为什么要学习DOM？ 我们前6天学习的ECMAScript语法规范，都是在打基础。 javascript分为三部分：ECMAScript、DOM、BOM 想要做出好看的页面效果，就需要学习DOM，学了DOM之后就能操作页面元素了。  12345678910//前面6天学习的内容">
+<meta name="twitter:image" content="http://biedongda.com/2018/01/26/webApi第一天/images/1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://biedongda.com/2018/01/26/webApi第一天/"/>
+
+
+
+
+
+  <title>webApi第一天 | 一个学徒的世界</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">一个学徒的世界</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">不敢面对的永远受其折磨</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Startseite
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archiv
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://biedongda.com/2018/01/26/webApi第一天/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="前端学徒">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="一个学徒的世界">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">webApi第一天</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-26T10:20:01+08:00">
+                2018-01-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="DOM"><a href="#DOM" class="headerlink" title="DOM"></a>DOM</h1><blockquote>
+<p>学习目标：1. 学会找DOM对象  2. 学会给DOM对象注册事件 3. 修改DOM对象的属性</p>
+</blockquote>
+<h2 id="DOM基本概念"><a href="#DOM基本概念" class="headerlink" title="DOM基本概念"></a>DOM基本概念</h2><h3 id="为什么要学习DOM？"><a href="#为什么要学习DOM？" class="headerlink" title="为什么要学习DOM？"></a>为什么要学习DOM？</h3><blockquote>
+<p>我们前6天学习的ECMAScript语法规范，都是在打基础。</p>
+<p>javascript分为三部分：ECMAScript、DOM、BOM</p>
+<p>想要做出好看的页面效果，就需要学习DOM，学了DOM之后就能操作页面元素了。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//前面6天学习的内容</span></div><div class="line">  	<span class="comment">//1. 变量</span></div><div class="line">	<span class="comment">//2. 数据类型</span></div><div class="line">	<span class="comment">//3. 类型转换</span></div><div class="line">	<span class="comment">//4. 操作符</span></div><div class="line">	<span class="comment">//5. 判断(分支)语句</span></div><div class="line">	<span class="comment">//6. 循环语句  for	while	do..while	for..in(循环对象)</span></div><div class="line">	<span class="comment">//7. 数组</span></div><div class="line">	<span class="comment">//8. 函数</span></div><div class="line">	<span class="comment">//9. 对象</span></div></pre></td></tr></table></figure>
+<h3 id="什么是DOM？"><a href="#什么是DOM？" class="headerlink" title="什么是DOM？"></a>什么是DOM？</h3><blockquote>
+<p>Document Object Model:<strong><em>文档对象模型</em></strong>，也叫<strong><em>文档树模型</em></strong>，是一套操作HTML和XML的一套API</p>
+</blockquote>
+<ol>
+<li><p>文档对象模型<br>HTML页面的所有的内容，包括标签、节点、注释、属性等，在JS的DOM中，都存在一个一个的对象与之对应。因此当我们想要操作这些HTML的内容时，只需要操作这些对象即可。<br>节点：页面中所有的内容，包括标签、节点、注释、树形都被封装成了对象，我们把这些对象叫做节点。<br>元素：我们最常操作的是标签节点，也叫元素。</p>
+</li>
+<li><p>文档树模型<br>HTML结构是一个树形结构，同样的，这些对应的对象也是一个树形的结构，树形结构的好处是能够非常容易找到某个节点的子节点、父节点、兄弟节点。<br>子节点：child<br>兄弟节点：sibling<br>父节点：parent</p>
+</li>
+<li><p>API：Application Programming Interface：应用程序编程接口，其实就是一大堆的方法，我们可以把API看成是工具。做不同的事情需要不同的工具。<br>做饭需要一套做饭的工具：锅碗瓢盆<br>打仗需要一套打仗的工具：刀枪剑戟<br>找对象需一套找对象的工具：钱权颜缘 +  车房钱权<br>DOM：用来操作页面元素的一套工具。<br>BOM：用来操作浏览器一些行为的一套工具。</p>
+</li>
+<li><p>XML：XML(Extensible Markup Language：可扩展性标记语言，通常用于配置文件，或者和json一样用于数据交互。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">student</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>张三<span class="tag">&lt;/<span class="name">name</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">age</span>&gt;</span>18<span class="tag">&lt;/<span class="name">age</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">sex</span>&gt;</span>男<span class="tag">&lt;/<span class="name">sex</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">student</span>&gt;</span></div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>树形结构示意图：<br><img src="/2018/01/26/webApi第一天/images/1.png" alt="树形结构"></p>
+<h2 id="DOM初体验"><a href="#DOM初体验" class="headerlink" title="DOM初体验"></a>DOM初体验</h2><blockquote>
+<p>想要操作DOM，首先需要获取到DOM对象。<br>【案例：DOM对象初体验.html】</p>
+</blockquote>
+<h3 id="根据id获取元素"><a href="#根据id获取元素" class="headerlink" title="根据id获取元素"></a>根据id获取元素</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"box"</span>&gt;</span>123<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> element = <span class="built_in">document</span>.getElementById(<span class="string">"box"</span>);</div><div class="line"></div><div class="line"><span class="comment">// 1. document:指的是整个html页面，在DOM中被封装成了一个对象，就是document对象</span></div><div class="line"><span class="comment">// 2. getElementById:通过id获取元素</span></div><div class="line"><span class="comment">// 3. 参数是一个字符串，即id</span></div><div class="line"><span class="comment">// 4. 返回值是一个元素，即一个对象，标签中存在的属性，在这个对象中也有属性与之一一对应。</span></div></pre></td></tr></table></figure>
+<h3 id="如何打印一个对象"><a href="#如何打印一个对象" class="headerlink" title="如何打印一个对象"></a>如何打印一个对象</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log():以标签的形式打印一个对象</div><div class="line"><span class="built_in">console</span>.dir():以对象的形式打印一个对象,可以展开该对象拥有的属性和方法</div></pre></td></tr></table></figure>
+<h3 id="如何在webstorm编辑器中设置活动模板"><a href="#如何在webstorm编辑器中设置活动模板" class="headerlink" title="如何在webstorm编辑器中设置活动模板"></a>如何在webstorm编辑器中设置活动模板</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">File --&gt;  Settings --&gt; Editor --&gt; Live Templates -- &gt; JavaScript</div></pre></td></tr></table></figure>
+<h2 id="注册事件"><a href="#注册事件" class="headerlink" title="注册事件"></a>注册事件</h2><p>JavaScript和HTML之间的交互是通过事件来实现的。<br>事件就是文档或者浏览器窗口发生的一些特定的交互瞬间。<br>JavaScript是一门<strong><em>事件驱动</em></strong>的脚本语言</p>
+<p>【案例：点击图片，切换图片.html】</p>
+<h3 id="事件三要素"><a href="#事件三要素" class="headerlink" title="事件三要素"></a>事件三要素</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">事件源：触发事件的元素</div><div class="line">事件名称：触发的事件名称</div><div class="line">事件处理函数：触发事件时调用的函数</div></pre></td></tr></table></figure>
+<h3 id="注册事件的两种方式"><a href="#注册事件的两种方式" class="headerlink" title="注册事件的两种方式"></a>注册事件的两种方式</h3><ul>
+<li><p>行内式注册事件</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"images/1.jpg"</span> <span class="attr">alt</span>=<span class="string">"描述"</span> <span class="attr">id</span>=<span class="string">"img"</span> <span class="attr">onclick</span>=<span class="string">"changePic()"</span>&gt;</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>内嵌式注册事件</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> img = <span class="built_in">document</span>.getElementById(<span class="string">"img"</span>);</div><div class="line">img.onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  img.src = <span class="string">"images/2.gif"</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>【案例：div的显示与隐藏.html】<br>【案例：图片轮流切换.html】</p>
+<h3 id="给a标签注册事件"><a href="#给a标签注册事件" class="headerlink" title="给a标签注册事件"></a>给a标签注册事件</h3><p><code>return false</code>可以阻止页面跳转。<br>【案例：给a标签注册事件.html】</p>
+<h2 id="查找DOM对象"><a href="#查找DOM对象" class="headerlink" title="查找DOM对象"></a>查找DOM对象</h2><h3 id="根据标签名获取元素"><a href="#根据标签名获取元素" class="headerlink" title="根据标签名获取元素"></a>根据标签名获取元素</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> links = <span class="built_in">document</span>.getElementsByTagName(“a”)</div><div class="line"><span class="comment">//1. 根据标签名获取元素，返回的是一个伪数组，如果没有找到的话，返回的是一个空数组</span></div><div class="line"><span class="comment">//2. 伪数组：可以跟数组一样进行遍历，但是不能使用数组的方法。</span></div><div class="line"><span class="comment">//3. this的使用，谁调用，指向谁	在DOM中表示当前对象的时候，就可以用this</span></div></pre></td></tr></table></figure>
+<p>【案例：给多个a标签注册事件.html】<br>【案例：让当前元素高亮.html】<br>【案例：点击按钮，让对应的图片显示.html】<br>【案例：隔行变色.html】</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">box.getElementsByTagName的使用</div><div class="line"><span class="built_in">document</span>.getElementsByTagName() 找到的是页面上所有的标签</div><div class="line">元素没有getElmentById方法，只有<span class="built_in">document</span>有，因为页面上的id是唯一的，所以直接通过<span class="built_in">document</span>来查找</div></pre></td></tr></table></figure>
+<h2 id="假设成立法"><a href="#假设成立法" class="headerlink" title="假设成立法"></a>假设成立法</h2><p>​1.假设是成立的</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span>  flag = <span class="literal">true</span>;</div></pre></td></tr></table></figure>
+<p>2.想尽办法推翻假设,(当某个条件不满足的时候)</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span>(<span class="literal">true</span>)&#123;</div><div class="line">  flag = <span class="literal">false</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>​3.如果推翻不了，那么假设就是成立的。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/01/20/H5笔记整理/" rel="next" title="H5笔记整理">
+                <i class="fa fa-chevron-left"></i> H5笔记整理
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/03/02/webApi第二天/" rel="prev" title="webApi第二天">
+                webApi第二天 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Übersicht
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">前端学徒</p>
+              <p class="site-description motion-element" itemprop="description">web前端开发，移动端开发是一个很好的工种，希望你能和我携手共进前端职业发展</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">43</span>
+                  <span class="site-state-item-name">Artikel</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">41</span>
+                  <span class="site-state-item-name">Tags</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#DOM"><span class="nav-number">1.</span> <span class="nav-text">DOM</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#DOM基本概念"><span class="nav-number">1.1.</span> <span class="nav-text">DOM基本概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么要学习DOM？"><span class="nav-number">1.1.1.</span> <span class="nav-text">为什么要学习DOM？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是DOM？"><span class="nav-number">1.1.2.</span> <span class="nav-text">什么是DOM？</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DOM初体验"><span class="nav-number">1.2.</span> <span class="nav-text">DOM初体验</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#根据id获取元素"><span class="nav-number">1.2.1.</span> <span class="nav-text">根据id获取元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何打印一个对象"><span class="nav-number">1.2.2.</span> <span class="nav-text">如何打印一个对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何在webstorm编辑器中设置活动模板"><span class="nav-number">1.2.3.</span> <span class="nav-text">如何在webstorm编辑器中设置活动模板</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注册事件"><span class="nav-number">1.3.</span> <span class="nav-text">注册事件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#事件三要素"><span class="nav-number">1.3.1.</span> <span class="nav-text">事件三要素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#注册事件的两种方式"><span class="nav-number">1.3.2.</span> <span class="nav-text">注册事件的两种方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#给a标签注册事件"><span class="nav-number">1.3.3.</span> <span class="nav-text">给a标签注册事件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查找DOM对象"><span class="nav-number">1.4.</span> <span class="nav-text">查找DOM对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#根据标签名获取元素"><span class="nav-number">1.4.1.</span> <span class="nav-text">根据标签名获取元素</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#假设成立法"><span class="nav-number">1.5.</span> <span class="nav-text">假设成立法</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">前端学徒</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

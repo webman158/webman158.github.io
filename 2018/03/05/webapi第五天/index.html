@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="事件对象事件对象的概述 在触发某个事件的时候，都会产生一个事件对象Event，这个对象中包含所有与事件相关的一些信息，包括触发事件的元素，事件的类型以及其他与事件相关的信息。  鼠标事件触发时，事件对象中会包含鼠标的位置信息。键盘事件触发时，事件对象中会包含按下的键相关的信息。 1234每一个事件在触发时，都会产生一个事件对象。你见或者不见，我就在那里，不悲不喜。你爱或者不爱，爱就在那里，不增不减">
+<meta property="og:type" content="article">
+<meta property="og:title" content="webapi第五天">
+<meta property="og:url" content="http://biedongda.com/2018/03/05/webapi第五天/index.html">
+<meta property="og:site_name" content="一个学徒的世界">
+<meta property="og:description" content="事件对象事件对象的概述 在触发某个事件的时候，都会产生一个事件对象Event，这个对象中包含所有与事件相关的一些信息，包括触发事件的元素，事件的类型以及其他与事件相关的信息。  鼠标事件触发时，事件对象中会包含鼠标的位置信息。键盘事件触发时，事件对象中会包含按下的键相关的信息。 1234每一个事件在触发时，都会产生一个事件对象。你见或者不见，我就在那里，不悲不喜。你爱或者不爱，爱就在那里，不增不减">
+<meta property="og:image" content="http://biedongda.com/2018/03/05/webapi第五天/images/bubble.png">
+<meta property="og:image" content="http://biedongda.com/2018/03/05/webapi第五天/images/capture.png">
+<meta property="og:image" content="http://biedongda.com/2018/03/05/webapi第五天/images/three.png">
+<meta property="og:image" content="http://biedongda.com/2018/03/05/webapi第五天/images/offset系列.png">
+<meta property="og:image" content="http://biedongda.com/2018/03/05/webapi第五天/images/scroll.png">
+<meta property="og:image" content="http://biedongda.com/2018/03/05/webapi第五天/images/client1.png">
+<meta property="og:image" content="http://biedongda.com/2018/03/05/webapi第五天/images/client.png">
+<meta property="og:updated_time" content="2018-03-09T01:46:04.069Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="webapi第五天">
+<meta name="twitter:description" content="事件对象事件对象的概述 在触发某个事件的时候，都会产生一个事件对象Event，这个对象中包含所有与事件相关的一些信息，包括触发事件的元素，事件的类型以及其他与事件相关的信息。  鼠标事件触发时，事件对象中会包含鼠标的位置信息。键盘事件触发时，事件对象中会包含按下的键相关的信息。 1234每一个事件在触发时，都会产生一个事件对象。你见或者不见，我就在那里，不悲不喜。你爱或者不爱，爱就在那里，不增不减">
+<meta name="twitter:image" content="http://biedongda.com/2018/03/05/webapi第五天/images/bubble.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://biedongda.com/2018/03/05/webapi第五天/"/>
+
+
+
+
+
+  <title>webapi第五天 | 一个学徒的世界</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">一个学徒的世界</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">不敢面对的永远受其折磨</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Startseite
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archiv
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://biedongda.com/2018/03/05/webapi第五天/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="前端学徒">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="一个学徒的世界">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">webapi第五天</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-05T16:39:17+08:00">
+                2018-03-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="事件对象"><a href="#事件对象" class="headerlink" title="事件对象"></a>事件对象</h1><h2 id="事件对象的概述"><a href="#事件对象的概述" class="headerlink" title="事件对象的概述"></a>事件对象的概述</h2><blockquote>
+<p>在触发某个事件的时候，都会产生一个事件对象Event，这个对象中包含所有与事件相关的一些信息，包括触发事件的元素，事件的类型以及其他与事件相关的信息。</p>
+</blockquote>
+<p>鼠标事件触发时，事件对象中会包含鼠标的位置信息。<br>键盘事件触发时，事件对象中会包含按下的键相关的信息。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">每一个事件在触发时，都会产生一个事件对象。</div><div class="line">你见或者不见，我就在那里，不悲不喜。</div><div class="line">你爱或者不爱，爱就在那里，不增不减。</div><div class="line">你用或者不用，我都会给你，不离不弃。</div></pre></td></tr></table></figure>
+<h2 id="获取事件对象"><a href="#获取事件对象" class="headerlink" title="获取事件对象"></a>获取事件对象</h2><blockquote>
+<p>既然事件对象中存储了这么多的信息，我们首先需要做的就是获取到这个事件对象。获取事件对象的时候，存在浏览器的兼容问题。</p>
+</blockquote>
+<p>【演示：01-获取事件对象.html】</p>
+<p>对于现代浏览器，获取事件对象非常的简单，只需要在注册事件的时候，指定一个形参即可。这个形参就是我们想要获取到的事件对象。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">btn.onclick = <span class="function"><span class="keyword">function</span>(<span class="params">event</span>)</span>&#123;</div><div class="line">    <span class="comment">//event就是事件对象，里面包含了事件触发时的一些信息。</span></div><div class="line">	<span class="built_in">console</span>.log(event);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>对于IE678来说，获取事件对象则是另一种方式，在事件里面，通过<code>window.event</code>来获取事件对象（不是通过参数的形式传递的）</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">btn.onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	<span class="comment">//IE678通过window.event获取事件对象</span></div><div class="line">	<span class="keyword">var</span> event = <span class="built_in">window</span>.event;</div><div class="line">	<span class="built_in">console</span>.log(event);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>兼容性封装</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">btn.onclick = <span class="function"><span class="keyword">function</span>(<span class="params">event</span>)</span>&#123;</div><div class="line">  	<span class="comment">//只要用到了事件对象，就要记得处理浏览器兼容性</span></div><div class="line">  	<span class="comment">//如果event有，直接用event，如果event没有，就用window.event</span></div><div class="line">	event = event || <span class="built_in">window</span>.event;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="事件对象的常用属性"><a href="#事件对象的常用属性" class="headerlink" title="事件对象的常用属性"></a>事件对象的常用属性</h2><blockquote>
+<p>事件对象中有很多很多的属性，但是很多属性并不常用。我们经常用到的是<strong><em>鼠标位置信息</em></strong> 和<strong><em>键盘码</em></strong>  相关的信息。</p>
+</blockquote>
+<p>【演示-02-事件对象的常用属性.html】</p>
+<p>记录了鼠标位置信息的相关属性</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// clientY: 距离可视区</span></div><div class="line"><span class="comment">// screenY: 距离屏幕</span></div><div class="line"><span class="comment">// pageY: 距离页面（文档）</span></div><div class="line"></div><div class="line">clientX与clientY：光标相对于可视区左上角的水平位置和垂直位置。</div><div class="line">screenX与screenY：光标相对于屏幕左上角的水平位置与垂直位置。</div><div class="line">pageX与pageY：光标相对于网页（文档<span class="built_in">document</span>）左上角的水平位置与垂直位置（推荐使用）</div></pre></td></tr></table></figure>
+<p>【案例-03-让小天使飞.html】</p>
+<h2 id="pageX与pageY的兼容性"><a href="#pageX与pageY的兼容性" class="headerlink" title="pageX与pageY的兼容性"></a>pageX与pageY的兼容性</h2><blockquote>
+<p>在鼠标事件中，记录鼠标位置信息的属性有很多，使用最多的还是pageX与pageY这两个属性，但是pageX和pageY存在浏览器兼容性问题。</p>
+</blockquote>
+<p>【演示-04-pageX与pageY属性.html】</p>
+<p>在现代浏览器中，直接通过事件对象就可以获得pageX与pageY</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">document</span>.onclick = <span class="function"><span class="keyword">function</span> (<span class="params">event</span>) </span>&#123;</div><div class="line">    event = event || <span class="built_in">window</span>.event;</div><div class="line">    <span class="built_in">console</span>.log(event.pageX+<span class="string">"----"</span>+event.pageY);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>在IE678中，并没有pageX与pageY，但是我们可以通过scrollTop + clientY的方式进行计算来获得。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getPage</span>(<span class="params">event</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> &#123;</div><div class="line">      	<span class="comment">// 在IE678中使用document.documentElement.scrollTop就可以获取到scrollTop的值</span></div><div class="line">        <span class="comment">// 注意： scrollTop 的取值是从 document.documentElement 上获取的</span></div><div class="line">        <span class="comment">//      如果通过 document.documentElement.scrollTop 获取不到页面滚动出去的高度,</span></div><div class="line">        <span class="comment">//      则换成 document.body.scrollTop  这是由于浏览器实现不同导致的.同一个浏览器,</span></div><div class="line">        <span class="comment">//      版本不同可能也会出现这样的问题</span></div><div class="line">        x:event.pageX || event.clientX + <span class="built_in">document</span>.documentElement.scrollLeft,</div><div class="line">        y:event.pageY || event.clientY + <span class="built_in">document</span>.documentElement.scrollTop</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>【案例-05-让小天使飞（优化1）.html】<br>【案例-06-让小天使飞（优化2）.html】</p>
+<h2 id="放大镜效果（案例）"><a href="#放大镜效果（案例）" class="headerlink" title="放大镜效果（案例）"></a>放大镜效果（案例）</h2><blockquote>
+<p>放大镜在开发中是一个很常见的特效，但是所有的放大镜的实现效果都是一样。</p>
+</blockquote>
+<p>【案例-07-放大镜特效】</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//注意：</span></div><div class="line"><span class="number">1.</span>该特效在IE上运行会出现鼠标闪烁的情况，是因为mouseover和mouseout事件导致的，可以更换为mouseenter、mouseleave,解决这个问题也可以在mask上在盖一层，这层宽度高度<span class="number">100</span>%，然后事件绑定在这个元素上</div><div class="line"><span class="number">2.</span>注意小盒子smallBox里面的图片一定要vertical-align: top;或者是块状化，不然mask在y轴上最底部不正确，因为图片距离底部有几像素，导致盒子的高度变大了几像素，在js计算的时候给mask的y赋值多了这几像素</div><div class="line"><span class="number">3.</span>还存在一个bug，就是页面足够长可滚动的时候，滚动之后在划上去，鼠标和mask的位置就不正确了,在计算‘光标在小盒子内的位置’光标的位置需要加上页面滚动的距离可以解决这个问题。</div></pre></td></tr></table></figure>
+<p>mousemove事件：鼠标移动时会触发这个事件。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">document</span>.onmousemove = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	<span class="built_in">console</span>.log(<span class="string">"鼠标移动事件在触发"</span>);  </div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>获取鼠标在盒子中的位置：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// getPage函数是上面封装获取光标在页面上的x，y位置</span></div><div class="line"><span class="keyword">var</span> spaceX = getPage(event).x - box.offsetLeft;</div><div class="line"><span class="keyword">var</span> spaceY = getPage(event).y - box.offsetTop;</div></pre></td></tr></table></figure>
+<h2 id="拖拽特效"><a href="#拖拽特效" class="headerlink" title="拖拽特效"></a>拖拽特效</h2><p>【案例-08-可拖拽的盒子.html】<br>【案例-09-拖拽效果(登录框).html】</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">注意点：</div><div class="line"><span class="number">1.</span>mousemove事件可以不写在mousedown里面，但是需要加判断，当前是否可以拖拽</div><div class="line"><span class="number">2.</span>判断边界，<span class="keyword">if</span>判断比较新手，使用<span class="built_in">Math</span>.min/<span class="built_in">Math</span>.max方法可以实现(高逼格)</div><div class="line"><span class="number">3.</span>可以增加按钮点击效果，打开登录框，登录框自适应居中，js自适应居中</div></pre></td></tr></table></figure>
+<h1 id="注册事件的两种方式"><a href="#注册事件的两种方式" class="headerlink" title="注册事件的两种方式"></a>注册事件的两种方式</h1><h2 id="on-事件名称"><a href="#on-事件名称" class="headerlink" title="on+事件名称"></a>on+事件名称</h2><blockquote>
+<p>onclick、onmouseover这种on+事件名称的方式注册事件几乎所有的浏览器都支持。</p>
+</blockquote>
+<p>注册事件：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">box.onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	<span class="comment">//事件处理程序	</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>移除事件：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">box.onclick = <span class="literal">null</span>;</div></pre></td></tr></table></figure>
+<p>on+事件名称注册事件的缺点：</p>
+<p>同一个元素同一类型的事件，只能注册一个，如果注册了多个，会出现覆盖问题。</p>
+<h2 id="注册事件的新方式"><a href="#注册事件的新方式" class="headerlink" title="注册事件的新方式"></a>注册事件的新方式</h2><p><strong>addEventListener与removeEventListener</strong></p>
+<blockquote>
+<p>现代浏览器支持的注册事件的新方式，这种方式注册的事件不会出现覆盖问题。</p>
+</blockquote>
+<p>【演示-10-addEventListener与removeEventListener的用法.html】</p>
+<p>addEventListener的语法</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//第一个参数：事件的类型：click mouseover,注意不需要加'on'</span></div><div class="line"><span class="comment">//第二个参数：函数，监听者，每次点击，这个函数就执行。</span></div><div class="line"><span class="comment">//第三个参数：false</span></div><div class="line">addEventListener(type, func, useCapture);</div></pre></td></tr></table></figure>
+<font color="red">tips：如果想要让你注册的事件能够移除，不能使用匿名函数。</font>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn1</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    alert(<span class="string">"hehe"</span>);</div><div class="line">&#125;</div><div class="line"><span class="comment">//如果想让注册的事件能移除，不能用匿名函数。</span></div><div class="line">box.addEventListener(<span class="string">"click"</span>, fn1, <span class="literal">false</span>);</div></pre></td></tr></table></figure>
+<p><code>removeEventListener</code>的语法</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//第一个参数：事件类型</span></div><div class="line"><span class="comment">//第二个参数：要移除的那个函数</span></div><div class="line"><span class="comment">//第三个参数：false</span></div><div class="line">removeEventListener(type, func, useCapture);</div></pre></td></tr></table></figure>
+<p><strong>attachEvent与detachEvent</strong></p>
+<blockquote>
+<p>IE678不支持<code>addEventListener</code>与<code>removeEventListener</code>两个方法，但是支持<code>attachEvent</code>与<code>detachEvnet</code></p>
+</blockquote>
+<p>【演示-11-attachEvent与detachEvent的用法.html】</p>
+<p><code>attachEvent</code>的用法：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//type:事件类型, 注意需要加上on   onclick  onmouseenter</span></div><div class="line"><span class="comment">//func:需要执行的那个事件</span></div><div class="line">attachEvent(type, func)</div></pre></td></tr></table></figure>
+<p><code>detachEvent</code>的用法</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//type:事件类型   需要加上on   onclick  onmouseenter</span></div><div class="line"><span class="comment">//func:需要执行的那个事件</span></div><div class="line">detachEvent(type, func)</div></pre></td></tr></table></figure>
+<h2 id="兼容性封装（了解）"><a href="#兼容性封装（了解）" class="headerlink" title="兼容性封装（了解）"></a>兼容性封装（了解）</h2><blockquote>
+<p>注册事件的新方式的解决了事件覆盖的问题，但是存在浏览器兼容性问题，因此可以进行兼容性封装。</p>
+</blockquote>
+<p>【演示-12-注册事件的兼容性封装.html】</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//添加事件</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">addEvent</span>(<span class="params">element, type, fn</span>)</span>&#123;</div><div class="line">    <span class="comment">//能力检测</span></div><div class="line">    <span class="keyword">if</span>(element.addEventListener)&#123;</div><div class="line">        element.addEventListener(type, fn, <span class="literal">false</span>);</div><div class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(element.attachEvent)&#123;</div><div class="line">        element.attachEvent(<span class="string">"on"</span>+type, fn);</div><div class="line">    &#125;<span class="keyword">else</span> &#123;</div><div class="line">        <span class="comment">//如果都不行，那就用on方式</span></div><div class="line">        element[<span class="string">"on"</span>+type] = fn;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">//移除事件</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">removeEvent</span>(<span class="params">element, type, fn</span>) </span>&#123;</div><div class="line">    <span class="keyword">if</span>(element.removeEventListener)&#123;</div><div class="line">        element.removeEventListener(type, fn, <span class="literal">false</span>);</div><div class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(element.detachEvent)&#123;</div><div class="line">        element.detachEvent(<span class="string">"on"</span>+type, fn);</div><div class="line">    &#125;<span class="keyword">else</span> &#123;</div><div class="line">        element[<span class="string">"on"</span>+type] = <span class="literal">null</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h1 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h1><h2 id="事件冒泡"><a href="#事件冒泡" class="headerlink" title="事件冒泡"></a>事件冒泡</h2><blockquote>
+<p>当一个元素的事件被触发时，同样的事件将会在该元素的所有祖先元素中依次被触发。这一过程被称为事件冒泡。</p>
+</blockquote>
+<p>说白了就是：当我们触发了子元素的某个事件后，父元素对应的事件也会触发。<br><img src="/2018/03/05/webapi第五天/images/bubble.png" alt="事件冒泡-bubble"></p>
+<p>【01-事件冒泡演示.html】<br>【02-事件冒泡分析.html】</p>
+<p>通常情况，事件冒泡对于我们来说是没有问题的，我们直接不管就行了，但是如果当事件冒泡给我们带来影响的时候，我们需要阻止事件冒泡。</p>
+<p>【03-弹出框案例.html】</p>
+<blockquote>
+<p>阻止事件冒泡有浏览器兼容性问题</p>
+</blockquote>
+<p>正常浏览器：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">link.onclick = <span class="function"><span class="keyword">function</span> (<span class="params">event</span>) </span>&#123;</div><div class="line">    event = event || <span class="built_in">window</span>.event;</div><div class="line">    <span class="comment">//stop :停止  propagation：传播</span></div><div class="line">    event.stopPropagation();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>IE678浏览器：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">link.onclick = <span class="function"><span class="keyword">function</span> (<span class="params">event</span>) </span>&#123;</div><div class="line">    event = event || <span class="built_in">window</span>.event;   </div><div class="line">    event.cancelBubble = <span class="literal">true</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>兼容性处理</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">link.onclick = <span class="function"><span class="keyword">function</span> (<span class="params">event</span>) </span>&#123;</div><div class="line">    event = event || <span class="built_in">window</span>.event;</div><div class="line">    <span class="keyword">if</span>(event.stopPropagation)&#123;</div><div class="line">      	event.stopPropagation();</div><div class="line">    &#125;<span class="keyword">else</span> &#123;</div><div class="line">      	event.cancelBubble = <span class="literal">true</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="事件捕获（了解）"><a href="#事件捕获（了解）" class="headerlink" title="事件捕获（了解）"></a>事件捕获（了解）</h2><blockquote>
+<p>事件捕获是火狐浏览器提出来的，IE678不支持事件捕获（基本上，我们都是用事件冒泡）<br>事件的处理将从DOM层次的根开始，而不是从触发事件的目标元素开始，事件被从目标元素的所有祖先元素依次往下传递</p>
+</blockquote>
+<p>【04-事件捕获.html】</p>
+<p> <img src="/2018/03/05/webapi第五天/images/capture.png" alt="capture"></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//当addEventListener第三个参数为true时，表示事件捕获</span></div><div class="line">arr[i].addEventListener(<span class="string">"click"</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>);</div><div class="line">&#125;,<span class="literal">true</span>);</div></pre></td></tr></table></figure>
+<h2 id="事件的三个阶段"><a href="#事件的三个阶段" class="headerlink" title="事件的三个阶段"></a>事件的三个阶段</h2><ol>
+<li>事件的捕获阶段</li>
+<li>事件的目标阶段</li>
+<li><p>事件的冒泡阶段</p>
+<p><img src="/2018/03/05/webapi第五天/images/three.png" alt="three"></p>
+</li>
+</ol>
+<p>事件有三个阶段，首先发生的是捕获阶段，然后是目标阶段，最后才是冒泡阶段，对于捕获和冒泡，我们只能干预其中的一个，通常来说，我们可能会干预事件冒泡阶段，而不去干预事件捕获阶段。</p>
+<h2 id="常见的事件"><a href="#常见的事件" class="headerlink" title="常见的事件"></a>常见的事件</h2><blockquote>
+<p>常见的鼠标事件</p>
+</blockquote>
+<p><code>onmousedown</code>:鼠标按下事件<br><code>onmouseup</code>:鼠标弹起事件<br><code>onclick</code>:单击事件<br><code>ondblclick</code>：双击事件<br><code>onmouseover</code>：鼠标经过事件<br><code>onmouseout</code>：鼠标离开事件<br><code>onmousemove</code>：鼠标移动事件<br><code>onfocus</code>：鼠标获得焦点事件<br><code>onblur</code>：鼠标失去焦点事件</p>
+<blockquote>
+<p>常见的键盘事件</p>
+</blockquote>
+<p><code>onkeydown</code>: 键盘按下时触发<br><code>onkeyup</code>: 键盘弹起时触发</p>
+<blockquote>
+<p>对于鼠标事件，事件对象中有一系列的XY记录了鼠标的位置信息。而键盘事件中，事件对象有一个event.keyCode属性，记录了按下去的键的键盘码</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">event.keyCode : 键盘按下的那个键的键盘码</div></pre></td></tr></table></figure>
+<p>【05-按esc隐藏弹出框.html】<br>【06-弹幕效果.html】</p>
+<h1 id="三大家族"><a href="#三大家族" class="headerlink" title="三大家族"></a>三大家族</h1><h2 id="offset家族"><a href="#offset家族" class="headerlink" title="offset家族"></a>offset家族</h2><blockquote>
+<p><code>offset</code>系列用于获取元素自身的大小和位置，在网页特效中有广泛应用<br><code>offset</code>系列主要有：<code>offsetHeight</code>、<code>offsetWidth</code>、<code>offsetParent</code>、<code>offsetLeft</code>、<code>offsetTop</code></p>
+</blockquote>
+<p><img src="/2018/03/05/webapi第五天/images/offset系列.png" alt="offset系列"></p>
+<h3 id="offsetHeight与offsetWidth"><a href="#offsetHeight与offsetWidth" class="headerlink" title="offsetHeight与offsetWidth"></a><code>offsetHeight</code>与<code>offsetWidth</code></h3><ol>
+<li>获取的是元素真实的高度和宽度</li>
+<li>获取到的是数值类型，方便计算</li>
+<li><code>offsetHeight</code>与<code>offsetWidth</code>是只读属性，不能设置</li>
+</ol>
+<p>与<code>style.height</code>&amp;&amp;<code>style.width</code>相比</p>
+<ol>
+<li>只能获取行内样式</li>
+<li>获取到的是字符串类型，带单位，需要转换</li>
+</ol>
+<p><code>offsetHeight</code>与<code>offsetWidth</code>的构成</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">​offsetHeight = height + paddnig + border</div><div class="line">​offsetWidth = width + padding + border</div></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>结论</strong></p>
+</blockquote>
+<ol>
+<li>设置宽度高度使用<code>style.width</code>与<code>style.height</code></li>
+<li>获取宽度和高度<code>offsetWidth</code>与<code>offsetHeight</code></li>
+</ol>
+<h3 id="offsetParent"><a href="#offsetParent" class="headerlink" title="offsetParent"></a>offsetParent</h3><blockquote>
+<p><code>parentNode</code>和<code>offsetParent</code>区别</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="number">1.</span> parentNode始终找到是父元素</div><div class="line"><span class="number">2.</span> offsetParent是离当前元素最近的定位元素(absolute、relative，fixed)，如果没有，那就找body</div></pre></td></tr></table></figure>
+<h3 id="offsetLeft与offsetTop"><a href="#offsetLeft与offsetTop" class="headerlink" title="offsetLeft与offsetTop"></a>offsetLeft与offsetTop</h3><blockquote>
+<p><code>offsetLeft</code>: 自身左侧到<code>offsetParent</code>左侧的距离：left + margin-left<br><code>offsetTop</code>:自身顶部到<code>offsetParent</code>顶部的距离 :  top + margin-top</p>
+<p><code>offsetLeft</code>与<code>offsetTop</code></p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="number">1.</span>	元素自身与offsetParent真实的距离</div><div class="line"><span class="number">2.</span>	获取到的是数值类型，方便计算</div><div class="line"><span class="number">3.</span>	只读属性，只能获取，不能设置</div></pre></td></tr></table></figure>
+<blockquote>
+<p>style.left与style.top</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="number">1.</span> 只能获取行内样式</div><div class="line"><span class="number">2.</span> 获取到的是字符串，需要转换</div><div class="line"><span class="number">3.</span> offsetLeft只会获取整数，对于小数部分会四舍五入。（注意是offsetLeft属性）</div><div class="line"><span class="number">4.</span> 可以获取，也可以设置</div></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>结论</strong></p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">获取操作：用offset系列</div><div class="line">设置操作：用style.xxx进行设置。</div></pre></td></tr></table></figure>
+<h2 id="scroll家族"><a href="#scroll家族" class="headerlink" title="scroll家族"></a>scroll家族</h2><blockquote>
+<p>scroll家族用来获取盒子内容的大小和位置<br>scroll家族有：<code>scrollWidth</code>、<code>scrollHeight</code>、<code>scrollLeft</code>、<code>scrollTop</code></p>
+</blockquote>
+<ol>
+<li><code>scrollWidth</code>与<code>scrollHeight</code>是盒子内容撑开的真实的宽度和高度。与和盒子大小无关（由offset算出盒子大小），仅仅与盒子的内容有关系。</li>
+<li><code>scrollTop</code>是盒子内容被滚动条卷去的头部的高度。<code>scrollLeft</code>是盒子内容被滚动条卷去的左侧的宽度。</li>
+</ol>
+<p><img src="/2018/03/05/webapi第五天/images/scroll.png" alt="scroll"></p>
+<p><code>onscroll</code>事件，对于有滚动条的盒子，可以使用<code>onscroll</code>注册滚动事件，每滚动一像素，就会触发该事件。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> box = doucment.getElementById(<span class="string">'box'</span>);</div><div class="line">box.onscroll = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	<span class="comment">//事件处理程序</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>获取页面被卷去的高度和宽度</p>
+<blockquote>
+<p>通常来说，scroll家族用的最多的地方就是用来获取页面被卷去的宽度和高度，非常的常用<br>给window、document、document.body注册都行，通常给window上注册，应为这样能兼容IE678</p>
+</blockquote>
+<p>页面被卷去的高度和宽度的兼容性封装</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//现代浏览器</span></div><div class="line"><span class="built_in">window</span>.pageYOffset</div><div class="line"><span class="comment">//标准模式</span></div><div class="line"><span class="built_in">document</span>.documentElement.scrollTop</div><div class="line"><span class="comment">//混杂模式</span></div><div class="line"><span class="built_in">document</span>.body.scrollTop</div><div class="line"></div><div class="line"><span class="comment">// 以上三个的区别：</span></div><div class="line">	<span class="comment">// Chrome对document.documentElement.scrollTop的识别会出现误差。</span></div><div class="line">	<span class="comment">// 由于document.documentElement.scrollTop和document.body.scrollTop在标准模式或者是兼容模式下都只有一个会返回有效的值，另外一个返回0 , 所以两者相加也不会有问题。</span></div><div class="line">	<span class="comment">// 即获取卷去距离时使用document.documentElement.scrollTop+document.body.scrollTop，经测试，代码在IE、Firefox、Chrome下都能显示正常了。</span></div><div class="line"></div><div class="line"><span class="comment">//封装</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">scroll</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> &#123;</div><div class="line">        top: <span class="built_in">window</span>.pageYOffset || <span class="built_in">document</span>.documentElement.scrollTop || <span class="built_in">document</span>.body.scrollTop || <span class="number">0</span>,</div><div class="line">        left: <span class="built_in">window</span>.pageXOffset || <span class="built_in">document</span>.documentElement.scrollLeft || <span class="built_in">document</span>.body.scrollLeft || <span class="number">0</span></div><div class="line">    &#125;;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//如何使用</span></div><div class="line"><span class="built_in">console</span>.log(scroll().top);<span class="comment">//获取页面被卷去的头部的距离</span></div><div class="line"><span class="built_in">console</span>.log(scroll().left);<span class="comment">//获取页面被卷去的左侧的距离</span></div></pre></td></tr></table></figure>
+<h2 id="client家族"><a href="#client家族" class="headerlink" title="client家族"></a>client家族</h2><blockquote>
+<p>client家族用于获取盒子可视区的大小</p>
+<p>client家族有clientWidth、clientHeight、clientLeft、clientTop</p>
+</blockquote>
+<p><strong>如果内容没有超出盒子范围：clientWidth与scrollWidth相同</strong></p>
+<p> <img src="/2018/03/05/webapi第五天/images/client1.png" alt="client1"></p>
+<blockquote>
+<p>三大家族对比</p>
+</blockquote>
+<p> <img src="/2018/03/05/webapi第五天/images/client.png" alt="client"></p>
+<blockquote>
+<p>clientTop与clientLeft</p>
+</blockquote>
+<p><code>clientTop</code> <code>与clientLeft</code>完全没有用，他们就是<code>borderTop</code>与<code>borderLeft</code><br>但是：如果有滚动条，还会包含滚动条的宽度，但是见过滚动条在上边或者左边的？</p>
+<blockquote>
+<p>onresize事件：onresize事件会在窗口被调整大小的时候发生。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">window</span>.onresize = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	<span class="comment">//事件处理程序</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>client系列一般用来获取页面的可视区宽高</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//现代浏览器获取可视区的大小</span></div><div class="line"><span class="comment">//console.log(window.innerWidth);</span></div><div class="line"><span class="comment">//console.log(window.innerHeight);</span></div><div class="line"></div><div class="line"><span class="comment">//ie678获取html的clientWidth</span></div><div class="line"><span class="comment">//console.log(document.documentElement.clientWidth);</span></div><div class="line"><span class="comment">//console.log(document.documentElement.clientHeight);</span></div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">//封装</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">client</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> &#123;</div><div class="line">        width: <span class="built_in">window</span>.innerWidth || <span class="built_in">document</span>.documentElement.clientWidth || <span class="built_in">document</span>.body.clientWidth || <span class="number">0</span>,</div><div class="line">        height: <span class="built_in">window</span>.innerHeight || <span class="built_in">document</span>.documentElement.clientHeight || <span class="built_in">document</span>.body.clientHeight || <span class="number">0</span></div><div class="line">    &#125;;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>【案例-16-获取页面可视区域的宽度和高度.html】</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/03/04/webapi第四天/" rel="next" title="webapi第四天">
+                <i class="fa fa-chevron-left"></i> webapi第四天
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/03/05/webapi第六天/" rel="prev" title="webapi第六天">
+                webapi第六天 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Übersicht
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">前端学徒</p>
+              <p class="site-description motion-element" itemprop="description">web前端开发，移动端开发是一个很好的工种，希望你能和我携手共进前端职业发展</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">43</span>
+                  <span class="site-state-item-name">Artikel</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">41</span>
+                  <span class="site-state-item-name">Tags</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#事件对象"><span class="nav-number">1.</span> <span class="nav-text">事件对象</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#事件对象的概述"><span class="nav-number">1.1.</span> <span class="nav-text">事件对象的概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#获取事件对象"><span class="nav-number">1.2.</span> <span class="nav-text">获取事件对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#事件对象的常用属性"><span class="nav-number">1.3.</span> <span class="nav-text">事件对象的常用属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#pageX与pageY的兼容性"><span class="nav-number">1.4.</span> <span class="nav-text">pageX与pageY的兼容性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#放大镜效果（案例）"><span class="nav-number">1.5.</span> <span class="nav-text">放大镜效果（案例）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#拖拽特效"><span class="nav-number">1.6.</span> <span class="nav-text">拖拽特效</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#注册事件的两种方式"><span class="nav-number">2.</span> <span class="nav-text">注册事件的两种方式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#on-事件名称"><span class="nav-number">2.1.</span> <span class="nav-text">on+事件名称</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注册事件的新方式"><span class="nav-number">2.2.</span> <span class="nav-text">注册事件的新方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#兼容性封装（了解）"><span class="nav-number">2.3.</span> <span class="nav-text">兼容性封装（了解）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#事件"><span class="nav-number">3.</span> <span class="nav-text">事件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#事件冒泡"><span class="nav-number">3.1.</span> <span class="nav-text">事件冒泡</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#事件捕获（了解）"><span class="nav-number">3.2.</span> <span class="nav-text">事件捕获（了解）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#事件的三个阶段"><span class="nav-number">3.3.</span> <span class="nav-text">事件的三个阶段</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常见的事件"><span class="nav-number">3.4.</span> <span class="nav-text">常见的事件</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三大家族"><span class="nav-number">4.</span> <span class="nav-text">三大家族</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#offset家族"><span class="nav-number">4.1.</span> <span class="nav-text">offset家族</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#offsetHeight与offsetWidth"><span class="nav-number">4.1.1.</span> <span class="nav-text">offsetHeight与offsetWidth</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#offsetParent"><span class="nav-number">4.1.2.</span> <span class="nav-text">offsetParent</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#offsetLeft与offsetTop"><span class="nav-number">4.1.3.</span> <span class="nav-text">offsetLeft与offsetTop</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#scroll家族"><span class="nav-number">4.2.</span> <span class="nav-text">scroll家族</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#client家族"><span class="nav-number">4.3.</span> <span class="nav-text">client家族</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">前端学徒</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

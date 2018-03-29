@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="动画函数封装12345678910111. 让一个盒子，点一次能够跑一次2. 一个盒子，能够自动的跑到400px的地方	a).判断leader&amp;lt;400才跑，否则清除定时器	b).一进来，要记得清除定时器，不然会越点越快。3. 封装成一个函数	a).把box替换成element    b).把400替换成target    c).把timer绑定到element上4. 封装的函数不会往回跑	a">
+<meta property="og:type" content="article">
+<meta property="og:title" content="webapi第四天">
+<meta property="og:url" content="http://biedongda.com/2018/03/04/webapi第四天/index.html">
+<meta property="og:site_name" content="一个学徒的世界">
+<meta property="og:description" content="动画函数封装12345678910111. 让一个盒子，点一次能够跑一次2. 一个盒子，能够自动的跑到400px的地方	a).判断leader&amp;lt;400才跑，否则清除定时器	b).一进来，要记得清除定时器，不然会越点越快。3. 封装成一个函数	a).把box替换成element    b).把400替换成target    c).把timer绑定到element上4. 封装的函数不会往回跑	a">
+<meta property="og:updated_time" content="2018-03-13T12:15:36.604Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="webapi第四天">
+<meta name="twitter:description" content="动画函数封装12345678910111. 让一个盒子，点一次能够跑一次2. 一个盒子，能够自动的跑到400px的地方	a).判断leader&amp;lt;400才跑，否则清除定时器	b).一进来，要记得清除定时器，不然会越点越快。3. 封装成一个函数	a).把box替换成element    b).把400替换成target    c).把timer绑定到element上4. 封装的函数不会往回跑	a">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://biedongda.com/2018/03/04/webapi第四天/"/>
+
+
+
+
+
+  <title>webapi第四天 | 一个学徒的世界</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">一个学徒的世界</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">不敢面对的永远受其折磨</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Startseite
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archiv
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://biedongda.com/2018/03/04/webapi第四天/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="前端学徒">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="一个学徒的世界">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">webapi第四天</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-04T20:51:26+08:00">
+                2018-03-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="动画函数封装"><a href="#动画函数封装" class="headerlink" title="动画函数封装"></a>动画函数封装</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="number">1.</span> 让一个盒子，点一次能够跑一次</div><div class="line"><span class="number">2.</span> 一个盒子，能够自动的跑到<span class="number">400</span>px的地方</div><div class="line">	a).判断leader&lt;<span class="number">400</span>才跑，否则清除定时器</div><div class="line">	b).一进来，要记得清除定时器，不然会越点越快。</div><div class="line"><span class="number">3.</span> 封装成一个函数</div><div class="line">	a).把box替换成element</div><div class="line">    b).把<span class="number">400</span>替换成target</div><div class="line">    c).把timer绑定到element上</div><div class="line"><span class="number">4.</span> 封装的函数不会往回跑</div><div class="line">	a).修改step，要有正负 <span class="keyword">var</span> step = target &gt; leader ? <span class="number">10</span> : <span class="number">-10</span>;</div><div class="line">	b).判断条件修改，当距离大于等于一步的时候，才跑，否则清除定时器，抱过去</div></pre></td></tr></table></figure>
+<h1 id="轮播图"><a href="#轮播图" class="headerlink" title="轮播图"></a>轮播图</h1><h2 id="简单轮播图"><a href="#简单轮播图" class="headerlink" title="简单轮播图"></a>简单轮播图</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="number">1.</span>	结构分析</div><div class="line"><span class="number">2.</span>	按钮高亮以及排他</div><div class="line"><span class="number">3.</span>	移动图片：</div><div class="line">	渐渐的移动图片，用到animate函数</div></pre></td></tr></table></figure>
+<h2 id="左右焦点图"><a href="#左右焦点图" class="headerlink" title="左右焦点图"></a>左右焦点图</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="number">1.</span>	结构分析</div><div class="line"><span class="number">2.</span>	左右箭头的显示与隐藏</div><div class="line"><span class="number">3.</span>	点击左箭头与右箭头（下标判断）</div></pre></td></tr></table></figure>
+<h2 id="无缝轮播图"><a href="#无缝轮播图" class="headerlink" title="无缝轮播图"></a>无缝轮播图</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="number">1.</span> 需要添加假图片</div><div class="line"><span class="number">2.</span> 真图片与假图片之间互相切换。</div></pre></td></tr></table></figure>
+<h1 id="完整版轮播图"><a href="#完整版轮播图" class="headerlink" title="完整版轮播图"></a>完整版轮播图</h1><h2 id="找对象"><a href="#找对象" class="headerlink" title="找对象"></a>找对象</h2><blockquote>
+<p>找对象没什么好说的，细心点，别用错方法即可。如果学到到现在，还找错对象，那这辈子就注定单身吧，别挣扎了 t.t</p>
+</blockquote>
+<h2 id="简单轮播功能"><a href="#简单轮播功能" class="headerlink" title="简单轮播功能"></a>简单轮播功能</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="number">1.</span> 给circle下的所有的li注册点击事件</div><div class="line"><span class="number">2.</span> 排他</div><div class="line"><span class="number">3.</span> 移动Ul</div></pre></td></tr></table></figure>
+<h2 id="左右焦点功能"><a href="#左右焦点功能" class="headerlink" title="左右焦点功能"></a>左右焦点功能</h2><p>需要定义一个变量count来记录移动的图片的张数。</p>
+<blockquote>
+<p>点击右箭头功能</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="number">1.</span> 如果当前图片是最后一张（假图片），需要瞬间变成真图片</div><div class="line"><span class="number">2.</span> 点击一次，需要让图片往右移动一张</div><div class="line"><span class="number">3.</span> 同步小圆点，干掉所有小圆点，复活对应count的小圆点。</div><div class="line">	a)最后一张假图片对应的小圆点是第一个，需要做特殊处理</div></pre></td></tr></table></figure>
+<blockquote>
+<p>点击左箭头的功能和右箭头基本一致。</p>
+</blockquote>
+<h2 id="自动轮播的功能"><a href="#自动轮播的功能" class="headerlink" title="自动轮播的功能"></a>自动轮播的功能</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">1. 开启定时器，每隔两秒点击一次右箭头</div><div class="line">2. 鼠标经过盒子，停止定时器(箭头乱闪的问题解释)</div><div class="line">3. 鼠标离开盒子，开启定时器</div></pre></td></tr></table></figure>
+<h2 id="同步功能"><a href="#同步功能" class="headerlink" title="同步功能"></a>同步功能</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">1. 点击小圆点时需要同步</div><div class="line">2. 淘宝bug解决方法</div></pre></td></tr></table></figure>
+<p>总结：代码量稍微有点大，只要屡清楚思路，一步一步，就能做出来。  后期学到的轮播图原理都是这个，所以希望大家都能掌握。</p>
+<h1 id="缓动框架"><a href="#缓动框架" class="headerlink" title="缓动框架"></a>缓动框架</h1><h2 id="缓动函数初体验"><a href="#缓动函数初体验" class="headerlink" title="缓动函数初体验"></a>缓动函数初体验</h2><p>动画公式：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> step = (target - leader)/<span class="number">10</span>;</div><div class="line">leader = leader + step;</div></pre></td></tr></table></figure>
+<p>【演示：01-缓动动画初体验.html】</p>
+<p>缺点：</p>
+<p>​    打开控制台，查看盒子的left值，会发现并没有跑到400px，只能跑到396.4px的地方</p>
+<p>原因：</p>
+<p>​    offsetLeft获取值的时候，只会获取整数，会对小数部分会四舍五入处理</p>
+<p>解决：</p>
+<p>​    对step向上取整处理，保证每一次都至少跑1px的距离</p>
+<p>【演示：02-缓动动画优化.html】</p>
+<h2 id="缓动函数封装"><a href="#缓动函数封装" class="headerlink" title="缓动函数封装"></a>缓动函数封装</h2><p>【演示：03-缓动函数封装.html】</p>
+<p>缺点：</p>
+<p>​    往回走的时候，到达不了终点</p>
+<p>原因：</p>
+<p>​    往回走的时候，step是负数，不应该向上取整，而应该向下取整</p>
+<p>解决：</p>
+<p>​    判断step的正负</p>
+<p>【演示：04-缓动函数优化.html】</p>
+<p>【案例：筋斗云案例.html】</p>
+<h2 id="获取计算后的样式"><a href="#获取计算后的样式" class="headerlink" title="获取计算后的样式"></a>获取计算后的样式</h2><blockquote>
+<p>通过element.style.xxx只能获取到行内样式</p>
+<p>通过offset系列只能获取到特殊的一些样式</p>
+</blockquote>
+<p>获取元素计算后的样式指的是元素经过层叠后真正生效的样式，不管样式写在哪，计算后的样式指的就是最终的样式，都是带单位的</p>
+<p>现代浏览器：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 第一个参数：获取计算样式的 Element</span></div><div class="line"><span class="comment">// 第二个参数：可选，是获取元素本身还是元素的伪元素</span></div><div class="line"><span class="comment">// 如果是元素本身，该参数可省略或者为null</span></div><div class="line"><span class="comment">// 如果是伪元素，注意传递的是字符串形式（::after/::before）</span></div><div class="line"><span class="keyword">return</span> <span class="built_in">window</span>.getComputedStyle(element, <span class="literal">null</span>)[attr];</div><div class="line"><span class="comment">//获取的带单位</span></div></pre></td></tr></table></figure>
+<p>IE678:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">return</span> element.currentStyle[attr];</div><div class="line"><span class="comment">//获取的带单位</span></div></pre></td></tr></table></figure>
+<p>【演示：05-获取元素计算后的样式.html】</p>
+<h2 id="缓动框架封装-任意样式-带px"><a href="#缓动框架封装-任意样式-带px" class="headerlink" title="缓动框架封装-任意样式(带px)"></a>缓动框架封装-任意样式(带px)</h2><p>【演示：06-缓动框架封装-任意样式(带px).html】</p>
+<p>注意点：</p>
+<ol>
+<li>获取到的样式是字符串格式,需要取整</li>
+<li>如果是auto，取整是NaN，需要进行处理</li>
+<li>设置的时候，需要设置对应的值</li>
+</ol>
+<p>缺点：</p>
+<p>​    一次只能修改一个样式，不能同时修改多个样式</p>
+<h2 id="缓动框架封装-同时修改多个样式"><a href="#缓动框架封装-同时修改多个样式" class="headerlink" title="缓动框架封装-同时修改多个样式"></a>缓动框架封装-同时修改多个样式</h2><p>【演示：07-缓动框架封装-同时修改多个样式.html】</p>
+<p>注意点：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">1. 需要遍历对象</div><div class="line">2. attr就是k，target就是json[k]</div></pre></td></tr></table></figure>
+<p>缺点：</p>
+<p>​    修改多个样式的时候，并不能所有的样式都到达终点。</p>
+<h2 id="缓动框架封装-修复定时器bug"><a href="#缓动框架封装-修复定时器bug" class="headerlink" title="缓动框架封装-修复定时器bug"></a>缓动框架封装-修复定时器bug</h2><p>【演示：08-缓动框架封装-修复定时器bug.html】</p>
+<p>假设成立法的三个步骤</p>
+<ol>
+<li>假设成立</li>
+<li>想办法推翻假设</li>
+<li>如果推翻不了，说明假设成立</li>
+</ol>
+<h1 id="缓动框架-1"><a href="#缓动框架-1" class="headerlink" title="缓动框架"></a>缓动框架</h1><h2 id="缓动框架优化-添加回调函数"><a href="#缓动框架优化-添加回调函数" class="headerlink" title="缓动框架优化-添加回调函数"></a>缓动框架优化-添加回调函数</h2><p>【演示：09-缓动框架优化-添加回调.html】</p>
+<p>注意点：</p>
+<ol>
+<li>在清除定时器之后，调用回调函数</li>
+<li>只有当传递了回调函数的时候才去调用</li>
+</ol>
+<h2 id="缓动框架优化-支持透明度和层级"><a href="#缓动框架优化-支持透明度和层级" class="headerlink" title="缓动框架优化-支持透明度和层级"></a>缓动框架优化-支持透明度和层级</h2><p>【演示：10-缓动框架优化-支持不透明度和层级.html】</p>
+<p>注意点：</p>
+<ol>
+<li>将parseInt改成parseFloat      (因为不透明度是个小数，所以不能把小数给丢了)</li>
+<li>将target和leader都扩大1000进行动画</li>
+<li>设置值的时候，需要设置leader的1000分之1，还需要去掉px</li>
+</ol>
+<h2 id="手风琴特效"><a href="#手风琴特效" class="headerlink" title="手风琴特效"></a>手风琴特效</h2><blockquote>
+<p>手风琴是很常见的特效，希望大家都能掌握</p>
+</blockquote>
+<p>【案例-11-手风琴特效（浮动版）】</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">思路：</div><div class="line">	<span class="number">1.</span>li元素浮动</div><div class="line">    <span class="number">2.</span>鼠标移入移除的时候：改变li的宽度（当前的li宽度为<span class="number">800</span>，其他的为<span class="number">100</span>，默认大小<span class="number">240</span>）</div></pre></td></tr></table></figure>
+<p>缺点：</p>
+<p>​    动画速度不一致，导致在动画执行过程中，总宽度不会等于1200px，因此能看到手风琴的末尾在抖动。</p>
+<p>【案例-12-手风琴特效（定位版本）】</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">思路：</div><div class="line">	<span class="number">1.</span>li元素都是定位的，遍历每个设置其left取值</div><div class="line">    <span class="number">2.</span>鼠标移入移除的时候：改变当前的以及前面的li的left取值为 i*<span class="number">100</span> ，当前之后的li设置left为 i*<span class="number">100</span>+<span class="number">700</span></div></pre></td></tr></table></figure>
+<p>优点：</p>
+<p>​    不会出现末尾抖动的情况</p>
+<blockquote>
+<p>两种手风琴效果都非常的常见</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt; // 让自己和自己前面的兄弟：left 100 * i</div><div class="line">&gt; // 让后面的兄弟left： i * 100 + 多显示的值</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</blockquote>
+<p>【作业-13-手风琴特效-问道】</p>
+<h2 id="旋转木马特效"><a href="#旋转木马特效" class="headerlink" title="旋转木马特效"></a>旋转木马特效</h2><p>【案例-14-旋转木马特效】</p>
+<p>节流阀步骤：</p>
+<pre><code>1. 定义节流阀开关
+2. 判断阀门是否打开，只有打开了才能执行
+3. 关闭阀门，不让其他人执行
+4. 执行完动画之后，打开阀门
+</code></pre><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">思路：</div><div class="line">	<span class="comment">//3. 旋转木马 ：就是在不停的修改配置单，修改完配置单之后重新分配位置</span></div><div class="line">  	<span class="comment">//  改配置单就行</span></div><div class="line">  	<span class="comment">// 节流阀的概念（选转木马左箭头、  轮播图添加节流阀）</span></div></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/03/02/webApi第三天/" rel="next" title="webApi第三天">
+                <i class="fa fa-chevron-left"></i> webApi第三天
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/03/05/webapi第五天/" rel="prev" title="webapi第五天">
+                webapi第五天 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Übersicht
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">前端学徒</p>
+              <p class="site-description motion-element" itemprop="description">web前端开发，移动端开发是一个很好的工种，希望你能和我携手共进前端职业发展</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">43</span>
+                  <span class="site-state-item-name">Artikel</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">41</span>
+                  <span class="site-state-item-name">Tags</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#动画函数封装"><span class="nav-number">1.</span> <span class="nav-text">动画函数封装</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#轮播图"><span class="nav-number">2.</span> <span class="nav-text">轮播图</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#简单轮播图"><span class="nav-number">2.1.</span> <span class="nav-text">简单轮播图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#左右焦点图"><span class="nav-number">2.2.</span> <span class="nav-text">左右焦点图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#无缝轮播图"><span class="nav-number">2.3.</span> <span class="nav-text">无缝轮播图</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#完整版轮播图"><span class="nav-number">3.</span> <span class="nav-text">完整版轮播图</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#找对象"><span class="nav-number">3.1.</span> <span class="nav-text">找对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#简单轮播功能"><span class="nav-number">3.2.</span> <span class="nav-text">简单轮播功能</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#左右焦点功能"><span class="nav-number">3.3.</span> <span class="nav-text">左右焦点功能</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自动轮播的功能"><span class="nav-number">3.4.</span> <span class="nav-text">自动轮播的功能</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#同步功能"><span class="nav-number">3.5.</span> <span class="nav-text">同步功能</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#缓动框架"><span class="nav-number">4.</span> <span class="nav-text">缓动框架</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#缓动函数初体验"><span class="nav-number">4.1.</span> <span class="nav-text">缓动函数初体验</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#缓动函数封装"><span class="nav-number">4.2.</span> <span class="nav-text">缓动函数封装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#获取计算后的样式"><span class="nav-number">4.3.</span> <span class="nav-text">获取计算后的样式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#缓动框架封装-任意样式-带px"><span class="nav-number">4.4.</span> <span class="nav-text">缓动框架封装-任意样式(带px)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#缓动框架封装-同时修改多个样式"><span class="nav-number">4.5.</span> <span class="nav-text">缓动框架封装-同时修改多个样式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#缓动框架封装-修复定时器bug"><span class="nav-number">4.6.</span> <span class="nav-text">缓动框架封装-修复定时器bug</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#缓动框架-1"><span class="nav-number">5.</span> <span class="nav-text">缓动框架</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#缓动框架优化-添加回调函数"><span class="nav-number">5.1.</span> <span class="nav-text">缓动框架优化-添加回调函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#缓动框架优化-支持透明度和层级"><span class="nav-number">5.2.</span> <span class="nav-text">缓动框架优化-支持透明度和层级</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#手风琴特效"><span class="nav-number">5.3.</span> <span class="nav-text">手风琴特效</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#旋转木马特效"><span class="nav-number">5.4.</span> <span class="nav-text">旋转木马特效</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">前端学徒</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="标签内容 innerText和innerHTML属性都是用来获取和设置标签的内容的。但是二者还是有区别的。  innerHTML innerHTML可以用于获取和设置标签的所有内容，包括标签和文本内容  123//innerHTML:内部的HTML//  获取标签内容的时候，不管标签还是文本，都能获取到//  innerHTML设置内容的时候，覆盖原来内容，标签也能生效，浏览器能解析这个标签。 i">
+<meta property="og:type" content="article">
+<meta property="og:title" content="webApi第二天">
+<meta property="og:url" content="http://biedongda.com/2018/03/02/webApi第二天/index.html">
+<meta property="og:site_name" content="一个学徒的世界">
+<meta property="og:description" content="标签内容 innerText和innerHTML属性都是用来获取和设置标签的内容的。但是二者还是有区别的。  innerHTML innerHTML可以用于获取和设置标签的所有内容，包括标签和文本内容  123//innerHTML:内部的HTML//  获取标签内容的时候，不管标签还是文本，都能获取到//  innerHTML设置内容的时候，覆盖原来内容，标签也能生效，浏览器能解析这个标签。 i">
+<meta property="og:updated_time" content="2018-03-05T05:11:22.892Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="webApi第二天">
+<meta name="twitter:description" content="标签内容 innerText和innerHTML属性都是用来获取和设置标签的内容的。但是二者还是有区别的。  innerHTML innerHTML可以用于获取和设置标签的所有内容，包括标签和文本内容  123//innerHTML:内部的HTML//  获取标签内容的时候，不管标签还是文本，都能获取到//  innerHTML设置内容的时候，覆盖原来内容，标签也能生效，浏览器能解析这个标签。 i">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://biedongda.com/2018/03/02/webApi第二天/"/>
+
+
+
+
+
+  <title>webApi第二天 | 一个学徒的世界</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">一个学徒的世界</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">不敢面对的永远受其折磨</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Startseite
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archiv
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://biedongda.com/2018/03/02/webApi第二天/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="前端学徒">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="一个学徒的世界">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">webApi第二天</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-02T16:20:18+08:00">
+                2018-03-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="标签内容"><a href="#标签内容" class="headerlink" title="标签内容"></a>标签内容</h1><blockquote>
+<p><code>innerText</code>和<code>innerHTML</code>属性都是用来获取和设置标签的内容的。但是二者还是有区别的。</p>
+</blockquote>
+<h2 id="innerHTML"><a href="#innerHTML" class="headerlink" title="innerHTML"></a>innerHTML</h2><blockquote>
+<p><code>innerHTML</code>可以用于获取和设置标签的所有内容，包括<strong>标签和文本内容</strong></p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//innerHTML:内部的HTML</span></div><div class="line"><span class="comment">//  获取标签内容的时候，不管标签还是文本，都能获取到</span></div><div class="line"><span class="comment">//  innerHTML设置内容的时候，覆盖原来内容，标签也能生效，浏览器能解析这个标签。</span></div></pre></td></tr></table></figure>
+<h2 id="innerText"><a href="#innerText" class="headerlink" title="innerText"></a>innerText</h2><blockquote>
+<p><code>innerText</code>可以用于获取和设置标签的文本内容，会丢弃掉标签</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//innerText:内部 文本</span></div><div class="line"><span class="comment">//  获取标签内容的时候，只会获取文本，标签扔掉了</span></div><div class="line"><span class="comment">//  设置标签内容的时候，覆盖原来内容，对标签进行转义（目的：把标签直接当文本来用）</span></div></pre></td></tr></table></figure>
+<p>二者的区别：</p>
+<ul>
+<li><code>innerHTML</code>是W3C的标准属性，而<code>innerText</code>是IE提出来的属性，存在兼容性问题。因此更加推荐大家使用innerHTML。</li>
+<li>innerText的作用：防止xss攻击</li>
+</ul>
+<h2 id="innerText的兼容性问题"><a href="#innerText的兼容性问题" class="headerlink" title="innerText的兼容性问题"></a>innerText的兼容性问题</h2><blockquote>
+<p>浏览器兼容性：指网页在各种浏览器上的显示效果不一致。或者是一些属性和方法在低版本的浏览器中不支持。</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//1. innerText是IE提出来的属性，因此低版本的火狐浏览器不支持这个属性。</span></div><div class="line"><span class="comment">//2. 火狐有一个textContent属性，效果跟innerText一样，但是IE678不支持这个属性</span></div></pre></td></tr></table></figure>
+<p>解决浏览器兼容性的处理方式：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="number">1.</span> 能力检测 （常用）</div><div class="line"><span class="number">2.</span> 代理检测	（判断浏览器的类型和版本）</div><div class="line"><span class="number">3.</span> 怪癖检测 （某个浏览器具有特殊的功能）</div></pre></td></tr></table></figure></p>
+<p>书写innerText的兼容性代码</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//获取标签的innerText（兼容所有浏览器）</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getInnerText</span>(<span class="params">element</span>) </span>&#123;</div><div class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> element.innerText === <span class="string">"string"</span>) &#123;</div><div class="line">        <span class="keyword">return</span> element.innerText;</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        <span class="keyword">return</span> element.textContent;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//设置标签的innerText（兼容所有浏览器）</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">setInnerText</span>(<span class="params">element, value</span>) </span>&#123;</div><div class="line">    <span class="comment">//能力检测</span></div><div class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> element.innerText === <span class="string">"string"</span>) &#123;</div><div class="line">        element.innerText = value;</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        element.textContent = value;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h1 id="节点操作"><a href="#节点操作" class="headerlink" title="节点操作"></a>节点操作</h1><h2 id="节点的属性"><a href="#节点的属性" class="headerlink" title="节点的属性"></a>节点的属性</h2><ul>
+<li><p>节点分类：<br>​    元素节点、文本节点、属性节点、注释节点</p>
+</li>
+<li><p>节点常用的属性<br>​    <code>nodeType</code>:   节点类型：元素节点的 nodeType = 1<br>​    <code>nodeName</code>:   节点名称<br>​    <code>nodeValue</code>:  节点值 (元素节点的nodeValue取值为null)</p>
+</li>
+</ul>
+<h2 id="节点层次"><a href="#节点层次" class="headerlink" title="节点层次"></a>节点层次</h2><h3 id="孩子节点"><a href="#孩子节点" class="headerlink" title="孩子节点"></a>孩子节点</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//childNodes: 获取所有的子节点（包括了元素节点和其他很多类型的节点，不包括孙子节点，基本不常用）</span></div><div class="line"><span class="comment">//children: 获取所有的子元素节点（类似数组的length属性一样，children也是时刻在更新的。用途很广泛）</span></div><div class="line"><span class="comment">//firstChild: 第一个节点</span></div><div class="line"><span class="comment">//firstElementChild //第一个子元素 有兼容性问题 可以封装一个兼容性方法</span></div><div class="line"><span class="comment">//lastChild //最后一个节点</span></div><div class="line"><span class="comment">//lastElementChild //最后一个子元素 有兼容性问题 可以封装一个兼容性方法</span></div></pre></td></tr></table></figure>
+<p>【案例：列表的隔行变色】<br>【案例：菜单切换】</p>
+<p><code>javascript:void(0)</code>的作用</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//1. javascript:是伪协议，表示url的内容通过javascript执行。</span></div><div class="line"><span class="comment">//2. void(0) 表示不作任何操作，这样会防止链接跳转到其他页面。</span></div><div class="line"><span class="comment">//3. 让页面不跳转，JavaScript:void(0) 是最通用的方式。</span></div></pre></td></tr></table></figure>
+<p>思考：<code>children</code>与<code>getElementsByTagName</code>的区别？</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//children 表示节点下所有的子元素，不包括孙子节点</span></div><div class="line"><span class="comment">//getElemengtsByTagName 表示节点下对应的所有后代节点</span></div></pre></td></tr></table></figure>
+<p>键盘事件：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//onkeydown: 监听鼠标按下事件（获取的是上一次的表单的值）</span></div><div class="line"><span class="comment">//onkeyup: 监听鼠标弹起事件</span></div></pre></td></tr></table></figure>
+<h3 id="兄弟节点"><a href="#兄弟节点" class="headerlink" title="兄弟节点"></a>兄弟节点</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//1. nextSibling:下一个兄弟节点</span></div><div class="line"><span class="comment">//2. nextElementSibling:下一个兄弟元素（IE678不兼容）</span></div><div class="line"><span class="comment">//3. previousSibling//上一个兄弟节点</span></div><div class="line"><span class="comment">//4. previousElementSibling //上一个兄弟元素 有兼容性问题 可以封装一个兼容性方法</span></div></pre></td></tr></table></figure>
+<p>【案例：表单校验加强版】<br>【案例：表单校验加强版（修复bug）】</p>
+<h3 id="父节点"><a href="#父节点" class="headerlink" title="父节点"></a>父节点</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//1. parentNode:父节点  没有兼容性问题</span></div></pre></td></tr></table></figure>
+<h1 id="样式操作"><a href="#样式操作" class="headerlink" title="样式操作"></a>样式操作</h1><blockquote>
+<p>标签不仅可以通过<code>class</code>属性操作样式，还可以通过<code>style</code>属性操作样。同样的DOM对象可以通过<code>className</code>操作样式，也可以通过<code>style</code>属性操作样。</p>
+</blockquote>
+<ol>
+<li>style属性是一个对象</li>
+<li>style这个对象中属性值都是字符串格式,所以在设置样式的时候，属性值一定要用引号包含，该有单位的记得带单位。</li>
+<li>标签中style属性有哪些样式名，在style这个对象中就有对应的属性名。</li>
+<li>标签中有一些属性带了-，比如background-color,到了style对象中，变成了驼峰命名法，backgroundColor（因为’-‘在js中不是一个合法的标识符）</li>
+<li>DOM中的style属性只能获取到和设置行内样式，在类样式中定义的样式通过style获取不到。</li>
+</ol>
+<p>关于body:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//1. document.body  : body比较常用，并且在页面中时唯一的，因此可以使用document.body直接获取。</span></div></pre></td></tr></table></figure>
+<p>【案例：开关灯案例】<br>【案例：百度换肤】<br>【案例：隐藏京东广告】<br>【案例：隐藏淘宝二维码】<br>【案例：让当前文本框高亮显示】<br>【案例：表格隔行变色+高亮】<br>【案例：操作透明度】<br>【案例：style设置位置】<br>【案例：style操作层级】</p>
+<h1 id="克隆节点"><a href="#克隆节点" class="headerlink" title="克隆节点"></a>克隆节点</h1><p>语法：var newNode = node.cloneNode(deep)<br>功能：在内存中克隆一份节点,不会再页面上显示<br>参数：deep</p>
+<ul>
+<li>false：默认值：是浅复制，只会复制标签，节点本身，不会复制节点的孩子。</li>
+<li>true: 深度复制，会复制标签，还会复制标签的所有内容 <strong>常用</strong></li>
+</ul>
+<blockquote>
+<ol>
+<li>克隆出来的节点跟原来的节点没有关系了，修改了也不会相互影响。</li>
+<li>如果克隆的节点带了id，我们需要给id重新设置一个值，不让id冲突</li>
+</ol>
+</blockquote>
+<h1 id="添加节点"><a href="#添加节点" class="headerlink" title="添加节点"></a>添加节点</h1><h2 id="appendChild"><a href="#appendChild" class="headerlink" title="appendChild"></a>appendChild</h2><p>语法：parent.appendChild(newChild)</p>
+<p>parent:调用者，父节点来调用</p>
+<p>newChild:需要添加的那个孩子。</p>
+<p>作用：把newChild添加到parent的孩子的最后面。</p>
+<blockquote>
+<p>如果添加的是页面中本来就存在的元素，是一个剪切的效果，原来的就不在了。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> demo = <span class="built_in">document</span>.getElementById(<span class="string">"demo"</span>);</div><div class="line"><span class="keyword">var</span> box = <span class="built_in">document</span>.getElementById(<span class="string">"box"</span>);</div><div class="line">box.appendChild(demo);</div></pre></td></tr></table></figure>
+<h2 id="insertBefore"><a href="#insertBefore" class="headerlink" title="insertBefore"></a>insertBefore</h2><p>语法：parent.insertBefore(newChild, refChild);</p>
+<p>parent:必须要父节点来调用</p>
+<p>newChild：需要添加的那个节点</p>
+<p>refChild:添加到哪一个节点的前面。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> ul = <span class="built_in">document</span>.getElementById(<span class="string">"list"</span>);</div><div class="line"><span class="keyword">var</span> li = <span class="built_in">document</span>.createElement(<span class="string">"li"</span>);</div><div class="line">li.innerHTML = <span class="string">"骥骥"</span>;</div><div class="line"><span class="comment">//就是添加到子节点的最前面。</span></div><div class="line">ul.insertBefore(li, ul.children[<span class="number">0</span>]);</div></pre></td></tr></table></figure>
+<p>​    注意:</p>
+<p>​    insertBefore同appendChild一样如果添加的是页面中本来就存在的元素，是一个剪切的效果，原来的就不在了。</p>
+<h2 id="双击事件"><a href="#双击事件" class="headerlink" title="双击事件"></a>双击事件</h2><p>ondblclick:双击的时候触发</p>
+<h1 id="创建节点"><a href="#创建节点" class="headerlink" title="创建节点"></a>创建节点</h1><h2 id="document-write（基本不用）"><a href="#document-write（基本不用）" class="headerlink" title="document.write（基本不用）"></a>document.write（基本不用）</h2><p>可以生成新的节点，但是不推荐使用。<strong><em>如果页面已经加载完成了，你还是用document.write写内容的话，会把之前的页面给覆盖掉</em></strong> </p>
+<p>原理：页面从上往下加载的时候，会开启一个文档流，当页面加载完，文档流就会关闭。</p>
+<p>document.write的本意就是在文档流上写入内容。如果页面没加载完成，文档流还是开着的，document.write直接在这个文档流上写东西</p>
+<p>如果页面加载完成了，还是用document.write写东西，会重新开启一个新的文档流，往新的文档流上写东西，旧的文档流就被新的文档流覆盖了。</p>
+<h2 id="innerHTML-1"><a href="#innerHTML-1" class="headerlink" title="innerHTML"></a>innerHTML</h2><p>innerHTML也可以创建节点</p>
+<blockquote>
+<p>innerHTML创建节点的时候有一个特点，如果原来有内容的话，使用innerHTML会把原先的内容给干掉。</p>
+<p>慎用：很容易出现效率问题。</p>
+</blockquote>
+<h2 id="createElement"><a href="#createElement" class="headerlink" title="createElement"></a>createElement</h2><p>语法：var element = document.createElement(“tagName”);</p>
+<p>作用：在内存里面创建了一个节点</p>
+<p>返回：一个元素</p>
+<p>用途非常的广泛。</p>
+<h1 id="删除节点"><a href="#删除节点" class="headerlink" title="删除节点"></a>删除节点</h1><p>语法：parent.removeChild(child);</p>
+<p>功能：由父盒子调用，删除里面的一个子元素。</p>
+<h1 id="动态创建元素"><a href="#动态创建元素" class="headerlink" title="动态创建元素"></a>动态创建元素</h1><h2 id="随机点名案例"><a href="#随机点名案例" class="headerlink" title="随机点名案例"></a>随机点名案例</h2><h2 id="祝愿墙案例"><a href="#祝愿墙案例" class="headerlink" title="祝愿墙案例"></a>祝愿墙案例</h2><p>涉及到字符串拼接的问题：<br>​    字符串不能换行：js的末尾可以不写分号来表示一行的结束，因为js在换行的地方，发现没有分号的话，会自动加上分号的。</p>
+<h2 id="仿百度搜索案例"><a href="#仿百度搜索案例" class="headerlink" title="仿百度搜索案例"></a>仿百度搜索案例</h2>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/01/26/webApi第一天/" rel="next" title="webApi第一天">
+                <i class="fa fa-chevron-left"></i> webApi第一天
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/03/02/webApi第三天/" rel="prev" title="webApi第三天">
+                webApi第三天 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Übersicht
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">前端学徒</p>
+              <p class="site-description motion-element" itemprop="description">web前端开发，移动端开发是一个很好的工种，希望你能和我携手共进前端职业发展</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">43</span>
+                  <span class="site-state-item-name">Artikel</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">41</span>
+                  <span class="site-state-item-name">Tags</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#标签内容"><span class="nav-number">1.</span> <span class="nav-text">标签内容</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#innerHTML"><span class="nav-number">1.1.</span> <span class="nav-text">innerHTML</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#innerText"><span class="nav-number">1.2.</span> <span class="nav-text">innerText</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#innerText的兼容性问题"><span class="nav-number">1.3.</span> <span class="nav-text">innerText的兼容性问题</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#节点操作"><span class="nav-number">2.</span> <span class="nav-text">节点操作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#节点的属性"><span class="nav-number">2.1.</span> <span class="nav-text">节点的属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#节点层次"><span class="nav-number">2.2.</span> <span class="nav-text">节点层次</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#孩子节点"><span class="nav-number">2.2.1.</span> <span class="nav-text">孩子节点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#兄弟节点"><span class="nav-number">2.2.2.</span> <span class="nav-text">兄弟节点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#父节点"><span class="nav-number">2.2.3.</span> <span class="nav-text">父节点</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#样式操作"><span class="nav-number">3.</span> <span class="nav-text">样式操作</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#克隆节点"><span class="nav-number">4.</span> <span class="nav-text">克隆节点</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#添加节点"><span class="nav-number">5.</span> <span class="nav-text">添加节点</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#appendChild"><span class="nav-number">5.1.</span> <span class="nav-text">appendChild</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#insertBefore"><span class="nav-number">5.2.</span> <span class="nav-text">insertBefore</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#双击事件"><span class="nav-number">5.3.</span> <span class="nav-text">双击事件</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#创建节点"><span class="nav-number">6.</span> <span class="nav-text">创建节点</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#document-write（基本不用）"><span class="nav-number">6.1.</span> <span class="nav-text">document.write（基本不用）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#innerHTML-1"><span class="nav-number">6.2.</span> <span class="nav-text">innerHTML</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#createElement"><span class="nav-number">6.3.</span> <span class="nav-text">createElement</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#删除节点"><span class="nav-number">7.</span> <span class="nav-text">删除节点</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#动态创建元素"><span class="nav-number">8.</span> <span class="nav-text">动态创建元素</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#随机点名案例"><span class="nav-number">8.1.</span> <span class="nav-text">随机点名案例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#祝愿墙案例"><span class="nav-number">8.2.</span> <span class="nav-text">祝愿墙案例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#仿百度搜索案例"><span class="nav-number">8.3.</span> <span class="nav-text">仿百度搜索案例</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">前端学徒</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
