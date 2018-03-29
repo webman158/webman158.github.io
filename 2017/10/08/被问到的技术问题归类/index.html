@@ -8,13 +8,13 @@
   <link rel="dns-prefetch" href="http://biedongda.com">
   <title>带班常见技术问题总结 | 一个学徒的世界</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="前置知识 html css JS JQ php WebStorm/PhpStorm sublime Node.js Chrome相关问题 实战项目开发注意点总结 其他插件 其他软件">
+  <meta name="description" content="HTML html5的表单pattern属性，使用的时候需要注意下：  MDN文档参考链接   页面一打开就会自动滚动到某个部分  一开始怀疑是不是js代码里面设置了页面滚动距离，但是将页面所有引用的js都注释了，还是会发生该现象。将引用的css文件也注释掉，也还是会发生该现象。于是将页面整体大块大块的删除，具体排除是那部分出了问题。最后排查到是由于表单元素input设置了autofocus属性，">
 <meta name="keywords" content="技术问题,黑马13期">
 <meta property="og:type" content="article">
 <meta property="og:title" content="带班常见技术问题总结">
 <meta property="og:url" content="http://biedongda.com/2017/10/08/被问到的技术问题归类/index.html">
 <meta property="og:site_name" content="一个学徒的世界">
-<meta property="og:description" content="前置知识 html css JS JQ php WebStorm/PhpStorm sublime Node.js Chrome相关问题 实战项目开发注意点总结 其他插件 其他软件">
+<meta property="og:description" content="HTML html5的表单pattern属性，使用的时候需要注意下：  MDN文档参考链接   页面一打开就会自动滚动到某个部分  一开始怀疑是不是js代码里面设置了页面滚动距离，但是将页面所有引用的js都注释了，还是会发生该现象。将引用的css文件也注释掉，也还是会发生该现象。于是将页面整体大块大块的删除，具体排除是那部分出了问题。最后排查到是由于表单元素input设置了autofocus属性，">
 <meta property="og:image" content="http://biedongda.com/2017/10/08/被问到的技术问题归类/images/pattern.png">
 <meta property="og:image" content="http://biedongda.com/2017/10/08/被问到的技术问题归类/images/canvas01.png">
 <meta property="og:image" content="http://biedongda.com/2017/10/08/被问到的技术问题归类/images/chrome-debug.png">
@@ -34,10 +34,10 @@
 <meta property="og:image" content="http://biedongda.com/2017/10/08/被问到的技术问题归类/images/07.png">
 <meta property="og:image" content="http://biedongda.com/2017/10/08/被问到的技术问题归类/images/08.png">
 <meta property="og:image" content="http://biedongda.com/2017/10/08/被问到的技术问题归类/images/art-template01.png">
-<meta property="og:updated_time" content="2017-12-29T07:20:00.681Z">
+<meta property="og:updated_time" content="2018-01-17T14:23:49.172Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="带班常见技术问题总结">
-<meta name="twitter:description" content="前置知识 html css JS JQ php WebStorm/PhpStorm sublime Node.js Chrome相关问题 实战项目开发注意点总结 其他插件 其他软件">
+<meta name="twitter:description" content="HTML html5的表单pattern属性，使用的时候需要注意下：  MDN文档参考链接   页面一打开就会自动滚动到某个部分  一开始怀疑是不是js代码里面设置了页面滚动距离，但是将页面所有引用的js都注释了，还是会发生该现象。将引用的css文件也注释掉，也还是会发生该现象。于是将页面整体大块大块的删除，具体排除是那部分出了问题。最后排查到是由于表单元素input设置了autofocus属性，">
 <meta name="twitter:image" content="http://biedongda.com/2017/10/08/被问到的技术问题归类/images/pattern.png">
   
     <link rel="alternative" href="/atom.xml" title="一个学徒的世界" type="application/atom+xml">
@@ -58,11 +58,12 @@
 
 </head>
 
-<body>
-  <div id="container" q-class="show:isCtnShow">
-    <canvas id="anm-canvas" class="anm-canvas"></canvas>
-    <div class="left-col" q-class="show:isShow">
-      
+
+    <body>
+        <div id="container" q-class="show:isCtnShow">
+            <canvas id="anm-canvas" class="anm-canvas"></canvas>
+            <div class="left-col" q-class="show:isShow">
+                
 <div class="overlay" style="background: #4d4d4d"></div>
 <div class="intrude-less">
 	<header id="header" class="inner">
@@ -112,9 +113,9 @@
 	</header>		
 </div>
 
-    </div>
-    <div class="mid-col" q-class="show:isShow,hide:isShow|isFalse">
-      
+            </div>
+            <div class="mid-col" q-class="show:isShow,hide:isShow|isFalse">
+                
 <nav id="mobile-nav">
   	<div class="overlay js-overlay" style="background: #4d4d4d"></div>
 	<div class="btnctn js-mobile-btnctn">
@@ -162,13 +163,13 @@
 	<div class="mobile-mask" style="display:none" q-show="isShow"></div>
 </nav>
 
-      <div id="wrapper" class="body-wrap">
-        <div class="menu-l">
-          <div class="canvas-wrap">
-            <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
-          </div>
-          <div id="js-content" class="content-ll">
-            <article id="post-被问到的技术问题归类" class="article article-type-post " itemscope itemprop="blogPost">
+                    <div id="wrapper" class="body-wrap">
+                        <div class="menu-l">
+                            <div class="canvas-wrap">
+                                <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
+                            </div>
+                            <div id="js-content" class="content-ll">
+                                <article id="post-被问到的技术问题归类" class="article article-type-post " itemscope itemprop="blogPost">
     <div class="article-inner">
         
             <header class="article-header">
@@ -188,25 +189,35 @@
             
                 <!-- 目录内容 -->
                 
+                    <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
+                        <span class="btn-bg"></span>
+                        <span class="btn-text">文章导航</span>
+                    </p>
+                    <div id="toc-article" class="toc-article">
+                        <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+                        <strong class="toc-title">文章目录</strong>
+                        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#HTML"><span class="toc-number">1.</span> <span class="toc-text">HTML</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CSS"><span class="toc-number">2.</span> <span class="toc-text">CSS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JS"><span class="toc-number">3.</span> <span class="toc-text">JS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JQ"><span class="toc-number">4.</span> <span class="toc-text">JQ</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#PHP"><span class="toc-number">5.</span> <span class="toc-text">PHP</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#WebStorm、PhpStorm"><span class="toc-number">6.</span> <span class="toc-text">WebStorm、PhpStorm</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sublime"><span class="toc-number">7.</span> <span class="toc-text">sublime</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Node-js"><span class="toc-number">8.</span> <span class="toc-text">Node.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Chrome相关问题"><span class="toc-number">9.</span> <span class="toc-text">Chrome相关问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#实战项目开发注意点总结"><span class="toc-number">10.</span> <span class="toc-text">实战项目开发注意点总结</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#其他插件"><span class="toc-number">11.</span> <span class="toc-text">其他插件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#其他软件"><span class="toc-number">12.</span> <span class="toc-text">其他软件</span></a></li></ol>
+                    </div>
+                    <script type="text/javascript">
+                        function showToc() {
+                            var toc_article = document.getElementById("toc-article");
+                            var show_toc_btn = document.getElementById("show-toc-btn");
+                            toc_article.setAttribute("style", "display:block");
+                            show_toc_btn.setAttribute("style", "display:none");
+                        };
+
+                        function showBtn() {
+                            var toc_article = document.getElementById("toc-article");
+                            var show_toc_btn = document.getElementById("show-toc-btn");
+                            toc_article.setAttribute("style", "display:none");
+                            show_toc_btn.setAttribute("style", "display:block");
+                        };
+                    </script>
+                    
                         <!-- 目录内容结束 -->
                         <div class="article-entry" itemprop="articleBody">
                             
-                                                <h2 id="前置知识"><a href="#前置知识" class="headerlink" title="前置知识"></a>前置知识</h2><ol>
-<li>html</li>
-<li>css</li>
-<li>JS</li>
-<li>JQ</li>
-<li>php</li>
-<li>WebStorm/PhpStorm</li>
-<li>sublime</li>
-<li>Node.js</li>
-<li>Chrome相关问题</li>
-<li>实战项目开发注意点总结</li>
-<li>其他插件</li>
-<li>其他软件</li>
-</ol>
-<a id="more"></a>
-<h3 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h3><ul>
+                                                <h3 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h3><ul>
 <li><p><strong>html5的表单pattern属性，使用的时候需要注意下：</strong></p>
 <blockquote>
 <p><img src="/2017/10/08/被问到的技术问题归类/images/pattern.png" alt="html5的表单pattern属性，使用的时候需要注意下："><br><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/Input" target="_blank" rel="external">MDN文档参考链接</a></p>
@@ -227,6 +238,9 @@
 <p>在canvas中引入视频，用服务器协议打开页面发现在canvas的画布中没有出现引用的视频，但是用文件协议打开却可以。</p>
 </blockquote>
 </li>
+</ul>
+<a id="more"></a>
+<ul>
 <li><p><strong>HTML5 自定义属性data-*使用注意：</strong></p>
 <blockquote>
 <p>1.HTML5的自定义属性data-xxx不能使用大写字母,不论大写位置在哪，都是不行,浏览器默认会转成小写的,在浏览器Element面板中注意节点data-*的信息,所以在JS获取的时候，注意都是小写的。<br>2.当data-my-name=”itcast” 这样设置格式时，则需要以驼峰格式才能正确获取,获取Node.dataset[‘myName’]</p>
@@ -264,6 +278,9 @@
 </li>
 </ol>
 <h3 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h3><ul>
+<li><p><strong>background里面的 / 斜线是什么意思</strong></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.nav</span> <span class="selector-tag">li</span>&#123; <span class="attribute">background</span>: <span class="number">#f65f57</span> no-repeat <span class="number">30px</span> <span class="number">100px</span>/<span class="number">1px</span> <span class="number">15px</span> <span class="built_in">linear-gradient</span>(to right, #dd2926,#a82724);&#125;</div><div class="line"><span class="comment">/* right后面有个斜线 /  */</span></div><div class="line"></div><div class="line"><span class="comment">/* 意思是：位置/相对大小</span></div><div class="line"><span class="comment">位置：center，top，bottom，left，right，百分比或像素值</span></div><div class="line"><span class="comment">相对大小：百分比或像素值</span></div><div class="line"><span class="comment">比如：30% 70px/50%  表示：图像在区域内距离左侧30%，距离上侧70px，图像占区域比例50%大小</span></div><div class="line"><span class="comment">top left/90px 表示：图像在区域内左上侧，图像为90px大小 */</span></div></pre></td></tr></table></figure>
+</li>
 <li><p><strong>给元素添加animation.css库动画和元素本身transform样式冲突</strong></p>
 <blockquote>
 <p>要么修改animation库动画，修改transform的取值，要么元素样式不要用transform</p>
@@ -398,6 +415,11 @@
 <p>当我们使用 <code>delete</code> 操作符删除一个数组中的元素，这个元素的位置就会变成一个占位符。打印出来就是undefined x 1。<br>注意如果我们使用 <code>trees[3] === &#39;undefined × 1&#39;</code> 返回的是 false。因为它仅仅是一种打印表示，并不是值变为undefined x 1。而是undefined. <code>trees[2] === undefined</code> 返回 true<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 在上面代码的基础上拓展</span></div><div class="line"><span class="built_in">console</span>.log(trees.length); <span class="comment">// 5</span></div><div class="line"><span class="comment">// 因为delete操作符并不是影响数组的长度。</span></div></pre></td></tr></table></figure></p>
 </blockquote>
 <ul>
+<li><p><strong>label标签for属性关联input存在的问题</strong></p>
+<blockquote>
+<p>事件会触发两次<br><a href="http://blog.csdn.net/u010552788/article/details/51733901" target="_blank" rel="external">参考链接-label包裹input，点击label，label响应两次</a></p>
+</blockquote>
+</li>
 <li><p><strong>return false</strong></p>
 <blockquote>
 <p>● 在原生js中，只能做到阻止事件的默认行为（e.preventDefault）<br>● 在jQuery中return false 被封装成可以阻止事件冒泡和事件的默认行为</p>
@@ -447,7 +469,7 @@
 </li>
 </ul>
 <h3 id="PHP"><a href="#PHP" class="headerlink" title="PHP"></a>PHP</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="comment">## php中大括号的作用</span></div><div class="line"><span class="number">1.</span> $str&#123;<span class="number">4</span>&#125;在字符串的变量的后面跟上&#123;&#125;,大括号和中括号一样都是把某个字符串变量当成数组处理</div><div class="line"><span class="number">2.</span> &#123;$val&#125;，这时候大括号起的作用就是，告诉PHP，括起来的要当成变量处理。</div><div class="line"></div><div class="line"></div><div class="line">$arr = <span class="keyword">array</span>(</div><div class="line">  <span class="number">0</span> =&gt; <span class="number">123</span>,</div><div class="line">  <span class="string">'name'</span> =&gt; <span class="string">'小猪'</span></div><div class="line">);</div><div class="line"></div><div class="line"><span class="keyword">foreach</span> ($arr <span class="keyword">as</span> $k =&gt; $v) &#123;</div><div class="line">  <span class="keyword">echo</span> <span class="string">"&#123;$arr[$k]&#125;"</span>;</div><div class="line">  <span class="comment">//加一个大括号只是将作为变量的标志符,在双引号中可以加也可以不加</span></div><div class="line">&#125;</div><div class="line"><span class="keyword">echo</span> <span class="string">'&lt;br/ &gt;&lt;br/ &gt;'</span>;</div><div class="line"></div><div class="line"><span class="keyword">foreach</span> ($arr <span class="keyword">as</span> $k =&gt; $v) &#123;</div><div class="line">  <span class="keyword">echo</span> <span class="string">"&#123;&#123;$arr[$k]&#125;&#125;"</span>; <span class="comment">//加两个大括号，外层的将作为普通的字符</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//注意：</span></div><div class="line"><span class="keyword">echo</span> <span class="string">"$arr[name]"</span>;<span class="comment">//小猪</span></div><div class="line"><span class="keyword">echo</span> $arr[<span class="string">'name'</span>];<span class="comment">//小猪</span></div><div class="line"><span class="keyword">echo</span> <span class="string">"&#123;$arr['name']&#125;"</span>;<span class="comment">//小猪,此句正常,大括号内的字符将作为变量来处理</span></div><div class="line"><span class="keyword">echo</span> <span class="string">"$arr['name']"</span>;<span class="comment">//报错</span></div><div class="line"></div><div class="line">$str = <span class="string">'abcdefg'</span>;</div><div class="line"><span class="keyword">echo</span> $str&#123;<span class="number">4</span>&#125;;<span class="comment">//在字符串的变量的后面跟上&#123;&#125;大括号和中括号一样都是把某个字符串变量当成数组处理</span></div></pre></td></tr></table></figure>
-<h3 id="WebStorm"><a href="#WebStorm" class="headerlink" title="WebStorm"></a>WebStorm</h3><ul>
+<h3 id="WebStorm、PhpStorm"><a href="#WebStorm、PhpStorm" class="headerlink" title="WebStorm、PhpStorm"></a>WebStorm、PhpStorm</h3><ul>
 <li><strong>码着代码英文字母突然华丽分家了</strong><blockquote>
 <p>将输入法调整到英文输入状态，然后按Shift(上档)+Space(空格)。<br><img src="/2017/10/08/被问到的技术问题归类/images/webstrome_codeinput.png" alt="参考链接"></p>
 </blockquote>
@@ -469,9 +491,8 @@
 <p><img src="/2017/10/08/被问到的技术问题归类/images/model01.jpg" alt="webstorm 提示弹框"><br>原因：因为不支持该文件的调试，不要把它引入进来就行了。这个map是用在nodejs中编译的<br>解决办法：找到min.css或者min.js里面,找到带map的链接删掉就好了</p>
 </blockquote>
 </li>
-</ul>
-<h3 id="PhpStorm"><a href="#PhpStorm" class="headerlink" title="PhpStorm"></a>PhpStorm</h3><ul>
-<li><strong>如何破解</strong><blockquote>
+<li><p><strong>如何破解</strong></p>
+<blockquote>
 <p>安装和webstorm一样;<br>直接用浏览器打开 <a href="http://idea.lanyus.com/" target="_blank" rel="external">http://idea.lanyus.com/</a> ，点击页面中的“获得注册码”，然后在注册时切换至<code>Activation Code</code>选项，输入获得的注册码一长串字符串，便可以注册成功了！（推荐用这种方式）<br>特别注意：<br>1.以上方式需要做这一步：为避免phpstorm联网时注册失效，请将<code>0.0.0.0 account.jetbrains.com</code>添加到<code>hosts</code>文件<br>2.hosts文件目录：<code>C:\Windows\System32\drivers\etc</code></p>
 </blockquote>
 </li>
@@ -480,6 +501,11 @@
 <li><p><strong>sublime3中文文件夹文件名乱码</strong></p>
 <blockquote>
 <p>在<code>首选项</code> –&gt; <code>设置</code> -<code>用户</code> –&gt; 在<code>Preferences.sublime-settings</code>文件中 –&gt; 添加<code>&quot;dpi_scale&quot;: 1.0</code>的代码，取值只能是1.0，不然还是不起作用。</p>
+</blockquote>
+</li>
+<li><p><strong>sublime3页面中代码没有乱码，但是在浏览器中显示乱码了</strong></p>
+<blockquote>
+<p>在代码中设置了<code>&lt;meta charset=&quot;UTF-8&quot;&gt;</code>。估计不小心按了快捷键<code>ctrl+shift+c</code>将<code>文件编码</code>设置成了<code>GBK</code>，导致打开文件会乱码，而代码文字没乱码。到<code>File</code>-&gt;<code>Set File Encoding to</code>-&gt;<code>UTF-8</code></p>
 </blockquote>
 </li>
 <li><p><strong>sublime中出现红色的波浪线</strong></p>
@@ -693,7 +719,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前置知识"><span class="toc-number">1.</span> <span class="toc-text">前置知识</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#HTML"><span class="toc-number">1.1.</span> <span class="toc-text">HTML</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CSS"><span class="toc-number">1.2.</span> <span class="toc-text">CSS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JS"><span class="toc-number">1.3.</span> <span class="toc-text">JS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JQ"><span class="toc-number">1.4.</span> <span class="toc-text">JQ</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#PHP"><span class="toc-number">1.5.</span> <span class="toc-text">PHP</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#WebStorm"><span class="toc-number">1.6.</span> <span class="toc-text">WebStorm</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#PhpStorm"><span class="toc-number">1.7.</span> <span class="toc-text">PhpStorm</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sublime"><span class="toc-number">1.8.</span> <span class="toc-text">sublime</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Node-js"><span class="toc-number">1.9.</span> <span class="toc-text">Node.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Chrome相关问题"><span class="toc-number">1.10.</span> <span class="toc-text">Chrome相关问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#实战项目开发注意点总结"><span class="toc-number">1.11.</span> <span class="toc-text">实战项目开发注意点总结</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#其他插件"><span class="toc-number">1.12.</span> <span class="toc-text">其他插件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#其他软件"><span class="toc-number">1.13.</span> <span class="toc-text">其他软件</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#HTML"><span class="toc-number">1.</span> <span class="toc-text">HTML</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CSS"><span class="toc-number">2.</span> <span class="toc-text">CSS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JS"><span class="toc-number">3.</span> <span class="toc-text">JS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JQ"><span class="toc-number">4.</span> <span class="toc-text">JQ</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#PHP"><span class="toc-number">5.</span> <span class="toc-text">PHP</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#WebStorm、PhpStorm"><span class="toc-number">6.</span> <span class="toc-text">WebStorm、PhpStorm</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sublime"><span class="toc-number">7.</span> <span class="toc-text">sublime</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Node-js"><span class="toc-number">8.</span> <span class="toc-text">Node.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Chrome相关问题"><span class="toc-number">9.</span> <span class="toc-text">Chrome相关问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#实战项目开发注意点总结"><span class="toc-number">10.</span> <span class="toc-text">实战项目开发注意点总结</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#其他插件"><span class="toc-number">11.</span> <span class="toc-text">其他插件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#其他软件"><span class="toc-number">12.</span> <span class="toc-text">其他软件</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -724,10 +750,10 @@ gitment.render('gitment-ctn')
 </script>
                                                                         
                                                                             
-          </div>
-        </div>
-      </div>
-      <footer id="footer">
+                            </div>
+                        </div>
+                    </div>
+                    <footer id="footer">
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
@@ -739,8 +765,8 @@ gitment.render('gitment-ctn')
     </div>
   </div>
 </footer>
-    </div>
-    <script>
+            </div>
+            <script>
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
@@ -762,7 +788,7 @@ toISOString:function(){if(!isFinite(o.call(this)))throw RangeError("Invalid time
 getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var e=r(54),i=r(2),o=e.get,u=e.key;e.exp({getOwnMetadata:function(t,n){return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){var e=r(54),i=r(2),o=r(32),u=e.has,c=e.key,f=function(t,n,r){if(u(t,n,r))return!0;var e=o(n);return null!==e&&f(t,e,r)};e.exp({hasMetadata:function(t,n){return f(t,i(n),arguments.length<3?void 0:c(arguments[2]))}})},function(t,n,r){var e=r(54),i=r(2),o=e.has,u=e.key;e.exp({hasOwnMetadata:function(t,n){return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){var e=r(54),i=r(2),o=r(26),u=e.key,c=e.set;e.exp({metadata:function(t,n){return function(r,e){c(t,n,(void 0!==e?i:o)(r),u(e))}}})},function(t,n,r){var e=r(1);e(e.P+e.R,"Set",{toJSON:r(165)("Set")})},function(t,n,r){"use strict";var e=r(1),i=r(147)(!0);e(e.P,"String",{at:function(t){return i(this,t)}})},function(t,n,r){"use strict";var e=r(1),i=r(46),o=r(16),u=r(122),c=r(120),f=RegExp.prototype,a=function(t,n){this._r=t,this._s=n};r(139)(a,"RegExp String",function(){var t=this._r.exec(this._s);return{value:t,done:null===t}}),e(e.P,"String",{matchAll:function(t){if(i(this),!u(t))throw TypeError(t+" is not a regexp!");var n=String(this),r="flags"in f?String(t.flags):c.call(t),e=new RegExp(t.source,~r.indexOf("g")?r:"g"+r);return e.lastIndex=o(t.lastIndex),new a(e,n)}})},function(t,n,r){"use strict";var e=r(1),i=r(181);e(e.P,"String",{padEnd:function(t){return i(this,t,arguments.length>1?arguments[1]:void 0,!1)}})},function(t,n,r){"use strict";var e=r(1),i=r(181);e(e.P,"String",{padStart:function(t){return i(this,t,arguments.length>1?arguments[1]:void 0,!0)}})},function(t,n,r){"use strict";r(82)("trimLeft",function(t){return function(){return t(this,1)}},"trimStart")},function(t,n,r){"use strict";r(82)("trimRight",function(t){return function(){return t(this,2)}},"trimEnd")},function(t,n,r){r(153)("asyncIterator")},function(t,n,r){r(153)("observable")},function(t,n,r){var e=r(1);e(e.S,"System",{global:r(3)})},function(t,n,r){for(var e=r(155),i=r(28),o=r(3),u=r(27),c=r(80),f=r(7),a=f("iterator"),s=f("toStringTag"),l=c.Array,h=["NodeList","DOMTokenList","MediaList","StyleSheetList","CSSRuleList"],v=0;v<5;v++){var p,d=h[v],y=o[d],g=y&&y.prototype;if(g){g[a]||u(g,a,l),g[s]||u(g,s,d),c[d]=l;for(p in e)g[p]||i(g,p,e[p],!0)}}},function(t,n,r){var e=r(1),i=r(151);e(e.G+e.B,{setImmediate:i.set,clearImmediate:i.clear})},function(t,n,r){var e=r(3),i=r(1),o=r(121),u=r(207),c=e.navigator,f=!!c&&/MSIE .\./.test(c.userAgent),a=function(t){return f?function(n,r){return t(o(u,[].slice.call(arguments,2),"function"==typeof n?n:Function(n)),r)}:t};i(i.G+i.B+i.F*f,{setTimeout:a(e.setTimeout),setInterval:a(e.setInterval)})},function(t,n,r){r(330),r(269),r(271),r(270),r(273),r(275),r(280),r(274),r(272),r(282),r(281),r(277),r(278),r(276),r(268),r(279),r(283),r(284),r(236),r(238),r(237),r(286),r(285),r(256),r(266),r(267),r(257),r(258),r(259),r(260),r(261),r(262),r(263),r(264),r(265),r(239),r(240),r(241),r(242),r(243),r(244),r(245),r(246),r(247),r(248),r(249),r(250),r(251),r(252),r(253),r(254),r(255),r(317),r(322),r(329),r(320),r(312),r(313),r(318),r(323),r(325),r(308),r(309),r(310),r(311),r(314),r(315),r(316),r(319),r(321),r(324),r(326),r(327),r(328),r(231),r(233),r(232),r(235),r(234),r(220),r(218),r(224),r(221),r(227),r(229),r(217),r(223),r(214),r(228),r(212),r(226),r(225),r(219),r(222),r(211),r(213),r(216),r(215),r(230),r(155),r(302),r(307),r(184),r(303),r(304),r(305),r(306),r(287),r(183),r(185),r(186),r(342),r(331),r(332),r(337),r(340),r(341),r(335),r(338),r(336),r(339),r(333),r(334),r(288),r(289),r(290),r(291),r(292),r(295),r(293),r(294),r(296),r(297),r(298),r(299),r(301),r(300),r(343),r(369),r(372),r(371),r(373),r(374),r(370),r(375),r(376),r(354),r(357),r(353),r(351),r(352),r(355),r(356),r(346),r(368),r(377),r(345),r(347),r(349),r(348),r(350),r(359),r(360),r(362),r(361),r(364),r(363),r(365),r(366),r(367),r(344),r(358),r(380),r(379),r(378),t.exports=r(52)},function(t,n){function r(t,n){if("string"==typeof n)return t.insertAdjacentHTML("afterend",n);var r=t.nextSibling;return r?t.parentNode.insertBefore(n,r):t.parentNode.appendChild(n)}t.exports=r},,,,,,,,,function(t,n,r){(function(n,r){!function(n){"use strict";function e(t,n,r,e){var i=n&&n.prototype instanceof o?n:o,u=Object.create(i.prototype),c=new p(e||[]);return u._invoke=s(t,r,c),u}function i(t,n,r){try{return{type:"normal",arg:t.call(n,r)}}catch(t){return{type:"throw",arg:t}}}function o(){}function u(){}function c(){}function f(t){["next","throw","return"].forEach(function(n){t[n]=function(t){return this._invoke(n,t)}})}function a(t){function n(r,e,o,u){var c=i(t[r],t,e);if("throw"!==c.type){var f=c.arg,a=f.value;return a&&"object"==typeof a&&m.call(a,"__await")?Promise.resolve(a.__await).then(function(t){n("next",t,o,u)},function(t){n("throw",t,o,u)}):Promise.resolve(a).then(function(t){f.value=t,o(f)},u)}u(c.arg)}function e(t,r){function e(){return new Promise(function(e,i){n(t,r,e,i)})}return o=o?o.then(e,e):e()}"object"==typeof r&&r.domain&&(n=r.domain.bind(n));var o;this._invoke=e}function s(t,n,r){var e=P;return function(o,u){if(e===F)throw new Error("Generator is already running");if(e===M){if("throw"===o)throw u;return y()}for(r.method=o,r.arg=u;;){var c=r.delegate;if(c){var f=l(c,r);if(f){if(f===A)continue;return f}}if("next"===r.method)r.sent=r._sent=r.arg;else if("throw"===r.method){if(e===P)throw e=M,r.arg;r.dispatchException(r.arg)}else"return"===r.method&&r.abrupt("return",r.arg);e=F;var a=i(t,n,r);if("normal"===a.type){if(e=r.done?M:j,a.arg===A)continue;return{value:a.arg,done:r.done}}"throw"===a.type&&(e=M,r.method="throw",r.arg=a.arg)}}}function l(t,n){var r=t.iterator[n.method];if(r===g){if(n.delegate=null,"throw"===n.method){if(t.iterator.return&&(n.method="return",n.arg=g,l(t,n),"throw"===n.method))return A;n.method="throw",n.arg=new TypeError("The iterator does not provide a 'throw' method")}return A}var e=i(r,t.iterator,n.arg);if("throw"===e.type)return n.method="throw",n.arg=e.arg,n.delegate=null,A;var o=e.arg;return o?o.done?(n[t.resultName]=o.value,n.next=t.nextLoc,"return"!==n.method&&(n.method="next",n.arg=g),n.delegate=null,A):o:(n.method="throw",n.arg=new TypeError("iterator result is not an object"),n.delegate=null,A)}function h(t){var n={tryLoc:t[0]};1 in t&&(n.catchLoc=t[1]),2 in t&&(n.finallyLoc=t[2],n.afterLoc=t[3]),this.tryEntries.push(n)}function v(t){var n=t.completion||{};n.type="normal",delete n.arg,t.completion=n}function p(t){this.tryEntries=[{tryLoc:"root"}],t.forEach(h,this),this.reset(!0)}function d(t){if(t){var n=t[w];if(n)return n.call(t);if("function"==typeof t.next)return t;if(!isNaN(t.length)){var r=-1,e=function n(){for(;++r<t.length;)if(m.call(t,r))return n.value=t[r],n.done=!1,n;return n.value=g,n.done=!0,n};return e.next=e}}return{next:y}}function y(){return{value:g,done:!0}}var g,b=Object.prototype,m=b.hasOwnProperty,x="function"==typeof Symbol?Symbol:{},w=x.iterator||"@@iterator",S=x.asyncIterator||"@@asyncIterator",_=x.toStringTag||"@@toStringTag",O="object"==typeof t,E=n.regeneratorRuntime;if(E)return void(O&&(t.exports=E));E=n.regeneratorRuntime=O?t.exports:{},E.wrap=e;var P="suspendedStart",j="suspendedYield",F="executing",M="completed",A={},N={};N[w]=function(){return this};var T=Object.getPrototypeOf,I=T&&T(T(d([])));I&&I!==b&&m.call(I,w)&&(N=I);var k=c.prototype=o.prototype=Object.create(N);u.prototype=k.constructor=c,c.constructor=u,c[_]=u.displayName="GeneratorFunction",E.isGeneratorFunction=function(t){var n="function"==typeof t&&t.constructor;return!!n&&(n===u||"GeneratorFunction"===(n.displayName||n.name))},E.mark=function(t){return Object.setPrototypeOf?Object.setPrototypeOf(t,c):(t.__proto__=c,_ in t||(t[_]="GeneratorFunction")),t.prototype=Object.create(k),t},E.awrap=function(t){return{__await:t}},f(a.prototype),a.prototype[S]=function(){return this},E.AsyncIterator=a,E.async=function(t,n,r,i){var o=new a(e(t,n,r,i));return E.isGeneratorFunction(n)?o:o.next().then(function(t){return t.done?t.value:o.next()})},f(k),k[_]="Generator",k.toString=function(){return"[object Generator]"},E.keys=function(t){var n=[];for(var r in t)n.push(r);return n.reverse(),function r(){for(;n.length;){var e=n.pop();if(e in t)return r.value=e,r.done=!1,r}return r.done=!0,r}},E.values=d,p.prototype={constructor:p,reset:function(t){if(this.prev=0,this.next=0,this.sent=this._sent=g,this.done=!1,this.delegate=null,this.method="next",this.arg=g,this.tryEntries.forEach(v),!t)for(var n in this)"t"===n.charAt(0)&&m.call(this,n)&&!isNaN(+n.slice(1))&&(this[n]=g)},stop:function(){this.done=!0;var t=this.tryEntries[0],n=t.completion;if("throw"===n.type)throw n.arg;return this.rval},dispatchException:function(t){function n(n,e){return o.type="throw",o.arg=t,r.next=n,e&&(r.method="next",r.arg=g),!!e}if(this.done)throw t;for(var r=this,e=this.tryEntries.length-1;e>=0;--e){var i=this.tryEntries[e],o=i.completion;if("root"===i.tryLoc)return n("end");if(i.tryLoc<=this.prev){var u=m.call(i,"catchLoc"),c=m.call(i,"finallyLoc");if(u&&c){if(this.prev<i.catchLoc)return n(i.catchLoc,!0);if(this.prev<i.finallyLoc)return n(i.finallyLoc)}else if(u){if(this.prev<i.catchLoc)return n(i.catchLoc,!0)}else{if(!c)throw new Error("try statement without catch or finally");if(this.prev<i.finallyLoc)return n(i.finallyLoc)}}}},abrupt:function(t,n){for(var r=this.tryEntries.length-1;r>=0;--r){var e=this.tryEntries[r];if(e.tryLoc<=this.prev&&m.call(e,"finallyLoc")&&this.prev<e.finallyLoc){var i=e;break}}i&&("break"===t||"continue"===t)&&i.tryLoc<=n&&n<=i.finallyLoc&&(i=null);var o=i?i.completion:{};return o.type=t,o.arg=n,i?(this.method="next",this.next=i.finallyLoc,A):this.complete(o)},complete:function(t,n){if("throw"===t.type)throw t.arg;return"break"===t.type||"continue"===t.type?this.next=t.arg:"return"===t.type?(this.rval=this.arg=t.arg,this.method="return",this.next="end"):"normal"===t.type&&n&&(this.next=n),A},finish:function(t){for(var n=this.tryEntries.length-1;n>=0;--n){var r=this.tryEntries[n];if(r.finallyLoc===t)return this.complete(r.completion,r.afterLoc),v(r),A}},catch:function(t){for(var n=this.tryEntries.length-1;n>=0;--n){var r=this.tryEntries[n];if(r.tryLoc===t){var e=r.completion;if("throw"===e.type){var i=e.arg;v(r)}return i}}throw new Error("illegal catch attempt")},delegateYield:function(t,n,r){return this.delegate={iterator:d(t),resultName:n,nextLoc:r},"next"===this.method&&(this.arg=g),A}}}("object"==typeof n?n:"object"==typeof window?window:"object"==typeof self?self:this)}).call(n,function(){return this}(),r(158))}])</script><script src="/./main.507b3a.js"></script><script>!function(){!function(e){var t=document.createElement("script");document.getElementsByTagName("body")[0].appendChild(t),t.setAttribute("src",e)}("/slider.e37972.js")}()</script>
 
 
-    
+                
 <div class="tools-col" q-class="show:isShow,hide:isShow|isFalse" q-on="click:stop(e)">
   <div class="tools-nav header-menu">
     
@@ -814,6 +840,14 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ES6</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ES6的学习笔记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Chrome浏览器</a>
               </li>
              
@@ -830,11 +864,11 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ES6</a>
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ES6的学习笔记</a>
+                <a href="javascript:void(0)" class="js-tag color2">版本控制系统</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -890,6 +924,10 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">前端资源</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">JavaScript技巧、窍门</a>
               </li>
              
@@ -898,15 +936,11 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">前端资源</a>
+                <a href="javascript:void(0)" class="js-tag color1">前端面试题</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">js数组、字符串</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">前端面试题</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1004,7 +1038,7 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
   </div>
   
 </div>
-    <!-- Root element of PhotoSwipe. Must have class pswp. -->
+                    <!-- Root element of PhotoSwipe. Must have class pswp. -->
 <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
 
     <!-- Background of PhotoSwipe. 
@@ -1070,6 +1104,28 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
     </div>
 
 </div>
-  </div>
-</body>
-</html>
+        </div>
+        <!-- <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js"></script>
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/solarized-light.min.css">
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script> -->
+        <script>
+            // highlight
+            // hljs.initHighlightingOnLoad();
+
+            // $('pre code').each(function(i, block) {
+            //     console.log(i)
+            //         //hljs.highlightBlock(block);
+            //     var lines = $(this).text().split('\n').length - 1;
+            //     var $numbering = $('<ul/>').addClass('pre-numbering');
+            //     $(this)
+            //         .addClass('has-numbering')
+            //         .parent()
+            //         .append($numbering);
+            //     for (i = 1; i <= lines; i++) {
+            //         $numbering.append($('<li/>').text(i));
+            //     }
+            // });
+        </script>
+    </body>
+
+    </html>
