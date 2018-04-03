@@ -86,7 +86,7 @@
 <meta property="og:url" content="http://biedongda.com/2017/11/22/收集前端面试题/index.html">
 <meta property="og:site_name" content="一个学徒的世界">
 <meta property="og:description" content="有种放水叫不问技术、有种欣赏叫不问技术、有种不爱叫只问技术。 拓展外链80% 应聘者都不及格的 JS 面试题 (不错的js精品文章，可以多回顾下，ES6、7都有涉及)BAT及各大互联网公司2014前端笔试面试题：JavaScript篇 (伯乐在线,整理到初级第二十二题)纯JS面试题讲解 (妙味视频中提到的前端面试题讲解)前端工程师面试题(js)–掘金文章如何理解这 14 道 JavaScript">
-<meta property="og:updated_time" content="2018-03-24T06:40:01.414Z">
+<meta property="og:updated_time" content="2018-04-03T07:17:20.497Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="收集前端面试题">
 <meta name="twitter:description" content="有种放水叫不问技术、有种欣赏叫不问技术、有种不爱叫只问技术。 拓展外链80% 应聘者都不及格的 JS 面试题 (不错的js精品文章，可以多回顾下，ES6、7都有涉及)BAT及各大互联网公司2014前端笔试面试题：JavaScript篇 (伯乐在线,整理到初级第二十二题)纯JS面试题讲解 (妙味视频中提到的前端面试题讲解)前端工程师面试题(js)–掘金文章如何理解这 14 道 JavaScript">
@@ -373,9 +373,32 @@
 <ul>
 <li><strong>组件化和模块化的异同</strong></li>
 <li><strong>预加载和懒加载的异同</strong></li>
-</ul>
+<li><strong>cookie被禁用了，session还能用吗</strong>  <div><div class="fold_hider"><div class="close hider_title">点击显/隐具体内容</div></div><div class="fold">
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">在默认的JSP、PHP配置中，SessionID是需要存储在Cookie中的，默认Cookie名为：</div><div class="line"><span class="number">1.</span> PHPSESSIONID</div><div class="line"><span class="number">2.</span> JSESSIONID</div><div class="line"></div><div class="line">以下以PHP为例：</div><div class="line"></div><div class="line">你第一次访问网站时，</div><div class="line">服务端脚本中开启了Session，session_start();，</div><div class="line">服务器会生成一个不重复的 SESSIONID 的文件session_id();，比如在/<span class="keyword">var</span>/lib/php/session目录</div><div class="line">并将返回(Response)如下的HTTP头 Set-Cookie:PHPSESSIONID=xxxxxxx</div><div class="line">客户端接收到Set-Cookie的头，将PHPSESSIONID写入cookie</div><div class="line">当你第二次访问页面时，所有Cookie会附带的请求头(Request)发送给服务器端</div><div class="line">服务器识别PHPSESSIONID这个cookie，然后去session目录查找对应session文件，</div><div class="line">找到这个session文件后，检查是否过期，如果没有过期，去读取Session文件中的配置；如果已经过期，清空其中的配置</div><div class="line"></div><div class="line">如果客户端禁用了Cookie，那PHPSESSIONID都无法写入客户端，Session还能用？</div><div class="line">答案显而易见：不能</div></pre></td></tr></table></figure>
+<blockquote>
+<p>并且服务端因为没有得到PHPSESSIONID的cookie，会不停的生成session_id文件</p>
 </blockquote>
+<p><strong>取巧传递session_id</strong></p>
+<p>但是这难不倒服务端程序，聪明的程序员想到，如果一个Cookie都没接收到，基本上可以预判客户端禁用了Cookie，那将session_id附带在每个网址后面(包括POST)，<br>比如：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">GET http:<span class="comment">//www.xx.com/index.php?session_id=xxxxx</span></div><div class="line">POST http:<span class="comment">//www.xx.com/post.php?session_id=xxxxx</span></div></pre></td></tr></table></figure></p>
+<p>然后在每个页面的开头使用session_id($_GET[‘session_id’])，来强制指定当前session_id<br>这样，答案就变成了：能</p>
+<p>聪明的你肯定想到，那将这个网站发送给别人，那么他将会以你的身份登录并做所有的事情<br>（目前很多订阅公众号就将openid附带在网址后面，这是同样的漏洞）。</p>
+<p>其实不仅仅如此，cookie也可以被盗用，比如XSS注入，通过XSS漏洞获取大量的Cookie，也就是控制了大量的用户，腾讯有专门的XSS漏洞扫描机制，因为大量的QQ盗用，发广告就是因为XSS漏洞</p>
+<p>所以Laravel等框架中，内部实现了Session的所有逻辑，并将PHPSESSIONID设置为httponly并加密，这样，前端JS就无法读取和修改这些敏感信息，降低了被盗用的风险。</p>
+<p><strong>Cookie在现代</strong><br>禁用Cookie是 IE6 那个年代的事情，现在的网站都非常的依赖Cookie，禁用Cookie会造成大量的麻烦。</p>
+<p>在Flash还流行的年代，Flash在提交数据会经常出现用户无法找到的情况，其实是因为Flash在IE下是独立的程序，无法得到IE下的Cookie。<br>所以在Flash的flash_var中，一般都会指定当前的session_id，让Flash提交数据的时候，将这个session_id附带着提交过去<br>Chrome中使用 Flash沙箱 已经解决了cookie的问题，但是为了兼容IE，比如swfupload等flash程序都要求开发者附带一个session_id</p>
+<p><strong>面试者的用意</strong><br>面试者出此题也是为了考察你对HTTP协议和服务器会话的理解。<br><a href="https://segmentfault.com/q/1010000007715137" target="_blank" rel="external">参考链接：cookie被禁用了，session还能用吗</a><br><a href="https://www.zhihu.com/question/19786827" target="_blank" rel="external">参考资料：COOKIE和SESSION有什么区别？</a></p>
+<p>总结：</p>
+<ol>
+<li>session 的运行依赖 sessionID，而 sessionID 是存在 cookie 中的，也就是说，如果浏览器禁用了 cookie ，同时 session 也会失效（但是可以通过其它方式实现，比如在 url 中传递 sessionID）</li>
+<li>用户验证这种场合一般会用 session </li>
+<li>因此，维持一个会话的核心就是客户端的唯一标识，即 sessionID</li>
+</ol>
+
+</div></div>
+</li>
+</ul>
 <hr>
+</blockquote>
 <h2 id="实操题"><a href="#实操题" class="headerlink" title="实操题"></a><strong>实操题</strong></h2><blockquote>
 <ul>
 <li><strong>在String对象上定义一个 <code>repeatify</code> 函数。这个函数接受一个整数参数，来明确字符串需要重复几次。这个函数要求字符串重复指定的次数。比如 <code>console.log(&#39;hello&#39;.repeatify(3));</code> 打印出 <code>hellohellohello</code>。</strong><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">String</span>.prototype.repeatify = <span class="built_in">String</span>.prototype.repeatify || <span class="function"><span class="keyword">function</span>(<span class="params">times</span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> str = <span class="string">''</span>,</div><div class="line">        i = <span class="number">0</span>;</div><div class="line">    <span class="keyword">for</span>(; i &lt; times; i++)&#123;</div><div class="line">        <span class="comment">// 这里的this指向当前调用 repeatify 方法的字符串</span></div><div class="line">        str += <span class="keyword">this</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> str;</div><div class="line">&#125;</div><div class="line"><span class="comment">// 这个问题测试了程序员对于javascript中继承的掌握，以及prototype这个属性。这也验证了程序员是否有能力扩展原生数据类型的功能（虽然不应该这么做）。</span></div><div class="line"><span class="comment">// 这个问题的另一个重点是验证你是否意识到并知道如何避免覆盖已经存在的函数。这可以通过在自定义函数之前判断该函数是否存在来做到。上面代码中 与运算符 的运用</span></div><div class="line"><span class="comment">// 当需要为旧浏览器实现向后兼容的函数时，这一技巧十分有用。</span></div></pre></td></tr></table></figure>
@@ -545,7 +568,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">43</span>
+                  <span class="site-state-item-count">44</span>
                   <span class="site-state-item-name">Artikel</span>
                 </a>
               </div>
@@ -558,7 +581,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">41</span>
+                  <span class="site-state-item-count">44</span>
                   <span class="site-state-item-name">Tags</span>
                 
               </div>

@@ -231,6 +231,145 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://biedongda.com/2017/11/09/vue初学笔记整理/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="前端学徒">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="一个学徒的世界">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/11/09/vue初学笔记整理/" itemprop="url">vue初学笔记整理</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-09T20:36:49+08:00">
+                2017-11-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="前置："><a href="#前置：" class="headerlink" title="前置："></a>前置：</h2><ol>
+<li>再用vue-cli组件式的运用vue，在main.js里面初始化vue实例的时候，渲染被替换的#app节点只能用render函数的原因</li>
+</ol>
+<!--�350-->
+<p>总结：</p>
+<ol>
+<li>注意查看vue不同版本的区别：[对不同构建版本的解释]<a href="https://cn.vuejs.org/v2/guide/installation.html#%E5%AF%B9%E4%B8%8D%E5%90%8C%E6%9E%84%E5%BB%BA%E7%89%88%E6%9C%AC%E7%9A%84%E8%A7%A3%E9%87%8A" target="_blank" rel="external">https://cn.vuejs.org/v2/guide/installation.html#%E5%AF%B9%E4%B8%8D%E5%90%8C%E6%9E%84%E5%BB%BA%E7%89%88%E6%9C%AC%E7%9A%84%E8%A7%A3%E9%87%8A</a> () </li>
+<li>同时对应的查看node-modules/vue/package.json文件中不同加载方式对应的加载到的vue版本</li>
+<li>render 函数的作用</li>
+<li>使用ES6模块来加载vue，如果实在非要使用<code>vue.esm.js</code>版本的话，不建议更改vue目录下的<code>package.json</code>文件中的<code>module</code>属性来更改加载<code>vue.esm.js</code>版本。因为这样将项目给别人，自己的更改将不能同步，导致在别人电脑上运行时还是报错的信息。这时候可以使用webpack的<code>reslove</code>选项来配置vue的别名<!--�351-->
+</li>
+</ol>
+<p>类似的，<code>vue-cli</code>脚手架做的<code>&#39;@&#39;: resolve(&#39;src&#39;)</code>事情是一样</p>
+<ol>
+<li>Vue 选项中的 render 函数若存在，则 Vue 构造函数不会从 template 选项或通过 el 选项指定的挂载元素中提取出的 HTML 模板编译渲染函数。</li>
+</ol>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/11/09/vue初学笔记整理/#more" rel="contents">
+              Weiterlesen &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://biedongda.com/2017/11/08/ES6学习笔记/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -308,7 +447,7 @@
 <li>箭头函数内部不要使用arguments对象，会有问题，可以使用rest参数代替arguments。</li>
 <li>关于箭头函数this的指向问题<ul>
 <li>可以理解为箭头函数相当于默认了bind了当前执行环境的this指向。</li>
-<li>也可以理解为箭头函数内部没有自己的this，所以去外部查找this 的指向问题。<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Fn</span> (<span class="params">name, age</span>)</span>&#123;</div><div class="line">    <span class="keyword">this</span>.name = name;</div><div class="line">    <span class="keyword">this</span>.age = age;</div><div class="line"></div><div class="line">    <span class="keyword">this</span>.sayAge = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="comment">// setTimeout(function()&#123;</span></div><div class="line">        <span class="comment">//     console.log(this.age);</span></div><div class="line">        <span class="comment">//     // 得到undefined</span></div><div class="line">        <span class="comment">// &#125;,1000)</span></div><div class="line"></div><div class="line">        <span class="comment">// 解决办法①：</span></div><div class="line">        setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">            <span class="built_in">console</span>.log(<span class="keyword">this</span>.age);</div><div class="line">            <span class="comment">// 得到19</span></div><div class="line">        &#125;.bind(<span class="keyword">this</span>),<span class="number">1000</span>)</div><div class="line"></div><div class="line">        <span class="comment">// 解决办法②:</span></div><div class="line">        setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</div><div class="line">            <span class="built_in">console</span>.log(<span class="keyword">this</span>.age);</div><div class="line">            <span class="comment">// 得到19</span></div><div class="line">        &#125;,<span class="number">1000</span>)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">new</span> Fn(<span class="string">'jack'</span>,<span class="number">19</span>).sayAge();</div></pre></td></tr></table></figure>
+<li>也可以理解为箭头函数内部没有自己的this，所以去外部查找this 的指向问题。<!--�0-->
 </li>
 </ul>
 </li>
@@ -1355,7 +1494,7 @@
       
         
           <h2 id="Markdown-语法的简要规则"><a href="#Markdown-语法的简要规则" class="headerlink" title="Markdown 语法的简要规则"></a>Markdown 语法的简要规则</h2><h3 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h3><p>标题是每篇文章都需要也是最常用的格式，在 Markdown 中，如果一段文字被定义为标题，只要在这段文字前加 # 号即可。</p>
-<figure class="highlight md"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="section"># 一级标题</span></div><div class="line"><span class="section">## 二级标题</span></div><div class="line"><span class="section">### 三级标题</span></div><div class="line">以此类推，总共六级标题，建议在井号后加一个空格，这是最标准的 Markdown 语法。</div></pre></td></tr></table></figure>
+<!--�80-->
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/08/20/Markdown基本使用/#more" rel="contents">
@@ -1363,128 +1502,6 @@
             </a>
           </div>
           <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://biedongda.com/2017/07/20/实用的JavaScript技巧、窍门和最佳实践/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="前端学徒">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="一个学徒的世界">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/07/20/实用的JavaScript技巧、窍门和最佳实践/" itemprop="url">实用的JavaScript技巧、窍门和最佳实践</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-20T19:26:02+08:00">
-                2017-07-20
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <ol>
-<li>判断函数有没有传参的方式<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 使用函数的arguments.length属性来判断有没有传参</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">if</span>(<span class="built_in">arguments</span>.length === <span class="number">0</span>)&#123;</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">'函数调用没有传参'</span>);</div><div class="line">        <span class="keyword">return</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// ...</span></div><div class="line">&#125;</div><div class="line">foo(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>);</div><div class="line"><span class="string">`</span></div></pre></td></tr></table></figure></li>
-</ol>
-
-          
         
       
     </div>
@@ -1568,7 +1585,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">43</span>
+                  <span class="site-state-item-count">44</span>
                   <span class="site-state-item-name">Artikel</span>
                 </a>
               </div>
@@ -1581,7 +1598,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">41</span>
+                  <span class="site-state-item-count">44</span>
                   <span class="site-state-item-name">Tags</span>
                 
               </div>
